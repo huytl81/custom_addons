@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Warranty Update Wizard views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_warranty_update_wz" model="ir.ui.view">
+            <field name="name">Warranty Update Form</field>
+            <field name="model">vtt.warranty.update.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header></header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="equipment_id"/>
+                            </group>
+                            <group>
+                                <field name="type"/>
+                                <field name="product_id" invisible="type != 'parts'"/>
+                            </group>
+                            <group></group>
+                            <group>
+                                <field name="plan_type_id"/>
+                                <field name="date_warranty"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="apply_warranty" string="Apply Warranty" data-hotkey="q" type="object" class="btn-primary"/>
+                        <button special="cancel" data-hotkey="x" string="Cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

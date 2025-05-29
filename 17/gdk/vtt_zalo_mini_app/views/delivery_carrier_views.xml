@@ -1,0 +1,20 @@
+<odoo>    
+  <data>
+
+    <record id="view_zalo_delivery_carrier_form_inherit" model="ir.ui.view">
+        <field name="name">zalo.delivery.carrier.form.inherit</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//field[@name='product_id']" position="after">
+                <field name="is_default_for_online_order"/>
+            </xpath> -->
+            <field name="product_id" position= "after">
+                <field name="is_default_for_online_order" string="Áp dụng mặc định cho đơn hàng online"/>
+                <field name="apply_default_shipping_fee" string="Áp dụng phí mặc định"/>
+            </field>
+        </field>
+    </record>
+
+  </data>
+</odoo>

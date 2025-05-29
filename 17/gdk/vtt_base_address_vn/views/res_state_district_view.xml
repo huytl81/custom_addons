@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--    tree-->
+        <record id="district_tree" model="ir.ui.view">
+            <field name="name">district.tree</field>
+            <field name="model">res.district</field>
+            <field name="arch" type="xml">
+                <tree string="Districts">
+                    <field name="name" />
+                    <field name="state_id" />
+                    <field name="country_id" />
+<!--                    <field name="ghn_district_id" />-->
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <data>
+        <record id="action_district" model="ir.actions.act_window">
+            <field name="name">Districts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.district</field>
+            <field name="help">Display Districts list</field>
+        </record>
+    </data>
+
+    <data>
+        <menuitem id="menu_district_tree"
+                  action="action_district"
+                  name="Districts" parent="contacts.menu_localisation"
+                  sequence="2"/>
+    </data>
+
+</odoo>

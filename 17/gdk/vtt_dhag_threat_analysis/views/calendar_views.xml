@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Menus-->
+    <data>
+        <!--Calendar menu-->
+        <record id="calendar.mail_menu_calendar" model="ir.ui.menu">
+            <field name="parent_id" ref="project.menu_main_pm"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <!--Contacts menu-->
+        <record id="contacts.menu_contacts" model="ir.ui.menu">
+            <field name="parent_id" ref="project.menu_main_pm"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <!--Discuss menu-->
+        <record id="mail.menu_root_discuss" model="ir.ui.menu">
+            <field name="parent_id" ref="project.menu_main_pm"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <!--Discuss menu-->
+        <record id="project_todo.menu_todo_todos" model="ir.ui.menu">
+            <field name="parent_id" ref="project.menu_main_pm"/>
+            <field name="sequence">10</field>
+        </record>
+    </data>
+</odoo>

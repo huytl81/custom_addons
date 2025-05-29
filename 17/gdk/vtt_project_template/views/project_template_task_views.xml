@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Project Template Task views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_project_template_task" model="ir.ui.view">
+            <field name="name">Project Template Task Form</field>
+            <field name="model">vtt.project.template.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header></header>
+                    <sheet>
+                        <!--Invisible fields-->
+                        <field name="parent_id" invisible="1"/>
+
+                        <div class="oe_title pe-0">
+                            <h1 class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex w-100">
+                                    <field name="priority" widget="priority_switch" class="me-3"/>
+                                    <field name="name" options="{'line_breaks': False}" widget="text" class="o_task_name text-truncate w-md-75 w-100 pe-2" placeholder="Task Title..."/>
+                                </div>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="project_template_id"/>
+                            </group>
+                            <group>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            </group>
+                        </group>
+
+
+                        <notebook>
+                            <page name="description" string="Description">
+                                <field name="description" options="{'resizable': false}" placeholder="Task description..."/>
+                            </page>
+                            <page name="sub_tasks_page" string="Sub-tasks" invisible="not project_template_id">
+                                <field name="child_ids"
+                                       context="{'default_project_template_id': project_template_id}"
+                                       widget="subtasks_one2many"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_project_template_task" model="ir.ui.view">
+            <field name="name">Project Template Task List</field>
+            <field name="model">vtt.project.template.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" readonly="1" column_invisible="True"/>
+                    <field name="priority" widget="priority" nolabel="1"/>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

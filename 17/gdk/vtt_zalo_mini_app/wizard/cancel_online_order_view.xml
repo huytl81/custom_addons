@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cancel_online_order_wizard_form" model="ir.ui.view">
+        <field name="name">cancel.online.order.wizard.form</field>
+        <field name="model">cancel.online.order.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Hủy Đơn Hàng">
+                <group>
+                    <field name="reason"/>
+                    <field name="cancel_reason"/>
+                    <field name="partner_id">
+                        <tree string="Đơn Hàng">
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Hủy" class="btn-primary" type="object" name="action_cancel_order"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cancel_online_order_wizard" model="ir.actions.act_window">
+        <field name="name">Hủy Đơn Hàng</field>
+        <field name="res_model">cancel.online.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_cancel_online_order_wizard_form"/>
+    </record>
+</odoo>

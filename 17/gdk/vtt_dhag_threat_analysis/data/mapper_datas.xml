@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Lastline mapper-->
+    <data>
+        <record id="vtt_threat_field_mapper_lastline" model="threat.subject.field.mapper">
+            <field name="src_name">Lastline</field>
+            <field name="code">LL</field>
+        </record>
+    </data>
+
+    <!--Rules-->
+    <data>
+        <record id="vtt_threat_field_mapper_line1_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">load_library</field>
+            <field name="src_tag">loaded_libraries</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line2_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">console_write</field>
+            <field name="src_tag">console_io</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line3_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">devices</field>
+            <field name="src_tag">device_io</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line4_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">file_write</field>
+            <field name="src_tag">file_writes</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line5_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">file_read</field>
+            <field name="src_tag">file_reads</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line6_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">file_delete</field>
+            <field name="src_tag">file_deletes</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line7_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">reg_value_read</field>
+            <field name="src_tag">registry_reads</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line8_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">reg_value_modify</field>
+            <field name="src_tag">registry_writes</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line9_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">reg_value_delete</field>
+            <field name="src_tag">registry_deletions</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line10_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">mutex_create</field>
+            <field name="src_tag">mutex_creates</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line11_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">mutex_open</field>
+            <field name="src_tag">mutex_opens</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+        <record id="vtt_threat_field_mapper_line4_lastline" model="threat.subject.field.mapper.line">
+            <field name="res_field">frequent_api_calls</field>
+            <field name="src_tag">frequent_api_calls</field>
+            <field name="mapper_id" ref="vtt_threat_field_mapper_lastline"/>
+        </record>
+    </data>
+
+</odoo>

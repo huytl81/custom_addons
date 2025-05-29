@@ -1,0 +1,1809 @@
+ghn_ward_id,district_id,name
+907557,3440,Phường Mễ Trì
+13010,3440,Phường Xuân Phương
+13009,3440,Phường Trung Văn
+13008,3440,Phường Tây Mỗ
+13007,3440,Phường Phương Canh
+13006,3440,Phường Phú Đô
+13005,3440,Phường Mỹ Đình 2
+13004,3440,Phường Mỹ Đình 1
+13003,3440,Phường Mễ Trì
+13002,3440,Phường Đại Mỗ
+13001,3440,Phường Cầu Diễn
+1B2729,3303,Xã Văn Tự
+1B2728,3303,Xã Vân Tảo
+1B2727,3303,Xã Văn Phú
+1B2726,3303,Xã Vạn Điểm
+1B2725,3303,Xã Văn Bình
+1B2724,3303,Xã Tự Nhiên
+1B2723,3303,Xã Tô Hiệu
+1B2722,3303,Xã Tiền Phong
+1B2721,3303,Xã Thư Phú
+1B2720,3303,Xã Thống Nhất
+1B2719,3303,Xã Thắng Lợi
+1B2718,3303,Xã Tân Minh
+1B2717,3303,Xã Quất Động
+1B2716,3303,Xã Ninh Sở
+1B2715,3303,Xã Nhị Khê
+1B2714,3303,Xã Nguyễn Trãi
+1B2713,3303,Xã Nghiêm Xuyên
+1B2712,3303,Xã Minh Cường
+1B2711,3303,Xã Liên Phương
+1B2710,3303,Xã Lê Lợi
+1B2709,3303,Xã Khánh Hà
+1B2708,3303,Xã Hồng Vân
+1B2707,3303,Xã Hòa Bình
+1B2706,3303,Xã Hiền Giang
+1B2705,3303,Xã Hà Hồi
+1B2704,3303,Xã Duyên Thái
+1B2703,3303,Xã Dũng Tiến
+1B2702,3303,Xã Chương Dương
+1B2701,3303,Thị trấn Thường Tín
+800214,3255,Xã Nam Tiến
+1B2828,3255,Xã Vân Từ
+1B2827,3255,Xã Văn Nhân
+1B2826,3255,Xã Văn Hoàng
+1B2825,3255,Xã Tri Trung
+1B2824,3255,Xã Tri Thủy
+1B2823,3255,Xã Thụy Phú
+1B2822,3255,Xã Tân Dân
+1B2821,3255,Xã Sơn Hà
+1B2820,3255,Xã Quang Trung
+1B2819,3255,Xã Quang Lãng
+1B2818,3255,Xã Phượng Dực
+1B2817,3255,Xã Phúc Tiến
+1B2816,3255,Xã Phú Yên
+1B2815,3255,Xã Phú Túc
+1B2814,3255,Xã Nam Triều
+1B2813,3255,Xã Nam Phong
+1B2812,3255,Xã Minh Tân
+1B2811,3255,Xã Khai Thái
+1B2810,3255,Xã Hồng Thái
+1B2809,3255,Xã Hồng Minh
+1B2808,3255,Xã Hoàng Long
+1B2807,3255,Xã Đại Xuyên
+1B2806,3255,Xã Đại Thắng
+1B2805,3255,Xã Chuyên Mỹ
+1B2804,3255,Xã Châu Can
+1B2803,3255,Xã Bạch Hạ
+1B2802,3255,Thị trấn Phú Xuyên
+1B2801,3255,Thị trấn Phú Minh
+1B2021,2004,Xã Yên Sơn
+1B2020,2004,Xã Tuyết Nghĩa
+1B2019,2004,Xã Thạch Thán
+1B2018,2004,Xã Tân Phú
+1B2017,2004,Xã Tân Hòa
+1B2016,2004,Xã Sài Sơn
+1B2015,2004,Xã Phượng Cách
+1B2014,2004,Xã Phú Mãn
+1B2013,2004,Xã Phú Cát
+1B2012,2004,Xã Ngọc Mỹ
+1B2011,2004,Xã Ngọc Liệp
+1B2010,2004,Xã Nghĩa Hương
+1B2009,2004,Xã Liệp Tuyết
+1B2008,2004,Xã Hòa Thạch
+1B2007,2004,Xã Đông Yên
+1B2006,2004,Xã Đông Xuân
+1B2005,2004,Xã Đồng Quang
+1B2004,2004,Xã Đại Thành
+1B2003,2004,Xã Cộng Hòa
+1B2002,2004,Xã Cấn Hữu
+1B2001,2004,Thị trấn Quốc Oai
+1B2132,1915,Xã Văn Võ
+1B2131,1915,Xã Trường Yên
+1B2130,1915,Xã Trung Hòa
+1B2129,1915,Xã Trần Phú
+1B2128,1915,Xã Tốt Động
+1B2127,1915,Xã Tiên Phương
+1B2126,1915,Xã Thủy Xuân Tiên
+1B2125,1915,Xã Thụy Hương
+1B2124,1915,Xã Thượng Vực
+1B2123,1915,Xã Thanh Bình
+1B2122,1915,Xã Tân Tiến
+1B2121,1915,Xã Quảng Bị
+1B2120,1915,Xã Phụng Châu
+1B2119,1915,Xã Phú Nghĩa
+1B2118,1915,Xã Phú Nam An
+1B2117,1915,Xã Ngọc Hòa
+1B2116,1915,Xã Nam Phương Tiến
+1B2115,1915,Xã Mỹ Lương
+1B2114,1915,Xã Lam Điền
+1B2113,1915,Xã Hữu Văn
+1B2112,1915,Xã Hợp Đồng
+1B2111,1915,Xã Hồng Phong
+1B2110,1915,Xã Hoàng Văn Thụ
+1B2109,1915,Xã Hoàng Diệu
+1B2108,1915,Xã Hòa Chính
+1B2107,1915,Xã Đông Sơn
+1B2106,1915,Xã Đông Phương Yên
+1B2105,1915,Xã Đồng Phú
+1B2104,1915,Xã Đồng Lạc
+1B2103,1915,Xã Đại Yên
+1B2102,1915,Thị trấn Xuân Mai
+1B2101,1915,Thị trấn Chúc Sơn
+1B2629,1810,Xã Viên Nội
+1B2628,1810,Xã Viên An
+1B2627,1810,Xã Vạn Thái
+1B2626,1810,Xã Trường Thịnh
+1B2625,1810,Xã Trung Tú
+1B2624,1810,Xã Trầm Lộng
+1B2623,1810,Xã Tảo Dương Văn
+1B2622,1810,Xã Sơn Công
+1B2621,1810,Xã Quảng Phú Cầu
+1B2620,1810,Xã Phương Tú
+1B2619,1810,Xã Phù Lưu
+1B2618,1810,Xã Minh Đức
+1B2617,1810,Xã Lưu Hoàng
+1B2616,1810,Xã Liên Bạt
+1B2615,1810,Xã Kim Đường
+1B2614,1810,Xã Hồng Quang
+1B2613,1810,Xã Hòa Xá
+1B2612,1810,Xã Hoa Sơn
+1B2611,1810,Xã Hòa Phú
+1B2610,1810,Xã Hòa Nam
+1B2609,1810,Xã Hòa Lâm
+1B2608,1810,Xã Đồng Tiến
+1B2607,1810,Xã Đồng Tân
+1B2606,1810,Xã Đông Lỗ
+1B2605,1810,Xã Đội Bình
+1B2604,1810,Xã Đại Hùng
+1B2603,1810,Xã Đại Cường
+1B2602,1810,Xã Cao Thành
+1B2601,1810,Thị trấn Vân Đình
+1B2421,1809,Xã Xuân Dương
+1B2420,1809,Xã Thanh Văn
+1B2419,1809,Xã Thanh Thùy
+1B2418,1809,Xã Thanh Mai
+1B2417,1809,Xã Thanh Cao
+1B2416,1809,Xã Tân Ước
+1B2415,1809,Xã Tam Hưng
+1B2414,1809,Xã Phương Trung
+1B2413,1809,Xã Mỹ Hưng
+1B2412,1809,Xã Liên Châu
+1B2411,1809,Xã Kim Thư
+1B2410,1809,Xã Kim An
+1B2409,1809,Xã Hồng Dương
+1B2408,1809,Xã Đỗ Động
+1B2407,1809,Xã Dân Hòa
+1B2406,1809,Xã Cự Khê
+1B2405,1809,Xã Cao Viên
+1B2404,1809,Xã Cao Dương
+1B2403,1809,Xã Bình Minh
+1B2402,1809,Xã Bích Hòa
+1B2401,1809,Thị trấn Kim Bài
+1B1923,1808,Xã Yên Trung
+1B1922,1808,Xã Yên Bình
+1B1921,1808,Xã Tiến Xuân
+1B1920,1808,Xã Thạch Xá
+1B1919,1808,Xã Thạch Hoà
+1B1918,1808,Xã Tân Xã
+1B1917,1808,Xã Phùng Xá
+1B1916,1808,Xã Phú Kim
+1B1915,1808,Xã Lại Thượng
+1B1914,1808,Xã Kim Quan
+1B1913,1808,Xã Hữu Bằng
+1B1912,1808,Xã Hương Ngải
+1B1911,1808,Xã Hạ Bằng
+1B1910,1808,Xã Đồng Trúc
+1B1909,1808,Xã Dị Nậu
+1B1908,1808,Xã Đại Đồng
+1B1907,1808,Xã Chàng Sơn
+1B1906,1808,Xã Canh Nậu
+1B1905,1808,Xã Cần Kiệm
+1B1904,1808,Xã Cẩm Yên
+1B1903,1808,Xã Bình Yên
+1B1902,1808,Xã Bình Phú
+1B1901,1808,Thị trấn Liên Quan
+800213,1807,Xã Sen Phương
+800212,1807,Xã Xuân Đình
+1B1823,1807,Xã Xuân Phú
+1B1822,1807,Xã Võng Xuyên
+1B1821,1807,Xã Vân Phúc
+1B1820,1807,Xã Vân Nam
+1B1819,1807,Xã Vân Hà
+1B1818,1807,Xã Trạch Mỹ Lộc
+1B1817,1807,Xã Tích Giang
+1B1816,1807,Xã Thượng Cốc
+1B1815,1807,Xã Thọ Lộc
+1B1814,1807,Xã Thanh Đa
+1B1813,1807,Xã Tam Thuấn
+1B1812,1807,Xã Tam Hiệp
+1B1811,1807,Xã Sen Chiểu
+1B1810,1807,Xã Phương Độ
+1B1809,1807,Xã Phụng Thượng
+1B1808,1807,Xã Phúc Hòa
+1B1807,1807,Xã Ngọc Tảo
+1B1806,1807,Xã Long Xuyên
+1B1805,1807,Xã Liên Hiệp
+1B1804,1807,Xã Hiệp Thuận
+1B1803,1807,Xã Hát Môn
+1B1802,1807,Xã Cẩm Đình
+1B1801,1807,Thị trấn Phúc Thọ
+1B2522,1806,Xã Xuy Xá
+1B2521,1806,Xã Vạn Kim
+1B2520,1806,Xã Tuy Lai
+1B2519,1806,Xã Thượng Lâm
+1B2518,1806,Xã Phùng Xá
+1B2517,1806,Xã Phúc Lâm
+1B2516,1806,Xã Phù Lưu Tế
+1B2515,1806,Xã Mỹ Thành
+1B2514,1806,Xã Lê Thanh
+1B2513,1806,Xã Hương Sơn
+1B2512,1806,Xã Hùng Tiến
+1B2511,1806,Xã Hợp Tiến
+1B2510,1806,Xã Hợp Thanh
+1B2509,1806,Xã Hồng Sơn
+1B2508,1806,Xã Đồng Tâm
+1B2507,1806,Xã Đốc Tín
+1B2506,1806,Xã Đại Hưng
+1B2505,1806,Xã Bột Xuyên
+1B2504,1806,Xã An Tiến
+1B2503,1806,Xã An Phú
+1B2502,1806,Xã An Mỹ
+1B2501,1806,Thị trấn Đại Nghĩa
+1B2320,1805,Xã Yên Sở
+1B2319,1805,Xã Vân Côn
+1B2318,1805,Xã Vân Canh
+1B2317,1805,Xã Tiền Yên
+1B2316,1805,Xã Song Phương
+1B2315,1805,Xã Sơn Đồng
+1B2314,1805,Xã Minh Khai
+1B2313,1805,Xã Lại Yên
+1B2312,1805,Xã La Phù
+1B2311,1805,Xã Kim Chung
+1B2310,1805,Xã Dương Liễu
+1B2309,1805,Xã Đức Thượng
+1B2308,1805,Xã Đức Giang
+1B2307,1805,Xã Đông La
+1B2306,1805,Xã Di Trạch
+1B2305,1805,Xã Đắc Sở
+1B2304,1805,Xã Cát Quế
+1B2303,1805,Xã An Thượng
+1B2302,1805,Xã An Khánh
+1B2301,1805,Thị trấn Trạm Trôi
+1B2216,1804,Xã Trung Châu
+1B2215,1804,Xã Thượng Mỗ
+1B2214,1804,Xã Thọ Xuân
+1B2213,1804,Xã Thọ An
+1B2212,1804,Xã Tân Lập
+1B2211,1804,Xã Tân Hội
+1B2210,1804,Xã Song Phượng
+1B2209,1804,Xã Phương Đình
+1B2208,1804,Xã Liên Trung
+1B2207,1804,Xã Liên Hồng
+1B2206,1804,Xã Liên Hà
+1B2205,1804,Xã Hồng Hà
+1B2204,1804,Xã Hạ Mỗ
+1B2203,1804,Xã Đồng Tháp
+1B2202,1804,Xã Đan Phượng
+1B2201,1804,Thị trấn Phùng
+1B1731,1803,Xã Yên Bài
+1B1730,1803,Xã Vật Lại
+1B1729,1803,Xã Vạn Thắng
+1B1728,1803,Xã Vân Hòa
+1B1727,1803,Xã Tòng Bạt
+1B1726,1803,Xã Tiên Phong
+1B1725,1803,Xã Thụy An
+1B1724,1803,Xã Thuần Mỹ
+1B1723,1803,Xã Thái Hòa
+1B1722,1803,Xã Tản Lĩnh
+1B1721,1803,Xã Tản Hồng
+1B1720,1803,Xã Sơn Đà
+1B1719,1803,Xã Phú Sơn
+1B1718,1803,Xã Phú Phương
+1B1717,1803,Xã Phú Đông
+1B1716,1803,Xã Phú Cường
+1B1715,1803,Xã Phú Châu
+1B1714,1803,Xã Phong Vân
+1B1713,1803,Xã Minh Quang
+1B1712,1803,Xã Minh Châu
+1B1711,1803,Xã Khánh Thượng
+1B1710,1803,Xã Đồng Thái
+1B1709,1803,Xã Đông Quang
+1B1708,1803,Xã Cổ Đô
+1B1707,1803,Xã Chu Minh
+1B1706,1803,Xã Châu Sơn
+1B1705,1803,Xã Cam Thượng
+1B1704,1803,Xã Cẩm Lĩnh
+1B1703,1803,Xã Ba Vì
+1B1702,1803,Xã Ba Trại
+1B1701,1803,Thị trấn Tây Đằng
+1B1615,1711,Xã Xuân Sơn
+1B1614,1711,Xã Thanh Mỹ
+1B1613,1711,Xã Sơn Đông
+1B1612,1711,Xã Kim Sơn
+1B1611,1711,Xã Đường Lâm
+1B1610,1711,Xã Cổ Đông
+1B1609,1711,Phường Xuân Khanh
+1B1608,1711,Phường Viên Sơn
+1B1607,1711,Phường Trung Sơn Trầm
+1B1606,1711,Phường Trung Hưng
+1B1605,1711,Phường Sơn Lộc
+1B1604,1711,Phường Quang Trung
+1B1603,1711,Phường Phú Thịnh
+1B1602,1711,Phường Ngô Quyền
+1B1601,1711,Phường Lê Lợi
+1A1116,1710,Xã Yên Mỹ
+1A1115,1710,Xã Vĩnh Quỳnh
+1A1114,1710,Xã Vạn Phúc
+1A1113,1710,Xã Tứ Hiệp
+1A1112,1710,Xã Thanh Liệt
+1A1111,1710,Xã Tân Triều
+1A1110,1710,Xã Tam Hiệp
+1A1109,1710,Xã Tả Thanh Oai
+1A1108,1710,Xã Ngũ Hiệp
+1A1107,1710,Xã Ngọc Hồi
+1A1106,1710,Xã Liên Ninh
+1A1105,1710,Xã Hữu Hoà
+1A1104,1710,Xã Duyên Hà
+1A1103,1710,Xã Đông Mỹ
+1A1102,1710,Xã Đại áng
+1A1101,1710,Thị trấn Văn Điển
+1A1222,1703,Xã Yên Viên
+1A1221,1703,Xã Yên Thường
+1A1220,1703,Xã Văn Đức
+1A1219,1703,Xã Trung Mầu
+1A1218,1703,Xã Phú Thị
+1A1217,1703,Xã Phù Đổng
+1A1216,1703,Xã Ninh Hiệp
+1A1215,1703,Xã Lệ Chi
+1A1214,1703,Xã Kim Sơn
+1A1213,1703,Xã Kim Lan
+1A1212,1703,Xã Kiêu Kỵ
+1A1211,1703,Xã Dương Xá
+1A1210,1703,Xã Dương Quang
+1A1209,1703,Xã Dương Hà
+1A1208,1703,Xã Đông Dư
+1A1207,1703,Xã Đình Xuyên
+1A1206,1703,Xã Đặng Xá
+1A1205,1703,Xã Đa Tốn
+1A1204,1703,Xã Cổ Bi
+1A1203,1703,Xã Bát Tràng
+1A1202,1703,Thị trấn Yên Viên
+1A1201,1703,Thị trấn Trâu Quỳ
+1A1426,1583,Xã Xuân Thu
+1A1425,1583,Xã Xuân Giang
+1A1424,1583,Xã Việt Long
+1A1423,1583,Xã Trung Giã
+1A1422,1583,Xã Tiên Dược
+1A1421,1583,Xã Thanh Xuân
+1A1420,1583,Xã Tân Minh
+1A1419,1583,Xã Tân Hưng
+1A1418,1583,Xã Tân Dân
+1A1417,1583,Xã Quang Tiến
+1A1416,1583,Xã Phú Minh
+1A1415,1583,Xã Phù Lỗ
+1A1414,1583,Xã Phù Linh
+1A1413,1583,Xã Phú Cường
+1A1412,1583,Xã Nam Sơn
+1A1411,1583,Xã Minh Trí
+1A1410,1583,Xã Minh Phú
+1A1409,1583,Xã Mai Đình
+1A1408,1583,Xã Kim Lũ
+1A1407,1583,Xã Hồng Kỳ
+1A1406,1583,Xã Hiền Ninh
+1A1405,1583,Xã Đức Hoà
+1A1404,1583,Xã Đông Xuân
+1A1403,1583,Xã Bắc Sơn
+1A1402,1583,Xã Bắc Phú
+1A1401,1583,Thị trấn Sóc Sơn
+1A1324,1582,Xã Xuân Nộn
+1A1323,1582,Xã Xuân Canh
+1A1322,1582,Xã Võng La update
+1A1321,1582,Xã Vĩnh Ngọc
+1A1320,1582,Xã Việt Hùng
+1A1319,1582,Xã Vân Nội
+1A1318,1582,Xã Vân Hà
+1A1317,1582,Xã Uy Nỗ
+1A1316,1582,Xã Tiên Dương
+1A1315,1582,Xã Thuỵ Lâm
+1A1314,1582,Xã Tầm Xá
+1A1313,1582,Xã Nguyên Khê
+1A1312,1582,Xã Nam Hồng
+1A1311,1582,Xã Mai Lâm
+1A1310,1582,Xã Liên Hà
+1A1309,1582,Xã Kim Nỗ
+1A1308,1582,Xã Kim Chung
+1A1307,1582,Xã Hải Bối
+1A1306,1582,Xã Dục Tú
+1A1305,1582,Xã Đông Hội
+1A1304,1582,Xã Đại Mạch
+1A1303,1582,Xã Cổ Loa
+1A1302,1582,Xã Bắc Hồng
+1A1301,1582,Thị trấn Đông Anh
+1B2918,1581,Xã Vạn Yên
+1B2917,1581,Xã Văn Khê
+1B2916,1581,Xã Tự Lập
+1B2915,1581,Xã Tráng Việt
+1B2914,1581,Xã Tiến Thịnh
+1B2913,1581,Xã Tiến Thắng
+1B2912,1581,Xã Tiền Phong
+1B2911,1581,Xã Thanh Lâm
+1B2910,1581,Xã Thạch Đà
+1B2909,1581,Xã Tam Đồng
+1B2908,1581,Xã Mê Linh
+1B2907,1581,Xã Liên Mạc
+1B2906,1581,Xã Kim Hoa
+1B2905,1581,Xã Hoàng Kim
+1B2904,1581,Xã Đại Thịnh
+1B2903,1581,Xã Chu Phan
+1B2902,1581,Thị trấn Quang Minh
+1B2901,1581,Thị trấn Chi Đông
+1B1517,1542,Phường Yết Kiêu
+1B1516,1542,Phường Yên Nghĩa
+1B1515,1542,Phường Văn Quán
+1B1514,1542,Phường Vạn Phúc
+1B1513,1542,Phường Quang Trung
+1B1512,1542,Phường Phúc La
+1B1511,1542,Phường Phú Lương
+1B1510,1542,Phường Phú Lãm
+1B1509,1542,Phường Phú La
+1B1508,1542,Phường Nguyễn Trãi
+1B1507,1542,Phường Mộ Lao
+1B1506,1542,Phường La Khê
+1B1505,1542,Phường Kiến Hưng
+1B1504,1542,Phường Hà Cầu
+1B1503,1542,Phường Dương Nội
+1B1502,1542,Phường Đồng Mai
+1B1501,1542,Phường Biên Giang
+1A0711,1493,Phường Thượng Đình
+1A0710,1493,Phường Thanh Xuân Trung
+1A0709,1493,Phường Thanh Xuân Nam
+1A0708,1493,Phường Thanh Xuân Bắc
+1A0707,1493,Phường Phương Liệt
+1A0706,1493,Phường Nhân Chính
+1A0705,1493,Phường Kim Giang
+1A0704,1493,Phường Khương Trung
+1A0703,1493,Phường Khương Mai
+1A0702,1493,Phường Khương Đình
+1A0701,1493,Phường Hạ Đình
+1A0508,1492,Phường Yên Phụ
+1A0507,1492,Phường Xuân La
+1A0506,1492,Phường Tứ Liên
+1A0505,1492,Phường Thụy Khuê
+1A0504,1492,Phường Quảng An
+1A0503,1492,Phường Phú Thượng
+1A0502,1492,Phường Nhật Tân
+1A0501,1492,Phường Bưởi
+1A0914,1491,Phường Việt Hưng
+1A0913,1491,Phường Thượng Thanh
+1A0912,1491,Phường Thạch Bàn
+1A0911,1491,Phường Sài Đồng
+1A0910,1491,Phường Phúc Lợi
+1A0909,1491,Phường Phúc Đồng
+1A0908,1491,Phường Ngọc Thụy
+1A0907,1491,Phường Ngọc Lâm
+1A0906,1491,Phường Long Biên
+1A0905,1491,Phường Giang Biên
+1A0904,1491,Phường Gia Thụy
+1A0903,1491,Phường Đức Giang
+1A0902,1491,Phường Cự Khối
+1A0901,1491,Phường Bồ Đề
+1A0814,1490,Phường Yên Sở
+1A0813,1490,Phường Vĩnh Hưng
+1A0812,1490,Phường Tương Mai
+1A0811,1490,Phường Trần Phú
+1A0810,1490,Phường Thịnh Liệt
+1A0809,1490,Phường Thanh Trì
+1A0808,1490,Phường Tân Mai
+1A0807,1490,Phường Mai Động
+1A0806,1490,Phường Lĩnh Nam
+1A0805,1490,Phường Hoàng Văn Thụ
+1A0804,1490,Phường Hoàng Liệt
+1A0803,1490,Phường Giáp Bát
+1A0802,1490,Phường Định Công
+1A0801,1490,Phường Đại Kim
+1A0218,1489,Phường Tràng Tiền
+1A0217,1489,Phường Trần Hưng Đạo
+1A0216,1489,Phường Phúc Tân
+1A0215,1489,Phường Phan Chu Trinh
+1A0214,1489,Phường Lý Thái Tổ
+1A0213,1489,Phường Hàng Trống
+1A0212,1489,Phường Hàng Mã
+1A0211,1489,Phường Hàng Gai
+1A0210,1489,Phường Hàng Đào
+1A0209,1489,Phường Hàng Buồm
+1A0208,1489,Phường Hàng Bông
+1A0207,1489,Phường Hàng Bồ
+1A0206,1489,Phường Hàng Bài
+1A0205,1489,Phường Hàng Bạc
+1A0204,1489,Phường Đồng Xuân
+1A0203,1489,Phường Cửa Nam
+1A0202,1489,Phường Cửa Đông
+1A0201,1489,Phường Chương Dương Độ
+1A0320,1488,Phường Vĩnh Tuy
+1A0319,1488,Phường Trương Định
+1A0318,1488,Phường Thanh Nhàn
+1A0317,1488,Phường Thanh Lương
+1A0316,1488,Phường Quỳnh Mai
+1A0315,1488,Phường Quỳnh Lôi
+1A0314,1488,Phường Phố Huế
+1A0313,1488,Phường Phạm Đình Hổ
+1A0312,1488,Phường Nguyễn Du
+1A0311,1488,Phường Ngô Thì Nhậm
+1A0310,1488,Phường Minh Khai
+1A0309,1488,Phường Lê Đại Hành
+1A0308,1488,Phường Đồng Tâm
+1A0307,1488,Phường Đồng Nhân
+1A0306,1488,Phường Đống Mác
+1A0305,1488,Phường Cầu Dền
+1A0304,1488,Phường Bùi Thị Xuân
+1A0303,1488,Phường Bạch Mai
+1A0302,1488,Phường Bách Khoa
+1A0301,1488,Phường Bạch Đằng
+1A0421,1486,Phường Văn Miếu
+1A0420,1486,Phường Văn Chương
+1A0419,1486,Phường Trung Tự
+1A0418,1486,Phường Trung Phụng
+1A0417,1486,Phường Trung Liệt
+1A0416,1486,Phường Thổ Quan
+1A0415,1486,Phường Thịnh Quang
+1A0414,1486,Phường Quốc Tử Giám
+1A0413,1486,Phường Quang Trung
+1A0412,1486,Phường Phương Mai
+1A0411,1486,Phường Phương Liên
+1A0410,1486,Phường Ô Chợ Dừa
+1A0409,1486,Phường Ngã Tư Sở
+1A0408,1486,Phường Nam Đồng
+1A0407,1486,Phường Láng Thượng
+1A0406,1486,Phường Láng Hạ
+1A0405,1486,Phường Kim Liên
+1A0404,1486,Phường Khương Thượng
+1A0403,1486,Phường Khâm Thiên
+1A0402,1486,Phường Hàng Bột
+1A0401,1486,Phường Cát Linh
+1A0608,1485,Phường Yên Hoà
+1A0607,1485,Phường Trung Hoà
+1A0606,1485,Phường Quan Hoa
+1A0605,1485,Phường Nghĩa Tân
+1A0604,1485,Phường Nghĩa Đô
+1A0603,1485,Phường Mai Dịch
+1A0602,1485,Phường Dịch Vọng Hậu
+1A0601,1485,Phường Dịch Vọng
+1A0114,1484,Phường Vĩnh Phúc
+1A0113,1484,Phường Trúc Bạch
+1A0112,1484,Phường Thành Công
+1A0111,1484,Phường Quán Thánh
+1A0110,1484,Phường Phúc Xá
+1A0109,1484,Phường Nguyễn Trung Trực
+1A0108,1484,Phường Ngọc Khánh
+1A0107,1484,Phường Ngọc Hà
+1A0106,1484,Phường Liễu Giai
+1A0105,1484,Phường Kim Mã
+1A0104,1484,Phường Giảng Võ
+1A0103,1484,Phường Đội Cấn
+1A0102,1484,Phường Điện Biên
+1A0101,1484,Phường Cống Vị
+11013,1482,Phường Xuân Tảo
+11012,1482,Phường Xuân Đỉnh
+11011,1482,Phường Thụy Phương
+11010,1482,Phường Thượng Cát
+11009,1482,Phường Tây Tựu
+11008,1482,Phường Phúc Diễn
+11007,1482,Phường Phú Diễn
+11006,1482,Phường Minh Khai
+11005,1482,Phường Liên Mạc
+11004,1482,Phường Đức Thắng
+11003,1482,Phường Đông Ngạc
+11002,1482,Phường Cổ Nhuế 2
+11001,1482,Phường Cổ Nhuế 1
+907556,3713,Phường 2
+907555,3713,Phường 1
+90768,3695,Phường An Khánh
+90767,3695,Phường Bình Trưng Tây
+90766,3695,Phường Bình Trưng Đông
+90765,3695,Phường An Phú
+90764,3695,Phường Thảo Điền
+90763,3695,Phường Phú Hữu
+90762,3695,Phường Phước Bình
+90761,3695,Phường Long Trường
+90760,3695,Phường Long Phước
+90759,3695,Phường Trường Thạnh
+90758,3695,Phường Phước Long B
+90757,3695,Phường Phước Long A
+90756,3695,Phường Tăng Nhơn Phú B
+90755,3695,Phường Tăng Nhơn Phú A
+90754,3695,Phường Hiệp Phú
+90753,3695,Phường Tân Phú
+90752,3695,Phường Long Thạnh Mỹ
+90751,3695,Phường Long Bình
+90750,3695,Phường Thủ Thiêm
+90749,3695,Phường An Lợi Đông
+90748,3695,Phường Thạnh Mỹ Lợi
+90747,3695,Phường Cát Lái
+90746,3695,Phường Trường Thọ
+90745,3695,Phường Bình Thọ
+90744,3695,Phường Linh Đông
+90743,3695,Phường Linh Tây
+90742,3695,Phường Linh Chiểu
+90741,3695,Phường Hiệp Bình Chánh
+90740,3695,Phường Hiệp Bình Phước
+90739,3695,Phường Tam Phú
+90738,3695,Phường Tam Bình
+90737,3695,Phường Linh Trung
+90736,3695,Phường Bình Chiểu
+90735,3695,Phường Linh Xuân
+22407,2090,Xã Thạnh An
+22406,2090,Xã Tam Thôn Hiệp
+22405,2090,Xã Lý Nhơn
+22404,2090,Xã Long Hòa
+22403,2090,Xã Bình Khánh
+22402,2090,Xã An Thới Đông
+22401,2090,Thị trấn Cần Thạnh
+907559,1534,11
+22307,1534,Xã Phước Lộc
+22306,1534,Xã Phước Kiển
+22305,1534,Xã Phú Xuân
+22304,1534,Xã Nhơn Đức
+22303,1534,Xã Long Thới
+22302,1534,Xã Hiệp Phước
+22301,1534,Thị trấn Nhà Bè
+907562,1533,1
+22016,1533,Xã Vĩnh Lộc B
+22015,1533,Xã Vĩnh Lộc A
+22014,1533,Xã Tân Quý Tây
+22013,1533,Xã Tân Nhựt
+22012,1533,Xã Tân Kiên
+22011,1533,Xã Quy Đức
+22010,1533,Xã Phong Phú
+22009,1533,Xã Phạm Văn Hai
+22008,1533,Xã Lê Minh Xuân
+22007,1533,Xã Hưng Long
+22006,1533,Xã Đa Phước
+22005,1533,Xã Bình Lợi
+22004,1533,Xã Bình Hưng
+22003,1533,Xã Bình Chánh
+22002,1533,Xã An Phú Tây
+22001,1533,Thị trấn Tân Túc
+21812,1463,Phường Trường Thọ
+21811,1463,Phường Tam Phú
+21810,1463,Phường Tam Bình
+21809,1463,Phường Linh Xuân
+21808,1463,Phường Linh Trung
+21807,1463,Phường Linh Tây
+21806,1463,Phường Linh Đông
+21805,1463,Phường Linh Chiểu
+21804,1463,Phường Hiệp Bình Phước
+21803,1463,Phường Hiệp Bình Chánh
+21802,1463,Phường Bình Thọ
+21801,1463,Phường Bình Chiểu
+21620,1462,Phường 28
+21619,1462,Phường 27
+21618,1462,Phường 26
+21617,1462,Phường 25
+21616,1462,Phường 24
+21615,1462,Phường 22
+21614,1462,Phường 21
+21613,1462,Phường 19
+21612,1462,Phường 17
+21611,1462,Phường 15
+21610,1462,Phường 14
+21609,1462,Phường 13
+21608,1462,Phường 12
+21607,1462,Phường 11
+21606,1462,Phường 7
+21605,1462,Phường 6
+21604,1462,Phường 5
+21603,1462,Phường 3
+21602,1462,Phường 2
+21601,1462,Phường 1
+21316,1461,Phường 9
+21315,1461,Phường 8
+21314,1461,Phường 6
+21313,1461,Phường 17
+21312,1461,Phường 16
+21311,1461,Phường 15
+21310,1461,Phường 14
+21309,1461,Phường 13
+21308,1461,Phường 12
+21307,1461,Phường 11
+21306,1461,Phường 10
+21305,1461,Phường 7
+21304,1461,Phường 5
+21303,1461,Phường 4
+21302,1461,Phường 3
+21301,1461,Phường 1
+22121,1460,Xã Trung Lập Thượng
+22120,1460,Xã Trung Lập Hạ
+22119,1460,Xã Trung An
+22118,1460,Xã Thái Mỹ
+22117,1460,Xã Tân Thông Hội
+22116,1460,Xã Tân Thạnh Tây
+22115,1460,Xã Tân Thạnh Đông
+22114,1460,Xã Tân Phú Trung
+22113,1460,Xã Tân An Hội
+22112,1460,Xã Phước Vĩnh An
+22111,1460,Xã Phước Thạnh
+22110,1460,Xã Phước Hiệp
+22109,1460,Xã Phú Mỹ Hưng
+22108,1460,Xã Phú Hòa Đông
+22107,1460,Xã Phạm Văn Cội
+22106,1460,Xã Nhuận Đức
+22105,1460,Xã Hòa Phú
+22104,1460,Xã Bình Mỹ
+22103,1460,Xã An Phú
+22102,1460,Xã An Nhơn Tây
+22101,1460,Thị trấn Củ Chi
+22212,1459,Xã Xuân Thới Thượng
+22211,1459,Xã Xuân Thới Sơn
+22210,1459,Xã Xuân Thới Đông
+22209,1459,Xã Trung Chánh
+22208,1459,Xã Thới Tam Thôn
+22207,1459,Xã Tân Xuân
+22206,1459,Xã Tân Thới Nhì
+22205,1459,Xã Tân Hiệp
+22204,1459,Xã Nhị Bình
+22203,1459,Xã Đông Thạnh
+22202,1459,Xã Bà Điểm
+22201,1459,Thị trấn Hóc Môn
+21910,1458,Phường Tân Tạo A
+21909,1458,Phường Tân Tạo
+21908,1458,Phường Bình Trị Đông B
+21907,1458,Phường Bình Trị Đông A
+21906,1458,Phường Bình Trị Đông
+21905,1458,Phường Bình Hưng Hoà B
+21904,1458,Phường Bình Hưng Hoà A
+21903,1458,Phường Bình Hưng Hòa
+21902,1458,Phường An Lạc A
+21901,1458,Phường  An Lạc
+21715,1457,Phường 17
+21714,1457,Phường 15
+21713,1457,Phường 14
+21712,1457,Phường 13
+21711,1457,Phường 12
+21710,1457,Phường 11
+21709,1457,Phường 10
+21708,1457,Phường 9
+21707,1457,Phường 8
+21706,1457,Phường 7
+21705,1457,Phường 5
+21704,1457,Phường 4
+21703,1457,Phường 3
+21702,1457,Phường 2
+21701,1457,Phường 1
+21511,1456,Phường Tây Thạnh
+21510,1456,Phường Tân Thới Hòa
+21509,1456,Phường Tân Thành
+21508,1456,Phường Tân Sơn Nhì
+21507,1456,Phường Tân Quý
+21506,1456,Phường Sơn Kỳ
+21505,1456,Phường Phú Trung
+21504,1456,Phường Phú Thọ Hòa
+21503,1456,Phường Phú Thạnh
+21502,1456,Phường Hòa Thạnh
+21501,1456,Phường Hiệp Tân
+21415,1455,Phường 15
+21414,1455,Phường 14
+21413,1455,Phường 13
+21412,1455,Phường 12
+21411,1455,Phường 11
+21410,1455,Phường 10
+21409,1455,Phường 9
+21408,1455,Phường 8
+21407,1455,Phường 7
+21406,1455,Phường 6
+21405,1455,Phường 5
+21404,1455,Phường 4
+21403,1455,Phường 3
+21402,1455,Phường 2
+21401,1455,Phường 1
+21211,1454,Phường Trung Mỹ Tây
+21210,1454,Phường Thới An
+21209,1454,Phường Thạnh Xuân
+21208,1454,Phường Thạnh Lộc
+21207,1454,Phường Tân Thới Nhất
+21206,1454,Phường Tân Thới Hiệp
+21205,1454,Phường Tân Hưng Thuận
+21204,1454,Phường Tân Chánh Hiệp
+21203,1454,Phường Hiệp Thành
+21202,1454,Phường Đông Hưng Thuận
+21201,1454,Phường An Phú Đông
+907554,1453,Phường test 2
+21116,1453,Phường 16
+21115,1453,Phường 15
+21114,1453,Phường 14
+21113,1453,Phường 13
+21112,1453,Phường 12
+21111,1453,Phường 11
+21110,1453,Phường 10
+21109,1453,Phường 9
+21108,1453,Phường 8
+21107,1453,Phường 7
+21106,1453,Phường 6
+21105,1453,Phường 5
+21104,1453,Phường 4
+21103,1453,Phường 3
+21102,1453,Phường 2
+21101,1453,Phường 1
+21015,1452,Phường 15
+21014,1452,Phường 14
+21013,1452,Phường 13
+21012,1452,Phường 12
+21011,1452,Phường 11
+21010,1452,Phường 10
+21009,1452,Phường 9
+21008,1452,Phường 8
+21007,1452,Phường 7
+21006,1452,Phường 6
+21005,1452,Phường 5
+21004,1452,Phường 4
+21003,1452,Phường 3
+21002,1452,Phường 2
+21001,1452,Phường 1
+20913,1451,Phường Trường Thạnh
+20912,1451,Phường Tăng Nhơn Phú B
+20911,1451,Phường Tăng Nhơn Phú A
+20910,1451,Phường Tân Phú
+20909,1451,Phường Phước Long B
+20908,1451,Phường Phước Long A
+20907,1451,Phường Phước Bình
+20906,1451,Phường Phú Hữu
+20905,1451,Phường Long Trường
+20904,1451,Phường Long Thạnh Mỹ
+20903,1451,Phường Long Phước
+20902,1451,Phường Long Bình
+20901,1451,Phường Hiệp Phú
+20816,1450,Phường 16
+20815,1450,Phường 15
+20814,1450,Phường 14
+20813,1450,Phường 13
+20812,1450,Phường 12
+20811,1450,Phường 11
+20810,1450,Phường 10
+20809,1450,Phường 9
+20808,1450,Phường 8
+20807,1450,Phường 7
+20806,1450,Phường 6
+20805,1450,Phường 5
+20804,1450,Phường 4
+20803,1450,Phường 3
+20802,1450,Phường 2
+20801,1450,Phường 1
+20710,1449,Phường Tân Thuận Tây
+20709,1449,Phường Tân Thuận Đông
+20708,1449,Phường Tân Quy
+20707,1449,Phường Tân Phú
+20706,1449,Phường Tân Phong
+20705,1449,Phường Tân Kiểng
+20704,1449,Phường Tân Hưng
+20703,1449,Phường Phú Thuận
+20702,1449,Phường Phú Mỹ
+20701,1449,Phường Bình Thuận
+20614,1448,Phường 14
+20613,1448,Phường 13
+20612,1448,Phường 12
+20611,1448,Phường 11
+20610,1448,Phường 10
+20609,1448,Phường 9
+20608,1448,Phường 8
+20607,1448,Phường 7
+20606,1448,Phường 6
+20605,1448,Phường 5
+20604,1448,Phường 4
+20603,1448,Phường 3
+20602,1448,Phường 2
+20601,1448,Phường 1
+20515,1447,Phường 15
+20514,1447,Phường 14
+20513,1447,Phường 13
+20512,1447,Phường 12
+20511,1447,Phường 11
+20510,1447,Phường 10
+20509,1447,Phường 9
+20508,1447,Phường 8
+20507,1447,Phường 7
+20506,1447,Phường 6
+20505,1447,Phường 5
+20504,1447,Phường 4
+20503,1447,Phường 3
+20502,1447,Phường 2
+20501,1447,Phường 1
+20415,1446,Phường 18
+20414,1446,Phường 16
+20413,1446,Phường 15
+20412,1446,Phường 14
+20411,1446,Phường 13
+20410,1446,Phường 12
+20409,1446,Phường 10
+20408,1446,Phường 9
+20407,1446,Phường 8
+20406,1446,Phường 6
+20405,1446,Phường 5
+20404,1446,Phường 4
+20403,1446,Phường 3
+20402,1446,Phường 2
+20401,1446,Phường 1
+90795,1444,Võ Thị Sáu
+20314,1444,Phường 14
+20313,1444,Phường 13
+20312,1444,Phường 12
+20311,1444,Phường 11
+20310,1444,Phường 10
+20309,1444,Phường 9
+20308,1444,Phường 8
+20307,1444,Phường 7
+20306,1444,Phường 6
+20305,1444,Phường 5
+20304,1444,Phường 4
+20303,1444,Phường 3
+20302,1444,Phường 2
+20301,1444,Phường 1
+20211,1443,Phường Thủ Thiêm
+20210,1443,Phường Thảo Điền
+20209,1443,Phường Thạnh Mỹ Lợi
+20208,1443,Phường Cát Lái
+20207,1443,Phường Bình Trưng Tây
+20206,1443,Phường Bình Trưng Đông
+20205,1443,Phường Bình Khánh
+20204,1443,Phường Bình An
+20203,1443,Phường An Phú
+20202,1443,Phường An Lợi Đông
+20201,1443,Phường An Khánh
+20110,1442,Phường Tân Định
+20109,1442,Phường Phạm Ngũ Lão
+20108,1442,Phường Nguyễn Thái Bình
+20107,1442,Phường Nguyễn Cư Trinh
+20106,1442,Phường Đa Kao
+20105,1442,Phường Cô Giang
+20104,1442,Phường Cầu Ông Lãnh
+20103,1442,Phường Cầu Kho
+20102,1442,Phường Bến Thành
+20101,1442,Phường Bến Nghé
+541306,2112,Hoàng Sa
+40611,1687,Xã Hòa Tiến
+40610,1687,Xã Hòa Sơn
+40609,1687,Xã Hòa Phước
+40608,1687,Xã Hòa Phú
+40607,1687,Xã Hòa Phong
+40606,1687,Xã Hòa Ninh
+40605,1687,Xã Hòa Nhơn
+40604,1687,Xã Hòa Liên
+40603,1687,Xã Hòa Khương
+40602,1687,Xã Hòa Châu
+40601,1687,Xã Hòa Bắc
+40706,1531,Phường Khuê Trung
+40705,1531,Phường Hòa Xuân
+40704,1531,Phường Hòa Thọ Tây
+40703,1531,Phường Hòa Thọ Đông
+40702,1531,Phường Hòa Phát
+40701,1531,Phường Hòa An
+40505,1530,Phường Hòa Minh
+40504,1530,Phường Hòa Khánh Nam
+40503,1530,Phường Hòa Khánh Bắc
+40502,1530,Phường Hòa Hiệp Nam
+40501,1530,Phường Hòa Hiệp Bắc
+40404,1529,Phường Mỹ An
+40403,1529,Phường Khuê Mỹ
+40402,1529,Phường Hoà Quý
+40401,1529,Phường Hoà Hải
+40307,1528,Phường Thọ Quang
+40306,1528,Phường Phước Mỹ
+40305,1528,Phường Nại Hiên Đông
+40304,1528,Phường Mân Thái
+40303,1528,Phường An Hải Tây
+40302,1528,Phường An Hải Đông
+40301,1528,Phường An Hải Bắc
+40210,1527,Phường Xuân Hà
+40209,1527,Phường Vĩnh Trung
+40208,1527,Phường Thanh Khê Tây
+40207,1527,Phường Thanh Khê Đông
+40206,1527,Phường Thạc Gián
+40205,1527,Phường Tân Chính
+40204,1527,Phường Tam Thuận
+40203,1527,Phường Hòa Khê
+40202,1527,Phường Chính Gián
+40201,1527,Phường An Khê
+40113,1526,Phường Thuận Phước
+40112,1526,Phường Thanh Bình
+40111,1526,Phường Thạch Thang
+40110,1526,Phường Phước Ninh
+40109,1526,Phường Nam Dương
+40108,1526,Phường Hòa Thuận Tây
+40107,1526,Phường Hòa Thuận Đông
+40106,1526,Phường Hòa Cường Nam
+40105,1526,Phường Hòa Cường Bắc
+40104,1526,Phường Hải Châu 2
+40103,1526,Phường Hải Châu  I
+40102,1526,Phường Bình Thuận
+40101,1526,Phường Bình Hiên
+330311,3257,Xã Quảng Vinh
+330310,3257,Xã Quảng Thọ
+330309,3257,Xã Quảng Thành
+330308,3257,Xã Quảng Thái
+330307,3257,Xã Quảng Phước
+330306,3257,Xã Quảng Phú
+330305,3257,Xã Quảng Ngạn
+330304,3257,Xã Quảng Lợi
+330303,3257,Xã Quảng Công
+330302,3257,Xã Quảng An
+330301,3257,Thị trấn Sịa
+800136,3234,Xã Hương Xuân
+330811,3234,Xã Thượng Quảng
+330810,3234,Xã Thượng Nhật
+330809,3234,Xã Thượng Long
+330808,3234,Xã Thượng Lộ
+330807,3234,Xã Hương Sơn
+330806,3234,Xã Hương Phú
+330805,3234,Xã Hương Lộc
+330804,3234,Xã Hương Hữu
+330803,3234,Xã Hương Hòa
+330802,3234,Xã Hương Giang
+330801,3234,Thị trấn Khe Tre
+33029,2193,Xã Phong Chương
+33028,2193,Xã Phong Bình
+33027,2193,Xã Phong An
+33026,2193,Xã Điền Môn
+33025,2193,Xã Điền Lộc
+33024,2193,Xã Điền Hương
+33023,2193,Xã Điền Hòa
+33022,2193,Xã Điền Hải
+330216,2193,Xã Phong Xuân
+330215,2193,Xã Phong Thu
+330214,2193,Xã Phong Sơn
+330213,2193,Xã Phong Mỹ
+330212,2193,Xã Phong Hòa
+330211,2193,Xã Phong Hiền
+330210,2193,Xã Phong Hải
+33021,2193,Thị trấn Phong Điền
+800153,1885,Xã Lâm Đớt
+800135,1885,Xã Trung Sơn
+800134,1885,Xã Quảng Nhâm
+330921,1885,Xã Sơn Thủy
+330920,1885,Xã Phú Vinh
+330919,1885,Xã Nhâm
+330918,1885,Xã Hương Phong
+330917,1885,Xã Hương Nguyên
+330916,1885,Xã Hương Lâm
+330915,1885,Xã Hồng Vân
+330914,1885,Xã Hồng Trung
+330913,1885,Xã Hồng Thủy
+330912,1885,Xã Hồng Thượng
+330911,1885,Xã Hồng Thái
+330910,1885,Xã Hồng Quảng
+330909,1885,Xã Hồng Kim
+330908,1885,Xã Hồng Hạ
+330907,1885,Xã Hồng Bắc
+330906,1885,Xã Đông Sơn
+330905,1885,Xã Bắc Sơn
+330904,1885,Xã A Roằng
+330903,1885,Xã A Ngo
+330902,1885,Xã A Đớt
+330901,1885,Thị trấn A Lưới
+800137,1882,Xã Giang Hải
+330718,1882,Xã Xuân Lộc
+330717,1882,Xã Vinh Mỹ
+330716,1882,Xã Vinh Hưng
+330715,1882,Xã Vinh Hiền
+330714,1882,Xã Vinh Hải
+330713,1882,Xã Vinh Giang
+330712,1882,Xã Lộc Vĩnh
+330711,1882,Xã Lộc Trì
+330710,1882,Xã Lộc Tiến
+330709,1882,Xã Lộc Thủy
+330708,1882,Xã Lộc Sơn
+330707,1882,Xã Lộc Hòa
+330706,1882,Xã Lộc Điền
+330705,1882,Xã Lộc Bổn
+330704,1882,Xã Lộc Bình
+330703,1882,Xã Lộc An
+330702,1882,Thị trấn Phú Lộc
+330701,1882,Thị trấn Lăng Cô
+800138,1749,Xã Phú Gia
+330520,1749,Xã Vinh Xuân
+330519,1749,Xã Vinh Thanh
+330518,1749,Xã Vinh Thái
+330517,1749,Xã Vinh Phú
+330516,1749,Xã Vinh Hà
+330515,1749,Xã Vinh An
+330514,1749,Xã Phú Xuân
+330513,1749,Xã Phú Thượng
+330512,1749,Xã Phú Thuận
+330511,1749,Xã Phú Thanh
+330510,1749,Xã Phú Mỹ
+330509,1749,Xã Phú Mậu
+330508,1749,Xã Phú Lương
+330507,1749,Xã Phú Hồ
+330506,1749,Xã Phú Hải
+330505,1749,Xã Phú Dương
+330504,1749,Xã Phú Diên
+330503,1749,Xã Phú An
+330502,1749,Thị trấn Thuận An
+330501,1749,Thị trấn Phú Đa
+330612,1698,Xã Thủy Vân
+330611,1698,Xã Thủy Thanh
+330610,1698,Xã Thủy Tân
+330609,1698,Xã Thủy Phù
+330608,1698,Xã Thủy Bằng
+330607,1698,Xã Phú Sơn
+330606,1698,Xã Dương Hòa
+330605,1698,Phường Thủy Phương
+330604,1698,Phường Thủy Lương
+330603,1698,Phường Thủy Dương
+330602,1698,Phường Thủy Châu
+330601,1698,Phường Phú Bài
+800170,1697,Xã Bình Tiến
+330416,1697,Xã Hương Vinh
+330415,1697,Xã Hương Toàn
+330414,1697,Xã Hương Thọ
+330413,1697,Xã Hương Phong
+330412,1697,Xã Hương Bình
+330411,1697,Xã Hồng Tiến
+330410,1697,Xã Hải Dương
+330409,1697,Xã Bình Thành
+330408,1697,Xã Bình Điền
+330407,1697,Phường Tứ Hạ
+330406,1697,Phường Hương Xuân
+330405,1697,Phường Hương Văn
+330404,1697,Phường Hương Vân
+330403,1697,Phường Hương Hồ
+330402,1697,Phường Hương Chữ
+330401,1697,Phường Hương An
+330127,1585,Phường Xuân Phú
+330126,1585,Phường Vĩnh Ninh
+330125,1585,Phường Vĩ Dạ
+330124,1585,Phường Trường An
+330123,1585,Phường Thuỷ Xuân
+330122,1585,Phường Thuỷ Biều
+330121,1585,Phường Thuận Thành
+330120,1585,Phường Thuận Lộc
+330119,1585,Phường Thuận Hòa
+330118,1585,Phường Tây Lộc
+330117,1585,Phường Phường Đúc
+330116,1585,Phường Phước Vĩnh
+330115,1585,Phường Phú Thuận
+330114,1585,Phường Phú Nhuận
+330113,1585,Phường Phú Hội
+330112,1585,Phường Phú Hòa
+330111,1585,Phường Phú Hiệp
+330110,1585,Phường Phú Hậu
+330109,1585,Phường Phú Cát
+330108,1585,Phường Phú Bình
+330107,1585,Phường Kim Long
+330106,1585,Phường Hương Sơ
+330105,1585,Phường Hương Long
+330104,1585,Phường An Tây
+330103,1585,Phường An Hòa
+330102,1585,Phường An Đông
+330101,1585,Phường An Cựu
+30818,3203,Xã Tú Sơn
+30817,3203,Xã Thuỵ Hương
+30816,3203,Xã Thuận Thiên
+30815,3203,Xã Thanh Sơn
+30814,3203,Xã Tân Trào
+30813,3203,Xã Tân Phong
+30812,3203,Xã Ngũ Phúc
+30811,3203,Xã Ngũ Đoan
+30810,3203,Xã Minh Tân
+30809,3203,Xã Kiến Quốc
+30808,3203,Xã Hữu Bằng
+30807,3203,Xã Du Lễ
+30806,3203,Xã Đông Phương
+30805,3203,Xã Đoàn Xá
+30804,3203,Xã Đại Hợp
+30803,3203,Xã Đại Hà
+30802,3203,Xã Đại Đồng
+30801,3203,Thị trấn Núi Đối
+31312,2108,Xã Xuân Đám
+31311,2108,Xã Việt Hải
+31310,2108,Xã Văn Phong
+31309,2108,Xã Trân Châu
+31308,2108,Xã Phù Long
+31307,2108,Xã Nghĩa Lộ
+31306,2108,Xã Hoàng Châu
+31305,2108,Xã Hiền Hào
+31304,2108,Xã Gia Luận
+31303,2108,Xã Đồng Bài
+31302,2108,Thị trấn Cát Hải
+31301,2108,Thị trấn Cát Bà
+31230,1822,Xã Vĩnh Tiến
+31229,1822,Xã Vinh Quang
+31228,1822,Xã Vĩnh Phong
+31227,1822,Xã Vĩnh Long
+31226,1822,Xã Vĩnh An
+31225,1822,Xã Việt Tiến
+31224,1822,Xã Trung Lập
+31223,1822,Xã Trấn Dương
+31222,1822,Xã Tiền Phong
+31221,1822,Xã Thanh Lương
+31220,1822,Xã Thắng Thuỷ
+31219,1822,Xã Tân Liên
+31218,1822,Xã Tân Hưng
+31217,1822,Xã Tam Đa
+31216,1822,Xã Tam Cường
+31215,1822,Xã Nhân Hoà
+31214,1822,Xã Lý Học
+31213,1822,Xã Liên Am
+31212,1822,Xã Hùng Tiến
+31211,1822,Xã Hưng Nhân
+31210,1822,Xã Hoà Bình
+31209,1822,Xã Hiệp Hoà
+31208,1822,Xã Giang Biên
+31207,1822,Xã Dũng Tiến
+31206,1822,Xã Đồng Minh
+31205,1822,Xã Cộng Hiền
+31204,1822,Xã Cổ Am
+31203,1822,Xã Cao Minh
+31202,1822,Xã An Hoà
+31201,1822,Thị trấn Vĩnh Bảo
+31123,1821,Xã Vinh Quang
+31122,1821,Xã Tự Cường
+31121,1821,Xã Toàn Thắng
+31120,1821,Xã Tiên Tiến
+31119,1821,Xã Tiên Thanh
+31118,1821,Xã Tiên Thắng
+31117,1821,Xã Tiên Minh
+31116,1821,Xã Tiên Hưng
+31115,1821,Xã Tiên Cường
+31114,1821,Xã Tây Hưng
+31113,1821,Xã Quyết Tiến
+31112,1821,Xã Quang Phục
+31111,1821,Xã Nam Hưng
+31110,1821,Xã Kiến Thiết
+31109,1821,Xã Khởi Nghĩa
+31108,1821,Xã Hùng Thắng
+31107,1821,Xã Đông Hưng
+31106,1821,Xã Đoàn Lập
+31105,1821,Xã Đại Thắng
+31104,1821,Xã Cấp Tiến
+31103,1821,Xã Bạch Đằng
+31102,1821,Xã Bắc Hưng
+31101,1821,Thị trấn Tiên Lãng
+03079,1820,Xã Mỹ Đức
+03078,1820,Xã Chiến Thắng
+03077,1820,Xã Bát Trang
+03076,1820,Xã An Tiến
+03075,1820,Xã An Thọ
+03074,1820,Xã An Thắng
+03073,1820,Xã An Thái
+03072,1820,Thị trấn Trường Sơn
+030717,1820,Xã Trường Thọ
+030716,1820,Xã Trường Thành
+030715,1820,Xã Thái Sơn
+030714,1820,Xã Tân Viên
+030713,1820,Xã Tân Dân
+030712,1820,Xã Quốc Tuấn
+030711,1820,Xã Quang Trung
+030710,1820,Xã Quang Hưng
+03071,1820,Thị trấn An Lão
+31016,1819,Xã Tân Tiến
+31015,1819,Xã Quốc Tuấn
+31014,1819,Xã Nam Sơn
+31013,1819,Xã Lê Thiện
+31012,1819,Xã Lê Lợi
+31011,1819,Xã Hồng Thái
+31010,1819,Xã Hồng Phong
+31009,1819,Xã Đồng Thái
+31008,1819,Xã Đặng Cương
+31007,1819,Xã Đại Bản
+31006,1819,Xã Bắc Sơn
+31005,1819,Xã An Hưng
+31004,1819,Xã An Hồng
+31003,1819,Xã An Hoà
+31002,1819,Xã An Đồng
+31001,1819,Thị trấn An Dương
+30937,1726,Xã Trung Hà
+30936,1726,Xã Thuỷ Triều
+30935,1726,Xã Thuỷ Sơn
+30934,1726,Xã Thuỷ Đường
+30933,1726,Xã Thiên Hương
+30932,1726,Xã Tân Dương
+30931,1726,Xã Tam Hưng
+30930,1726,Xã Quảng Thanh
+30929,1726,Xã Phục Lễ
+30928,1726,Xã Phù Ninh
+30927,1726,Xã Phả Lễ
+30926,1726,Xã Ngũ Lão
+30925,1726,Xã Mỹ Đồng
+30924,1726,Xã Minh Tân
+30923,1726,Xã Lưu Kỳ
+30922,1726,Xã Lưu Kiếm
+30921,1726,Xã Liên Khê
+30920,1726,Xã Lập Lễ
+30919,1726,Xã Lâm Động
+30918,1726,Xã Lại Xuân
+30917,1726,Xã Kỳ Sơn
+30916,1726,Xã Kiền Bái
+30915,1726,Xã Kênh Giang
+30914,1726,Xã Hợp Thành
+30913,1726,Xã Hoàng Động
+30912,1726,Xã Hoa Động
+30911,1726,Xã Hoà Bình
+30910,1726,Xã Gia Minh
+30909,1726,Xã Gia Đức
+30908,1726,Xã Dương Quan
+30907,1726,Xã Đông Sơn
+30906,1726,Xã Chính Mỹ
+30905,1726,Xã Cao Nhân
+30904,1726,Xã An Sơn
+30903,1726,Xã An Lư
+30902,1726,Thị trấn Núi Đèo
+30901,1726,Thị trấn Minh Đức
+800264,1707,Phường Hải Sơn
+30607,1707,Phường Vạn Sơn
+30606,1707,Phường Vạn Hương
+30605,1707,Phường Ngọc Xuyên
+30604,1707,Phường Ngọc Hải
+30603,1707,Phường Minh Đức
+30602,1707,Phường Hợp Đức
+30601,1707,Phường Bàng La
+31506,1706,Phường Tân Thành
+31505,1706,Phường Hưng Đạo
+31504,1706,Phường Hoà Nghĩa
+31503,1706,Phường Hải Thành
+31502,1706,Phường Đa Phúc
+31501,1706,Phường Anh Dũng
+30508,1591,Phường Tràng Cát
+30507,1591,Phường Thành Tô
+30506,1591,Phường Nam Hải
+30505,1591,Phường Đông Hải 2
+30504,1591,Phường Đông Hải 1
+30503,1591,Phường Đằng Lâm
+30502,1591,Phường Đằng Hải
+30501,1591,Phường Cát Bi
+30410,1590,Phường Văn Đẩu
+30409,1590,Phường Tràng Minh
+30408,1590,Phường Trần Thành Ngọ
+30407,1590,Phường Quán Trữ
+30406,1590,Phường Phù Liễn
+30405,1590,Phường Ngọc Sơn
+30404,1590,Phường Nam Sơn
+30403,1590,Phường Lãm Hà
+30402,1590,Phường Đồng Hoà
+30401,1590,Phường Bắc Sơn
+30111,1589,Phường Trại Chuối
+30110,1589,Phường Thượng Lý
+30109,1589,Phường Sở Dầu
+30108,1589,Phường Quang Trung
+30107,1589,Phường Quán Toan
+30106,1589,Phường Phan Bội Châu
+30105,1589,Phường Phạm Hồng Thái
+30104,1589,Phường Minh Khai
+30103,1589,Phường Hùng Vương
+30102,1589,Phường Hoàng Văn Thụ
+30101,1589,Phường Hạ Lý
+30215,1588,Phường Vĩnh Niệm
+30214,1588,Phường Trần Nguyên Hãn
+30213,1588,Phường Trại Cau
+30212,1588,Phường Niệm Nghĩa
+30211,1588,Phường Nghĩa Xá
+30210,1588,Phường Lam Sơn
+30209,1588,Phường Kênh Dương
+30208,1588,Phường Hồ Nam
+30207,1588,Phường Hàng Kênh
+30206,1588,Phường Dư Hàng Kênh
+30205,1588,Phường Dư Hàng
+30204,1588,Phường Đông Hải
+30203,1588,Phường Cát Dài
+30202,1588,Phường An Dương
+30201,1588,Phường An Biên
+30313,1587,Phường Vạn Mỹ
+30312,1587,Phường Máy Tơ
+30311,1587,Phường Máy Chai
+30310,1587,Phường Lương Khánh Thiện
+30309,1587,Phường Lê Lợi
+30308,1587,Phường Lạch Tray
+30307,1587,Phường Lạc Viên
+30306,1587,Phường Gia Viên
+30305,1587,Phường Đổng Quốc Bình
+30304,1587,Phường Đông Khê
+30303,1587,Phường Đằng Giang
+30302,1587,Phường Cầu Tre
+30301,1587,Phường Cầu Đất
+190814,1969,Xã Trừng Xá
+190813,1969,Xã Trung Kênh
+190812,1969,Xã Trung Chính
+190811,1969,Xã Tân Lãng
+190810,1969,Xã Quảng Phú
+190809,1969,Xã Phú Lương
+190808,1969,Xã Phú Hòa
+190807,1969,Xã Mỹ Hương
+190806,1969,Xã Minh Tân
+190805,1969,Xã Lâm Thao
+190804,1969,Xã Lai Hạ
+190803,1969,Xã Bình Định
+190802,1969,Xã An Thịnh
+190801,1969,Thị trấn Thứa
+190214,1768,Xã Yên Trung
+190213,1768,Xã Yên Phụ
+190212,1768,Xã Văn Môn
+190211,1768,Xã Trung Nghĩa
+190210,1768,Xã Thụy Hòa
+190209,1768,Xã Tam Giang
+190208,1768,Xã Tam Đa
+190207,1768,Xã Long Châu
+190206,1768,Xã Hòa Tiến
+190205,1768,Xã Dũng Liệt
+190204,1768,Xã Đông Tiến
+190203,1768,Xã Đông Thọ
+190202,1768,Xã Đông Phong
+190201,1768,Thị trấn Chờ
+190618,1767,Xã Xuân Lâm
+190617,1767,Xã Trí Quả
+190616,1767,Xã Trạm Lộ
+190615,1767,Xã Thanh Khương
+190614,1767,Xã Song Liễu
+190613,1767,Xã Song Hồ
+190612,1767,Xã Ninh Xá
+190611,1767,Xã Nguyệt Đức
+190610,1767,Xã Ngũ Thái
+190609,1767,Xã Nghĩa Đạo
+190608,1767,Xã Mão Điền
+190607,1767,Xã Hoài Thượng
+190606,1767,Xã Hà Mãn
+190605,1767,Xã Gia Đông
+190604,1767,Xã Đình Tổ
+190603,1767,Xã Đại Đồng Thành
+190602,1767,Xã An Bình
+190601,1767,Thị trấn Hồ
+190714,1766,Xã Xuân Lai
+190713,1766,Xã Vạn Ninh
+190712,1766,Xã Thái Bảo
+190711,1766,Xã Song Giang
+190710,1766,Xã Quỳnh Phú
+190709,1766,Xã Nhân Thắng
+190708,1766,Xã Lãng Ngâm
+190707,1766,Xã Giang Sơn
+190706,1766,Xã Đông Cứu
+190705,1766,Xã Đại Lai
+190704,1766,Xã Đại Bái
+190703,1766,Xã Cao Đức
+190702,1766,Xã Bình Dương
+190701,1766,Thị trấn Gia Bình
+190512,1730,Xã Tương Giang
+190511,1730,Xã Tam Sơn
+190510,1730,Xã Phù Khê
+190509,1730,Xã Phù Chẩn
+190508,1730,Xã Hương Mạc
+190507,1730,Phường Trang Hạ
+190506,1730,Phường Tân Hồng
+190505,1730,Phường Đồng Nguyên
+190504,1730,Phường Đông Ngàn
+190503,1730,Phường Đồng Kỵ
+190502,1730,Phường Đình Bảng
+190501,1730,Phường Châu Khê
+190414,1729,Xã Việt Đoàn
+190413,1729,Xã Tri Phương
+190412,1729,Xã Tân Chi
+190411,1729,Xã Phú Lâm
+190410,1729,Xã Phật Tích
+190409,1729,Xã Nội Duệ
+190408,1729,Xã Minh Đạo
+190407,1729,Xã Liên Bão
+190406,1729,Xã Lạc Vệ
+190405,1729,Xã Hoàn Sơn
+190404,1729,Xã Hiên Vân
+190403,1729,Xã Đại Đồng
+190402,1729,Xã Cảnh Hưng
+190401,1729,Thị trấn Lim
+90794,1728,Phường Vân Dương
+190321,1728,Xã Yên Giả
+190320,1728,Xã Việt Thống
+190319,1728,Xã Việt Hùng
+190318,1728,Xã Quế Tân
+190317,1728,Xã Phượng Mao
+190316,1728,Xã Phương Liễu
+190315,1728,Xã Phù Lương
+190314,1728,Xã Phù Lãng
+190313,1728,Xã Nhân Hòa
+190312,1728,Xã Ngọc Xá
+190311,1728,Xã Mộ Đạo
+190310,1728,Xã Hán Quảng
+190309,1728,Xã Đức Long
+190308,1728,Xã Đào Viên
+190307,1728,Xã Đại Xuân
+190306,1728,Xã Chi Lăng
+190305,1728,Xã Châu Phong
+190304,1728,Xã Cách Bi
+190303,1728,Xã Bồng Lai
+190302,1728,Xã Bằng An
+190301,1728,Thị trấn Phố Mới
+190119,1644,Xã Nam Sơn
+190118,1644,Xã Kim Chân
+190117,1644,Xã Hòa Long
+190116,1644,Phường Vũ Ninh
+190115,1644,Phường Võ Cường
+190114,1644,Phường Vệ An
+190113,1644,Phường Vân Dương
+190112,1644,Phường Vạn An
+190111,1644,Phường Tiền An
+190110,1644,Phường Thị Cầu
+190109,1644,Phường Suối Hoa
+190108,1644,Phường Phong Khê
+190107,1644,Phường Ninh Xá
+190106,1644,Phường Kinh Bắc
+190105,1644,Phường Khúc Xuyên
+190104,1644,Phường Khắc Niệm
+190103,1644,Phường Hạp Lĩnh
+190102,1644,Phường Đáp Cầu
+190101,1644,Phường Đại Phúc
+171213,3199,Xã Vũ Oai
+171212,3199,Xã Thống Nhất
+171211,3199,Xã Tân Dân
+171210,3199,Xã Sơn Dương
+171209,3199,Xã Quảng La
+171208,3199,Xã Lê Lợi
+171207,3199,Xã Kỳ Thượng
+171206,3199,Xã Hòa Bình
+171205,3199,Xã Đồng Sơn
+171204,3199,Xã Đồng Lâm
+171203,3199,Xã Dân Chủ
+171202,3199,Xã Bằng Cả
+171201,3199,Thị trấn Trới
+171021,3185,Xã Yên Thọ
+171020,3185,Xã Yên Đức
+171019,3185,Xã Việt Dân
+171018,3185,Xã Tràng Lương
+171017,3185,Xã Tràng An
+171016,3185,Xã Thủy An
+171015,3185,Xã Tân Việt
+171014,3185,Xã Nguyễn Huệ
+171013,3185,Xã Hồng Thái Tây
+171012,3185,Xã Hồng Thái Đông
+171011,3185,Xã Hồng Phong
+171010,3185,Xã Hoàng Quế
+171009,3185,Xã Bình Khê
+171008,3185,Xã Bình Dương
+171007,3185,Xã An Sinh
+171006,3185,Phường Xuân Sơn
+171005,3185,Phường Mạo Khê
+171004,3185,Phường Kim Sơn
+171003,3185,Phường Hưng Đạo
+171002,3185,Phường Đức Chính
+171001,3185,Phường Đông Triều
+170610,3180,Xã Tân Lập
+170609,3180,Xã Tân Bình
+170608,3180,Xã Quảng Tân
+170607,3180,Xã Quảng Lợi
+170606,3180,Xã Quảng Lâm
+170605,3180,Xã Quảng An
+170604,3180,Xã Dực Yên
+170603,3180,Xã Đầm Hà
+170602,3180,Xã Đại Bình
+170601,3180,Thị trấn Đầm Hà
+170908,3126,Xã Thanh Sơn
+170907,3126,Xã Thanh Lâm
+170906,3126,Xã Nam Sơn
+170905,3126,Xã Minh Cầm
+170904,3126,Xã Lương Mông
+170903,3126,Xã Đồn Đạc
+170902,3126,Xã Đạp Thanh
+170901,3126,Thị trấn Ba Chẽ
+171403,2109,Xã Thanh Lân
+171402,2109,Xã Đồng Tiến
+171401,2109,Thị trấn Cô Tô
+171119,2066,Xã Tiền Phong
+171118,2066,Xã Tiền An
+171117,2066,Xã Sông Khoai
+171116,2066,Xã Liên Vị
+171115,2066,Xã Liên Hòa
+171114,2066,Xã Hoàng Tân
+171113,2066,Xã Hiệp Hòa
+171112,2066,Xã Cẩm La
+171111,2066,Phường Yên Hải
+171110,2066,Phường Yên Giang
+171109,2066,Phường Tân An
+171108,2066,Phường Quảng Yên
+171107,2066,Phường Phong Hải
+171106,2066,Phường Phong Cốc
+171105,2066,Phường Nam Hoà
+171104,2066,Phường Minh Thành
+171103,2066,Phường Hà An
+171102,2066,Phường Đông Mai
+171101,2066,Phường Cộng Hòa
+170812,2019,Xã Yên Than
+170811,2019,Xã Tiên Lãng
+170810,2019,Xã Phong Dụ
+170809,2019,Xã Hải Lạng
+170808,2019,Xã Hà Lâu
+170807,2019,Xã Đồng Rui
+170806,2019,Xã Đông Ngũ
+170805,2019,Xã Đông Hải
+170804,2019,Xã Điền Xá
+170803,2019,Xã Đại Thành
+170802,2019,Xã Đại Dực
+170801,2019,Thị trấn Tiên Yên
+170716,1940,Xã Tiến Tới
+170715,1940,Xã Quảng Trung
+170714,1940,Xã Quảng Thịnh
+170713,1940,Xã Quảng Thành
+170712,1940,Xã Quảng Thắng
+170711,1940,Xã Quảng Sơn
+170710,1940,Xã Quảng Phong
+170709,1940,Xã Quảng Minh
+170708,1940,Xã Quảng Long
+170707,1940,Xã Quảng Đức
+170706,1940,Xã Quảng Điền
+170705,1940,Xã Quảng Chính
+170704,1940,Xã Phú Hải
+170703,1940,Xã Đường Hoa
+170702,1940,Xã Cái Chiên
+170701,1940,Thị trấn Quảng Hà
+171312,1920,Xã Vạn Yên
+171311,1920,Xã Thắng Lợi
+171310,1920,Xã Quan Lạn
+171309,1920,Xã Ngọc Vừng
+171308,1920,Xã Minh Châu
+171307,1920,Xã Hạ Long
+171306,1920,Xã Đông Xá
+171305,1920,Xã Đoàn Kết
+171304,1920,Xã Đài Xuyên
+171303,1920,Xã Bình Dân
+171302,1920,Xã Bản Sen
+171301,1920,Thị trấn Cái Rồng
+170508,1896,Xã Vô Ngại
+170507,1896,Xã Tình Húc
+170506,1896,Xã Lục Hồn
+170505,1896,Xã Húc Động
+170504,1896,Xã Hoành Mô
+170503,1896,Xã Đồng Văn
+170502,1896,Xã Đồng Tâm
+170501,1896,Thị trấn Bình Liêu
+170311,1686,Xã Thượng Yên Công
+170310,1686,Xã Điền Công
+170309,1686,Phường Yên Thanh
+170308,1686,Phường Vàng Danh
+170307,1686,Phường Trưng Vương
+170306,1686,Phường Thanh Sơn
+170305,1686,Phường Quang Trung
+170304,1686,Phường Phương Nam
+170303,1686,Phường Phương Đông
+170302,1686,Phường Nam Khê
+170301,1686,Phường Bắc Sơn
+170216,1683,Xã Dương Huy
+170215,1683,Xã Cộng Hòa
+170214,1683,Xã Cẩm Hải
+170213,1683,Phường Quang Hanh
+170212,1683,Phường Mông Dương
+170211,1683,Phường Cửa Ông
+170210,1683,Phường Cẩm Trung
+170209,1683,Phường Cẩm Thủy
+170208,1683,Phường Cẩm Thịnh
+170207,1683,Phường Cẩm Thành
+170206,1683,Phường Cẩm Thạch
+170205,1683,Phường Cẩm Tây
+170204,1683,Phường Cẩm Sơn
+170203,1683,Phường Cẩm Phú
+170202,1683,Phường Cẩm Đông
+170201,1683,Phường Cẩm Bình
+800262,1604,Phường Hoành Bồ
+800208,1604,Thị Trấn Trới
+800207,1604,Xã Dân Chủ
+800195,1604,Xã Đồng Sơn
+800194,1604,Xã Đồng Lâm
+800193,1604,Xã Vũ Oai
+800192,1604,Xã Tân Dân
+800191,1604,Xã Thống Nhất
+800190,1604,Xã Sơn Dương
+800189,1604,Xã Quảng La
+800188,1604,Xã Lê Lợi
+800187,1604,Xã Kỳ Thượng
+800186,1604,Xã Hòa Bình
+800185,1604,Xã Bằng Cả
+170120,1604,Phường Yết Kiêu
+170119,1604,Phường Việt Hưng
+170118,1604,Phường Tuần Châu
+170117,1604,Phường Trần Hưng Đạo
+170116,1604,Phường Hùng Thắng
+170115,1604,Phường Hồng Hải
+170114,1604,Phường Hồng Hà
+170113,1604,Phường Hồng Gai
+170112,1604,Phường Hà Tu
+170111,1604,Phường Hà Trung
+170110,1604,Phường Hà Phong
+170109,1604,Phường Hà Lầm
+170108,1604,Phường Hà Khẩu
+170107,1604,Phường Hà Khánh
+170106,1604,Phường Giếng Đáy
+170105,1604,Phường Đại Yên
+170104,1604,Phường Cao Xanh
+170103,1604,Phường Cao Thắng
+170102,1604,Phường Bãi Cháy
+170101,1604,Phường Bạch Đằng
+170417,1603,Xã Vĩnh Trung
+170416,1603,Xã Vĩnh Thực
+170415,1603,Xã Vạn Ninh
+170414,1603,Xã Quảng Nghĩa
+170413,1603,Xã Hải Xuân
+170412,1603,Xã Hải Tiến
+170411,1603,Xã Hải Sơn
+170410,1603,Xã Hải Đông
+170409,1603,Xã Bắc Sơn
+170408,1603,Phường Trần Phú
+170407,1603,Phường Trà Cổ
+170406,1603,Phường Ninh Dương
+170405,1603,Phường Ka Long
+170404,1603,Phường Hoà Lạc
+170403,1603,Phường Hải Yên
+170402,1603,Phường Hải Hoà
+170401,1603,Phường Bình Ngọc
+440910,3135,Xã Thường Tân
+440909,3135,Xã Tân Thành
+440908,3135,Xã Tân Mỹ
+440907,3135,Xã Tân Lập
+440906,3135,Xã Tân Định
+440905,3135,Xã Tân Bình
+440904,3135,Xã Lạc An
+440903,3135,Xã Hiếu Liêm
+440902,3135,Xã Đất Cuốc
+440901,3135,Xã Bình Mỹ
+440807,3132,Xã Trừ Văn Thố
+440806,3132,Xã Tân Hưng
+440805,3132,Xã Long Nguyên
+440804,3132,Xã Lai Uyên
+440803,3132,Xã Lai Hưng
+440802,3132,Xã Hưng Hòa
+440801,3132,Xã Cây Trường II
+440611,1992,Xã Vĩnh Hoà
+440610,1992,Xã Tân Long
+440609,1992,Xã Tân Hiệp
+440608,1992,Xã Tam Lập
+440607,1992,Xã Phước Sang
+440606,1992,Xã Phước Hoà
+440605,1992,Xã An Thái
+440604,1992,Xã An Long
+440603,1992,Xã An Linh
+440602,1992,Xã An Bình
+440601,1992,Thị trấn Phước Vĩnh
+440712,1746,Xã Thanh Tuyền
+440711,1746,Xã Thanh An
+440710,1746,Xã Minh Thạnh
+440709,1746,Xã Minh Tân
+440708,1746,Xã Minh Hoà
+440707,1746,Xã Long Tân
+440706,1746,Xã Long Hoà
+440705,1746,Xã Định Thành
+440704,1746,Xã Định Hiệp
+440703,1746,Xã Định An
+440702,1746,Xã An Lập
+440701,1746,Thị trấn Dầu Tiếng
+440208,1696,Xã Phú An
+440207,1696,Xã An Tây
+440206,1696,Xã An Điền
+440205,1696,Phường Thới Hòa
+440204,1696,Phường Tân Định
+440203,1696,Phường Mỹ Phước
+440202,1696,Phường Hòa Lợi
+440201,1696,Phường Chánh Phú Hòa
+440312,1695,Xã Vĩnh Tân
+440311,1695,Xã Thạnh Hội
+440310,1695,Xã Tân Vĩnh Hiệp
+440309,1695,Xã Phú Chánh
+440308,1695,Xã Hội Nghĩa
+440307,1695,Xã Bạch Đằng
+440306,1695,Phường Uyên Hưng
+440305,1695,Phường Thạnh Phước
+440304,1695,Phường Thái Hòa
+440303,1695,Phường Tân Phước Khánh
+440302,1695,Phường Tân Hiệp
+440301,1695,Phường Khánh Bình
+440410,1541,Xã An Sơn
+440409,1541,Phường Vĩnh Phú
+440408,1541,Phường Thuận Giao
+440407,1541,Phường Lái Thiêu
+440406,1541,Phường Hưng Định
+440405,1541,Phường Bình Nhâm
+440404,1541,Phường Bình Hòa
+440403,1541,Phường Bình Chuẩn
+440402,1541,Phường An Thạnh
+440401,1541,Phường An Phú
+440507,1540,Phường Tân Đông Hiệp
+440506,1540,Phường Tân Bình
+440505,1540,Phường Đông Hòa
+440504,1540,Phường Dĩ An
+440503,1540,Phường Bình Thắng
+440502,1540,Phường Bình An
+440501,1540,Phường An Bình
+440114,1538,Phường Tương Bình Hiệp
+440113,1538,Phường Tân An
+440112,1538,Phường Phú Thọ
+440111,1538,Phường Phú Tân
+440110,1538,Phường Phú Mỹ
+440109,1538,Phường Phú Lợi
+440108,1538,Phường Phú Hòa
+440107,1538,Phường Phú Cường
+440106,1538,Phường Hoà Phú
+440105,1538,Phường Hiệp Thành
+440104,1538,Phường Hiệp An
+440103,1538,Phường Định Hoà
+440102,1538,Phường Chánh Nghĩa
+440101,1538,Phường Chánh Mỹ

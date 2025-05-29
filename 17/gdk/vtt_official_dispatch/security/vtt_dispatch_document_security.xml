@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Document Category Rule -->
+        <record id="document_category_user_rule" model="ir.rule">
+            <field name="name">Document Category User Rule</field>
+            <field ref="model_vtt_official_dispatch_category" name="model_id" />
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in',
+                company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('base.group_user'))]" />
+        </record>
+        <record id="document_category_admin_rule" model="ir.rule">
+            <field name="name">Document Category Admin Rule</field>
+            <field ref="model_vtt_official_dispatch_category" name="model_id" />
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in',
+                company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="groups"
+                eval="[(4,ref('base.group_system'))]" />
+        </record>
+        <!-- Document Request Rule -->
+        <record id="document_request_approver_rule" model="ir.rule">
+            <field name="name">Document Request Approvers Rule</field>
+            <field ref="model_vtt_official_dispatch_request" name="model_id" />
+            <field name="domain_force">[('state', '!=', 'draft')]</field>
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_approver'))]" />
+        </record>
+        <record id="document_request_editor_rule" model="ir.rule">
+            <field name="name">Document Request Editors Rule</field>
+            <field ref="model_vtt_official_dispatch_request" name="model_id" />
+            <field name="domain_force">[('state', '=', 'approve')]</field>
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_editor'))]" />
+        </record>
+
+        <record id="document_request_user_rule" model="ir.rule">
+            <field name="name">Document Request Users Rule</field>
+            <field ref="model_vtt_official_dispatch_request" name="model_id" />
+            <field name="domain_force">[('requestor_id','=',user.employee_id.id)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="groups"
+                eval="[(4,ref('hr.group_hr_user'))]" />
+        </record>
+
+        <!-- Document Request Detail Rule -->
+        <record id="document_request_detail_user_rule" model="ir.rule">
+            <field name="name">Document Request Detail Users Rule</field>
+            <field ref="model_vtt_official_dispatch_request_line" name="model_id" />
+            <field name="domain_force">[('requestor_id','=',user.employee_id.id)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="groups"
+                eval="[(4,ref('hr.group_hr_user'))]" />
+        </record>
+
+        <record id="document_request_detail_approver_rule" model="ir.rule">
+            <field name="name">Document Request Detail Approvers Rule</field>
+            <field ref="model_vtt_official_dispatch_request_line" name="model_id" />
+            <field name="domain_force">[('state', 'in', ['draft','approve'])]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_approver'))]" />
+        </record>
+
+        <record id="document_request_detail_editor_rule" model="ir.rule">
+            <field name="name">Document Request Detail Editors Rule</field>
+            <field ref="model_vtt_official_dispatch_request_line" name="model_id" />
+            <field name="domain_force">[('state', 'in',
+                ['approve','done','complete']),('composer_id','=',user.employee_id.id)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_editor'))]" />
+        </record>
+        <!-- Document Rule -->
+        <record id="document_user_rule" model="ir.rule">
+            <field name="name">Document User Rule</field>
+            <field ref="model_vtt_official_dispatch_document" name="model_id" />
+            <field name="domain_force">['&amp;',('requestor_user_id','=',user.id),'|',
+                ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('hr.group_hr_user'))]" />
+        </record>
+        <record id="document_editor_rule" model="ir.rule">
+            <field name="name">Document Editor Rule</field>
+            <field ref="model_vtt_official_dispatch_document" name="model_id" />
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in',
+                company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_editor'))]" />
+        </record>
+        
+        <record id="document_request_clerical_rule" model="ir.rule">
+            <field name="name">Document Request Clerical Rule</field>
+            <field ref="model_vtt_official_dispatch_request" name="model_id" />
+            <field name="domain_force">['&amp;',('state','in',['approve']),'|',
+                ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_clerical'))]" />
+        </record>
+        
+        <record id="document_request_line_clerical_rule" model="ir.rule">
+            <field name="name">Document Request Line Clerical Rule</field>
+            <field ref="model_vtt_official_dispatch_request_line" name="model_id" />
+            <field name="domain_force">['&amp;',('state','in',['done']),'|',
+                ('request_id.company_id', '=', False), ('request_id.company_id', 'in', company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_clerical'))]" />
+        </record>
+        <record id="document_clerical_rule" model="ir.rule">
+            <field name="name">Document Clerical Rule</field>
+            <field ref="model_vtt_official_dispatch_document" name="model_id" />
+            <field name="domain_force">['&amp;',('state','in',['send','confirm','sent']),'|',
+                ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('vtt_official_dispatch.group_official_dispatch_clerical'))]" />
+        </record>
+        <record id="document_receive_user_rule" model="ir.rule">
+            <field name="name">Document Receive User Rule</field>
+            <field ref="model_vtt_official_dispatch_receive" name="model_id" />
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in',
+                company_ids)]</field>
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+            <field name="groups"
+                eval="[(4,ref('base.group_user'))]" />
+        </record>
+    </data>
+</odoo>

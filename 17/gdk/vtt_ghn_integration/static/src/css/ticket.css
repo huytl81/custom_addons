@@ -1,0 +1,35 @@
+
+#stop, #panel, #flip {
+    padding:5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding:50px;
+    display:none;
+}
+
+.important {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.blue {
+  color: blue !important;
+}
+
+#div3 {
+    height:200px;
+    width:300px;
+    padding:10px;
+    margin: 3px;
+    border:1px solid black;
+    background-color:grey;
+}
+
+.intro1 {
+  font-size: 150%;
+  color: red;
+}

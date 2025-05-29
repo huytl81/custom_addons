@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Users default data-->
+    <data>
+        <record id="base.user_admin" model="res.users">
+            <field name="vtt_user_type">admin</field>
+        </record>
+    </data>
+</odoo>

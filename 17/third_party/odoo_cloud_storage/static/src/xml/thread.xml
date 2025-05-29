@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates xml:space="preserve">
+		<t t-extend="mail.AttachmentPreview">
+			<t t-jquery="a[t-att-href='attachment.url']" t-operation="replace">
+				<t t-if='attachment.exported'>
+					<a class="o_attachment_download" t-attf-href='{{attachment.url}}&amp;from_cloud=True' 
+					 t-attf-style="top:65%;color:{{attachment.color}};">
+						<i t-attf-class="fa fa-cloud-download"  role="img" 
+						aria-label="Download"></i>
+					</a>
+				</t>
+				<t t-if='!attachment.exported and attachment.color'>
+					<a role="button" class='o_attachment_download o_export_id_attachment' 
+					t-attf-style="color:{{attachment.color}};top:65%;" t-att-data-id="attachment.id" t-on-click="_uploadAtatchmentToCloud">
+						<span style="padding:0;">
+							<i t-attf-class='fa fa-cloud-upload'/>
+						</span>
+					</a>
+				</t>
+				<a class="o_attachment_download" t-att-href='attachment.url'>
+						<i t-attf-class="fa fa-download text-white" 
+						t-att-title="'Download ' + attachment.name" 
+						role="img" aria-label="Download"></i>
+				</a>
+			</t>
+		</t>
+		<t t-extend="mail.Attachment">
+			<t t-jquery="a[class='ml4 o_attachment_download float-right']" t-operation="replace">
+				<a class="ml4 o_attachment_download float-right" t-att-title="'Download ' + attachment.name" 
+					t-att-href='attachment.url'><i t-attf-class="fa fa-download" role="img" aria-label="Download"/></a>
+				<t t-if='attachment.exported'>
+					<a class="ml4 o_attachment_download float-right"  
+						t-attf-href='{{attachment.url}}&amp;from_cloud=True'
+						t-attf-style="margin-right:2%;color:{{attachment.color}};"><i t-attf-class="fa fa-cloud-download" 
+						role="img" aria-label="Download"/></a>
+				</t>
+				<t t-if='!attachment.exported and attachment.color'>
+					<a role="button" class='ml4 o_attachment_download float-right o_export_id_attachment' 
+					t-attf-style="color:{{attachment.color}};margin-right:2%;" t-att-data-id="attachment.id" t-on-click="_uploadAtatchmentToCloud">
+						<span style="right:10%;">
+							<i t-attf-class='fa fa-cloud-upload'/>
+						</span>
+					</a>
+				</t>
+			</t>
+		</t>
+	</templates>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Parameters-->
+    <data>
+        <!--Disable digest email-->
+        <!--<record id="digest.default_emails_digest" model="ir.config_parameter">
+            <field name="value" eval="False"/>
+        </record>-->
+    </data>
+</odoo>

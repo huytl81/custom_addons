@@ -1,0 +1,33 @@
+<odoo>
+    <!-- Partner views -->
+  <data>
+
+    <record id="zalo_partner_form_inherit" model="ir.ui.view">
+        <field name="name">Zalo - Inherit Partner form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+<!--      <field name="mode">form</field>-->
+      <field name="arch" type="xml">
+          <xpath expr="//div[@class='oe_button_box']" position="before">
+              <field name="zalo_id" invisible="1"/>
+              <div class="vtt_zalo_customer" invisible="not zalo_id">
+                  <span class="o_tag position-relative d-inline-flex align-items-center user-select-none mw-100 o_badge badge rounded-pill lh-1 o_tag_color_2" tabindex="-1" data-color="2" title="Zalo customer">
+                    <div class="o_tag_badge_text text-truncate">Khách hàng Zalo</div>
+                  </span>
+                  <br/>
+              </div>
+          </xpath>
+          <field name="function" position="before">
+            <field name="birth_day" />
+            <field name="sex"/>
+          </field>
+      </field>
+    </record>
+
+      <!-- hide sale order from zalo if state = draft and customer_confirmed = False -->
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="domain">[('type', 'not in', ['delivery'])]</field>
+    </record>
+
+  </data>
+</odoo>

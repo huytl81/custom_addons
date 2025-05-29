@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Analytic Account default-->
+    <data noupdate="1">
+        <!-- Analytic Plans -->
+        <record id="vtt_analytic_plan_mro" model="account.analytic.plan">
+            <field name="name">MRO</field>
+            <field name="default_applicability">optional</field>
+        </record>
+
+        <!-- Analytic Accounts -->
+        <record id="vtt_analytic_mro" model="account.analytic.account">
+            <field name="name">MRO</field>
+            <field name="plan_id" ref="vtt_mro.vtt_analytic_plan_mro"/>
+        </record>
+    </data>
+</odoo>

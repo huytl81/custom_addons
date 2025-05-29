@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Export Template Report-->
+    <data>
+        <record id="vtt_report_analytic_budget_template_py3o" model="ir.actions.report">
+            <field name="name">Export Budget Template</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">vtt.analytic.budget.template</field>
+            <field name="report_name">py3o_budget_template</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">xlsx</field>
+            <field name="module">vtt_analytic_budget</field>
+            <field name="py3o_template_fallback">report/budget_template_export.ods</field>
+            <field
+                name="print_report_name"
+            >object.name.replace(' ', '_') + '-template'</field>
+            <field name="binding_model_id" ref="model_vtt_analytic_budget_template" />
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

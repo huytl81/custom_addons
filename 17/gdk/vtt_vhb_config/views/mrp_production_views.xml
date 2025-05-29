@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--MRP Production views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_mrp_production_inherited" model="ir.ui.view">
+            <field name="name">MRP Production Form Inherited</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='product_id']" position="before">
+                    <field name="product_default_code" optional="show"/>
+                </xpath>
+
+                <xpath expr="//page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='product_id']" position="attributes">
+                    <attribute name="context">
+                        {
+                        'default_detailed_type': 'product',
+                        'display_default_code': False
+                        }
+                    </attribute>
+                </xpath>
+
+                <!--Add Material Deadline-->
+                <xpath expr="//page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='product_uom']" position="after">
+                    <field name="date_material_deadline" optional="show" column_invisible="parent.state in ['draft', 'cancel']"/>
+                </xpath>
+
+                <field name="user_id" position="before">
+                    <label for="date_material_deadline" invisible="state in ['draft', 'cancel']"/>
+                    <div class="o_row g-0 d-flex" invisible="state in ['draft', 'cancel']">
+                        <field name="date_material_deadline" class="oe_inline"/>
+                        <button type="object" name="action_apply_material_deadline" title="Apply All" icon="fa-calendar-check-o"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

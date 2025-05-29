@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        <record id="view_zalo_message_template_tree" model="ir.ui.view">
+            <field name="name">zalo.message.template.tree</field>
+            <field name="model">zalo.message.template</field>
+            <field name="arch" type="xml">
+                <tree string="Zalo Message Templates">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="enable"/>
+                    <field name="order_event"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_zalo_message_template_form" model="ir.ui.view">
+            <field name="name">zalo.message.template.form</field>
+            <field name="model">zalo.message.template</field>
+            <field name="arch" type="xml">
+                <form string="Zalo Message Template">
+                    <header invisible="type != 'zns_transaction'">
+                        <button name="action_activate" type="object" string="Kích hoạt" class="btn-primary" invisible="enable == True"/>
+                        <button name="action_deactivate" type="object" string="Bỏ kích hoạt" class="btn-secondary" invisible="enable != True"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" string="Tên mẫu"/>
+                            <field name="type" string="Mẫu tin"/>
+                            <field name="enable" string="Kích hoạt" invisible="type != 'zns_transaction'"/>
+                            <field name="order_event" string="Gửi khi" invisible="type != 'zns_transaction'"/>
+                            <field name="zns_template_id" string="ZNS Template Id" invisible="type != 'zns_transaction'"/>
+                            <field name="image" widget="image" string="Ảnh" invisible="type != 'oa_promotion'"/>
+                            <field name="title" string="Tiêu đề" invisible="type != 'oa_promotion'"/>
+                            <field name="content" string="Nội dung" invisible="type != 'oa_promotion'"/>
+<!-- <field name="loyalty_program_id" string="Voucher" invisible="type != 'oa_promotion'"/> -->
+                            <field name="parameter_ids" context="{'default_template_id': active_id}" string="Tham số">
+                                <tree editable="bottom">
+                                    <field name="key"/>                                    
+                                    <field name="data_from"/>                                    
+                                </tree>
+                            </field>
+                            <field name="table_vals" context="{'default_template_id': active_id}" string="Bảng giá trị" invisible="type != 'oa_promotion'">
+                                <tree editable="bottom">
+                                    <field name="key"/>
+                                    <field name="value" string="Giá trị"/>
+                                </tree>
+                            </field>
+                            <field name="button_ids" context="{'default_template_id': active_id}" string="Nút" invisible="type != 'oa_promotion'">
+                                <tree editable="bottom">
+                                    <field name="name" string="Tên nút"/>
+                                    <field name="action_type" string="Hành động"/>
+                                    <field name="action_value" string="Giá trị"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_zalo_message_template" model="ir.actions.act_window">
+            <field name="name">Mẫu tin</field>
+            <field name="res_model">zalo.message.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_zalo_message_template" name="Mẫu tin" parent="vtt_zalo_mini_app.vtt_menu_zalo_root" action="action_zalo_message_template"/>
+    </data>
+</odoo>

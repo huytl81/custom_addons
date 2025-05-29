@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <record id="view_zalo_message_log_tree" model="ir.ui.view">
+            <field name="name">zalo.message.log.tree</field>
+            <field name="model">zalo.message.log</field>
+            <field name="arch" type="xml">
+                <tree default_order="create_date desc">
+                    <field name="message_title" string="Tin"/>
+                    <field name="recipient_id" string="Người nhận"/>
+                    <field name="phone" string="SĐT"/>
+                    <field name="campaign_id" string="Chiến dịch"/>
+                    <field name="status" decoration-success="status == 'sent'" decoration-danger="status == 'error'" string="Trạng thái"/>
+                    <field name="message_type" string="Loại tin"/>
+                    <field name="error_code" string="Mã lỗi"/>
+                    <field name="error_message" string="Lỗi"/>
+                    <field name="create_date" string="Thời gian"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_zalo_message_log_form" model="ir.ui.view">
+            <field name="name">zalo.message.log.form</field>
+            <field name="model">zalo.message.log</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="template_id"/>
+                            <field name="message_type" string="Loại tin"/>
+                            <field name="recipient_id"/>
+                            <field name="phone"/>
+                            <field name="campaign_id"/>
+                            <field name="status"/>                            
+                            <field name="error_code"/>
+                            <field name="error_message"/>
+                            <field name="create_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_zalo_message_log" model="ir.actions.act_window">
+            <field name="name">Zalo Message Logs</field>
+            <field name="res_model">zalo.message.log</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu chỉ hiển thị cho System Administrator -->
+        <menuitem id="menu_zalo_message_log" 
+                  name="Message Logs" 
+                  parent="vtt_zalo_mini_app.vtt_menu_zalo_root" 
+                  action="action_zalo_message_log" 
+                  groups="base.group_system"/>
+    </data>
+</odoo>

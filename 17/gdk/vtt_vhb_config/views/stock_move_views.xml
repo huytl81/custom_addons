@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Move views-->
+    <data>
+        <!--List view adding fields-->
+        <record id="vtt_view_tree_stock_move_line_add_origin" model="ir.ui.view">
+            <field name="name">Stock Move Line List add Origin</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="reference" position="after">
+                    <field name="picking_partner_id" optional="hide"/>
+                    <field name="origin" optional="hide"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

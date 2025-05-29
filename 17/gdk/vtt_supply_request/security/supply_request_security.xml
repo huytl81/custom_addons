@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Security groups-->
+    <data>
+        <!--Active multi location settings-->
+        <record id="base.group_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_multi_locations'))]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_zalo_message_campaign_wizard_form" model="ir.ui.view">
+        <field name="name">zalo.message.campaign.wizard.form</field>
+        <field name="model">zalo.message.campaign.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Partners">
+                <group>
+                    <field name="partner_ids" widget="many2many_checkboxes"/>
+                </group>
+                <footer>
+                    <button string="Add" type="object" name="action_add_partners" class="btn-primary"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zalo_message_campaign_wizard_search" model="ir.ui.view">
+        <field name="name">zalo.message.campaign.wizard.search</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Company" name="company" domain="[('is_company', '=', True)]"/>
+                <filter string="Individual" name="individual" domain="[('is_company', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zalo_message_campaign_wizard" model="ir.actions.act_window">
+        <field name="name">Add Partners</field>
+        <field name="res_model">zalo.message.campaign.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'search_default_filter': 1}</field>
+    </record>
+</odoo>

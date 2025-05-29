@@ -1,0 +1,120 @@
+<odoo>
+    <!-- Sale order views -->
+  <data>
+
+    <record id="zalo_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">Zalo - Inherit Sale order form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+<!--      <field name="mode">form</field>-->
+      <field name="arch" type="xml">
+          <field name="name" position="before">
+              <field name="is_online_order" invisible="1"/>
+              <field name="zalo_payment_state" invisible="1"/>
+               <div class="vtt_zalo_customer" invisible="not is_online_order">
+                  <span class="o_tag position-relative d-inline-flex align-items-center user-select-none mw-100 o_badge badge rounded-pill lh-1 o_tag_color_2" tabindex="-1" data-color="2" title="Zalo customer">
+                    <div class="o_tag_badge_text text-truncate">Đơn hàng Online</div>
+                  </span>
+
+                   <span class="o_tag position-relative d-inline-flex align-items-center user-select-none mw-100 o_badge badge rounded-pill lh-1 o_tag_color_1" tabindex="-1" data-color="2" title="Zalo customer" invisible="zalo_payment_state=='paid'">
+                    <div class="o_tag_badge_text text-truncate">Chưa thanh toán</div>
+                  </span>
+                   <span class="o_tag position-relative d-inline-flex align-items-center user-select-none mw-100 o_badge badge rounded-pill lh-1 o_tag_color_7" tabindex="-1" data-color="2" title="Zalo customer" invisible="zalo_payment_state=='unpaid'">
+                    <div class="o_tag_badge_text text-truncate">Đã thanh toán</div>
+                  </span>
+                  <br/>
+              </div>
+          </field>
+          <field name="partner_id" position="after">
+            <field name="delivery_address_id" invisible="not is_online_order"/>
+              <field name="payment_method" invisible="not is_online_order"/>
+              <field name="shipping_method" invisible="not is_online_order"/>
+<!--              <field name="is_online_order"/>-->
+<!--              <field name="customer_confirmed"/>-->
+          </field>
+
+          <button name="action_open_discount_wizard" position="before">
+                <button name="apply_loyalty_reward"
+                        type="object"
+                        string="Apply loyalty reward"
+                        help="Update current promotional lines and select new rewards if applicable."
+                        class="btn btn-secondary"/>
+            </button>
+      </field>
+    </record>
+
+
+      <!-- Inherit Sale Order tree view -->
+<!--      <record id="zalo_sale_order_tree_inherit" model="ir.ui.view">-->
+<!--          <field name="name">Zalo - Inherit Sale order tree</field>-->
+<!--          <field name="model">sale.order</field>-->
+<!--          <field name="inherit_id" ref="sale.sale_order_tree"/>-->
+<!--&lt;!&ndash;          <field name="mode">tree</field>&ndash;&gt;-->
+<!--          <field name="arch" type="xml">-->
+<!--              <field name="user_id" position="before">-->
+<!--                  <field name="source_id"/>-->
+<!--                  <field name="payment_method"/>-->
+<!--&lt;!&ndash;                  <field name="state_for_employee"&ndash;&gt;-->
+<!--&lt;!&ndash;                    decoration-success="state == 'sale'"&ndash;&gt;-->
+<!--&lt;!&ndash;                    decoration-info="state == 'draft'"&ndash;&gt;-->
+<!--&lt;!&ndash;                    decoration-primary="state == 'sent'"&ndash;&gt;-->
+<!--&lt;!&ndash;                    widget="badge"/>&ndash;&gt;-->
+<!--              </field>-->
+<!--          </field>-->
+<!--      </record>-->
+
+      <record id="vtt_zalo_sale_order_tree" model="ir.ui.view">
+        <field name="name">vtt.zalo.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree string="zalo sale order tree">
+<!--                <field name="sequence" widget="handle"/>-->
+<!--                <field name="state" invisible="1"/>-->
+                <field name="name" decoration-bf="1"/>
+                <field name="create_date"/>
+                <field name="partner_id"/>
+                <field name="payment_method"/>
+                <field name="shipping_method"/>
+                <field name="zalo_payment_state"
+                       decoration-bf="zalo_payment_state =='paid'"
+                       decoration-success="zalo_payment_state == 'paid'"
+                       decoration-primary="zalo_payment_state == 'unpaid'"
+                />
+                <field name="amount_total"
+                       widget="monetary"
+                       decoration-bf="1"
+                       />
+                                  <field name="state_for_employee"
+                    decoration-success="state_for_employee == 'done'"
+                    decoration-info="state_for_employee == 'draft'"
+                    decoration-primary="state_for_employee == 'sale'"
+                    widget="badge"/>
+                <!--                <field name="website_id" groups="website.group_multi_website"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <record id="vtt_zalo_sale_order_tree_action" model="ir.actions.act_window">
+        <field name="name">Zalo sale order tree</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="vtt_zalo_sale_order_tree"/>
+        <field name="context">{'default_is_online_order': true}</field>
+<!--        <field name="domain">[('lhv_order_type', '=', 'land_order')]</field>-->
+<!--        <field name="help" type="html">-->
+<!--          <p class="o_view_nocontent_smiling_face">-->
+<!--            Define a new category-->
+<!--          </p><p>-->
+<!--            Categories are used to browse your products through the-->
+<!--            touchscreen interface.-->
+<!--          </p>-->
+<!--        </field>-->
+    </record>
+
+      <!-- hide sale order from zalo if state = draft and customer_confirmed = False -->
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="domain">[('is_online_order', '=', False)]</field>
+        <field name="context">{'default_is_online_order': False}</field>
+    </record>
+  </data>
+</odoo>

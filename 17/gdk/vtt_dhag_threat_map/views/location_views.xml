@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Location views-->
+    <data>
+        <record id="vtt_view_map_investigate_location" model="ir.ui.view">
+            <field name="name">Investigate Location Map</field>
+            <field name="model">investigate.location</field>
+            <field name="arch" type="xml">
+                <map res_partner="address_id">
+                    <field name="phone" string="Phone"/>
+                    <field name="email" string="Email"/>
+                    <field name="campaign_count" string="Campaigns"/>
+                </map>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_dhag_threat_analysis.vtt_act_window_investigate_location" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,map</field>
+        </record>
+    </data>
+</odoo>

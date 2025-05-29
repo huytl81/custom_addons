@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Picking views-->
+    <data>
+        <!--Kanban view add Import Wizard-->
+        <record id="vtt_view_form_stock_picking_custom_import" model="ir.ui.view">
+            <field name="name">Stock Picking Form add Import Wizard</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <button name="custom_import_moves" type="object" string="Import Lines" invisible="state in ('done', 'cancel')"/>
+                </header>
+            </field>
+        </record>
+    </data>
+</odoo>

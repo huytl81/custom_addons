@@ -1,0 +1,93 @@
+<odoo>
+    <!-- Library App Menu -->
+    <menuitem id="library_base_menu"
+                name="Library"
+                web_icon="library_app,static/description/icon.png"
+                groups="library_app.group_library_user,library_app.group_library_manager"/>
+
+    <!-- Action to open the Category Book list -->
+    <record id="action_library_category_book" model="ir.actions.act_window">
+        <field name="name">Library Category Books</field>
+        <field name="res_model">library.book.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <!-- Menu item to open the Category Book list -->
+    <menuitem   id="library_category_book_menu"
+                name="Category Books"
+                parent="library_base_menu"
+                action="action_library_category_book"
+                groups="library_app.group_library_manager"
+                sequence="10"/>
+
+    <!-- Action to open the Book list -->
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Library Books</field>
+        <field name="res_model">library.book</field>
+        <!--<field name="view_mode">tree,form,m2m_group</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_filter_active': True}</field>
+    </record>
+    <!-- Menu item to open the Book list -->
+    <menuitem   id="library_book_menu"
+                name="Books"
+                parent="library_base_menu"
+                action="action_library_book"
+                sequence="20"/>
+
+    <record id='action_library_book_rent' model='ir.actions.act_window'>
+        <field name="name">Book on rent</field>
+        <field name="res_model">library.book.rent</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <menuitem name="Book on rent"
+                id="library_book_rent_menu"
+                parent="library_base_menu"
+                action="action_library_book_rent"
+                sequence="40"/>
+
+    <record id='action_library_book_rent_wizard' model='ir.actions.act_window'>
+        <field name="name">Give on Rent</field>
+        <field name="res_model">library.rent.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem   name ="Give on Rent"
+                id="wizard_rent_books_menu"
+                parent="library_base_menu"
+                action="action_library_book_rent_wizard"
+                sequence="60"/>
+
+    <record id='action_library_book_return_wizard' model='ir.actions.act_window'>
+        <field name="name">Return Books</field>
+        <field name="res_model">library.return.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_wizard_return_books"
+                parent="library_base_menu"
+                action="action_library_book_return_wizard"
+                sequence="70"/>
+
+    <menuitem id="menu_library_configuration"
+              name="Configuration"
+              parent="library_base_menu"
+              sequence="80"
+              groups="library_app.group_library_manager"/>
+
+    <record id="action_library_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'library_app'}</field>
+    </record>
+    <menuitem id="library_book_setting_menu"
+              name="Settings"
+              parent="library_base_menu"
+              action="action_library_config_settings"
+              sequence="90"
+              groups="base.group_user"/>
+</odoo>

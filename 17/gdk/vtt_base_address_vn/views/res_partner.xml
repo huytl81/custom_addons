@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="add_ward_to_res_partner">
+            <field name="name">add.ward.to.res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='street2']" position="after">
+                    <field name="ward_id" placeholder="Ward..." class="o_address_street" />
+                    <field name="district_id" placeholder="District..." class="o_address_street" />
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="/form//form//field[@name='street2']" position="after">
+                    <field name="ward_id" placeholder="Ward..." class="o_address_street" />
+                    <field name="district_id" placeholder="District..." class="o_address_street" />
+                </xpath>
+                <xpath expr="/form//form//field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

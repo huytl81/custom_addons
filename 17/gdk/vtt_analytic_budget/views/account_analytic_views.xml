@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Account Analytic views-->
+    <data>
+        <!--Form view add Budget template-->
+        <record id="vtt_view_form_account_analytic_budget_template" model="ir.ui.view">
+            <field name="name">Analytic Account Form add Budget Template</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+
+                <field name="plan_id" position="after">
+                    <field name="vtt_budget_template_id"/>
+                </field>
+
+                <sheet position="before">
+                    <header>
+                        <button name="get_budget_template_items" type="object" string="Load Budget Template" class="btn-primary" invisible="not vtt_budget_template_id or vtt_budget_line_ids"/>
+                        <!--<button name="get_budget_template_items" type="object" string="Load Budget Template" invisible="not vtt_budget_template_id or not vtt_budget_line_ids" confirm="Load Budget Template will delete all current budget items."/>-->
+                        <button name="update_budget_items_from_template" type="object" string="Update Budget Template" invisible="not vtt_budget_template_id or not vtt_budget_line_ids"/>
+                        <button name="re_arrange_lines" string="Re-Arrange" type="object" class="btn-primary" invisible="not vtt_budget_line_ids"/>
+                    </header>
+                </sheet>
+
+                <xpath  expr="//group[@name='main']" position='after'>
+                    <notebook>
+                        <page string="Budget Items" name="budget_items">
+                            <field name="vtt_budget_line_ids" widget="hierarchy_list" mode="tree,kanban">
+                                <tree string="Budget Items" editable="bottom" decoration-warning="is_incurred" limit="160">
+                                    <control>
+                                        <create name="add_section_control" string="Add a category" context="{'default_type': 'group'}"/>
+                                    </control>
+                                    <field name="account_analytic_id" column_invisible="1"/>
+                                    <field name="product_uom_category_id" column_invisible="True"/>
+                                    <field name="type" column_invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" required="type == 'group'"/>
+                                    <field name="full_path" column_invisible="1"/>
+                                    <field name="full_sequence" column_invisible="1"/>
+                                    <field name="level" column_invisible="1"/>
+                                    <field name="parent_id" domain="[('type', '=', 'group'), ('account_analytic_id', '=', account_analytic_id), ('id', '!=', id), '!', ('id', 'child_of', id) ]" context="{'search_default_account_analytic_id': account_analytic_id}" optional="hide"/>
+                                    <field name="product_id" domain="['|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" widget="sol_product_many2one" readonly="type == 'group'" required="type == 'item'"/>
+                                    <field name="product_uom_qty" readonly="type == 'group'" optional="show"/>
+                                    <field name="product_uom" string="UoM" groups="uom.group_uom" options="{'no_open': True}" force_save="1" optional="show" readonly="type == 'group'"/>
+
+                                    <field name="price_unit" readonly="type == 'group'" optional="show"/>
+                                    <button name="change_price_unit_side" type="object" icon="fa-level-up" aria-label="To Positive" title="To Positive" invisible="price_unit &gt; 0 or type == 'group'"/>
+                                    <button name="change_price_unit_side" type="object" icon="fa-level-down" aria-label="To Negative" title="To Negative" invisible="price_unit &lt;= 0 or type == 'group'"/>
+                                    <field name="planned_amount" widget="monetary"/>
+                                    <field name="practical_amount" widget="monetary"/>
+                                    <!--<field name="theoritical_amount" sum="Theoretical Amount" widget="monetary" optional="hide"/>-->
+                                    <field name="percentage" widget="percentage"/>
+                                    <field name="is_incurred" optional="hide"/>
+
+                                    <button name="action_add_item_wz" type="object" icon="fa-plus" aria-label="Add Items" title="Add Items" invisible="type == 'item'"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="is_above_budget" column_invisible="1"/>
+                                </tree>
+                            </field>
+
+                            <!--Sum-->
+                            <group col="12" class="oe_invoice_lines_tab">
+                                <field name="vtt_planned_amount_payable" invisible="1"/>
+                                <field name="vtt_practical_amount_payable" invisible="1"/>
+                                <group colspan="3"/>
+                                <group colspan="9" col="12">
+                                    <group colspan="4">
+                                        <field name="vtt_planned_amount_available" string="Available"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="vtt_practical_amount_available" string=""/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="vtt_amount_available_percentage" widget="percentage" string=""/>
+                                    </group>
+                                </group>
+
+                                <group colspan="3"/>
+                                <group colspan="9" col="12">
+                                    <group colspan="4">
+                                        <field name="vtt_planned_amount_payable_display" string="Payable"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="vtt_practical_amount_payable_display" string=""/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="vtt_amount_payable_percentage" widget="percentage" string=""/>
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

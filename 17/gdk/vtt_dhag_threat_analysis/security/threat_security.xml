@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Security Groups-->
+    <data>
+        <!--Group Category-->
+        <record id="vtt_categ_group_threat_analysis" model="ir.module.category">
+            <field name="name">Threat Analysis Access</field>
+        </record>
+
+        <record id="vtt_group_threat_analysis_manager" model="res.groups">
+            <field name="name">Threat Analysis Manager</field>
+            <field name="category_id" ref="vtt_categ_group_threat_analysis"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!--Group system inherit Threat Manager-->
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4,ref('vtt_dhag_threat_analysis.vtt_group_threat_analysis_manager'))]"/>
+        </record>
+
+        <!--Hidden groups for display configure-->
+        <record id="vtt_group_app_hidden" model="res.groups">
+            <field name="name">Features Readonly</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="base.group_system" model="res.groups">
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+    </data>
+
+    <!--Security Rules-->
+    <data>
+    </data>
+</odoo>

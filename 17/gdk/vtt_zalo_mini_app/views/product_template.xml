@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+
+    <record id="zalo_product_template_only_form_view_inherit" model="ir.ui.view">
+        <field name="name">zalo.product.template.only.form.inherit</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+<!--      <field name="mode">form</field>-->
+      <field name="arch" type="xml">
+          <xpath expr="//group[@name='description']" position="inside">            
+            <field name="zalo_description_sale" string="Mô tả sản phẩm trên Zalo" placeholder="Nhập mô tả ..."/>
+            <field name="zalo_categ_ids" widget="many2many_tags" string="Danh mục sản phẩm Zalo" optional="show"/>
+            </xpath>
+      </field>
+    </record>
+
+    <!-- Inherit and update kanban view for product.template -->
+    <record id="zal_product_template_kanban_view_inherit" model="ir.ui.view">
+        <field name="name">zalo.product.template.kanban.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_price']" position="after">
+                <br/>                
+                <field name="zalo_categ_ids" widget="many2many_tags" string="Danh mục sản phẩm Zalo"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit and update tree view for product.template -->
+    <record id="product_template_tree_view_inherit" model="ir.ui.view">
+        <field name="name">product.template.tree.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="after">                
+                <field name="zalo_categ_ids" widget="many2many_tags" string="Danh mục sản phẩm Zalo"/>
+            </xpath>            
+        </field>
+    </record>
+
+  </data>
+<!--    <field name="inherit_id" ref="product.product_pricelist_view_tree"/>-->
+<!--    <page string="Sales" name="sales" invisible="1 or not sale_ok">-->
+<!--                            <group name="sale">-->
+<!--                                <group string="Upsell &amp; Cross-Sell" name="upsell" invisible="1"/>-->
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <group string="Sales Description" name="description">-->
+<!--                                    <field colspan="2" name="description_sale" nolabel="1" placeholder="This note is added to sales orders and invoices."/>-->
+<!--                                </group>-->
+<!--                            </group>-->
+<!--                        </page>-->
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <!-- Action to open the Book list -->
+    <record id="action_library_member" model="ir.actions.act_window">
+        <field name="name">Library Member</field>
+        <field name="res_model">library.member</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu item to open the Book list -->
+    <menuitem id="menu_library_member"
+                name="Members"
+                parent="library_app.library_base_menu"
+                action="action_library_member"
+                sequence="50"/>
+</odoo>

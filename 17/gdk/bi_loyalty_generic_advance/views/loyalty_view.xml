@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem parent="bi_loyalty_generic.menu_web_loyalty_id" name="Loyalty Points" id="menu_web_loyalty"
+                  sequence="7"/>
+
+        <record id="view_res_partner_loyalty_form" model="ir.ui.view">
+            <field name="name">res.partner.website.loyalty.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after">
+                    <field name="loyalty_deactivate"/>
+                    <field name="tier_id" invisible="loyalty_deactivate == 'True'"/>
+                    <field name="ribbon_color" widget="color_picker" invisible="1"/>
+                    <field name="ribbon_text" invisible="1"/>
+                    <field name="red" invisible="1"/>
+                    <field name="orange" invisible="1"/>
+                    <field name="yellow" invisible="1"/>
+                    <field name="sky" invisible="1"/>
+                    <field name="purple" invisible="1"/>
+                    <field name="pink" invisible="1"/>
+                    <field name="medium_blue" invisible="1"/>
+                    <field name="blue" invisible="1"/>
+                    <field name="fushia" invisible="1"/>
+                    <field name="green" invisible="1"/>
+                    <field name="light_purple" invisible="1"/>
+                    <field string="Loyalty Points" name="loyalty_pts" invisible="1"/>
+                    <field name="total_sales" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_partner_ribbon_form_view">
+            <field name="name">res.partner.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='image_1920']" position="before">
+                    <widget name="web_ribbon" title=" " invisible="red == False"
+                            bg_color="bg-ribbon-red"/>
+                    <widget name="web_ribbon" title=" " invisible="orange == False"
+                            bg_color="bg-ribbon-orange"/>
+                    <widget name="web_ribbon" title=" " invisible="yellow == False" 
+                            bg_color="bg-ribbon-yellow"/>
+                    <widget name="web_ribbon" title=" " invisible="sky == False" 
+                            bg_color="bg-ribbon-sky"/>
+                    <widget name="web_ribbon" title=" " invisible="purple == False" 
+                            bg_color="bg-ribbon-purple"/>
+                    <widget name="web_ribbon" title=" " invisible="pink == False" 
+                            bg_color="bg-ribbon-pink"/>
+                    <widget name="web_ribbon" title=" " invisible="medium_blue == False" 
+                            bg_color="bg-ribbon-medium_blue"/>
+                    <widget name="web_ribbon" title=" " invisible="blue == False" 
+                            bg_color="bg-ribbon-blue"/>
+                    <widget name="web_ribbon" title=" " invisible="fushia == False" 
+                            bg_color="bg-ribbon-fushia"/>
+                    <widget name="web_ribbon" title=" " invisible="green == False" 
+                            bg_color="bg-ribbon-green"/>
+                    <widget name="web_ribbon" title=" " invisible="light_purple == False" 
+                            bg_color="bg-ribbon-light_purple"/>
+
+                </xpath>
+            </field>
+        </record>
+
+        <record id="loyalty_setting_form_view" model="ir.ui.view">
+            <field name="name">loyalty.setting.form.view</field>
+            <field name="model">all.loyalty.setting</field>
+            <field name="inherit_id" ref="bi_loyalty_generic.web_loyalty_setting_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='expiry_date']" position="after">
+                    <field name="loyalty_tier"/>
+                    <field name="max_range" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="loyalty_history_tree_view" model="ir.ui.view">
+            <field name="name">loyalty.history.tree.view</field>
+            <field name="model">all.loyalty.history</field>
+            <field name="inherit_id" ref="bi_loyalty_generic.view_web_loyalty_history_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="state"/>
+                    <field name="check_state" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="loyalty_history_form_view" model="ir.ui.view">
+            <field name="name">loyalty.history.form.view</field>
+            <field name="model">all.loyalty.history</field>
+            <field name="inherit_id" ref="bi_loyalty_generic.web_loyalty_history_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='points']" position="after">
+                    <field name="credit_value"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="sale_order_loyalty_form_view">
+            <field name="name">sale.order.loyalty.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tax_totals']" position="before">
+                    <field name="total_sales" force_save="1" string="Total Sales" widget='monetary' invisible="1"/>
+                    <field name="order_credit_points" readonly="1" string="Loyalty Points Earned"/>
+                    <field name="order_redeem_points" readonly="1" string="Loyalty Points Redeemed"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

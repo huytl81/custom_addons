@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Odoo Cloud Storage Subtypes for messaging / Chatter -->
+        <record id="mt_cloud_message" model="mail.message.subtype">
+            <field name="name">Message</field>
+            <field name="res_model">cloud.odoo.connection</field>
+            <field name="default" eval="False"/>
+        </record>
+
+        <record id="mt_cloud_folder_message" model="mail.message.subtype">
+            <field name="name">Message</field>
+            <field name="res_model">cloud.folder.mapping</field>
+            <field name="default" eval="False"/>
+        </record>
+		
+        <record id="mt_cloud_file_message" model="mail.message.subtype">
+            <field name="name">Message</field>
+            <field name="res_model">cloud.odoo.file.mapping</field>
+            <field name="default" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

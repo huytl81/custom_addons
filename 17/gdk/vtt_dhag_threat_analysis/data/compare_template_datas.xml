@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Comparison Templates-->
+    <data noupdate="1">
+        <!--Malware Template-->
+        <record id="vtt_threat_comparison_template_malware" model="threat.comparison.template">
+            <field name="name">Default Malware Comparison Template</field>
+            <field name="type">threat.malware</field>
+            <field name="compare_field_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__command_line')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__data_stolen')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__devices')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__frequent_api_calls')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__malware_technique')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__malware_filename')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__malware_type_id')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__md5')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__sha1')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__sha256')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__mime_type')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__name')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_threat_malware__score_float')
+                    }),
+            ]"/>
+        </record>
+
+        <!--Investigate Template-->
+        <record id="vtt_threat_comparison_template_investigate" model="threat.comparison.template">
+            <field name="name">Default Investigate Comparison Template</field>
+            <field name="type">investigate.investigate</field>
+            <field name="compare_field_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_investigate_investigate__department')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_investigate_investigate__operation_system')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_investigate_investigate__preliminary_summary')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_investigate_investigate__softwares')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_investigate_investigate__connect_type')
+                    }),
+                (0, 0, {
+                    'field_id': ref('vtt_dhag_threat_analysis.field_investigate_investigate__device_type')
+                    }),
+            ]"/>
+        </record>
+    </data>
+</odoo>

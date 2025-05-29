@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="display_ghn_fee_button">
+            <field name="name">display.ghn.fee.button</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='customer_signature']" position="after">
+                    <page  string="Shipping Information" name="shipping_information">
+                        <group>
+                            <group name="volume_info" string="Volume">
+                                <field name="weight" readonly="1" />
+                            </group>
+                            <group name="payment_info" string="Payment">
+                                <field name="payment_type" readonly="1" />
+                                <field name="required_note" readonly="1" />
+                                <field name="ghn_order_code"  invisible="1"/>
+                            </group>
+                            <group name="convert_volume_info" string="Volume Converted">
+                                <field name="length" readonly="1" />
+                                <field name="width" readonly="1" />
+                                <field name="height" readonly="1" />
+                                <field name="convert_volume" readonly="1" />
+                            </group>
+                        </group>
+<!--                        <field name="ghn_order_code"  invisible="1"/>-->
+<!--                        <div>-->
+<!--                            <label for="payment_type"/>:-->
+<!--                            <field name="payment_type" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label for="required_note"/>:-->
+<!--                            <field name="required_note" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label for="weight"/>:-->
+<!--                            <field name="weight" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+<!--                        <separator string="Khối lượng (DxRxC/5000)"/>-->
+<!--                        <div>-->
+<!--                            <label for="length"/>:-->
+<!--                            <field name="length" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label for="width"/>:-->
+<!--                            <field name="width" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label for="height"/>:-->
+<!--                            <field name="height" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label for="convert_volume"/>:-->
+<!--                            <field name="convert_volume" readonly="1" class="oe_inline"/>-->
+<!--                        </div>-->
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+</odoo>

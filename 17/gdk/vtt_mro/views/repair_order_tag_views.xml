@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Repair Order Tag views-->
+    <data>
+        <!--List view-->
+        <record id="vtt_view_tree_repair_order_tag" model="ir.ui.view">
+            <field name="name">Tag List</field>
+            <field name="model">vtt.repair.order.tag</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_repair_order_tag" model="ir.actions.act_window">
+            <field name="name">Tags</field>
+            <field name="res_model">vtt.repair.order.tag</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_repair_config_repair_tag"
+                  name="Repair Tags"
+                  action="vtt_act_window_repair_order_tag"
+                  parent="vtt_menu_repair_config_repair"
+                  sequence="10"/>
+    </data>
+</odoo>

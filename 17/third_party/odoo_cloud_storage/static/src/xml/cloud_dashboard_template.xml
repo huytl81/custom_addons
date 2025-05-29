@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="cloud_template" xml:space="preserve">
+	<t t-name="cloud_dashboard_template">
+		<div t-name="CloudKanbanWidget" class="o_cloud_kanban_banner container-fluid" id="cloud_storage_dashboard">
+			<div class="mb-5 header">
+				<div class="col-12 text-center">
+					<span class="banner_image" style="background-image: url('/odoo_cloud_storage/static/src/img/layout_illustration_illustation-main-banner.png');background-position: center;"></span>
+					<div class="banner_content">
+						<h1 class="mt-3">ODOO CLOUD STORAGE</h1>
+						<p class="mb-3">odoo cloud storage is a solution of storing all the attachments to cloud and import from cloud</p>
+						<div class="row">
+							<div class="mb-3 mt-3 col-12">
+								<span class="btn btn-default mr-3 mb-2 dashboard_operation" id='import' t-on-click="on_open_wizard">
+									<img class='image_space' src="/odoo_cloud_storage/static/src/img/icon-import.png"/>
+								IMPORT</span>
+								<span class="btn btn-default mr-3 mb-2 dashboard_operation" id='export' t-on-click="on_open_wizard">
+									<img class='image_space' src="/odoo_cloud_storage/static/src/img/icon-download.png"/>
+								EXPORT</span>
+								<span class="btn btn-default mr-3 mb-2 dashboard_operation" id='add' t-on-click="on_open_wizard">
+									<img class='image_space' src="/odoo_cloud_storage/static/src/img/icon-add.png"/>
+								ADD</span>
+							</div>
+							<div class="support col-12">
+								<span class="btn btn-link mr-3 mb-2">
+									<a href='https://webkul.uvdesk.com/en/customer/create-ticket' target='_blank'>
+										<img class='image_space' src="/odoo_cloud_storage/static/src/img/Icon-Support.png"/>
+						SUPPORT</a>
+								</span>
+								<span class="btn btn-link mr-3 mb-2">
+									<a href='https://webkul.com/blog' target='_blank'>
+										<img class='image_space' src="/odoo_cloud_storage/static/src/img/icon-guide.png"/>
+							GUIDE</a>
+								</span>
+								<span class="btn btn-link mr-3 mb-2">
+									<a href='https://webkul.com/blog' target='_blank'>
+										<img class='image_space' src="/odoo_cloud_storage/static/src/img/Union.png"/>
+						EXTENSION
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row mt-5 folder_files">
+				<div class="col-12 col-sm-12 col-md-6">
+					<h5 class="mb-4">TOTAL FOLDER</h5>
+					<div class="row">
+						<div class="col-lg-4 col-md-12 col-12">
+							<canvas id='cloud_dashboard_folder'/>
+						</div>
+						<div class="col-lg-8 col-md-12 col-12">
+							<h6>Total Folder</h6>
+							<p class="mb-3 mt-3">This Doughnut Graph shows the information about the cloud folder mapping by status(draft,error,done)</p>
+							<!-- <div class="px-12">
+								<div class="d-inline change_folder_graph" id="draft" t-on-click="change_folder_graph">
+									<i class="fa fa-square mr-4" style="color:#FFA775"/>
+									<span>Draft</span>
+								</div>
+								<div class="d-inline rect change_folder_graph" id="error" t-on-click="change_folder_graph">
+									<i class="fa fa-square mr-4" style="color:#5665EF"/>
+									<span>Error</span>
+								</div>
+								<div class="d-inline  rect change_folder_graph" id="done" t-on-click="change_folder_graph">
+									<i class="fa fa-square mr-4" style="color:#56D3EF"/>
+									<span>Done</span>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-12 col-md-6">
+					<h5 class="mb-4">TOTAL FILES</h5>
+					<div class="row">
+						<div class="col-lg-4 col-md-12 col-12">
+							<canvas id='cloud_dashboard_file'/>
+						</div>
+						<div class="col-lg-8 col-md-12 col-12">
+							<h6>Total Files</h6>
+							<p class="mb-3 mt-3">This Doughnut Graph shows the information about the files mapped with cloud by status(draft,error,need sync,done)</p>
+							<!-- <div class="px-12">
+								<div class="d-inline change_graph" id='draft' t-on-click="change_file_graph">
+									<i class="fa fa-square mr-3" style="color:#FFA775"/>
+									<span>Draft</span>
+								</div>
+								<div class="d-inline rect change_graph" id='need_sync' t-on-click="change_file_graph">
+									<i class="fa fa-square mr-3" style="color:#FFA397"/>
+									<span>Update</span>
+								</div>
+								<div class="d-inline rect change_graph" id='error' t-on-click="change_file_graph">
+									<i class="fa fa-square mr-3" style="color:#5665EF"/>
+									<span>Error</span>
+								</div>
+								<div class="d-inline rect change_graph" id='done' t-on-click="change_file_graph">
+									<i class="fa fa-square mr-3" style="color:#56D3EF"/>
+									<span>Done</span>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-5 clouds_folders">
+				<div class="col-12 col-sm-12 col-md-6 mt-4">
+					<div class="head_section d-flex justify-content-between align-items-center">
+						<h5>STORAGE DRIVE</h5>
+						<a role="button" class='click_function class_cursor' id='connection' t-on-click="open_list_view">View all</a>
+					</div>
+					<div class="row justify-content-center ml-1 mr-1 shadow" style="max-height: 68%;">
+						<t t-foreach="connection_data" t-as="t" t-key="t_index">
+							<div class="col-12 p-5" style="background: #FFFFFF;">
+								<div>
+									<div class="row">
+										<div class='col-4'>
+											<div class="img_container">
+												<img t-att-src="t.icon" class="img img-fluid"/>
+											</div>
+										</div>
+										<div class="col-4 my-5 name" style="border-left: 1px solid #DEE2E6;">
+											<p class='open_connection class_cursor' t-att-data-id="t.id" t-on-click="open_form_connection">
+												<t t-esc='t.name'/>
+											</p>
+											<a t-att-href="t.url" target='_blank'>visit <t t-esc='t.storage_type'/>
+											</a>
+										</div>
+										<!-- <div class="dot text-right">
+											<span>...</span>
+										</div> -->
+										<div class="col-4 dot dropdown text-right">
+											<button type="button" class="btn my-5 float-right" data-toggle="dropdown">
+												<i class="fa fa-circle"></i>
+												<i class="fa fa-circle"></i>
+												<i class="fa fa-circle"></i>
+											</button>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class='dropdown-item open_folder_connection class_cursor' t-att-data-id="t.id" t-on-click="open_connection_view">Files</a>
+												<a class='dropdown-item open_file_connection class_cursor' t-att-data-id="t.id" t-on-click="open_connection_view">Folders</a>
+												<a class='dropdown-item open_file_setting class_cursor' t-att-data-id="t.id" t-on-click="open_connection_view">Setting</a>
+
+											</div>
+										</div>
+										<span class='w-100 pt-2 pb-2' style="border-top: 1px solid #DEE2E6;"></span>
+									</div>
+									<div class="row border">
+										<div class="folder text-center p-2 col-6">
+											<div>
+												<div>
+													<img src="/odoo_cloud_storage/static/src/img/icon-folder.png" class="img img-fluid"/>
+													<span class="p-2 my-1">Folder</span>
+													<span class="text-center" style="margin-top: 2px;">
+														<t t-esc='t.folder_count'/>
+													</span>
+												</div>
+
+											</div>
+										</div>
+										<div class="file p-2 col-6 text-center">
+											<div class="">
+												<div>
+													<img src="/odoo_cloud_storage/static/src/img/File-icon.png" class="img img-fluid"/>
+													<span class="p-2 my-1">File</span>
+													<span class="text-center" style="margin-top: 2px;">
+														<t t-esc='t.file_count'/>
+													</span>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</t>
+					</div>
+				</div>
+				<div class="col-12 col-sm-12 col-md-6 mt-4">
+					<div class="head_section d-flex justify-content-between align-items-center">
+						<h5>FOLDERS</h5>
+						<a role="button" class='click_function class_cursor' id='folder' t-on-click="open_list_view">View all</a>
+					</div>
+					<div class="row justify-content-center ml-1 mr-1 shadow" style="max-height: 68%;overflow: auto;">
+						<div class="col-12 p-5" style="background: #FFFFFF;">
+							<t t-foreach='folder_extra_data' t-as="t" t-key="t_index">
+								<div class="folder_item d-flex justify-content-between align-items-center ">
+									<img src="/odoo_cloud_storage/static/src/img/icon-folder.png" class="img img-fluid"/>
+									<p class='class_cursor open_folder' t-att-data-id="t" t-on-click="open_form_folder">
+										<t t-esc='folder_extra_data[t].name'/>
+									</p>
+									<p>
+										<t t-esc='folder_extra_data[t].file_count'/>
+									</p>
+								</div>
+							</t>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-5 folders_storage">
+				<div class="col-12 col-sm-12 col-md-6">
+					<div class="head_section mt-4 d-flex justify-content-between align-items-center">
+						<h5>STORAGE DRIVE</h5>
+						<a role="button" class='click_function class_cursor' id='folder' t-on-click="open_list_view">View all</a>
+					</div>
+					<div class="wrapper">
+						<table class="table table-sm table-striped">
+							<thead>
+								<tr>
+									<th scope="col">Name</th>
+									<th scope="col">Permission</th>
+									<th scope="col">State</th>
+									<th scope="col">File Count</th>
+									<th scope="col">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<t t-foreach='folder_extra_data' t-as="t" t-key="t_index">
+									<tr>
+										<td>
+											<t t-esc='folder_extra_data[t].name'/>
+										</td>
+										<td>Allowed</td>
+										<td>
+											<t t-esc='folder_extra_data[t].state'/>
+										</td>
+										<td>
+											<t t-esc='folder_extra_data[t].file_count'/>
+										</td>
+										<td>
+											<t t-esc='folder_extra_data[t].date'/>
+										</td>
+									</tr>
+								</t>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-12 col-sm-12 col-md-6">
+					<div class="head_section d-flex mt-4 justify-content-between align-items-center">
+						<h5>Overall Storage Record</h5>
+					</div>
+					<div class="storage_record">
+						<h6>Storage</h6>
+						<p>View all sorage records</p>
+						<div class="line_js_wrapper">
+							<div class="d-flex justify-content-between">
+								<span>0<t t-esc='data_type'/>
+								</span>
+								<span>
+									<t t-esc='total_attachment_sum'/>
+								</span>
+							</div>
+							<div class='line_js_wrapper'>
+								<div class="d-flex line_js" id='bar_graph'>
+									<!-- Data Uploaded By Jquery -->
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="record_item_wrapper">
+						<t t-foreach='attachment_data' t-as="t" t-key="t_index">
+							<div class="record_item d-flex justify-content-between align-items-center">
+								<div class="img">
+									<img t-att-src="attachment_data[t].img_url" class="img img-fluid"/>
+								</div>
+								<div class="record_type d-flex">
+									<span>
+										<t t-esc='t'/>
+									</span>
+									<span>
+										<t t-esc='attachment_data[t].total_files'/> Files</span>
+								</div>
+								<p>
+									<t t-esc='attachment_data[t].total_size'/>
+								</p>
+							</div>
+						</t>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+</templates>
+    

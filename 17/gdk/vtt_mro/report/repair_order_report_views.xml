@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Repair Order Report views-->
+    <data>
+        <!--Pivot view-->
+        <record id="vtt_view_pivot_repair_order_report" model="ir.ui.view">
+             <field name="name">Repair Order Report Pivot</field>
+             <field name="model">vtt.repair.order.report</field>
+             <field name="arch" type="xml">
+                 <pivot string="Repair Order Analysis" sample="1">
+                     <field name="user_id" type="col"/>
+                     <field name="dt_order" interval="month" type="row"/>
+                     <field name="order_reference" type="measure"/>
+                     <field name="price_subtotal" type="measure"/>
+                 </pivot>
+             </field>
+        </record>
+
+        <!--Graph view-->
+        <record id="vtt_view_graph_repair_order_report" model="ir.ui.view">
+             <field name="name">Repair Order Report Graph</field>
+             <field name="model">vtt.repair.order.report</field>
+             <field name="arch" type="xml">
+                 <graph string="Repair Order Analysis" type="line" sample="1">
+                     <field name="dt_order" interval="day"/>
+                     <field name="price_subtotal" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+        <!--Graph view Pie-->
+        <record id="vtt_view_graph_pie_repair_order_report" model="ir.ui.view">
+            <field name="name">Repair Order Report Graph Pie</field>
+            <field name="model">vtt.repair.order.report</field>
+            <field name="inherit_id" ref="vtt_view_graph_repair_order_report"/>
+            <field name="arch" type="xml">
+                 <graph position="attributes">
+                    <attribute name="type">pie</attribute>
+                </graph>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_repair_order_report" model="ir.ui.view">
+            <field name="name">Repair Order Report List</field>
+            <field name="model">vtt.repair.order.report</field>
+            <field name="arch" type="xml">
+                <tree string="Repair Order Analysis">
+                    <field name="dt_order" widget="date"/>
+                    <field name="order_reference" optional="show"/>
+                    <field name="partner_id" optional="hide"/>
+                    <field name="product_id" string="Product" optional="show"/>
+                    <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+                    <field name="company_id" optional="show" groups="base.group_multi_company"/>
+                    <field name="price_subtotal" optional="hide" sum="Sum of Untaxed Total"/>
+                    <field name="price_total" optional="show" sum="Sum of Total"/>
+                    <field name="state" optional="hide"/>
+                    <field name="currency_id" column_invisible="True"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_repair_order_report" model="ir.ui.view">
+             <field name="name">Repair Order Report Filter</field>
+             <field name="model">vtt.repair.order.report</field>
+             <field name="arch" type="xml">
+                 <search string="Repair Order Analysis">
+                     <field name="dt_order"/>
+                     <field name="user_id"/>
+                     <field name="product_id"/>
+                     <field name="categ_id"/>
+                     <field name="partner_id"/>
+                     <!--<field name="country_id"/>
+                     <field name="industry_id"/>-->
+                     <separator/>
+                    <filter string="My Orders" domain="[('user_id', '=', uid)]" name="my_orders"/>
+                    <separator/>
+                    <filter string="Confirmed" domain="[('state', '=', 'confirm')]" name="state_confirm"/>
+                    <filter string="Repairing" domain="[('state', '=', 'under_repair')]" name="state_repair"/>
+                    <filter string="Repaired" domain="[('state', '=', 'repaired')]" name="state_repaired"/>
+                    <filter string="Done" domain="[('state', '=', 'done')]" name="state_done"/>
+                    <separator/>
+                     <filter string="Order Date" name="filter_dt_order" date="dt_order" default_period="this_month"/>
+                     <filter name="filter_dt_last_year" invisible="1" string="Order Date: Last 365 Days" domain="[('dt_order', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(days=-365), datetime.time(0,0,0))).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                    <!--<separator/>
+                    <filter string="Close Date" name="filter_dt_done" date="dt_done" default_period="this_month"/>-->
+                     <group expand="0" string="Group By...">
+                        <filter string="Partner" name="groupby_partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Equipment" name="groupby_equipment" domain="[]" context="{'group_by': 'equipment_id'}"/>
+                        <filter string="Product" name="groupby_product" domain="[]" context="{'group_by': 'product_id'}"/>
+                         <filter string="Product Category" name="groupby_product_categ" domain="[]" context="{'group_by': 'categ_id'}"/>
+                        <filter string="User" name="groupby_user" domain="[]" context="{'group_by': 'user_id'}"/>
+                        <filter string="Order Date" name="groupby_dt_order" domain="[]" context="{'group_by': 'dt_order:month'}"/>
+                        <filter string="Status" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                        <filter string="Company" name="company" groups="base.group_multi_company" context="{'group_by':'company_id'}"/>
+                    </group>
+                 </search>
+             </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_repair_order_report" model="ir.actions.act_window">
+            <field name="name">Repair Order Analysis</field>
+            <field name="res_model">vtt.repair.order.report</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="domain">[('state', '!=', 'cancel')]</field>
+            <!--<field name="context">
+                {'search_default_state_repaired':1,
+                'search_default_state_done':1,
+                'group_by_no_leaf':1,'group_by':[],
+                'search_default_filter_dt_last_year': 1}
+            </field>-->
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_repair_report_repair_order"
+                  name="Repair Order Analysis"
+                  action="vtt_act_window_repair_order_report"
+                  parent="vtt_menu_repair_report"
+                  sequence="10"/>
+    </data>
+</odoo>

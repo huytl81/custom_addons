@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Budget Register Wz views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_budget_register_wz" model="ir.ui.view">
+            <field name="name">Budget Register Wizard</field>
+            <field name="model">vtt.budget.register.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="budget_warn" invisible="1"/>
+
+                        <div class="alert alert-info text-center o_form_header" invisible="not budget_warn">
+                            <div>
+                                <strong>The transaction already linked to a budget item. Please consider before continue.</strong>
+                            </div>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="account_analytic_id"/>
+                            </group>
+                            <group>
+                                <field name="budget_line_id"
+                                       domain="[('account_analytic_id', '=', account_analytic_id)]"
+                                       context="{
+                                       'product_suggest_ids': budget_available_ids,
+                                       'search_view_ref': 'vtt_analytic_budget.vtt_view_search_analytic_budget_line_context',
+                                       'search_default_filter_suggest': True}"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Items">
+                                <field name="analytic_next_ids" invisible="1"/>
+                                <field name="analytic_line_ids" domain="[('vtt_budget_line_id', '=', False)]"/>
+                            </page>
+                            <page string="Budgets" invisible="1">
+                                <field name="budget_available_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string="Register Budget" name="apply_budget_register" type="object" class="btn-primary" data-hotkey="q" invisible="not budget_warn" confirm="The already linked budget item will change to new one after confirm."/>
+                        <button string="Register Budget" name="apply_budget_register" type="object" class="btn-primary" data-hotkey="q" invisible="budget_warn"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_budget_register_wz" model="ir.actions.act_window">
+            <field name="name">Budget Register</field>
+            <field name="res_model">vtt.budget.register.wz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="analytic.model_account_analytic_line"/>
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+</odoo>

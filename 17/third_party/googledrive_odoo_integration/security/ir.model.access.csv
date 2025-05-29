@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_call_googledrive_api_user,Call Googledrive Api User,model_call_googledrive_api,odoo_cloud_storage.group_cloud_user,1,1,0,0
+access_call_googledrive_api_manager,Call Googledrive Api Manager,model_call_googledrive_api,odoo_cloud_storage.group_cloud_manager,1,1,1,1
+access_call_googledrive_api_public,Call Googledrive Api Public,model_call_googledrive_api,,1,1,0,0
+access_call_googledrive_api_all,Call Googledrive Api All,model_call_googledrive_api,,1,1,1,1
+
+

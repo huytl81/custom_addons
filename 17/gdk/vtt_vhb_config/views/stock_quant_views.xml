@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Quant views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_tree_stock_quant_inherited" model="ir.ui.view">
+            <field name="name">Stock Quant List Inherited</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="product_tag_ids" widget="many2many_tags" optional="show"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

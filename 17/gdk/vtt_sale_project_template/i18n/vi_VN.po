@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_sale_project_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-08 03:16+0000\n"
+"PO-Revision-Date: 2024-08-08 03:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_sale_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_project_template.vtt_view_form_sale_order_project_template
+msgid "<span class=\"o_stat_text\">Manager Project</span>"
+msgstr "<span class=\"o_stat_text\">Dự án quản lý</span>"
+
+#. module: vtt_sale_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_project_template.vtt_view_form_sale_order_project_template
+msgid "Create Project"
+msgstr "Tạo Dự án"
+
+#. module: vtt_sale_project_template
+#: model:ir.model.fields,field_description:vtt_sale_project_template.field_sale_order__vtt_project_id
+msgid "Project"
+msgstr "Dự án"
+
+#. module: vtt_sale_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_project_template.vtt_view_form_sale_order_template_project_template
+msgid "Project Settings"
+msgstr "Cấu hình Dự án"
+
+#. module: vtt_sale_project_template
+#: model:ir.model.fields,field_description:vtt_sale_project_template.field_sale_order__project_template_id
+#: model:ir.model.fields,field_description:vtt_sale_project_template.field_sale_order_template__project_template_id
+msgid "Project Template"
+msgstr "Mẫu Dự án"
+
+#. module: vtt_sale_project_template
+#: model:ir.model,name:vtt_sale_project_template.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Mẫu báo giá"
+
+#. module: vtt_sale_project_template
+#: model:ir.model,name:vtt_sale_project_template.model_sale_order
+msgid "Sales Order"
+msgstr "Đơn bán hàng"

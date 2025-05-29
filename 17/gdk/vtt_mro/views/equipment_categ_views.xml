@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Equipment Category views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_equipment_categ" model="ir.ui.view">
+            <field name="name">Equipment Category Form</field>
+            <field name="model">vtt.equipment.categ</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header></header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Category"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+
+                        <group col="2">
+                            <field name="parent_id" class="oe_inline"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_equipment_categ" model="ir.ui.view">
+            <field name="name">Equipment Category List</field>
+            <field name="model">vtt.equipment.categ</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="display_name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_equipment_categ" model="ir.actions.act_window">
+            <field name="name">Equipment Categories</field>
+            <field name="res_model">vtt.equipment.categ</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_repair_config_repair_categ"
+                  name="Equipment Categories"
+                  action="vtt_act_window_equipment_categ"
+                  parent="vtt_menu_repair_config_repair"
+                  sequence="20"/>
+    </data>
+</odoo>

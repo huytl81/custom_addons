@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Menu Root -->
+        <menuitem
+            id="menu_vtt_document_root"
+            name="Documents"
+            groups="base.group_user"
+            web_icon="vtt_official_dispatch,static/description/icon.png"
+        />
+        <!-- Menu Master Data -->
+        <menuitem id="menu_vtt_document_master_data"
+            name="Master Data"
+            parent="vtt_official_dispatch.menu_vtt_document_root"
+            sequence="10" />
+        <menuitem id="menu_vtt_document_category"
+            name="Document Category"
+            action="vtt_official_dispatch_category_view_action"
+            parent="vtt_official_dispatch.menu_vtt_document_master_data"
+            groups="base.group_system"
+            sequence="1" />
+        <!-- Menu Dispatch -->
+        <menuitem id="menu_vtt_document_dispatch_document"
+            name="Dispatch Document"
+            parent="vtt_official_dispatch.menu_vtt_document_root"
+            sequence="1" />
+        <menuitem id="menu_vtt_document_request"
+            name="Request Document"
+            action="vtt_official_dispatch_request_view_action"
+            parent="vtt_official_dispatch.menu_vtt_document_dispatch_document"
+            sequence="1" />
+        <menuitem id="menu_vtt_document_request_details"
+            name="Request Document Detail"
+            action="vtt_official_dispatch_request_detail_view_action"
+            parent="vtt_official_dispatch.menu_vtt_document_dispatch_document"
+            sequence="3" />
+            
+        <!-- Menu Document -->
+        <menuitem id="menu_vtt_all_documents"
+            name="Outgoing documents"
+            action="vtt_official_dispatch_document_view_action"
+            parent="vtt_official_dispatch.menu_vtt_document_root"
+            sequence="3" />
+        <!-- Menu Dispatch Receive -->
+        <menuitem
+            id="menu_vtt_official_dispatch_receive"
+            action="vtt_official_dispatch.vtt_official_dispatch_action"
+            name="Dispatch Receive"
+            groups="base.group_user"
+            parent = "vtt_official_dispatch.menu_vtt_document_root"
+            sequence="5"
+            />
+    </data>
+</odoo>

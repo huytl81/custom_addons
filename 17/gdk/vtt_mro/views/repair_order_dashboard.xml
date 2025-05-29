@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_client_repair_order_dashboard"  model="ir.actions.client">
+           <field name="name">Repair Order Dashboard</field>
+           <field name="tag">vtt_ro_dashboard_tag</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem name="Dashboard"
+                  id="vtt_menu_repair_dashboard_repair_order"
+                  parent="vtt_menu_repair_dashboard"
+                  action="vtt_act_client_repair_order_dashboard"
+                  sequence="10"/>
+    </data>
+</odoo>
