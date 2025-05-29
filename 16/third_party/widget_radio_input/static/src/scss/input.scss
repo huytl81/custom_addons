@@ -1,0 +1,9 @@
+.form-check-input:checked[type="radio"] {
+    box-shadow: 0 0 0 1px #b3bac2;
+    border: 3px solid #FFF;
+    background: #1e90ff;
+}
+
+.form-check:not(:disabled):not(.disabled):hover .form-check-input:checked {
+    border-color: #ffffff;
+}

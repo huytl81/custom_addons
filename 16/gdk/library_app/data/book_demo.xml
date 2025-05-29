@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo noupdate="1">
+    <!-- Data to load -->
+    <record model="res.partner" id="res_partner_huxley">
+        <field name="name">Aldous Huxley</field>
+    </record>
+    <record model="res.partner" id="res_partner_pga" >
+        <field name="name">Parth Gajjar</field>
+    </record>
+
+    <record model="library.book" id="library_book_bnw">
+        <field name="name">Brave New World</field>
+        <field name="author_ids" eval="[ref('res_partner_huxley'), ref('res_partner_daniel')]"/>
+        <field name="date_published">1932-01-01</field>
+    </record>
+    <record model="library.book" id="library_book_sw">
+        <field name="name">It's a small world</field>
+        <field name="publisher_id" ref="res_partner_wiley" />
+        <field name="author_ids" eval="[(6, 0, [ref('res_partner_pga'),ref('res_partner_huxley'),ref('res_partner_daniel')])]" />
+        <field name="date_published">1929-12-12</field>
+    </record>
+
+    <record id="book_category_all" model="library.book.category" forcecreate="true">
+        <field name="name">All books</field>
+    </record>
+    <record id="book_category_culture" model="library.book.category" forcecreate="true">
+        <field name="name">Culture</field>
+    </record>
+    <record id="book_category_tourism" model="library.book.category" forcecreate="false">
+        <field name="name">Tourism</field>
+    </record>
+    <record id="book_category_sports" model="library.book.category" forcecreate="true">
+        <field name="name">Sports</field>
+    </record>
+    <record id="book_category_invest" model="library.book.category" forcecreate="true">
+        <field name="name">Investigation</field>
+    </record>
+
+    <!--<delete model="library.book.category" id="book_category_sports"></delete>-->
+
+    <function model="library.book" name="_update_book_price"/>
+    <!--<function model="library.book" name="update_book_price" eval="[(ref('book_category_culture'), 17)]"/>-->
+    <!--<delete model="res.partner" search="[('id','=',ref('library_app.res_partner_wiley'))]"/>
+    <function model="res.users" name="_init_data_user_note_stages" eval="[]" />-->
+</odoo>
+
+

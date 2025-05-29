@@ -1,0 +1,7 @@
+<odoo noupdate="1">
+   
+    <record id="group_web_notification" model="res.groups">
+		<field name="name">Enable Web Notification Configuration</field>
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+	</record>
+</odoo>

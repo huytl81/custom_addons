@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_form_category_book" model="ir.ui.view">
+        <field name="name">Category Book Form</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- Buttons will go here -->
+                    <button name="create_categories" string="Create Categories" type="object"/>
+                </header>
+                <sheet>
+                    <!-- Content goes here: -->
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="parent_id"/>
+                            <field name="child_ids" widget="many2many_tags"/>
+                            <field name="books_ids" widget="many2many_tags"/>
+                            <field name="highlighted_id"/>
+                        </group>
+                        <group name="group_right">
+
+                        </group>
+                    </group>
+                    <group name="group_bottom">
+                    </group>
+                </sheet>
+                <!-- Discuss widgets -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_category_book" model="ir.ui.view">
+        <field name="name">Category Book List</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="parent_id"/>
+                    <field name="child_ids" widget="many2many_tags"/>
+                    <field name="books_ids" widget="many2many_tags"/>
+                    <field name="highlighted_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

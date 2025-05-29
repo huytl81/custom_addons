@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_data_feed_feature_view_form" model="ir.ui.view">
+        <field name="name">product.data.feed.feature.view.form</field>
+        <field name="model">product.data.feed.feature</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h3><field name="name" placeholder="Feature Name" default_focus="1"/></h3>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                        <field name="sequence" groups="base.group_no_one"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_data_feed_feature_view_tree" model="ir.ui.view">
+        <field name="name">product.data.feed.feature.view.tree</field>
+        <field name="model">product.data.feed.feature</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

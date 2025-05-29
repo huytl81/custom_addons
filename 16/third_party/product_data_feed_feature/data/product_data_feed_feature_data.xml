@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="feature_custom_label" model="product.data.feed.feature">
+        <field name="name">custom_label</field>
+        <field name="description">Custom Label</field>
+    </record>
+
+</odoo>

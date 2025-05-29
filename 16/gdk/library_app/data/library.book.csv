@@ -1,0 +1,7 @@
+"id","name","date_published","publisher_id/id","author_ids/id"
+library_book_ode11,"Odoo 11 Development Essentials","2018-03-01",res_partner_packt,res_partner_daniel
+library_book_odc11,"Odoo 11 Development Cookbook","2018-01-01",res_partner_packt,"res_partner_alexandre,res_partner_holger"
+library_book_odc15,"Odoo 15 Development Cookbook","2023-01-04",res_partner_packt,"res_partner_huyta"
+library_book_ode15,"Odoo 15 Development Essential","2022-01-07",res_partner_packt,"res_partner_huyta,res_partner_arnold"
+library_book_fwtt,"For Whom The Bell Tolls","1930-12-01",res_partner_wiley,"res_partner_hemingway"
+library_book_omam,"Of Mice And Man","1929-12-01",res_partner_wiley,"res_partner_steinbeck"

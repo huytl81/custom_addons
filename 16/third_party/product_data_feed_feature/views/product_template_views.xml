@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form.inherit.product_data_feed_feature</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Features" name="feed_features">
+                    <group/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form.inherit.product_data_feed_feature</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='feed_features']" position="inside">
+                <field name="feed_feature_ids" nolabel="1" mode="tree"
+                       attrs="{'invisible': [('product_variant_count', '>', 1)]}"
+                       context="{'search_default_group_feature': 1}"
+                >
+                    <tree edit="false">
+                        <field name="feature_id" string="Feature"/>
+                        <field name="feature_code" string="Code" optional="hide"/>
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="name">product.template.product.tree.inherit.product_data_feed_feature</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active']" position="before">
+                <field name="feed_feature_ids" widget="many2many_tags" optional="hide" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

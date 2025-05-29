@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_product_data_feed_brand_public_read,access_product_data_feed_brand_public_read,model_product_data_feed_brand,,1,0,0,0
+access_product_data_feed_brand_user,access_product_data_feed_brand_user,model_product_data_feed_brand,base.group_user,1,1,1,0
+access_product_data_feed_brand_admin,access_product_data_feed_brand_admin,model_product_data_feed_brand,base.group_system,1,1,1,1

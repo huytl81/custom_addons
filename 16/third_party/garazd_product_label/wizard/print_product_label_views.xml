@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="print_product_label_view_form" model="ir.ui.view">
+        <field name="name">print.product.label.view.form</field>
+        <field name="model">print.product.label</field>
+        <field name="arch" type="xml">
+            <form create="false" string="Print Product Labels">
+                <header>
+                    <button
+                        name="action_print"
+                        string="Print"
+                        help="Print product labels"
+                        type="object"
+                        icon="fa-print"
+                        class="btn-primary mr8"
+                    />
+                    <button
+                        name="action_preview"
+                        string="Preview"
+                        help="Preview product labels"
+                        type="object"
+                        icon="fa-search"
+                        class="btn-secondary mr8"
+                    />
+                </header>
+                <div class="alert alert-info text-center mb-3"
+                     attrs="{'invisible':[('message', '=', False)]}"
+                     role="alert">
+                    <field name="message"/>
+                </div>
+                <group name="settings">
+                    <group name="global">
+                        <field name="output" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                    <group name="pdf" attrs="{'invisible':[('output', '!=', 'pdf')]}">
+                        <field name="template" string="Label template" widget="radio"/>
+                    </group>
+                </group>
+                <div>
+                    <div class="o_row">
+                        <field name="qty_per_product"
+                               class="oe_left mr8"
+                               help="Label quantity per product"
+                               style="width: 40px !important; text-align: right;"/>
+                        <button name="action_set_qty"
+                                string="Set quantity"
+                                help="Set a certain quantity for each line."
+                                type="object"
+                                class="btn-xs mr8 mb4"/>
+                        <button name="action_restore_initial_qty"
+                                string=""
+                                title="Restore initial quantity"
+                                help="Restore initial quantity."
+                                icon="fa-undo"
+                                type="object"
+                                class="btn-xs mr8 mb4"/>
+                    </div>
+                </div>
+                <notebook>
+                    <page string="Labels">
+                        <field name="label_ids" mode="tree">
+                            <tree editable="top" decoration-muted="qty==0">
+                                <field name="selected"/>
+                                <field name="product_id"/>
+                                <field name="barcode" readonly="True"/>
+                                <button name="action_minus_qty" type="object" string="" icon="fa-minus" title="Decrease quantity"/>
+                                <field name="qty" sum="Total" />
+                                <button name="action_plus_qty" type="object" string="" icon="fa-plus" title="Increase quantity"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Options">
+                        <group name="options" class="o_label_nowrap">
+                            <group>
+                                <field name="humanreadable" widget="boolean_toggle" />
+                                <field name="border_width" />
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_label_from_template" model="ir.actions.act_window">
+        <field name="name">Custom Product Labels</field>
+        <field name="res_model">print.product.label</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'default_product_ids': active_ids}</field>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_print_label_from_product" model="ir.actions.act_window">
+        <field name="name">Custom Product Labels</field>
+        <field name="res_model">print.product.label</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'default_product_ids': active_ids}</field>
+        <field name="binding_model_id" ref="product.model_product_product"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

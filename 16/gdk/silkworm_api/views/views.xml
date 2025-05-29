@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="silkworm_api.list">
+      <field name="name">Silkworm API list</field>
+      <field name="model">silkworm_api.silkworm_api</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="silkworm_api.action_window">
+      <field name="name">Silkworm API window</field>
+      <field name="res_model">silkworm_api.silkworm_api</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="silkworm_api.action_server">
+      <field name="name">Silkworm API server</field>
+      <field name="model_id" ref="model_silkworm_api_silkworm_api"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="Silkworm API" id="silkworm_api.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="silkworm_api.menu_1" parent="silkworm_api.menu_root"/>
+    <menuitem name="Menu 2" id="silkworm_api.menu_2" parent="silkworm_api.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="silkworm_api.menu_1_list" parent="silkworm_api.menu_1"
+              action="silkworm_api.action_window"/>
+    <menuitem name="Server to list" id="silkworm_api" parent="silkworm_api.menu_2"
+              action="silkworm_api.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="rush_orders_template">
+            <style>
+                table, th, td {
+                    border: 1px solid black;
+                }
+            </style>
+            <title>Rush Orders</title>
+            <h1>The Rush Orders</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="myrushorders" t-as="myrushorder">
+                        <tr>
+                            <td>
+                                <t t-esc="myrushorder.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="myrushorder.daterequired"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Name</td>
+                        <td>Date Required</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </template>
+    </data>
+</odoo>

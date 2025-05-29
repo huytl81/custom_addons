@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web_systray_language.SwitchLanguageMenu" owl="1">
+        <Dropdown t-if="langs.length > 1" class="'o_switch_language_menu d-none d-md-block'" position="'bottom-end'">
+            <t t-set-slot="toggler">
+                <i class="fa fa-language d-lg-none"/>
+                <span class="oe_topbar_name d-none d-lg-block" t-esc="lang.name"/>
+            </t>
+            <t t-foreach="langs" t-as="lang" t-key="lang.id">
+                <t t-call="web_systray_language.SwitchLanguageItem"/>
+            </t>
+        </Dropdown>
+    </t>
+
+    <t t-name="web_systray_language.SwitchLanguageItem" owl="1">
+        <DropdownItem class="'p-0 bg-white'">
+            <t t-set="isCurrent" t-value="lang.code == userLangCode"/>
+            <div class="d-flex" data-menu="lang" t-att-data-lang-id="lang.id">
+                <div
+                        role="button"
+                        t-att-aria-pressed="isCurrent ? 'true' : 'false'"
+                        t-att-aria-label="'Switch to ' + lang.name "
+                        t-att-title="'Switch to ' + lang.name "
+                        tabindex="0"
+                        class="d-flex flex-grow-1 align-items-center py-2 ps-2"
+                        t-att-class="isCurrent ? 'alert-primary ms-1 me-2' : 'btn btn-light fw-normal border-0'"
+                        t-on-click="() => this.switch(lang)"
+                >
+                    <span
+                            class='lang_label pe-3'
+                            t-att-class="isCurrent ? 'text-900 fw-bold' : 'ms-1'">
+                        <t t-esc="lang.name"/>
+                    </span>
+                </div>
+            </div>
+        </DropdownItem>
+    </t>
+
+</templates>

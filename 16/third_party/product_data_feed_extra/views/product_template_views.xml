@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form.inherit.product_data_feed_extra</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Extra Information" name="extra_information">
+                    <group>
+                        <group string="Characteristics" name="extra_variant">
+                            <field name="feed_size_system"/>
+                        </group>
+                        <group string="Additional" name="extra_data"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form.inherit.product_data_feed_extra</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='extra_variant']" position="inside">
+                <field name="feed_size" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                <field name="feed_color" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                <field name="feed_material" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                <field name="feed_pattern" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                <field name="feed_gender" widget="radio" options="{'horizontal': true}" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+            </xpath>
+            <xpath expr="//group[@name='extra_data']" position="inside">
+                <label for="feed_length" string="Product Sizes" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                <div class="o_row" attrs="{'invisible': [('product_variant_count', '>', 1)]}">
+                    <field name="feed_length"/>
+                    <span class="text-muted"> x </span>
+                    <field name="feed_width"/>
+                    <span class="text-muted"> x </span>
+                    <field name="feed_height"/>
+                    <field name="feed_size_uom" widget="selection" attrs="{'required': [('feed_length', '!=', 0), ('feed_width', '!=', 0), ('feed_height', '!=', 0)]}"/>
+                </div>
+                <field name="feed_expiration_date" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="name">product.template.product.tree.inherit.product_data_feed_extra</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="feed_gender" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search.inherit.product_data_feed_extra</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <filter string="Gender" name="group_feed_gender" context="{'group_by': 'feed_gender'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
