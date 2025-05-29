@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_create_wz_user,project.create.wz.user,model_vtt_project_create_wz,project.group_project_user,1,1,1,1
