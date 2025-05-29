@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_player_user,player_user,model_player,group_player_user,1,0,0,0
-access_player_manager,player_manager,model_player,group_player_manager,1,1,1,1
-access_club_user,club_user,model_club,group_club_user,1,0,0,0
-access_club_manager,club_manager,model_club,group_club_manager,1,1,1,1
-access_dog_user,dog_user,model_dog,group_dog_user,1,0,0,0
-access_dog_manager,dog_manager,model_dog,group_dog_manager,1,1,1,1
-access_cat_user,cat_user,model_cat,group_cat_user,1,0,0,0
-access_cat_manager,cat_manager,model_cat,group_cat_manager,1,1,1,1
