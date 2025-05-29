@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" name="form assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/vtt_edu_admission_form/static/src/css/style.css"/>
+        </xpath>
+    </template>
+    <template id="vtt_edu_addmission_form_assets_backend" name="backend assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/vtt_edu_admission_form/static/src/css/style_backend.css"/>
+        </xpath>
+    </template>
+</odoo>

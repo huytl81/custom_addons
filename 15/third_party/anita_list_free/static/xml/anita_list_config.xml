@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-name="anita_list_free.list_config">
+        <div t-attf-class="anita_list_config d-flex flex-row {{widget.isX2Many? 'x2many_configer':'' }}">
+            <div class="d-flex flex-column flex-fill">
+                <div class="tab_content flex-fill">
+                    <div id="columns" class="columns_tab_pane tab_pane active">
+                        <div class="d-flex flex-column" style="width:100%; height:100%">
+                            <div class="header d-flex flex-column">
+                                <input class="form-control new-group-name" type="text" placeholder="Group Name" />
+                                <button class="btn btn-primary add-new-group mt-1" type="button">New Group</button>
+                            </div>
+                            <div class="sorter_container flex-fill" />
+                        </div>
+                    </div>
+                    <div id="settings" class="filter_tab_pane tab_pane"/>
+                </div>
+                <div class="footer">
+                    <button class="btn btn-primary save_column_config" type="button">Save</button>
+                    <button class="btn btn-secondary reset_settings ml-1" type="button">Reset</button>
+                    <button class="btn btn-secondary cancel_column_config ml-1" type="button">Cancel</button>
+                </div>
+            </div>
+
+            <div class="tabs d-flex flex-column">
+                <div class="tab_item acive" data-tab-id="columns">
+                    <i class="fa fa-list-ul"></i>
+                    <span>Columns</span>
+                </div>
+                <div class="tab_item" data-tab-id="settings">
+                    <i class="fa fa-filter"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.column_config">
+        <div class="nested-sortable column_config_container">
+            <t t-foreach="widget.header_arch" t-as="column">
+                <t t-if="!column.parent">
+                    <t t-call="anita_list_free.column_config_item" />
+                </t>
+            </t>
+            <t t-foreach="widget.hidden_fields" t-as="column">
+                <t t-call="anita_list_free.column_config_item" />
+            </t>
+        </div>
+        <h2 class="my-3">Exists Columns</h2>
+        <div class="invisible_fields mt-3">
+            <t t-foreach="widget.invisible_fields" t-as="column">
+                <t t-call="anita_list_free.invisible_column" />
+            </t>
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.column_config_item">
+        <div t-if="(column.children || []).length > 0 &amp;&amp; !column.tag" t-attf-class="list-group-item column-item nested-{{depth}}" t-attf-data-column-name="{{widget._getColumnName(column)}}">
+            <t t-if="widget._sameAsParent(column) &amp;&amp; !column.real_group">
+                <t t-foreach="column.children" t-as="column">
+                    <t t-call="anita_list_free.column_config_item" />
+                </t>
+            </t>
+            <t t-else="">
+                <t t-call="anita_list_free.column_name_item" />
+                <div t-if="!widget._isAllChidrenSame(column)" class="list-group nested-sortable">
+                    <t t-foreach="column.children" t-as="column">
+                        <t t-call="anita_list_free.column_config_item" />
+                    </t>
+                </div>
+            </t>
+        </div>
+        <t t-elif="widget._sameAsParent(column)" />
+        <div t-else="" t-attf-class="list-group-item column-item nested-{{depth}}" t-attf-data-column-name="{{widget._getColumnName(column)}}">
+            <t t-call="anita_list_free.column_name_item" />
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.column_name_item">
+        <div class="input-group">
+            <div class="input-group-prepend drag_handle">
+                <span class="input-group-text fa fa-bars" role="img" aria-label="Column Config" title="Column Config"></span>
+            </div>
+            <span class="form-control d-flex align-items-center">
+                <span class="o_text_overflow flex-grow-1">
+                    <input t-if="widget._isField(column)" type="text" t-attf-value="{{widget._getColumnString(column)}}" style="color:green" t-attf-column-width="{{column.current_width }}"/>
+                    <input t-else="" type="text" t-attf-value="{{widget._getColumnString(column)}}" />
+                </span>
+                <span>
+                    <select class="width_policy" style="width:50px">
+                        <option t-if="!column.width" value="auto" selected="1">auto</option>
+                        <option t-else="" value="auto">auto</option>
+                        <option t-if="column.width" value="fixed" selected="1">fixed</option>
+                        <option t-else="" value="fixed">fixed</option>
+                    </select>
+                </span>
+            </span>
+            <span class="input-group-append">
+                <button type="button" t-attf-class="btn toggle_visible iconfont {{widget.isHidenFields(column)? 'icon-invisible btn-secondary': 'icon-visible btn-success'}}" aria-label="Delete Menu Item" title="Delete Column Item">
+                </button>
+                <button type="button" t-attf-class="btn btn-danger lock_column iconfont {{widget._isFixedColumn(column)? 'icon-lock' : 'icon-unlock'}} " aria-label="Lock Column Or Unlock It" title="lock">
+                </button>
+            </span>
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.invisible_column">
+        <div t-attf-class="list-group-item column-item nested-0" t-attf-data-column-name="{{widget._getColumnName(column)}}">
+            <div class="input-group">
+                <div class="input-group-prepend drag_handle">
+                    <span class="input-group-text fa fa-bars" role="img" aria-label="Column Config" title="Column Config"/>
+                </div>
+                <span class="form-control d-flex align-items-center">
+                    <span class="js_menu_label o_text_overflow flex-grow-1">
+                        <input type="text" t-attf-value="{{widget._getColumnString(column)}}" />
+                    </span>
+                </span>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-success toggle_visible iconfont icon-visible" aria-label="Delete Menu Item" title="Delete Column Item"></button>
+                    <button type="button" t-attf-class="btn btn-danger lock_column iconfont {{widget._isFixedColumn(column)? 'icon-lock' : 'icon-unlock'}} " aria-label="Lock Column Or Unlock It" title="lock">
+                    </button>
+                </span>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.column_group_item">
+        <div class="list-group-item column-item" t-attf-data-column-name="{{widget._getColumnName(column)}}">
+            <div class="input-group">
+                <div class="input-group-prepend drag_handle">
+                    <span class="input-group-text fa fa-bars" role="img" aria-label="Dropdown menu" title="Dropdown menu"/>
+                </div>
+                <span class="form-control d-flex align-items-center">
+                    <span class="o_text_overflow flex-grow-1">
+                        <input type="text" t-attf-value="{{widget._getColumnString(column)}}" style="color:green" />
+                    </span>
+                </span>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-success toggle_visible iconfont icon-visible" aria-label="Delete Menu Item" title="Delete Column Item"></button>
+                    <button type="button" t-attf-class="btn btn-danger lock_column iconfont {{widget._isFixedColumn(column)? 'icon-lock' : 'icon-unlock'}} " aria-label="Lock Column Or Unlock It" title="lock">
+                    </button>
+                </span>
+            </div>
+            <div class="list-group nested-sortable" />
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.settings">
+        <div class="d-flex flex-column p-3">
+            <h2 class="my-3 text-center">Settings</h2>
+
+            <div class="custom-control custom-toggle my-2">
+                <input t-if="widget._getCurrentConfig('enable_anita_list')" type="checkbox" id="enable_anita_list" name="enable_anita_list" class="custom-control-input" checked="1" />
+                <input t-else="" type="checkbox" id="enable_anita_list" name="enable_anita_list" class="custom-control-input" />
+                <label class="custom-control-label" for="enable_anita_list">Enable List Manager</label>
+            </div>
+
+            <p>
+                When disable this, the default list view will be used.
+            </p>
+
+            <div class="custom-control d-none custom-toggle my-2">
+                <input t-if="widget._getCurrentConfig('force_readonly')" type="checkbox" id="force_readonly" name="force_readonly" class="custom-control-input" checked="1" />
+                <input t-else="" type="checkbox" id="force_readonly" name="force_readonly" class="custom-control-input" />
+                <label class="custom-control-label" for="force_readonly">Force Read Only</label>
+            </div>
+
+            <p class="d-none">
+                When enable this, click the cell will not open the record
+            </p>
+
+            <div class="custom-control custom-toggle my-2">
+                <input type="checkbox" t-if="widget._getCurrentConfig('has_serials')" id="has_serials" name="has_serials" class="custom-control-input" checked="1" />
+                <input type="checkbox" t-else="" id="has_serials" name="has_serials" class="custom-control-input" />
+                <label class="custom-control-label" for="has_serials">Show Serial</label>
+            </div>
+
+            <p>
+                When enable this, the serial number will be shown in the list view.
+            </p>
+
+            <!-- auto ajust column width  -->
+            <div class="custom-control custom-toggle my-2">
+                <input type="checkbox" t-if="widget._getCurrentConfig('auto_ajust_column')" id="auto_ajust_column" name="auto_ajust_column" class="custom-control-input" checked="1" />
+                <input type="checkbox" t-else="" id="auto_ajust_column" name="auto_ajust_column" class="custom-control-input" />
+                <label class="custom-control-label" for="auto_ajust_column">Auto Ajust Column Width</label>
+            </div>
+
+            <p>
+                When enable this, list will auto ajust the column width!
+            </p>
+
+            <!-- show search row -->
+            <div t-if="!widget.isX2Many" class="custom-control custom-toggle my-2">
+                <input type="checkbox" t-if="widget._getCurrentConfig('show_search_row')" id="show_search_row" name="show_search_row" class="custom-control-input" checked="1" />
+                <input type="checkbox" t-else="" id="show_search_row" name="show_search_row" class="custom-control-input" />
+                <label class="custom-control-label" for="show_search_row">Show Search Row</label>
+            </div>
+
+            <p>
+                When enable this, the search row will be shown in the list view.
+            </p>
+
+            <div role="separator" class="dropdown-divider"></div>
+
+            <h5>Border Style</h5>
+            <select id="border_style" class="custom-select">
+                <option t-if="widget._getCurrentConfig('border_style') == 'bordered'" value="bordered" selected="1">bordered</option>
+                <option t-else="" value="bordered">bordered</option>
+                <option t-if="widget._getCurrentConfig('border_style') == 'striped'" value="striped" selected="1">striped</option>
+                <option t-else="" value="striped">striped</option>
+            </select>
+
+            <p>
+                Select the border style of the list view.
+            </p>
+
+            <div role="separator" class="dropdown-divider"></div>
+            <h5>Expand Row Template</h5>
+            <input type="text" id="expand_row_template" class="form-control" placeholder="Expand Row Template" aria-label="Expand Row Template" aria-describedby="basic-addon1" />
+
+            <p>
+                This is a xml id for the expand row template. 
+            </p>
+
+            <h5>Tree Column</h5>
+            <select id="tree_column" class="custom-select">
+                <option value=""></option>
+                <t t-foreach="widget.fields" t-as="column">
+                    <t t-set="column_name" t-value="column.name" />
+                    <option t-if="widget.anita_user_data &amp;&amp; column_name == widget.anita_user_data.tree_column" t-attf-value="{{column_name}}" selected="1"><t t-esc="column_name" /></option>
+                    <option t-else="" t-attf-value="{{column_name}}"><t t-esc="column_name" /></option>
+                </t>
+            </select>
+
+            <p>
+                Tree column name, which will show the tree structure.
+            </p>
+
+        </div>
+    </t>
+
+</templates>

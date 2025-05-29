@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Land Plot views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_land_plot" model="ir.ui.view">
+            <field name="name">Land Plot Form</field>
+            <field name="model">vtt.land.plot</field>
+            <field name="arch" type="xml">
+                <form string="Land Plot">
+                    <header>
+                        <button name="action_open" type="object" string="Open" attrs="{'invisible': [('state', 'not in', ['pending'])]}" class="btn-primary"/>
+                        <button name="action_pending" type="object" string="Pending" attrs="{'invisible': [('state', 'not in', ['open', 'interest'])]}"/>
+                        <field name="state" widget="statusbar" options="{'clickable': False}" statusbar_visible="pending,open,interest,reserved,approved,sold"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="view_plot_contract" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('contract_id', '=', False)]}" string="Contract">
+                            </button>
+                            <button name="view_plot_subscription" type="object" class="oe_stat_button" icon="fa-book" attrs="{'invisible': [('subscription_count', '=', 0)]}">
+                                <field name="subscription_count" widget="statinfo" string="Subscriptions"/>
+                            </button>
+                            <button name="view_list_sale_lines" type="object" class="oe_stat_button" icon="fa-credit-card" attrs="{'invisible': [('state', 'in', ['sold'])]}">
+                                <field name="interest_count" widget="statinfo" string="Interests"/>
+                            </button>
+                            <button name="view_list_tombs" type="object" class="oe_stat_button" icon="fa-puzzle-piece">
+                                <field name="tomb_count" widget="statinfo" string="Tombs"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="place_id"/>
+                                <!--<field name="internal_ref"/>-->
+                                <field name="contract_id"/>
+                                <field name="lst_price"/>
+                                <field name="market_price"/>
+                            </group>
+                            <group>
+                                <field name="priority" widget="priority"/>
+                                <field name="land_direction"/>
+                                <field name="area"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="land_slots" string="Tomb Slots">
+                                <group name="count_slots">
+                                    <group>
+                                        <label for="slot_count" string="Slot Count"/>
+                                        <div>
+                                            <field name="slot_buried_count" class="oe_inline" style="color:green;"/> /
+                                            <field name="slot_count" class="oe_inline"/>
+                                        </div>
+                                    </group>
+                                </group>
+
+                                <field name="slot_ids" context="{'default_life_state': 'dead'}">
+                                    <tree editable="top">
+                                        <field name="plot_id" invisible="1"/>
+                                        <field name="tomb_id" invisible="1"/>
+                                        <field name="internal_ref"/>
+                                        <field name="dead_id"/>
+                                        <field name="dob"/>
+                                        <field name="dod"/>
+                                        <field name="age"/>
+                                        <field name="gender" optional="show"/>
+                                        <field name="date_receipt"/>
+                                        <field name="time_receipt" widget="float_time"/>
+                                        <field name="dt_receipt" invisible="1"/>
+                                        <field name="dirt_fill_type"/>
+                                        <field name="available_check" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page name="constructions" string="Constructions">
+                                <field name="construct_ids">
+                                    <tree>
+                                        <field name="plot_id" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="tomb_id"/>
+                                        <field name="partner_id"/>
+                                        <field name="date_contract"/>
+                                        <field name="date_handing"/>
+                                        <field name="date_warranty"/>
+                                        <field name="stage_id"/>
+                                        <field name="construct_stage_id" widget="badge" decoration-success="construct_stage_id == 'done'"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page name="customer_cards" string="Customer Cards">
+                                <button name="action_unassigned_customer_card" type="object" string="Unassigned All" attrs="{'invisible': [('customer_card_ids', '=', False)]}"/>
+                                <field name="customer_card_ids" widget="many2many">
+                                    <tree delete="0">
+                                        <field name="plot_id" invisible="1"/>
+                                        <field name="partner_id"/>
+                                        <field name="phone" optional="show"/>
+                                        <field name="mobile" optional="show"/>
+                                        <field name="code"/>
+                                        <field name="dt_assign"/>
+                                        <field name="is_assigned" invisible="1"/>
+                                        <field name="active" invisible="1"/>
+                                        <button name="action_unassigned" type="object" string="Unassigned" attrs="{'invisible': [('is_assigned', '=', False)]}"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page name="notes" string="Note">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                        <field name="tomb_ids" invisible="1"/>
+                        <field name="sale_line_ids" invisible="1"/>
+                        <!--<field name="contract_ids" invisible="1"/>-->
+                        <field name="construction_state" invisible="1"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_land_plot" model="ir.ui.view">
+            <field name="name">Land Plot List</field>
+            <field name="model">vtt.land.plot</field>
+            <field name="arch" type="xml">
+                <tree string="Land Plots" decoration-warning="interest_count and state=='interest'" decoration-danger="interest_count and state=='reserved'" decoration-success="state=='open'">
+                    <!--<field name="internal_ref"/>-->
+                    <field name="contract_id" optional="show"/>
+                    <field name="name"/>
+                    <field name="place_id"/>
+                    <field name="contract_partner_id" optional="show"/>
+                    <field name="priority" widget="priority" readonly="1"/>
+                    <field name="land_direction"/>
+                    <field name="area"/>
+                    <field name="interest_count" invisible="1"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="state" widget="badge" decoration-warning="interest_count and state=='interest'" decoration-danger="interest_count and state in ('reserved', 'approved')" decoration-success="state=='open'" decoration-muted="state=='pending'"/>
+                    <field name="construction_state" widget="badge" decoration-warning="construction_state in ('design_progress', 'construct_progress')" decoration-success="construction_state == 'done'"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_land_plot" model="ir.ui.view">
+            <field name="name">Land Plot Filter</field>
+            <field name="model">vtt.land.plot</field>
+            <field name="arch" type="xml">
+                <search string="Land Plot Filter">
+                    <field name="name" string="Name" filter_domain="['|', '|', '|', ('name', 'ilike', self), ('internal_ref', 'ilike', self), ('place_id.name', 'ilike', self), ('land_direction', 'ilike', self)]"/>
+                    <field name="contract_id"/>
+                    <field name="contract_partner_id" filter_domain="['|', '|', ('contract_partner_id.name', 'ilike', self), ('contract_partner_id.phone', 'ilike', self), ('contract_partner_id.mobile', 'ilike', self)]"/>
+                    <field name="place_id"/>
+                    <field name="land_direction"/>
+                    <field name="state"/>
+                    <separator/>
+                    <filter string="Open" name="plot_open" domain="[('state', '=', 'open')]" help="Open Plots"/>
+                    <filter string="Interested" name="plot_interest" domain="[('state', '=', 'open')]" help="Interested"/>
+                    <filter string="Reserved" name="plot_reserved" domain="[('state', 'in', ['reserved', 'approved'])]" help="Reserved"/>
+                    <filter string="Sold" name="plot_sold" domain="[('state', '=', 'sold')]" help="Sold Plots"/>
+                    <separator/>
+                    <filter string="No Construction" name="construct_new" domain="[('construction_state', '=', 'new')]" help="No Construction"/>
+                    <filter string="Construction Progress" name="construct_progress" domain="[('construction_state', 'in', ['design_progress', 'construct_progress'])]" help="Construction Progress"/>
+                    <filter string="Constructed" name="construct_done" domain="[('construction_state', '=', 'done')]" help="Constructed"/>
+                    <!--<separator/>
+                    <filter string="Date" name="date" date="date"/>-->
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Place" name="by_place" domain="[]" context="{'group_by': 'place_id'}"/>
+                        <filter string="Priority" name="by_priority" domain="[]" context="{'group_by': 'priority'}"/>
+                        <filter string="Direction" name="by_direction" domain="[]" context="{'group_by': 'land_direction'}"/>
+                        <filter string="Status" name="status" domain="[]" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Land Plot list-->
+        <record id="vtt_act_window_land_plot" model="ir.actions.act_window">
+            <!--<field name="context">{'journal_type':'general', 'search_default_group_by_move': 1, 'name_groupby':1, 'create':0}</field>-->
+            <field name="name">Land Plots</field>
+            <field name="res_model">vtt.land.plot</field>
+            <!--<field name="domain">[('display_type', 'not in', ('line_section', 'line_note'))]</field>-->
+            <!--<field name="view_id" ref="view_move_line_tree_grouped"/>-->
+            <field name="view_mode">tree,pivot,graph,form,activity</field>
+        </record>
+
+        <!--Land Plot list-->
+        <record id="vtt_act_window_land_plot_sold" model="ir.actions.act_window">
+            <field name="name">Sold Land Plots</field>
+            <field name="res_model">vtt.land.plot</field>
+            <field name="view_mode">tree,pivot,graph,form,activity</field>
+            <field name="context">{'search_default_plot_sold': 1}</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem id="vtt_menu_contract_root" name="Contract" sequence="20" web_icon="vtt_lhv_cemetery,static/description/icon.png"/>
+        <menuitem id="vtt_menu_contract_land" name="Land" parent="vtt_menu_contract_root" sequence="10"/>
+        <menuitem id="vtt_menu_contract_land_all" name="All Land" parent="vtt_menu_contract_land" sequence="10" action="vtt_act_window_land_plot"/>
+        <menuitem id="vtt_menu_contract_land_sold" name="Sold Land" parent="vtt_menu_contract_land" sequence="20" action="vtt_act_window_land_plot_sold"/>
+
+        <menuitem id="vtt_menu_contract_setting" name="Settings" parent="vtt_menu_contract_root" sequence="100"/>-->
+    </data>
+
+</odoo>

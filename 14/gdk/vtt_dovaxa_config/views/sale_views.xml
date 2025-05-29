@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order views-->
+    <data>
+        <!--Form view add new fields-->
+        <record id="vtt_view_form_sale_order_dovaxa_fields" model="ir.ui.view">
+            <field name="name">Sale Order Form add DOVAXA fields</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='name']" position="after">
+                    <field name="vtt_product_actual"/>
+                    <!--<field name="vtt_product_origin"/>-->
+                    <field name="vtt_product_origin_id"/>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='state']" position="before">
+                    <field name="vtt_line_note"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+    <!--Sale Origin views-->
+    <data>
+        <!--Tree view-->
+        <record id="vtt_view_form_sale_product_origin" model="ir.ui.view">
+            <field name="name">Sale Product Origin List</field>
+            <field name="model">sale.product.origin</field>
+            <field name="arch" type="xml">
+                <tree string="Product Origins" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Sale Product Origin-->
+        <record id="vtt_act_window_sale_product_origin" model="ir.actions.act_window">
+            <field name="name">Product Origins</field>
+            <field name="res_model">sale.product.origin</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!--Modify sale action for hide default code-->
+        <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+            <field name="context">{'search_default_my_quotation': 1, 'display_default_code': False}</field>
+        </record>
+
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="context">{'display_default_code': False}</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Sale Product Origin-->
+        <menuitem id="vtt_menu_sale_product_origin" name="Product Origin" sequence="50" parent="sale.menu_sale_config" action="vtt_act_window_sale_product_origin"/>
+    </data>
+</odoo>

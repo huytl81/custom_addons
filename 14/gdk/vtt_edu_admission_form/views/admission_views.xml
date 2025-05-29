@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Admission views-->
+    <data>
+        <record id="vtt_view_form_op_admission_name_placement" model="ir.ui.view">
+            <field name="name">Admission Form Name Replacement</field>
+            <field name="model">op.admission</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_title')]" position="after">
+                    <div class="oe_title">
+                            <h1>
+                                <field name="title" placeholder="Title" style="width: 30%%"/>
+                            </h1>
+                            <h1>
+                                <field name="name" placeholder="Name" required="1" style="padding-right:10px"
+                                       invisible="0"/>
+                                <!--<table>
+                                    <tr>
+                                        <td>
+                                            <field name="last_name" placeholder="Last Name" required="1"
+                                                   style="padding-right:10px"/>
+                                        </td>
+                                        <td>
+                                            <field name="middle_name" placeholder="Middle Name"
+                                                   style="padding-right:10px"/>
+                                        </td>
+                                        <td>
+                                            <field name="first_name" placeholder="First Name" required="1"
+                                                   style="padding-right:10px"
+                                                   attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                        </td>
+                                    </tr>
+                                </table>-->
+                            </h1>
+                        </div>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <!--New Fields-->
+                <field name="email" position="after">
+                    <field name="identify_id"/>
+                </field>
+
+                <field name="batch_id" position="after">
+                    <field name="category_id"/>
+                </field>
+
+                <field name="prev_result" position="after">
+                    <field name="institute_cert"/>
+                </field>
+
+                <!--Immediate Enroll-->
+                <button name="enroll_student" position="attributes">
+                    <attribute name="states"></attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ['reject', 'done', 'cancel']),
+                        ('batch_id', '=', False)]}</attribute>
+                </button>
+            </field>
+        </record>
+    </data>
+
+    <!--Admission Register views-->
+    <data>
+        <record id="vtt_view_form_op_admission_register_hide_product" model="ir.ui.view">
+            <field name="name">Admission Register Hide Product</field>
+            <field name="model">op.admission.register</field>
+            <field name="inherit_id" ref="openeducat_admission.view_op_admission_register_form"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Course views-->
+    <data>
+        <record id="vtt_view_form_op_course_category" model="ir.ui.view">
+            <field name="name">Course Category</field>
+            <field name="model">op.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="category_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Invoice Move view-->
+    <data>
+        <record id="vtt_view_tree_account_move_transfer_image" model="ir.ui.view">
+            <field name="name">Account Move add Transfer Image check</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <field name="vtt_has_transfer_img" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="vtt_view_search_account_move_transfer_image_filter" model="ir.ui.view">
+            <field name="name">Account Move add Transfer Image filter</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <filter name="invoice_date" position="before">
+                    <separator/>
+                    <filter name="has_transfer_image" string="Has Transfer Image" domain="[('vtt_has_transfer_img','!=',False)]"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

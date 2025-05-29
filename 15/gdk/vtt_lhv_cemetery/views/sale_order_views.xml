@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order views-->
+    <data>
+        <!--Form view add plot-->
+        <record id="vtt_view_form_sale_order_land_plot" model="ir.ui.view">
+            <field name="name">Sale Order add Land Plot</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!--Add land plot to order details-->
+                <field name="product_template_id" position="after">
+                    <field name="is_land_product" invisible="1"/>
+                    <field name="is_care_service_product" invisible="1"/>
+                    <field name="can_land_reserved" invisible="1"/>
+                    <field name="land_plot_id" attrs="{'invisible': ['|', ('product_id', '=', False), '&amp;', ('is_land_product', '=', False), ('is_care_service_product', '=', False)], 'required': [('is_land_product', '!=', False)]}" domain="is_land_product and [('state', 'not in', ['pending', 'reserved', 'sold'])] or []"/>
+                    <field name="land_slot_id" domain="[('plot_id', '=', land_plot_id)]" context="{'default_plot_id': land_plot_id}" attrs="{'column_invisible': [('parent.lhv_order_type', 'in', ['land_order'])]}"/>
+                    <field name="land_plot_state" invisible="1"/>
+                </field>
+
+                <!--Product by Order Type-->
+                <xpath expr="//tree/field[@name='product_id']" position="attributes">
+                    <!--<attribute name="attrs">{'column_invisible': [('parent.lhv_order_type', '=', 'land_order')], 'readonly': [('product_updatable', '=', False)], 'required': [('display_type', '=', False)],}</attribute>-->
+                    <attribute name="domain">product_id_domain</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='product_id']" position="after">
+                    <!--<field name="product_id" attrs="{'column_invisible': [('parent.lhv_order_type', '!=', 'land_order')], 'readonly': [('product_updatable', '=', False)], 'required': [('display_type', '=', False)],}" force_save="1" context="{'partner_id': parent.partner_id, 'quantity': product_uom_qty, 'pricelist': parent.pricelist_id, 'uom':product_uom, 'company_id': parent.company_id, 'default_lst_price': price_unit, 'default_description_sale': name}" domain="[('is_land', '!=', False), ('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" widget="product_configurator"/>-->
+                    <field name="product_id_domain" invisible="1"/>
+                </xpath>
+
+                <!--add land state fields-->
+                <field name="payment_term_id" position="after">
+                    <field name="can_confirm" invisible="1"/>
+                    <field name="is_include_care_service" invisible="1"/>
+                    <field name="is_include_land_product" invisible="1"/>
+                    <field name="land_plot_ids" invisible="1"/>
+                    <field name="lhv_order_type" invisible="1"/>
+                </field>
+
+                <!--modify confirm check-->
+                <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', '|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1), ('can_confirm', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'not in', ['sent']), ('can_confirm', '=', False)]}</attribute>
+                </xpath>
+
+                <!--add land reserved button to order details-->
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-danger">is_land_product and not can_land_reserved and land_plot_state != 'reserved'</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='state']" position="before">
+                    <button name="action_plot_reserved" type="object" string="Reserved" attrs="{'invisible': [('can_land_reserved', '=', False)]}" class="btn-primary"/>
+                    <button name="action_plot_release" type="object" string="Interest" attrs="{'invisible': [('land_plot_state', 'not in', ['reserved', 'approved'])]}"/>
+                </xpath>
+
+                <!--Rating-->
+                <field name="state" position="before">
+                    <button name="submit_custom_rating" type="object" string="Partner Rating" attrs="{'invisible': [('state', 'in', ['draft'])]}" groups="vtt_lhv_cemetery.vtt_group_cemetery_contract_user"/>
+                </field>
+                <div name="button_box" position="inside">
+                    <button name="view_rating_data" type="object" class="oe_stat_button" icon="fa-smile-o" attrs="{'invisible': [('vtt_custom_rating_count', '=', 0)]}">
+                        <field name="vtt_custom_rating_count" widget="statinfo" string="Ratings"/>
+                    </button>
+                </div>
+
+                <!--add receive date, time of care service-->
+                <!--<field name="show_update_pricelist" position="before">
+                    <label for="vtt_date_receipt" attrs="{'invisible': [('is_include_care_service', '=', False)]}"/>
+                    <div name="land_service_receive_date" attrs="{'invisible': [('is_include_care_service', '=', False)]}">
+                        <field name="vtt_date_receipt" class="oe_inline"/>
+                        <field name="vtt_time_receipt" widget="float_time" class="oe_inline"/>
+                    </div>
+                    <field name="vtt_dt_receipt" invisible="1"/>
+                </field>-->
+
+                <button name="payment_action_void" position="after">
+                    <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"
+                            type="action" context="{'default_advance_payment_method': 'percentage'}" data-hotkey="q"
+                            attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
+                </button>
+
+                <!--Add contacts-->
+                <page name="other_information" position="after">
+                    <page name="contacts_info" string="Contacts">
+                        <field name="partner_contact_ids" widget="many2many"/>
+                    </page>
+                </page>
+
+                <!--Add Contract-->
+                <field name="partner_id" position="before">
+                    <field name="land_contract_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view add Land Plot-->
+        <record id="vtt_view_tree_sale_order_land_plot" model="ir.ui.view">
+            <field name="name">Sale Base List add Land Plot</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after">
+                    <field name="is_include_care_service" invisible="1"/>
+                    <field name="is_include_land_product" invisible="1"/>
+                </field>
+
+                <!--Add Contract-->
+                <field name="name" position="after">
+                    <field name="land_contract_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view add Land Plot-->
+        <record id="vtt_view_search_sale_order_land_plot" model="ir.ui.view">
+            <field name="name">Sale Filter add Land Plot</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <field name="order_line" position="before">
+                    <field name="order_line" string="Land Plot" filter_domain="[('order_line.land_plot_id', 'ilike', self)]"/>
+                </field>
+
+                <filter name="my_sale_orders_filter" position="after">
+                    <separator/>
+                    <filter string="Land Order" name="sales_land" domain="[('is_include_land_product','!=',False)]"/>
+                    <filter string="Care Service Order" name="sales_care_service" domain="[('is_include_care_service','!=',False)]"/>
+                    <separator/>
+                </filter>
+
+                <!--Add Contract-->
+                <field name="name" position="after">
+                    <field name="land_contract_id"/>
+                </field>
+                <field name="name" position="attributes">
+                    <attribute name="filter_domain">['|', '|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self), ('land_contract_id.name', 'ilike', self)]</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Order Line views-->
+    <data>
+        <!--Order Line list Land reserved-->
+        <record id="vtt_view_tree_sale_order_line_land_reserved" model="ir.ui.view">
+            <field name="name">Sale Line List Land Reserved</field>
+            <field name="model">sale.order.line</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree string="Sale Lines" create="false">
+                    <field name="order_id"/>
+                    <field name="order_partner_id"/>
+                    <field name="land_plot_id"/>
+                    <field name="name" optional="hide"/>
+                    <field name="salesman_id"/>
+                    <field name="land_plot_state"/>
+                    <field name="can_land_reserved" invisible="1"/>
+                    <!--<field name="product_uom_qty" string="Qty"/>
+                    <field name="qty_delivered"/>
+                    <field name="qty_invoiced"/>
+                    <field name="qty_to_invoice"/>
+                    <field name="product_uom" string="Unit of Measure" groups="uom.group_uom"/>-->
+                    <field name="price_subtotal" sum="Total" widget="monetary"/>
+                    <field name="currency_id" invisible="1"/>
+                    <button name="action_plot_reserved" type="object" string="Reserved" attrs="{'invisible': [('can_land_reserved', '=', False)]}" class="btn-primary"/>
+                    <button name="action_plot_approve" type="object" string="Approve" attrs="{'invisible': [('land_plot_state', 'not in', ['reserved'])]}" class="btn-primary" groups="vtt_lhv_cemetery.vtt_group_cemetery_contract_approve"/>
+                    <button name="action_plot_release" type="object" string="Interest" attrs="{'invisible': [('land_plot_state', 'not in', ['reserved', 'approved'])]}"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Land sale-->
+        <record id="vtt_act_window_sale_order_lhv_type_land" model="ir.actions.act_window">
+            <field name="name">Land Order</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+            <field name="view_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="context">{'search_default_my_quotation': 1, 'default_lhv_order_type': 'land_order'}</field>
+            <field name="domain">[('lhv_order_type', '=', 'land_order')]</field>
+        </record>
+
+        <!--Service sale-->
+        <record id="vtt_act_window_sale_order_lhv_type_service" model="ir.actions.act_window">
+            <field name="name">Service Order</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+            <field name="view_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="context">{'search_default_my_quotation': 1, 'default_lhv_order_type': 'service_order'}</field>
+            <field name="domain">[('lhv_order_type', '!=', 'land_order')]</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--New LHV sale menu-->
+        <!--<menuitem id="vtt_menu_sale_lhv_sale" name="New Orders" parent="sale.sale_menu_root" sequence="1"/>-->
+        <!--Land Order menu-->
+        <!--<menuitem id="vtt_menu_sale_lhv_sale_type_land" name="Land Orders" parent="vtt_menu_sale_lhv_sale" sequence="10" action="vtt_act_window_sale_order_lhv_type_land"/>-->
+        <!--Service Order menu-->
+        <!--<menuitem id="vtt_menu_sale_lhv_sale_type_service" name="Service Orders" parent="vtt_menu_sale_lhv_sale" sequence="20" action="vtt_act_window_sale_order_lhv_type_service"/>-->
+    </data>
+</odoo>

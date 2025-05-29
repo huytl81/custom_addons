@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Picking views-->
+    <data>
+        <!--List view add new fields-->
+        <record id="vtt_view_form_stock_picking_fields" model="ir.ui.view">
+            <field name="name">Stock Picking Form add HiepPhat fields</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="partner_street" optional="show"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

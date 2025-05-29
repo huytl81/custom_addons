@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Document Settings Category -->
+        <record model="ir.module.category" id="module_category_vtt_official_document">
+            <field name="name">Document Management</field>
+            <field name="description">Document Management</field>
+            <field name="sequence">20</field>
+        </record>
+        <!-- Group Document Request Approver -->
+        <record id="group_official_dispatch_approver" model="res.groups">
+            <field name="name">Official Dispatch Approver</field>
+            <field name="category_id"
+                ref="vtt_official_dispatch.module_category_vtt_official_document" />
+            <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]" />
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+        <!-- Group Document Editor -->
+        <record id="group_official_dispatch_editor" model="res.groups">
+            <field name="name">Official Dispatch Editor</field>
+            <field name="category_id"
+                ref="vtt_official_dispatch.module_category_vtt_official_document" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+        <!-- Group Document Clerical -->
+        <record id="group_official_dispatch_clerical" model="res.groups">
+            <field name="name">Official Dispatch Clerical</field>
+            <field name="category_id"
+                ref="vtt_official_dispatch.module_category_vtt_official_document" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+         <!-- Group Document keeper -->
+        <record id="group_vtt_keeper" model="res.groups">
+            <field name="name">Official Dispatch Keeper</field>
+            <field name="category_id" ref="vtt_official_dispatch.module_category_vtt_official_document"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

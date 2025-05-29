@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sequence Default data-->
+    <data noupdate="1">
+        <!--Location-->
+        <record id="vtt_seq_ss_investigate_location" model="ir.sequence">
+            <field name="name">Investigate Location SS</field>
+            <field name="code">ss.investigate.location</field>
+            <field name="prefix">IL/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Campaign-->
+        <record id="vtt_seq_ss_investigate_campaign" model="ir.sequence">
+            <field name="name">Investigate Campaign SS</field>
+            <field name="code">ss.investigate.campaign</field>
+            <field name="prefix">IC/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Investigate-->
+        <record id="vtt_seq_ss_investigate_investigate" model="ir.sequence">
+            <field name="name">Investigate SS</field>
+            <field name="code">ss.investigate.investigate</field>
+            <field name="prefix">II/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Malware-->
+        <record id="vtt_seq_ss_threat_malware" model="ir.sequence">
+            <field name="name">Threat Malware SS</field>
+            <field name="code">ss.threat.malware</field>
+            <field name="prefix">TM/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Malware Subject-->
+        <record id="vtt_seq_ss_threat_malware_subject" model="ir.sequence">
+            <field name="name">Threat Malware Subject SS</field>
+            <field name="code">ss.threat.malware.subject</field>
+            <field name="prefix">TMS/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Malware Type-->
+        <record id="vtt_seq_ss_threat_malware_type" model="ir.sequence">
+            <field name="name">Threat Malware Type SS</field>
+            <field name="code">ss.threat.malware.type</field>
+            <field name="prefix">TMT/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Malware Activity-->
+        <record id="vtt_seq_ss_threat_malware_activity" model="ir.sequence">
+            <field name="name">Threat Malware Activity SS</field>
+            <field name="code">ss.threat.malware.activity</field>
+            <field name="prefix">TMA/</field>
+            <field name="padding">5</field>
+            <field name="number_next">146</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Malware Activity Type-->
+        <record id="vtt_seq_ss_threat_malware_activity_type" model="ir.sequence">
+            <field name="name">Threat Malware Activity Type SS</field>
+            <field name="code">ss.threat.malware.activity.type</field>
+            <field name="prefix">TMAT/</field>
+            <field name="padding">5</field>
+            <field name="number_next">6</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Malware Activity Detail-->
+        <record id="vtt_seq_ss_threat_malware_activity_detail" model="ir.sequence">
+            <field name="name">Threat Malware Activity Detail SS</field>
+            <field name="code">ss.threat.malware.activity.detail</field>
+            <field name="prefix">TMAD/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Comparison-->
+        <record id="vtt_seq_ss_threat_comparison" model="ir.sequence">
+            <field name="name">Threat Comparison SS</field>
+            <field name="code">ss.threat.comparison</field>
+            <field name="prefix">TC/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Comparison Field-->
+        <record id="vtt_seq_ss_threat_comparison_field" model="ir.sequence">
+            <field name="name">Threat Comparison Field SS</field>
+            <field name="code">ss.threat.comparison.field</field>
+            <field name="prefix">TCF/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Comparison Template-->
+        <record id="vtt_seq_ss_threat_comparison_template" model="ir.sequence">
+            <field name="name">Threat Comparison Template SS</field>
+            <field name="code">ss.threat.comparison.template</field>
+            <field name="prefix">TCT/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Comparison Template Field-->
+        <record id="vtt_seq_ss_threat_comparison_template_field" model="ir.sequence">
+            <field name="name">Threat Comparison Template Field SS</field>
+            <field name="code">ss.threat.comparison.template.field</field>
+            <field name="prefix">TCTF/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Comparison Report-->
+        <record id="vtt_seq_ss_threat_comparison_report" model="ir.sequence">
+            <field name="name">Threat Comparison Report SS</field>
+            <field name="code">ss.threat.comparison.report</field>
+            <field name="prefix">TCR/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!--Investigate Malware-->
+        <record id="vtt_seq_ss_investigate_malware" model="ir.sequence">
+            <field name="name">Investigate Malware SS</field>
+            <field name="code">ss.investigate.malware</field>
+            <field name="prefix">IM/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

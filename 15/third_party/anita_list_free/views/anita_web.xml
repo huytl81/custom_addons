@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="anita_list_free.bootstrap" inherit_id="web.webclient_bootstrap">
+
+        <xpath expr="//t[@t-call-assets='web.assets_common']" position="before">
+            <script type="text/javascript">
+                odoo.anita_list_mode = '<t t-esc="session_info['anita_list_mode']"/>'; 
+            </script>
+        </xpath>
+
+    </template>
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--User Documents as Attachment-->
+    <data>
+        <!--Templates-->
+        <!--Partner Import-->
+        <record id="vtt_doc_partner_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">MD_mau_update_lien_he_v2.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/MD_mau_update_lien_he_v2.xlsx"/>
+            <field name="description">Mẫu import danh sách khách hàng/ nhà cung cấp</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+
+        <!--Products Import-->
+        <record id="vtt_doc_product_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">mau_update_thong_tin_hang_hoa_MD_v4.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/mau_update_thong_tin_hang_hoa_MD_v4.xlsx"/>
+            <field name="description">Mẫu import danh sách hàng hóa vật tư</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+
+        <!--Fleet Import-->
+        <record id="vtt_doc_fleet_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">MD_mau_update_xe.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/MD_mau_update_xe.xlsx"/>
+            <field name="description">Mẫu import danh sách đội xe</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+
+        <!--Stock Receive Import-->
+        <record id="vtt_doc_stock_picking_incoming_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">MD_mau_nhap_kho_import_v4.1.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/MD_mau_nhap_kho_import_v4.1.xlsx"/>
+            <field name="description">Mẫu import nhập kho</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+
+        <!--Stock Delivery Import-->
+        <record id="vtt_doc_stock_picking_outgoing_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">MD_mau_xuat_kho_import_v4.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/MD_mau_xuat_kho_import_v4.xlsx"/>
+            <field name="description">Mẫu import xuất kho</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+
+        <!--Stock Picking Product Lot Import-->
+        <record id="vtt_doc_stock_picking_product_lot_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">MD_mau_update_danh_muc_hang_hoa.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/MD_mau_update_danh_muc_hang_hoa.xlsx"/>
+            <field name="description">Mẫu cập nhật lô hàng nhập</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+
+        <!--Fleet Cost Import-->
+        <record id="vtt_doc_fleet_cost_import_template" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">MD_mau_import_chi_phi_xe_v2.xlsx</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="vtt_minhduong_config/static/documents/templates/MD_mau_import_chi_phi_xe_v2.xlsx"/>
+            <field name="description">Mẫu import chi phí đội xe</field>
+            <field name="vtt_user_document" eval="True"/>
+        </record>
+    </data>
+</odoo>

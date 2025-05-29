@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="anita_list_free.expand_row">
+        <div class="anita_expand_row">
+            this is the anita expand row !
+        </div>
+    </t>
+
+    <t t-name="anita_list_free.enable_list_manager">
+        <div class="dropdown-item anita_list_switcher">
+            <div class="custom-control custom-toggle my-2">
+                <input type="checkbox" id="enable_list_manager" name="enable_list_manager" class="custom-control-input"/>
+                <label class="custom-control-label" for="enable_list_manager">Enable List Manager</label>
+            </div>
+        </div>
+    </t>
+
+</templates>

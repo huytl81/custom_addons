@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Custom Rating views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_custom_rating" model="ir.ui.view">
+            <field name="name">Custom Rating Form</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="arch" type="xml">
+                <form string="Custom Rating">
+                    <header></header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="view_rated_document" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': ['|', ('model', '=', False), ('record_id', '=', False)]}" string="Original Document">
+                            </button>
+                        </div>
+                        <div name="rating_title" class="oe_title">
+                            <label for="short_description" string="Subject"/>
+                            <h1><field name="short_description"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="model" invisible="1"/>
+                                <field name="record_id" invisible="1"/>
+                                <field name="partner_id"/>
+                                <field name="user_id"/>
+                                <field name="receive_user_id"/>
+                            </group>
+                            <group>
+                                <field name="rating_type" widget="radio"/>
+                                <field name="rating" widget="priority"/>
+                                <field name="rating_point" invisible="1"/>
+                                <field name="dt_rating"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Full Description">
+                                <field name="full_description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_custom_rating" model="ir.ui.view">
+            <field name="name">Custom Rating List</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="arch" type="xml">
+                <tree string="Custom Ratings" decoration-success="rating == '4' or rating == '5'" decoration-danger="rating == '0' or rating == '1'">
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                    <field name="rating" widget="priority" readonly="1"/>
+                    <field name="rating_point" optional="hide"/>
+                    <field name="rating_type" widget="badge" decoration-success="rating_type == 'positive'" decoration-danger="rating_type == 'negative'"/>
+                    <field name="short_description"/>
+                    <field name="receive_user_id" optional="hide"/>
+                    <field name="dt_rating"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Graph view-->
+        <record id="vtt_view_graph_custom_rating" model="ir.ui.view">
+            <field name="name">Custom Rating Graph</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="arch" type="xml">
+                <graph string="Rating Analysis" stacked="Fasle" sample="1">
+                    <field name="user_id"/>
+                    <field name="rating_type" type="col"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--Pivot view-->
+        <record id="vtt_view_pivot_custom_rating" model="ir.ui.view">
+            <field name="name">Custom Rating Pivot</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="arch" type="xml">
+                <pivot string="Rating Analysis" sample="0">
+                    <field name="dt_rating" interval="month" type="col"/>
+                    <field name="user_id" type="row"/>
+                    <field name="rating_point" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_custom_rating" model="ir.ui.view">
+            <field name="name">Custom Rating Filer</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="arch" type="xml">
+                <search string="Custom Rating Filter">
+                    <field name="user_id"/>
+                    <field name="partner_id"/>
+                    <field name="rating_type"/>
+                    <separator/>
+                    <filter name="rate_positive" string="Positive" domain="[('rating_type', '=', 'positive')]"/>
+                    <filter name="rate_negative" string="Negative" domain="[('rating_type', '=', 'negative')]"/>
+                    <separator/>
+                    <filter name="dt_rating" string="Date" date="dt_rating"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="User" name="groupby_user" context="{'group_by':'user_id'}" help="User"/>
+                        <filter string="Partner" name="groupby_partner" context="{'group_by':'partner_id'}" help="Partner"/>
+                        <filter string="Type" name="groupby_type" context="{'group_by':'rating_type'}" help="Type" />
+                        <filter string="Date" name="groupby_dt_rating" context="{'group_by':'dt_rating'}" help="Date"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Custom Rating list-->
+        <record id="vtt_act_window_custom_rating" model="ir.actions.act_window">
+            <field name="name">Custom Ratings</field>
+            <field name="res_model">vtt.custom.rating</field>
+            <field name="view_mode">tree,pivot,graph,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Custom Rating menu-->
+        <menuitem id="vtt_menu_custom_rating_root" name="Ratings" sequence="50" web_icon="vtt_custom_rating,static/description/icon.png"/>
+        <menuitem id="vtt_menu_custom_rating_rating" name="Ratings" parent="vtt_menu_custom_rating_root" sequence="10" action="vtt_act_window_custom_rating"/>
+
+        <!--Config menu-->
+        <menuitem id="vtt_menu_custom_rating_config" name="Configuration" parent="vtt_menu_custom_rating_root" sequence="100"/>
+    </data>
+</odoo>

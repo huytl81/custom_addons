@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Res Partner views-->
+    <data>
+        <!--Form view modify for child partner-->
+        <record id="vtt_view_form_res_partner_child_partner_address" model="ir.ui.view">
+            <field name="name">Res Partner Form modify Child Partner Address</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="attributes">
+                    <attribute name="attrs">{'invisible': False}</attribute>
+                </field>
+
+                <field name="street" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+                <field name="street2" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+                <field name="city" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+                <field name="state_id" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+                <field name="zip" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+                <field name="country_id" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+                <field name="vat" position="attributes">
+                    <attribute name="attrs">{'readonly': False}</attribute>
+                </field>
+
+                <!--Add partner code-->
+                <field name="vat" position="after">
+                    <field name="vtt_partner_code"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view add partner code-->
+        <record id="vtt_view_tree_res_partner_partner_code" model="ir.ui.view">
+            <field name="name">Partner List add Partner Code</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="display_name" position="before">
+                    <field name="vtt_partner_code"/>
+                </field>
+                <!--<field name="display_name" position="after">
+                    <field name="name" optional="hide"/>
+                </field>-->
+            </field>
+        </record>
+
+        <!--Search view add partner code-->
+        <record id="vtt_view_search_res_partner_partner_code" model="ir.ui.view">
+            <field name="name">Partner Filter add Partner Code</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="attributes">
+                    <attribute name="filter_domain">['|', '|', '|', '|', '|', ('display_name', 'ilike', self), ('ref', '=', self), ('email', 'ilike', self), ('phone', 'ilike', self), ('mobile', 'ilike', self), ('vtt_partner_code', 'ilike', self)]</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <record id="contacts.res_partner_menu_config" model="ir.ui.menu">
+        <field name="groups_id" eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+</odoo>

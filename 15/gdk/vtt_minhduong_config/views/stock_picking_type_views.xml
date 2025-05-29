@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Picking Type views-->
+    <data>
+        <!--Kanban view add Import Wizard-->
+        <record id="vtt_view_kanban_stock_picking_type_custom_import" model="ir.ui.view">
+            <field name="name">Stock Picking Type Kanban add Import Wizard</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.stock_picking_type_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_kanban_card_manage_section')][2]" position="inside">
+                    <div t-if="record.code.raw_value=='incoming'" role="menuitem">
+                        <a name="action_stock_custom_import_wz" type="object" context="{'default_use_batch': False}">Import from EXCEL</a>
+                    </div>
+
+                    <div t-if="record.code.raw_value=='outgoing'" role="menuitem">
+                        <a name="action_stock_custom_import_wz" type="object" context="{'default_use_batch': True}">Import from EXCEL</a>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

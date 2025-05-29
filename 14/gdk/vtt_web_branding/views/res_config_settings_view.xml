@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+    	<field name="name">VTT Branding</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+	    <field name="arch" type="xml">
+	        <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Branding" id="vtt_web_branding" string="Branding" data-key="vtt_web_branding" groups="base.group_system">
+                        <h2>Branding</h2>
+                        <div class="row mt16 o_settings_container" id="brand_title_setting">
+                            <div class="col-12 col-lg-6 o_setting_box" invisible="0">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="vtt_page_title" string="Backend Page Title"/>
+                                    <div class="text-muted">
+                                        Title of page after Action name in Backend
+                                    </div>
+                                    <field name="vtt_page_title"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box" invisible="0">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="vtt_page_documentation" string="Documentation Link"/>
+                                    <field name="vtt_page_documentation"/>
+                                </div>
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="vtt_page_support" string="Support Link"/>
+                                    <field name="vtt_page_support"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+	    </field>
+	</record>
+	
+</odoo>

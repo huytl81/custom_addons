@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="vtt_dhag_threat_analysis_backend" name="vtt_dhag assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/vtt_dhag_threat_analysis/static/src/css/field_file_path.css"/>
+
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/malware_activity_manager.js"/>
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/field_file_paths.js"/>
+
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/malware_list_controller.js"></script>
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/malware_list_view.js"></script>
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/campaign_list_controller.js"></script>
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/campaign_list_view.js"></script>
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js"></script>
+            <script type="text/javascript" src="/vtt_dhag_threat_analysis/static/src/js/investigate_view_dialogs.js"></script>
+        </xpath>
+   </template>
+</odoo>

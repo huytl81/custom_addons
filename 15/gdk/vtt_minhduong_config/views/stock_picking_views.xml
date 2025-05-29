@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Picking views-->
+    <data>
+        <!--Form view add Allow Expired-->
+        <record id="vtt_view_form_stock_picking_allow_expired" model="ir.ui.view">
+            <field name="name">Stock Picking Form add Allow Expired Lot</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="origin" position="before">
+                    <field name="vtt_block_expired" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                </field>
+
+                <field name="origin" position="after">
+                    <field name="vtt_fleet_vehicle_id" attrs="{'invisible': [('picking_type_code', 'not in', ('outgoing', 'internal'))]}"/>
+                    <field name="vehicle_license_plate" invisible="1"/>
+                    <field name="vtt_fleet_driver_id" attrs="{'invisible': [('picking_type_code', 'not in', ('outgoing', 'internal'))]}"/>
+                </field>
+
+                <!--Update move line expiration percentage-->
+                <field name="move_line_nosuggest_ids" position="before">
+                    <button name="action_clear_empty_lines" type="object" string="Clear Empty Lines" class="oe_highlight" attrs="{'invisible': [('state', 'in', ['done', 'cancel'])]}"/>
+                    <button name="generate_missing_lot_name" type="object" string="Generate LN" attrs="{'invisible': ['|', ('picking_type_code', '!=', 'incoming'), ('state', 'in', ['done', 'cancel'])]}"/>
+                    <button name="expiration_time_percentage_update" type="object" string="Update Expire." class="oe_highlight" attrs="{'invisible': ['|', ('picking_type_code', '!=', 'incoming'), ('state', 'in', ['done', 'cancel'])]}" groups="base.group_erp_manager"/>
+                </field>
+                <!--<field name="move_ids_without_package" position="before">
+                    <button name="expiration_time_percentage_update" type="object" string="Update Expire." class="oe_highlight" attrs="{'invisible': [('state', 'in', ['done', 'cancel'])]}" groups="base.group_erp_manager"/>
+                </field>-->
+
+                <!--Add Barcode Scan Wz-->
+                <field name="move_line_ids_without_package" position="before">
+                    <button name="action_open_barcode_scan_wz" type="object" string="Add Product" class="oe_highlight" attrs="{'invisible': ['|', ('picking_type_code', 'not in', ('outgoing', 'internal')), ('state', 'in', ['done', 'cancel'])]}"/>
+                </field>
+
+                <!--Add Demand qty-->
+                <field name="product_uom_qty" position="before">
+                    <field name="price_unit" optional="hide" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                    <field name="vtt_demand_qty" attrs="{'column_invisible': [('parent.immediate_transfer', '=', True)], 'readonly': [('state', '=', 'done')]}"/>
+                    <field name="vtt_amount_demand" optional="hide" sum="Amount Demand"/>
+
+                    <!--Add Pack qty-->
+                    <field name="vtt_pack_qty" attrs="{'column_invisible': [('parent.immediate_transfer', '=', True)], 'readonly': [('state', '=', 'done')]}" sum="Pack"/>
+                    <field name="vtt_surplus_qty" attrs="{'column_invisible': [('parent.immediate_transfer', '=', True)], 'readonly': [('state', '=', 'done')]}" sum="Surplus"/>
+                </field>
+
+                <!--Add Qty sum-->
+                <field name="product_uom_qty" position="attributes">
+                    <attribute name="sum">Accepted Quantity</attribute>
+                </field>
+                <field name="quantity_done" position="attributes">
+                    <attribute name="sum">Done Quantity</attribute>
+                </field>
+
+                <!--Hide Packaging-->
+                <field name="product_packaging_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+
+                <!--Add Move Line Generate-->
+                <header position="inside">
+                    <button name="action_move_line_gen_wz" type="object" string="Move Gen" attrs="{'invisible': ['|', ('state', '!=', 'assigned'), ('picking_type_code', '!=', 'incoming')]}"/>
+                    <button name="action_move_import_wz" type="object" string="Import Move" attrs="{'invisible': ['|', ('state', '!=', 'assigned'), ('picking_type_code', '!=', 'incoming')]}"/>
+                </header>
+
+                <!--Add Sequence handle-->
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="before">
+                    <field name="sequence" widget="handle"/>
+                </xpath>
+
+                <!--Add Note-->
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='lot_ids']" position="after">
+                    <field name="note"/>
+                </xpath>
+
+                <!--Add Amount-->
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='quantity_done']" position="after">
+                    <field name="vtt_amount_total" optional="hide" sum="Amount Total"/>
+                </xpath>
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="vtt_amount_confirm" optional="hide" sum="Amount Confirm"/>
+                </xpath>
+                <field name="move_ids_without_package" position="after">
+                    <group>
+                        <group></group>
+                        <group>
+                            <field name="vtt_amount_demand"/>
+                            <field name="vtt_amount_confirm"/>
+                            <field name="vtt_amount_total"/>
+                        </group>
+                    </group>
+                </field>
+
+                <!--Add Editable date_done-->
+                <field name="date_done" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+
+                <!--Add Lots button-->
+                <button name="action_view_reception_report" position="before">
+                    <button name="action_view_picking_lots" type="object" string="Lots/Serial Numbers" icon="fa-chevron-down" class="oe_stat_button" attrs="{'invisible': ['|', '|', ('picking_type_code', '!=', 'incoming'), ('state', '!=', 'done'), ('has_tracking', '=', False)]}" groups="stock.group_production_lot"/>
+                </button>
+
+                <!--Add Inventory Support Page-->
+                <page name="operations" position="after">
+                    <page name="inventory_supported" string="Inventory Support">
+                        <group>
+                            <group>
+                                <field name="vtt_amount_pack_qty"/>
+                                <field name="vtt_amount_surplus_qty"/>
+                            </group>
+                            <group>
+                                <field name="vtt_done_pack_qty"/>
+                                <field name="vtt_done_surplus_qty"/>
+                            </group>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--List view add vehicle-->
+        <record id="vtt_view_tree_stock_picking_add_vehicle" model="ir.ui.view">
+            <field name="name">Stock Picking List add Vehicle</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree"/>
+            <field name="arch" type="xml">
+                <field name="origin" position="after">
+                    <field name="vtt_fleet_vehicle_id" optional="show"/>
+                    <field name="vehicle_license_plate" invisible="1"/>
+                    <field name="vtt_fleet_driver_id" optional="hide"/>
+                </field>
+
+                <field name="scheduled_date" position="attributes">
+                    <attribute name="widget">date</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Filter view add vehicle-->
+        <record id="vtt_view_search_stock_picking_add_vehicle" model="ir.ui.view">
+            <field name="name">Stock Picking Filter add Vehicle</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="vtt_fleet_vehicle_id"/>
+                </field>
+
+                <filter name="origin" position="after">
+                    <filter name="groupby_vehicle" string="Vehicle" domain="[]" context="{'group_by': 'vtt_fleet_vehicle_id'}"/>
+                </filter>
+
+                <!--Add date-->
+                <filter name="backorder" position="after">
+                    <separator/>
+                    <filter string="Picking Date" name="filter_picking_date" date="date" default_period="this_month"/>
+                </filter>
+
+                <filter name="expected_date" position="after">
+                    <filter name="groupby_picking_date" string="Picking Date" domain="[]" context="{'group_by': 'date:month'}"/>
+                </filter>
+            </field>
+        </record>
+
+        <!--Kanban view add vehicle-->
+        <record id="vtt_view_kanban_stock_picking_add_vehicle" model="ir.ui.view">
+            <field name="name">Stock Picking Kanban add Vehicle</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.stock_picking_kanban"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="vtt_fleet_vehicle_id"/>
+                    <field name="vtt_fleet_driver_id"/>
+                    <field name="vehicle_license_plate"/>
+                    <field name="origin"/>
+                </field>
+
+                <!--Add Vehicle-->
+                <xpath expr="//t[@t-esc='record.name.value']" position="after">
+                    <span t-if="record.vehicle_license_plate.raw_value">- <t t-esc="record.vehicle_license_plate.raw_value"/></span>
+                </xpath>
+
+                <!--Add Origin-->
+                <xpath expr="//div[hasclass('o_kanban_record_headings')]/strong" position="after">
+                    <span t-if="record.origin.raw_value">
+                        <br/>
+                        <t t-esc="record.origin.raw_value"/>
+                    </span>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Form view date_done editable for admin-->
+        <record id="vtt_view_form_stock_picking_date_editable" model="ir.ui.view">
+            <field name="name">Stock Picking Form Allow edit Date Done</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="groups_id" eval="[(4, ref('base.group_erp_manager'))]"/>
+            <field name="arch" type="xml">
+                <field name="date_done" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

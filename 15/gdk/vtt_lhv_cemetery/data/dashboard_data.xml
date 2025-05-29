@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Dashboard default views-->
+    <data>
+        <!--Customer Service dashboard-->
+        <record id="vtt_board_company_cemetery_customer_service" model="ir.ui.view.custom">
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="ref_id" ref="vtt_board.vtt_view_form_board_company_dash"/>
+            <field name="vtt_is_global" eval="True"/>
+            <field name="arch" type="xml">
+                <form string="Customer Service">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(vtt_lhv_cemetery.vtt_act_window_land_tomb_slot_dashboard)d" string="Mộ" view_mode="dashboard" invisible="1"/>
+                            <action name="%(vtt_lhv_cemetery.vtt_act_window_land_tomb_slot_tree_next_anni)d" string="Ngày giỗ tháng ngày &amp; tháng sau" view_mode="list" groups="vtt_lhv_cemetery.vtt_group_cemetery_care_service_user"/>
+                            <action name="%(calendar.action_calendar_event)d" view_mode="calendar" string="Lịch làm việc"/>
+                        </column>
+
+                        <column>
+                            <action name="%(vtt_lhv_cemetery.vtt_act_window_sale_subscription_next_recurrent)d" view_mode="list" string="Dịch vụ cần gia hạn" groups="vtt_lhv_cemetery.vtt_group_cemetery_care_service_user"/>
+                            <action name="%(vtt_lhv_cemetery.vtt_act_window_construct_inprogress)d" view_mode="list" string="Xây dựng" groups="vtt_lhv_cemetery.vtt_group_cemetery_care_service_user,vtt_lhv_cemetery.vtt_group_cemetery_construct_manager"/>
+                            <!--<action name="%(vtt_approvals.approval_request_action_to_review)d" view_mode="list" string="Đề xuất cần xem xét" groups="vtt_approvals.group_approval_user"/>-->
+                            <action name="%(vtt_lhv_cemetery.vtt_act_window_project_task_my_inprogress)d" view_mode="list" string="Công việc của tôi"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

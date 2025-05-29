@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_purchase_qualify
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-17 08:34+0000\n"
+"PO-Revision-Date: 2021-02-17 08:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_purchase_qualify
+#: model:ir.model.fields,help:vtt_purchase_qualify.field_res_config_settings__vtt_po_responsible_method
+msgid ""
+"* The 'Manual' mean all responsible in order need to fill manually.\n"
+"* The 'Full automatic' is used when all responsible have to fill-up by workflow action."
+msgstr ""
+"* Lựa chọn 'Thủ công' tức là tất cả thành phần tham gia trong đơn hàng cần phải được điền vào thủ công.\n"
+"* Lựa chọn 'Tự động' sử dụng khi muốn các thành phần tham gia sẽ được tự động điền vào theo quy trình mua hàng."
+
+#. module: vtt_purchase_qualify
+#: model:ir.model.fields,field_description:vtt_purchase_qualify.field_purchase_order__vtt_appraiser_id
+msgid "Appraiser"
+msgstr "Người kiểm tra"
+
+#. module: vtt_purchase_qualify
+#: model:ir.model.fields,field_description:vtt_purchase_qualify.field_purchase_order__vtt_confirm_uid
+msgid "Confirmation User"
+msgstr "Người duyệt"
+
+#. module: vtt_purchase_qualify
+#: model:ir.model.fields.selection,name:vtt_purchase_qualify.selection__res_config_settings__vtt_po_responsible_method__auto
+msgid "Full automatic"
+msgstr "Tự động"
+
+#. module: vtt_purchase_qualify
+#: model:ir.model.fields.selection,name:vtt_purchase_qualify.selection__res_config_settings__vtt_po_responsible_method__manual
+msgid "Manual"
+msgstr "Thủ công"
+
+#. module: vtt_purchase_qualify
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_qualify.vtt_view_form_res_config_settings_purchase_confirmation
+msgid "Order Responsible fill-up method"
+msgstr "Phương thức cập nhật thành phần tham gia"
+
+#. module: vtt_purchase_qualify
+#: model:ir.model.fields,field_description:vtt_purchase_qualify.field_res_config_settings__vtt_po_responsible_method
+msgid "Responsible Method"
+msgstr "Phương thức thành phần tham gia"

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Investigate Campaign views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_investigate_campaign" model="ir.ui.view">
+            <field name="name">Campaign Form</field>
+            <field name="model">investigate.campaign</field>
+            <field name="arch" type="xml">
+                <form string="Campaign">
+                    <header></header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="location_id"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="user_ids" widget="many2many_tags"/>
+                                <field name="user_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description" nolabel="1"/>
+                            </page>
+                            <page string="Investigates" name="investigates">
+                                <field name="investigate_ids">
+                                    <tree>
+                                        <field name="campaign_id" invisible="1"/>
+                                        <field name="location_id" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="department"/>
+                                        <field name="use_person"/>
+                                        <field name="date"/>
+                                        <field name="sample_dir"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_investigate_campaign" model="ir.ui.view">
+            <field name="name">Campaign List</field>
+            <field name="model">investigate.campaign</field>
+            <field name="arch" type="xml">
+                <tree string="Campaigns">
+                    <!--Remove js_class vtt_campaign_import_list for update synchronize system-->
+                    <field name="name"/>
+                    <field name="location_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="user_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Calendar view-->
+        <record id="vtt_view_calendar_investigate_campaign" model="ir.ui.view">
+            <field name="name">Campaign Calendar</field>
+            <field name="model">investigate.campaign</field>
+            <field name="arch" type="xml">
+                <calendar string="Campaigns" mode="month" date_start="date_from" date_stop="date_to" quick_add="False" color="location_id" hide_time="true" event_limit="5">
+                    <field name="user_ids" widget="many2many_tags_avatar"/>
+                    <field name="location_id"/>
+                    <field name="description"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_investigate_campaign" model="ir.ui.view">
+            <field name="name">Campaign Filter</field>
+            <field name="model">investigate.campaign</field>
+            <field name="arch" type="xml">
+                <search string="Campaign Filter">
+                    <field name="name"/>
+                    <field name="location_id"/>
+                    <field name="location_id" string="States" filter_domain="[('location_id.state_id', 'ilike', self)]"/>
+                    <field name="user_ids"/>
+                    <separator/>
+                    <!--<filter name="archived" string="Archived" domain="[('active', '=', False)]"/>-->
+                    <filter name="date" string="Date" date="date_from"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_location" string="Location" domain="[]" context="{'group_by':'location_id'}"/>
+                        <filter name="group_date_from" string="Date" domain="[]" context="{'group_by':'date_from:month'}"/>
+                    </group>
+                    <!--<searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="department_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>-->
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Campaign list-->
+        <record id="vtt_act_window_investigate_campaign" model="ir.actions.act_window">
+            <field name="name">Campaigns</field>
+            <field name="res_model">investigate.campaign</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Root menu-->
+        <menuitem id="vtt_menu_threat_analysis_root" name="Threat Analysis" sequence="100" web_icon="vtt_dhag_threat_analysis,static/description/icon.png"/>
+
+        <!--Report menu-->
+        <menuitem id="vtt_menu_threat_analysis_report" name="Report" sequence="180" parent="vtt_menu_threat_analysis_root"/>
+
+        <!--Configuration menu-->
+        <menuitem id="vtt_menu_threat_analysis_config" name="Configuration" sequence="200" parent="vtt_menu_threat_analysis_root"/>
+
+        <!--Campaign menu-->
+        <menuitem id="vtt_menu_threat_analysis_campaign" name="Campaigns" sequence="10" parent="vtt_menu_threat_analysis_root"/>
+        <menuitem id="vtt_menu_threat_analysis_campaign_campaign" name="Campaigns" sequence="10" parent="vtt_menu_threat_analysis_campaign" action="vtt_act_window_investigate_campaign"/>
+    </data>
+</odoo>

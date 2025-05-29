@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Vehicle views change-->
+    <data>
+        <!--Form view upgrade vehicle model create-->
+        <record id="vtt_view_form_fleet_vehicle_title_alter" model="ir.ui.view">
+            <field name="name">Fleet Vehicle Title Alter</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="active">0</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_title')]" position="replace">
+                    <div class="oe_title">
+                        <label for="model_id" class="oe_edit_only"/>
+                        <h2>
+                            <div class="o_row">
+                                <field name="brand_id" class="oe_edit_only"/>
+                                <field name="model_id" placeholder="e.g. Model S" domain="[('brand_id', '=', brand_id)]"/>
+                            </div>
+                            <!--<field name="model_id" placeholder="e.g. Model S"/>-->
+                        </h2>
+                        <label for="license_plate" class="oe_edit_only"/>
+                        <h2>
+                            <field name="license_plate" class="oe_inline" placeholder="e.g. PAE 326"/>
+                        </h2>
+                        <label for="tag_ids" class="oe_edit_only"/>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Vehicle form smart buttons-->
+        <record id="vtt_view_form_fleet_vehicle_repair_buttons" model="ir.ui.view">
+            <field name="name">Fleet Vehicle Repair Smart Buttons</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <!--Show new buttons-->
+                <button name="open_assignation_logs" position="after">
+                    <button name="action_view_repair" type="object" class="oe_stat_button" icon="fa-wrench" help="show history services of this vehicle">
+                        <field name="repair_order_count" widget="statinfo" string="Repairs"/>
+                    </button>
+                </button>
+            </field>
+        </record>
+
+        <!--Vehicle form hidden old buttons-->
+        <record id="vtt_view_form_fleet_vehicle_hidden_buttons" model="ir.ui.view">
+            <field name="name">Fleet Vehicle Repair Hidden Buttons</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <!--Hidden old buttons-->
+                <xpath expr="//button[@name='return_action_to_open'][1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='return_action_to_open'][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Form view modify show-up-->
+        <record id="vtt_view_form_fleet_vehicle_car_repair" model="ir.ui.view">
+            <field name="name">Fleet Vehicle for Car Repair</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <!--Driver group-->
+                <xpath expr="//label[@for='future_driver_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!--<xpath expr="//div[hasclass('o_row')][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>-->
+                <field name="future_driver_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="plan_to_change_car" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="next_assignation_date" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="location" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <!--Vehicle group-->
+                <field name="car_value" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="net_car_value" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="residual_value" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <!--Contract group-->
+                <group name="contract" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </group>
+
+                <!--Engine group-->
+                <field name="horsepower_tax" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <xpath expr="//label[@for='power']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('o_row')][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Tree view modify-->
+        <record id="vtt_view_tree_fleet_vehicle_car_repair" model="ir.ui.view">
+            <field name="name">Fleet Vehicle List for Car Repair</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"/>
+            <field name="arch" type="xml">
+                <!--Hidden-->
+                <field name="future_driver_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="vin_sn" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="acquisition_date" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="tag_ids" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+
+                <!--Adding-->
+                <field name="vin_sn" position="before">
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="vtt_dt_recent_car_repair" widget="date"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Vehicle menus-->
+    <data>
+        <menuitem id="vtt_menu_car_repair_config_brand"
+              name="Manufacturers"
+              parent="vtt_menu_car_repair_config"
+              sequence="10"
+              action="fleet.fleet_vehicle_model_brand_action"/>
+        <menuitem id="vtt_menu_car_repair_config_model"
+              name="Models"
+              parent="vtt_menu_car_repair_config"
+              sequence="20"
+              action="fleet.fleet_vehicle_model_action"/>
+        <menuitem id="vtt_menu_car_repair_config_vehicle_status"
+              name="Vehicle Status"
+              parent="vtt_menu_car_repair_config"
+              sequence="50"
+              action="fleet.fleet_vehicle_state_action"/>
+        <menuitem id="vtt_menu_car_repair_config_activity"
+              name="Activity Types"
+              parent="vtt_menu_car_repair_config"
+              sequence="60"
+              action="fleet.mail_activity_type_action_config_fleet"/>
+    </data>
+</odoo>

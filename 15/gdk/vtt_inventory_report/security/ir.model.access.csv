@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventory_history_wz_user,inventory.history.wz.user,model_vtt_inventory_history_wz,stock.group_stock_user,1,1,1,1

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Approval Category-->
+    <data noupdate="1">
+        <!--Task Approve-->
+        <record id="vtt_approval_category_data_task_approve" model="approval.category">
+            <field name="name">New Task Approve</field>
+            <!--<field name="image" type="base64" file="vtt_approvals/static/src/img/plane-departure-solid.svg"/>-->
+            <field name="sequence">1</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_product">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">no</field>
+            <field name="has_payment_method">no</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">optional</field>
+            <field name="approval_minimum">1</field>
+            <field name="manager_approval">approver</field>
+        </record>
+
+        <!--Supply Purchase-->
+        <record id="vtt_approval_category_data_supply_purchase" model="approval.category">
+            <field name="name">Supply Purchase</field>
+            <!--<field name="image" type="base64" file="vtt_approvals/static/src/img/plane-departure-solid.svg"/>-->
+            <field name="sequence">5</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_product">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">required</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">no</field>
+            <field name="has_payment_method">no</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">optional</field>
+            <field name="approval_minimum">1</field>
+            <field name="manager_approval">approver</field>
+        </record>
+    </data>
+</odoo>

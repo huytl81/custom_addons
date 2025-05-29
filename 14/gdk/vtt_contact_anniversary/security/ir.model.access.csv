@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+vtt_access_contact_anniversary_user,contact.anniversary.user,model_vtt_contact_anniversary,base.group_user,1,1,1,1
+vtt_access_contact_anniversary_category_user,contact.anniversary.category.user,model_vtt_contact_anniversary_category,base.group_user,1,1,1,1

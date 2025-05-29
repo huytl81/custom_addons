@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Account Move Views-->
+    <data>
+        <!--Graph Valuation by Category-->
+        <record id="vtt_view_graph_stock_valuation_layer_categ" model="ir.ui.view">
+            <field name="name">Stock Valuation by Category Graph</field>
+            <field name="model">stock.valuation.layer</field>
+            <field name="priority">999</field>
+            <field name="arch" type="xml">
+                <graph string="Stock Valuation" type="pie">
+                    <field name="categ_id"/>
+                    <field name="value" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--Dashboard Valuation by Category-->
+        <record id="vtt_view_dashboard_stock_valuation_layer_categ" model="ir.ui.view">
+            <field name="name">Stock Valuation by Category Dashboard</field>
+            <field name="model">account.invoice.report</field>
+            <field name="model">stock.valuation.layer</field>
+            <field name="priority">999</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <group>
+                        <group>
+                            <aggregate name="sum_stock_value" string="Total in Stock" group_operator="sum" field="value" clickable="False" col="4"/>
+                        </group>
+                    </group>
+
+                    <!--<view type="graph" name="stock_value_pie" ref="vtt_view_graph_stock_valuation_layer_categ"/>-->
+                </dashboard>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Upcoming Date List-->
+        <record id="stock_account.stock_valuation_layer_action" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,dashboard</field>
+        </record>
+    </data>
+</odoo>

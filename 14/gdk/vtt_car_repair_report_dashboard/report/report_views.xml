@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Views-->
+    <data>
+        <!--Dashboard view-->
+        <record id="vtt_view_dashboard_car_repair_order_report" model="ir.ui.view">
+             <field name="name">Repair Order Report Dashboard</field>
+             <field name="model">vtt.car.repair.order.report</field>
+             <field name="arch" type="xml">
+                 <dashboard>
+                    <group>
+                        <group>
+                            <aggregate name="sum_price_total" string="Total" group_operator="sum" field="price_total" clickable="False" col="4"/>
+                            <aggregate name="orders" string="# Orders" group_operator="count" field="order_id" measure="__count__"/>
+                        </group>
+                    </group>
+                 </dashboard>
+             </field>
+        </record>
+
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_car_repair.vtt_act_window_car_repair_order_report" model="ir.actions.act_window">
+            <field name="view_mode">graph,pivot,dashboard</field>
+        </record>
+    </data>
+
+</odoo>

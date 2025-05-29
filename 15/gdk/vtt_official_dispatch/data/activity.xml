@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="vtt_official_dispatch_receive_activity" model="mail.activity.type">
+            <field name="name">Dispatch Receive Activity</field>
+            <field name="icon">fa-file-text-o</field>
+            <field name="res_model">vtt.official.dispatch.receive</field>
+        </record>
+    </data>
+</odoo>

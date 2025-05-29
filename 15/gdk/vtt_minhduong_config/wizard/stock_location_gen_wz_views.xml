@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Location Generate views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_stock_location_gen_wizard" model="ir.ui.view">
+            <field name="name">Stock Location Generate Wizard</field>
+            <field name="model">vtt.stock.location.gen.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="warehouse_id"/>
+                                <field name="loc_parent_id"/>
+                                <field name="new_loc_name" required="1"/>
+                                <field name="code" required="1"/>
+                                <field name="use_barcode"/>
+                            </group>
+                            <group>
+                                <field name="loc_pallet" widget="numeric_step" options="{'step': 1.0}"/>
+                                <field name="loc_pallet_start" widget="numeric_step" options="{'step': 1.0}"/>
+                                <field name="loc_level" widget="numeric_step" options="{'step': 1.0}"/>
+                                <field name="loc_level_start" widget="numeric_step" options="{'step': 1.0}"/>
+                                <field name="pattern"/>
+                                <field name="type" widget="radio"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='Generate Now' name="gen_new_stock_location" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_stock_location_gen" model="ir.actions.act_window">
+            <field name="name">Stock Location Generate</field>
+            <field name="res_model">vtt.stock.location.gen.wz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_stock_setting_stock_loc_gen" name="Location Generate" parent="stock.menu_stock_config_settings" action="vtt_act_window_stock_location_gen" sequence="200" groups="base.group_system"/>
+    </data>
+</odoo>

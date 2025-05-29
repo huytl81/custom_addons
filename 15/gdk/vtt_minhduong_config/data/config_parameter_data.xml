@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Config Parameters-->
+    <data noupdate="0">
+        <!--List Picking Type use Expiration Warning Note-->
+        <record id="vtt_config_param_picking_type_expiration_warn_note" model="ir.config_parameter" forcecreate="True">
+            <field name="key">vtt_minhduong_config.picking_type_expiration_warn_note</field>
+            <field name="value">incoming</field>
+        </record>
+    </data>
+
+    <!--Default Paper-format-->
+    <data noupdate="0">
+        <!--Location Barcode Paperformat-->
+        <record id="vtt_paperformat_location_barcode" model="report.paperformat">
+            <field name="name">Minh Duong Location Barcode Sheet</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="page_height">25</field>
+            <field name="page_width">120</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">96</field>
+        </record>
+
+        <!--Product LN Label Paperformat-->
+        <record id="vtt_paperformat_product_lot_label" model="report.paperformat">
+            <field name="name">Minh Duong Product Lot Sheet</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="page_height">22</field>
+            <field name="page_width">110</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">96</field>
+        </record>
+    </data>
+
+    <!--Default Form Values-->
+    <data noupdate="1">
+        <!--Stock Picking Types-->
+         <function
+            model="ir.default" name="set"
+            eval="('stock.picking.type', 'show_reserved', False)"/>
+        <function
+            model="ir.default" name="set"
+            eval="('stock.picking.type', 'show_operations', True)"/>
+    </data>
+</odoo>

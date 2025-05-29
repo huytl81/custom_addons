@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Config Parameters-->
+    <data noupdate="0">
+        <!--Show Expiration Percentage-->
+        <record id="vtt_config_param_expiration_percentage_warn_invert" model="ir.config_parameter" forcecreate="True">
+            <field name="key">vtt_product_expiry_by_percentage.expiration_percentage_warn_invert</field>
+            <field name="value">True</field>
+        </record>
+    </data>
+</odoo>

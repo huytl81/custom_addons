@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+ <!--Actions-->
+    <data>
+        <!-- Request -->
+        <record id="vtt_official_dispatch_request_view_action" model="ir.actions.act_window">
+            <field name="name">Official Dispatch Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_filter_by_state":1}</field>
+            <field name="view_id" ref="vtt_official_dispatch_request_tree_view"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No dispatch request plan have been made found. Let's create one!
+                </p>
+            </field>
+        </record>
+        <!-- Confirmed Request -->
+        <record id="vtt_official_dispatch_request_confirmed_view_action" model="ir.actions.act_window">
+            <field name="name">Official Dispatch Request Confirmed</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', 'in', ['confirm'])]</field>
+            <field name="view_id" ref="vtt_official_dispatch_request_confirm_tree_view"/>
+        </record>
+
+        <!-- Request Detail-->
+        <record id="vtt_official_dispatch_request_detail_view_action" model="ir.actions.act_window">
+            <field name="name">Official Dispatch Request Detail List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.request.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_filter_by_state_approve":1}</field>
+            <field name="view_id" ref="vtt_official_dispatch_request_line_tree_view"/>
+        </record>
+        
+        <record id="vtt_official_dispatch_request_detail_done_view_action" model="ir.actions.act_window">
+            <field name="name">Official Dispatch Request Detail List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.request.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_filter_by_state_done":1}</field>
+            <field name="view_id" ref="vtt_official_dispatch_request_line_tree_view"/>
+        </record>
+        
+        <!-- Document -->
+        <record id="vtt_official_dispatch_document_view_action" model="ir.actions.act_window">
+            <field name="name">Official Dispatch Document</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.document</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vtt_official_dispatch_document_tree_view"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No document have been made found. Let's create one!
+                </p>
+            </field>
+        </record>
+
+        <!--Category-->
+        <record id="vtt_official_dispatch_category_view_action" model="ir.actions.act_window">
+            <field name="name">Document Category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vtt_official_dispatch_category_tree_view"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No dispatch category have been made found. Let's create one!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

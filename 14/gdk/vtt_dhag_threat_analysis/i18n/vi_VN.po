@@ -1,0 +1,1878 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_dhag_threat_analysis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-15 07:24+0000\n"
+"PO-Revision-Date: 2021-07-15 07:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__compare_count
+msgid "# Compare Reports"
+msgstr "# Bản so sánh"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "APIs"
+msgstr "API"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_needaction
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_needaction
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_needaction
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thực hiện"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__active
+msgid "Active"
+msgstr "Hiệu lực"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_malware__investigate_activity_ids
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Activities"
+msgstr "Hành động"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Activity"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_exception_decoration
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_exception_decoration
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_exception_decoration
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__name
+msgid "Activity Name"
+msgstr "Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__activity_id
+msgid "Activity Reference"
+msgstr "Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_state
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_state
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_state
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_state
+msgid "Activity State"
+msgstr "Trạng thái"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__activity_type
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__activity_type_id
+msgid "Activity Type"
+msgstr "Loại"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_type_icon
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_type_icon
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_type_icon
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__name
+msgid "Activity Type Name"
+msgstr "Loại Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malware_activity_detail
+msgid "Activity detail"
+msgstr "Chi tiết Activity"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/js/investigate_view_dialogs.js:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/js/investigate_view_dialogs.js:0
+#, python-format
+msgid "Add: "
+msgstr "Thêm: "
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__address_id
+msgid "Address Contact"
+msgstr "Liên hệ"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_attachment_count
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_attachment_count
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_attachment_count
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp tin"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison_report
+msgid "Avg. Similar Percent"
+msgstr "Chỉ số tương quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__campaign_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__campaign_id
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_investigate
+msgid "Campaign"
+msgstr "Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__code
+msgid "Campaign Code"
+msgstr "Mã Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__campaign_count
+msgid "Campaign Count"
+msgstr "Số Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_campaign
+msgid "Campaign Filter"
+msgstr "Tra cứu Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_campaign_import_wz
+msgid "Campaign Import"
+msgstr "Import Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_campaign_import_wizard
+msgid "Campaign Import Wizard"
+msgstr "Trình Import Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_investigate_campaign
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__campaign_ids
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_campaign
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_campaign_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_calendar_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_location
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_investigate_investigate
+msgid "Campaigns"
+msgstr "Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js:0
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_campaign_import_wz
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_lastline_report_import_wz
+#, python-format
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__child_ids
+msgid "Child Subjects"
+msgstr "Đối tượng con"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__child_tasks
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Child Tasks"
+msgstr "Tác vụ con"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Chọn"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__district
+msgid "City/ District"
+msgstr "Quận/ huyện"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Close"
+msgstr "Đóng"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__color
+msgid "Color"
+msgstr "Màu"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__command_line
+msgid "Command Line"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__command_line
+msgid "Command Lines"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__compare_detail
+msgid "Compare Detail"
+msgstr "Chi tiết"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__compare_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__compare_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__compare_ids
+msgid "Comparison"
+msgstr "Tương quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison
+msgid "Comparison Form"
+msgstr "Bảng Đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_threat_comparison
+msgid "Comparison List"
+msgstr "Danh sách Đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: code:addons/vtt_dhag_threat_analysis/models/malware.py:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/models/malware.py:0
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_comparison_report
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison_report
+#, python-format
+msgid "Comparison Report"
+msgstr "Kết luận"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_comparison_template
+msgid "Comparison Template"
+msgstr "Mẫu Đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_comparison_template_field
+msgid "Comparison Template Field"
+msgstr "Trường dữ liệu"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison_template
+msgid "Comparison Template Form"
+msgstr "Mẫu Đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_threat_comparison_template
+msgid "Comparison Template List"
+msgstr "Danh sách Mẫu"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_threat_comparison_template_list
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_comparison_template
+msgid "Comparison Templates"
+msgstr "Mẫu Đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_threat_comparison_list
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Comparisons"
+msgstr "Tương quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Confirm"
+msgstr "Xác minh"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_malware__state__confirm
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__investigate_malware__state__confirm
+msgid "Confirmed"
+msgstr "Đã xác minh"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__connect_type
+msgid "Connection Type"
+msgstr "Kiểu kết nối"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_comparison_report__state__consider
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison_report
+msgid "Consider"
+msgstr "Xem xét"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Console I/O"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__console_write
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__console_write
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Console Writes"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_comparison_report__state__correct
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison_report
+msgid "Correct"
+msgstr "Xác nhận"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__correct_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__compare_correct_id
+msgid "Correct Similar"
+msgstr "Được xác nhận"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__country_id
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_location
+msgid "Country"
+msgstr "Quốc gia"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__country_code
+msgid "Country Code"
+msgstr "Mã Quốc gia"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js:0
+#, python-format
+msgid "Create"
+msgstr "Tạo"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__create_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__create_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__dt
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_investigate
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_threat_malware
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_threat_malware_subject
+msgid "Date"
+msgstr "Ngày"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__department
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__department_suggest_id
+msgid "Department"
+msgstr "Phòng ban"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_investigate_department_suggest
+msgid "Department Suggestion"
+msgstr "Gợi ý Phòng ban"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.constraint,message:vtt_dhag_threat_analysis.constraint_investigate_department_suggest_name_uniq
+msgid "Department name already exists!"
+msgstr "Tên Phòng ban đã tồn tại!"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__description
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__description
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__description
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__description
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__description
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_campaign
+#, python-format
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Details"
+msgstr "Chi tiết"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Confirmed"
+msgstr "Đã xác minh"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Confirm"
+msgstr "Xác minh"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "To Doubt"
+msgstr "Nghi ngờ"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Device I/O"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__device_information
+msgid "Device Information"
+msgstr "Thông tin Thiết bị"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__device_name
+msgid "Device Name"
+msgstr "Tên Thiết bị"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Device Summary"
+msgstr "Thông tin chung"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__device_type
+msgid "Device Type"
+msgstr "Loại Thiết bị"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__devices
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__devices
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Devices"
+msgstr "Thiết bị"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_res_users__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__display_name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_malware__state__doubt
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__investigate_malware__state__doubt
+msgid "Doubt"
+msgstr "Nghi ngờ"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Downloaded File"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__download_file
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__download_file
+msgid "Downloaded Files"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__email
+msgid "Email"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Exceptions"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__exception_raise
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__exception_raise
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Exceptions Raised"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__ftp_traffic
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__ftp_traffic
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "FTP Traffic"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__field_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__field_id
+msgid "Field"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__res_field
+msgid "Field Name"
+msgstr "Tên trường"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__compare_field_ids
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison_template
+msgid "Fields"
+msgstr "Trường"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__subject_field_mapper
+msgid "Fields Mapper"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__compare_field_ids
+msgid "Fields to Compare"
+msgstr "Trường So sánh"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "File System Activity"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malware_filename
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__sample_attachment_filename
+msgid "Filename"
+msgstr "Tên file"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__file_delete
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__file_delete
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Files Deleted"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__file_read
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__file_read
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Files Read"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__file_write
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__file_write
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Files Written"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_follower_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_follower_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_follower_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_channel_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_channel_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_channel_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_partner_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_partner_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_partner_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__activity_type_icon
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__activity_type_icon
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__activity_type_icon
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__frequent_api_calls
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__frequent_api_calls
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Frequent API Calls"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__date_from
+msgid "From"
+msgstr "Từ ngày"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__full_address
+msgid "Full Address"
+msgstr "Địa chỉ đầy đủ"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__partner_latitude
+msgid "Geo Latitude"
+msgstr "Vĩ độ"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__partner_longitude
+msgid "Geo Longitude"
+msgstr "Kinh độ"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_investigate
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_location
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_threat_malware_subject
+msgid "Group By"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__http_traffic
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__http_traffic
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "HTTP Traffic"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_res_users__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__irc_traffic
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__irc_traffic
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "IRC Traffic"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_exception_icon
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_exception_icon
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_exception_icon
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__activity_exception_icon
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__activity_exception_icon
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__activity_exception_icon
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__message_needaction
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__message_unread
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__message_needaction
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__message_unread
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__message_needaction
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__message_unread
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__message_needaction
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__message_has_error
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__message_has_error
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__message_has_error
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_campaign_import_wz
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_lastline_report_import_wz
+msgid "Import"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/button_templates.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/button_templates.xml:0
+#, python-format
+msgid "Import Campaign"
+msgstr "Import Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/button_templates.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/button_templates.xml:0
+#, python-format
+msgid "Import Malware"
+msgstr "Import Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__dt_infection
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_malware__dt_infection
+msgid "Infection Time"
+msgstr "Thời gian lây nhiễm"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__investigate_investigate__connect_type__internet
+msgid "Internet"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_investigate_investigate
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__investigate_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__investigate_id
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_comparison__type__investigate_investigate
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_comparison_template__type__investigate_investigate
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Investigate"
+msgstr "Hiện trường"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_investigate_campaign
+msgid "Investigate Campaign"
+msgstr "Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_investigate
+msgid "Investigate Filter"
+msgstr "Tra cứu Hiện trường"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_investigate_location
+msgid "Investigate Location"
+msgstr "Địa bàn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_investigate_investigate
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__investigate_ids
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_investigate
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Investigates"
+msgstr "Hiện trường"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__user_id
+msgid "Investigator"
+msgstr "Người kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_is_follower
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_is_follower
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_is_follower
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__dt_keylog
+msgid "Keylog Time"
+msgstr "Thời gian ghi Keylog"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__investigate_investigate__connect_type__lan
+msgid "LAN"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_res_users____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper____last_update
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__write_uid
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__write_date
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/models/investigate.py:0
+#: code:addons/vtt_dhag_threat_analysis/static/src/js/malware_list_controller.js:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/models/investigate.py:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/js/malware_list_controller.js:0
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+#, python-format
+msgid "Lastline Report"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_lastline_report_import_wz
+msgid "Lastline Report Import"
+msgstr "Import Lastline Report"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__score_float
+msgid "Lastline Score"
+msgstr "Score"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_lastline_report_import_wizard
+msgid "Lastline XML Report Import Wizard"
+msgstr "Trình import Lastline Report"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Libraries"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__load_library
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__load_library
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Loaded Libraries"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__location_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__location_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__location_id
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_location
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_investigate
+msgid "Location"
+msgstr "Địa bàn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__location_ids
+msgid "Locations"
+msgstr "Địa bàn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__campaign_ids
+msgid "Campaigns"
+msgstr "Đợt Kiểm tra"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_location
+msgid "Location Filter"
+msgstr "Tra cứu Địa bàn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_investigate_location
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_campaign_location
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_investigate_location
+msgid "Locations"
+msgstr "Địa bàn"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Lưu"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__md5
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__md5
+msgid "MD5"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__mime_type
+msgid "MIME Type"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_main_attachment_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_main_attachment_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_main_attachment_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malicious_activity
+msgid "Malicious Activities"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Malicious Activity"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__malware_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__malware_id
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_comparison__type__threat_malware
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__threat_comparison_template__type__threat_malware
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_threat_malware_subject
+msgid "Malware"
+msgstr "Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_malware_activity
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_malware_activity
+msgid "Malware Activity"
+msgstr "Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_malware_activity_detail
+msgid "Malware Activity Detail"
+msgstr "Chi tiết Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_malware_activity
+msgid "Malware Activity Filter"
+msgstr "Tra cứu Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_malware_activity
+msgid "Malware Activity Information"
+msgstr "Thông tin Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_malware_activity_type
+msgid "Malware Activity Type Information"
+msgstr "Loại Activity"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_threat_malware
+msgid "Malware Filter"
+msgstr "Tra cứu Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_malware
+msgid "Malware Information"
+msgstr "Thông tin Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_malware_property
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_malware_property
+msgid "Malware Property"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_malware_property
+msgid "Malware Property Filter"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_malware_property
+msgid "Malware Property Information"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__malware_id
+msgid "Malware Reference"
+msgstr "Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_malware_subject
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Malware Subject"
+msgstr "Đối tượng"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_threat_malware_subject
+msgid "Malware Subject Filter"
+msgstr "Tra cứu đối tượng"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_threat_malware_subject
+msgid "Malware Subjects"
+msgstr "Đối tượng"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malware_technique
+msgid "Malware Technique"
+msgstr "Kỹ thuật"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malware_type
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malware_type_id
+msgid "Malware Type"
+msgstr "Loại Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_malware_property
+msgid "MalwareProperties"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_malware_activity
+msgid "MalwareTypes"
+msgstr "Loại mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_threat_malware
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__threat_malware_ids
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_malware
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_threat_malware
+msgid "Malwares"
+msgstr "Mã độc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__mapper_id
+msgid "Mapper"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_has_error
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_has_error
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_has_error
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_ids
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Mutex Activity"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__mutex_create
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__mutex_create
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Mutexes Created"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__mutex_open
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__mutex_open
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Mutexes Opened"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Mô tả"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_department_suggest__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__name
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__src_name
+#, python-format
+msgid "Name"
+msgstr "Tên"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__name_resolution
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__name_resolution
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Name Resolutions"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Network Activity"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_date_deadline
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_date_deadline
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_date_deadline
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_summary
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_summary
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_summary
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_type_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_type_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_type_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields.selection,name:vtt_dhag_threat_analysis.selection__investigate_investigate__connect_type__none
+msgid "None"
+msgstr "Không kết nối"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_needaction_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_needaction_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_needaction_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_has_error_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_has_error_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_has_error_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__message_needaction_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__message_needaction_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__message_needaction_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__message_has_error_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__message_has_error_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__message_has_error_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__message_unread_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__message_unread_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__message_unread_counter
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__operation_system
+msgid "Operation System"
+msgstr "Hệ điều hành"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Other Information"
+msgstr "Thông tin khác"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__tcp_udp_traffic
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__tcp_udp_traffic
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Other TCP/UDP Traffic"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__parent_id
+msgid "Parent Subject"
+msgstr "Đối tượng cha"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__phone
+msgid "Phone"
+msgstr "Điện thoại"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__preliminary_summary
+msgid "Preliminary"
+msgstr "Sơ bộ"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Preliminary Summary"
+msgstr "Sơ bộ"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Process Interactions"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__process_operation
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__process_operation
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Process Operations"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__name
+msgid "Property Name"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Registry Activity"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__reg_value_delete
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__reg_value_delete
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Registry Values Deleted"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__reg_value_modify
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__reg_value_modify
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Registry Values Modified"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__reg_value_monitor
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__reg_value_monitor
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Registry Values Monitored"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__reg_value_read
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__reg_value_read
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Registry Values Read"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__rel_parts
+msgid "Related Parts"
+msgstr "Thành phần liên quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_malware__malware_id
+msgid "Related Malware"
+msgstr "Mã độc liên quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__report_count
+msgid "Report Count"
+msgstr "Số bản đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__user_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__user_id
+msgid "Reporter"
+msgstr "Người đánh giá"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__compare_report_ids
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison
+msgid "Reports"
+msgstr "Kết luận"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__activity_user_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__activity_user_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__activity_user_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__activity_user_id
+msgid "Responsible User"
+msgstr "Người chịu trách nhiệm"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper__line_ids
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_subject_field_mapper
+msgid "Rules"
+msgstr "Quy tắc"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__sha1
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__sha1
+msgid "SHA1"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__sha256
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__sha256
+msgid "SHA256"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__smtp_traffic
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__smtp_traffic
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "SMTP Traffic"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__malware_sample_attachment
+msgid "Sample Attachment"
+msgstr "File mẫu"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__sample_dir
+msgid "Sample(s) Directory"
+msgstr "Đường dẫn thư mục/ file mẫu"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Save"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_detail__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_activity_type__ss_code
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__ss_code
+msgid "Secret Sequence"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/js/investigate_select_create_dialogs.js:0
+#, python-format
+msgid "Select"
+msgstr "Chọn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__service_change
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__service_change
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Services Changed"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__service_create
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__service_create
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Services Created"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__service_start
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__service_start
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Services Started"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__service_stop
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__service_stop
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Services Stopped"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__short_summary
+msgid "Short Summary"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Signatures"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_comparison
+msgid "Similar"
+msgstr "Tương quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__score
+msgid "Similar Percentage"
+msgstr "Chỉ số tương quan (%)"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__investigate_correct_id
+msgid "Similar Investigate"
+msgstr "Hiện trường tương quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__softwares
+msgid "Softwares"
+msgstr "Phần mềm"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__malware_id
+msgid "Source to Compare"
+msgstr "Đối tượng nguồn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_subject_field_mapper_line__src_tag
+msgid "Src Tag"
+msgstr "Thẻ"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__txt_start_key
+msgid "Start Key"
+msgstr "Khóa khởi động"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__state_id
+msgid "State"
+msgstr "Tỉnh/ thành phố"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_report__state
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__state
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_malware__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_campaign
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_search_investigate_location
+msgid "States"
+msgstr "Tỉnh"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__activity_state
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__activity_state
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__activity_state
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__data_stolen
+msgid "Stolen Data"
+msgstr "Dữ liệu đánh cắp"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__data_stolen_time
+msgid "Data Stolen Time"
+msgstr "Thời gian đánh cắp dữ liệu"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__dt_timestamp
+msgid "Timestamp"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__street
+msgid "Street"
+msgstr "Địa chỉ"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_subject_field_mapper
+msgid "Subject Field Mapper"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.actions.act_window,name:vtt_dhag_threat_analysis.vtt_act_window_threat_subject_field_mapper
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_tree_threat_subject_field_mapper
+msgid "Subject Field Mappers"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_config_subject_mapper
+msgid "Subject Mapper"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__subject_ids
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "Subjects"
+msgstr "Đối tượng"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__dt_submission
+msgid "Submission Time"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__investigate_ids
+msgid "Suspected in"
+msgstr "Nghi ngờ trong"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__threat_suspect_ids
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Suspects"
+msgstr "Nghi ngờ"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__compare_template_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__compare_template_id
+msgid "Template"
+msgstr "Mẫu"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_root
+msgid "Threat Analysis"
+msgstr "PMQL-HT"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.module.category,name:vtt_dhag_threat_analysis.vtt_categ_group_threat_analysis
+msgid "Threat Analysis Access"
+msgstr "QL-HT"
+
+#. module: vtt_dhag_threat_analysis
+#: model:res.groups,name:vtt_dhag_threat_analysis.vtt_group_threat_analysis_manager
+msgid "Threat Analysis Manager"
+msgstr "Quản lý"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_comparison
+msgid "Threat Comparison"
+msgstr "Tương quan"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_comparison_field
+msgid "Threat Comparison Field"
+msgstr "Trường dữ liệu"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_subject_field_mapper
+msgid "Threat Subject Field Mapper"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_threat_subject_field_mapper_line
+msgid "Threat Subject Field Mapper Rule"
+msgstr "Quy tắc"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_investigate_investigate
+msgid "Threats"
+msgstr "Đã Xác minh"
+
+#. module: vtt_dhag_threat_analysis
+#. openerp-web
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/field_file_paths.xml:0
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/field_file_paths.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#: code:addons/vtt_odoo_addons181220/my_addons/vtt_dhag_threat_analysis/static/src/xml/malware_activity.xml:0
+#, python-format
+msgid "Thêm"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__date_to
+msgid "To"
+msgstr "Tới ngày"
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid "To Doubt"
+msgstr "Nghi ngờ"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison__type
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_field__type
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template__type
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_comparison_template_field__type
+msgid "Type"
+msgstr "Loại"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_campaign__activity_exception_decoration
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_investigate__activity_exception_decoration
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_investigate_location__activity_exception_decoration
+#: model:ir.model.fields,help:vtt_dhag_threat_analysis.field_threat_malware__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_unread
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_unread
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_unread
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__message_unread_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__message_unread_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__message_unread_counter
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__user_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__user_id
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__use_person
+msgid "User"
+msgstr "Người dùng"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model,name:vtt_dhag_threat_analysis.model_res_users
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_campaign__user_ids
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_property__description
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_location__ward
+msgid "Ward"
+msgstr "Phường/ xã"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_investigate_investigate__state_count_overview
+msgid "Confirmed"
+msgstr "Xác nhận"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_campaign_import_wizard__file_datas
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_lastline_report_import_wizard__file_datas
+msgid "XML file"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__yara_signature
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware_subject__yara_signature
+msgid "Yara Signatures"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware_subject
+msgid "Yara signatures"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__virustotal_report
+msgid "Virustotal Report"
+msgstr "Báo cáo Virustotal"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__virustotal_report_positive
+msgid "Virustotal Report Positives"
+msgstr "Báo cáo Virustotal"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__submit_count
+msgid "Submission Count"
+msgstr "Số lần Submit"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__build_time
+msgid "Build Time"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_threat_malware__signature_info
+msgid "Signature Verification"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_malware_hash_check_redirect_wizard__malware_same_hash_id
+msgid "Malware With Same Hash"
+msgstr "Mã độc có cùng Hash"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.model.fields,field_description:vtt_dhag_threat_analysis.field_malware_hash_check_redirect_wizard__malware_new_copy_id
+msgid "Malware New Copy"
+msgstr ""
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_threat_malware
+msgid ""
+"This hash already exist in database.<br/>\n"
+"                                    Please use the existed one instead of creating new."
+msgstr ""
+"Đã tồn tại mã độc có Hash tương tự trong cơ sở dữ liệu.<br/>\n"
+"                                    Vui lòng sử dụng dữ liệu đã có thay vì tạo mới."
+
+#. module: vtt_dhag_threat_analysis
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_analysis.vtt_view_form_malware_hash_check_redir_wz
+msgid "Going to"
+msgstr "Đi đến"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_analysis_report
+msgid "Report"
+msgstr "Báo cáo"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_report_location
+msgid "Report by Location"
+msgstr "Báo cáo theo địa bàn"
+
+#. module: vtt_dhag_threat_analysis
+#: model:ir.ui.menu,name:vtt_dhag_threat_analysis.vtt_menu_threat_report_malware_type
+msgid "Report by Malware Type"
+msgstr "Báo cáo theo phân loại"

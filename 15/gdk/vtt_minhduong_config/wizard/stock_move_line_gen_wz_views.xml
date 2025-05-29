@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Move Line Generate Wizard views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_stock_move_line_gen_wizard" model="ir.ui.view">
+            <field name="name">Stock Move Line Generate Wizard</field>
+            <field name="model">vtt.stock.move.line.gen.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--<header>
+                        <button name="action_set_all_count" type="object" string="Set All" class="btn btn-primary"/>
+                        <button name="action_clear_all_count" type="object" string="Clear All"/>
+                    </header>-->
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="picking_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <!--<field name="filename" invisible="1"/>
+                                <field name="datas" filename="filename"/>-->
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <div>
+                                    <field name="lot_count_set" nolabel="1" class="oe_inline"/>
+                                    <button name="action_set_all_count" type="object" string="Set All" class="btn btn-primary oe_inline"/>
+                                    <button name="action_clear_all_count" type="object" string="Clear All" class="oe_inline"/>
+                                </div>
+                                <field name="line_ids">
+                                    <tree editable="top" create="0" limit="80">
+                                        <field name="wz_id" invisible="1"/>
+                                        <field name="move_id" invisible="1"/>
+                                        <field name="product_default_code"/>
+                                        <field name="product_id"/>
+                                        <field name="lot_count"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string='Generate Line Now' name="gen_picking_move_line" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--<record id="vtt_act_window_partner_update_wz" model="ir.actions.act_window">
+            <field name="name">Partner Update Wizard</field>
+            <field name="res_model">vtt.partner.update.wz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>-->
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem id="vtt_menu_contacts_config_partner_update_wz" name="Partner Update Wizard" parent="contacts.res_partner_menu_config" action="vtt_act_window_partner_update_wz" sequence="200"/>-->
+    </data>
+</odoo>

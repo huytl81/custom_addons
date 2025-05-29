@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <template id="assets_frontend" inherit_id="web.assets_frontend" name="Auth Signup Password Policy Assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/hspl_maintenance_mode/static/src/css/main.css"/>
+                <link rel="stylesheet" type="text/scss" href="/hspl_maintenance_mode/static/src/css/util.css"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

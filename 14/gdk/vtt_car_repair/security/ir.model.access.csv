@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vtt_car_repair_order_user,vtt.car.repair.order.user,model_vtt_car_repair_order,vtt_car_repair.vtt_group_car_repair_user,1,1,1,1
+access_vtt_car_repair_order_line_user,vtt.car.repair.order.line.user,model_vtt_car_repair_order_line,vtt_car_repair.vtt_group_car_repair_user,1,1,1,1
+access_vtt_car_repair_tags_user,vtt.car.repair.tags.user,model_vtt_car_repair_tags,vtt_car_repair.vtt_group_car_repair_user,1,0,0,0
+access_vtt_car_repair_tags_user,vtt.car.repair.tags.manager,model_vtt_car_repair_tags,vtt_car_repair.vtt_group_car_repair_manager,1,1,1,1
+access_vtt_car_repair_odometer_user,vtt.car.repair.odometer.user,fleet.model_fleet_vehicle_odometer,vtt_car_repair.vtt_group_car_repair_user,1,1,1,1
+access_vtt_car_repair_vehicle_user,vtt.car.repair.vehicle.user,model_fleet_vehicle,vtt_car_repair.vtt_group_car_repair_user,1,1,1,0
+access_vtt_car_repair_vehicle_manager,vtt.car.repair.vehicle.manager,model_fleet_vehicle,vtt_car_repair.vtt_group_car_repair_manager,1,1,1,1
+access_vtt_car_repair_product_user,vtt.car.repair.product.user,product.model_product_product,vtt_car_repair.vtt_group_car_repair_user,1,1,1,0
+access_vtt_car_repair_product_template_user,vtt.car.repair.product.template.user,product.model_product_template,vtt_car_repair.vtt_group_car_repair_user,1,1,1,0
+access_vtt_car_repair_uom_user,vtt.car.repair.uom.user,uom.model_uom_uom,vtt_car_repair.vtt_group_car_repair_user,1,1,1,0
+access_vtt_car_repair_vehicle_model_user,vtt.car.repair.vehicle.model.user,fleet.model_fleet_vehicle_model,vtt_car_repair.vtt_group_car_repair_user,1,1,1,0
+access_vtt_car_repair_vehicle_brand_user,vtt.car.repair.vehicle.brand.user,fleet.model_fleet_vehicle_model_brand,vtt_car_repair.vtt_group_car_repair_user,1,1,1,0
+access_vtt_car_repair_order_report_accountant,vtt.car.repair.order.report.accountant,model_vtt_car_repair_order_report,vtt_car_repair.vtt_group_car_repair_accountant,1,1,1,1
+access_vtt_car_repair_order_report_manager,vtt.car.repair.order.report.manager,model_vtt_car_repair_order_report,vtt_car_repair.vtt_group_car_repair_manager,1,1,1,1

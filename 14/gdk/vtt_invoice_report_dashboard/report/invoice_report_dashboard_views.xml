@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Account Invoice Report views-->
+    <data>
+        <!--<record id="vtt_view_dashboard_invoice_report" model="ir.ui.view">
+            <field name="name">Invoice Report Revenue Cost</field>
+            <field name="model">account.invoice.report</field>
+            &lt;!&ndash;<field name="mode">primary</field>&ndash;&gt;
+            <field name="arch" type="xml">
+                <dashboard>
+                    <view type="graph" ref="vtt_car_repair.vtt_view_graph_base_car_repair_order"/>
+
+                    <group>
+                        <group col="3">
+                            <aggregate name="avg_amounts" string="Avg." group_operator="avg" field="amount_total"/>
+                            <aggregate name="total_amounts" string="Total" group_operator="sum" invisible="1" field="amount_total"/>
+                            <aggregate name="long_worked" group_operator="max" field="total_repair_time"/>
+                            <aggregate name="works_time" group_operator="sum" invisible="1" field="total_repair_time"/>
+                            <aggregate name="orders" string="#Oders" group_operator="count" field="id" measure="__count__"/>
+                            <formula name="effective_worked" string="#Effective Works" value="record.total_amounts / record.works_time"/>
+                            &lt;!&ndash;<aggregate name="count_services" invisible="1" string="#Services" group_operator="count" field="order_line_ids" measure="__count__"/>&ndash;&gt;
+                            <formula name="avg_service_value" string="Avg. / Service" value="record.total_amounts / record.count_services"/>
+                        </group>
+
+                        <group col="2">
+                            <widget name="pie_chart" attrs="{'title': 'Team Effective', 'groupby': 'technical_user_id', 'domain': '[(\'technical_user_id\', \'!=\', False)]'}"/>
+                        </group>
+                    </group>
+
+                    &lt;!&ndash;<view type="kanban" ref="fleet.fleet_vehicle_view_kanban"/>&ndash;&gt;
+                </dashboard>
+            </field>
+        </record>-->
+
+        <!--Total Revenue Dashboard-->
+        <record id="vtt_view_dashboard_invoice_report_total_revenue" model="ir.ui.view">
+            <field name="name">Invoice Report Total Revenue</field>
+            <field name="model">account.invoice.report</field>
+            <!--<field name="mode">primary</field>-->
+            <field name="priority">999</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <group>
+                        <aggregate name="sum_revenue" string="Total Revenue" group_operator="sum" field="price_subtotal" domain="[('move_type', '=', 'out_invoice')]" clickable="False" col="2"/>
+                        <aggregate name="sum_cost" string="Total Cost" group_operator="sum" field="abs_price_subtotal" domain="[('move_type', '=', 'in_invoice')]" clickable="False" col="2"/>
+                        <aggregate name="sum_revenue_cost" string="Profit" group_operator="sum" field="price_subtotal" clickable="False" col="2"/>
+                    </group>
+                </dashboard>
+            </field>
+        </record>
+
+        <!--Graph view Revenue/ Cost-->
+        <record id="vtt_view_graph_invoice_report_revenue_cost" model="ir.ui.view">
+            <field name="name">Invoice Report Revenue/ Cost Graph</field>
+            <field name="model">account.invoice.report</field>
+            <field name="priority">999</field>
+            <field name="arch" type="xml">
+                <graph string="Revenue/ Cost" type="line">
+                    <field name="invoice_date" interval="month"/>
+                    <field name="move_type"/>
+                    <field name="abs_price_subtotal" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--Graph Product Category-->
+        <record id="vtt_view_graph_invoice_report_product_categ" model="ir.ui.view">
+            <field name="name">Invoice Report Product Category Graph</field>
+            <field name="model">account.invoice.report</field>
+            <field name="priority">999</field>
+            <field name="arch" type="xml">
+                <graph string="Product Category" type="bar" stacked="False">
+                    <field name="product_categ_id"/>
+                    <field name="abs_price_subtotal" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--Filter view add This month filter-->
+        <record id="vtt_view_search_invoice_report_this_month" model="ir.ui.view">
+            <field name="name">Invoice Report This month</field>
+            <field name="model">account.invoice.report</field>
+            <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+            <field name="arch" type="xml">
+                <filter name="filter_invoice_date" position="before">
+                    <filter name="vtt_this_month" string="This month" domain="[
+                    ('invoice_date', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('invoice_date', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01'))]"/>
+                    <filter name="vtt_due_this_month" string="Due this month" domain="[
+                    ('invoice_date_due', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('invoice_date_due', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01'))]"/>
+                    <separator/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Revenue/ Cost Graph-->
+        <record id="vtt_act_window_graph_invoice_report_revenue_cost" model="ir.actions.act_window">
+            <field name="name">Invoice Report Revenue/ Cost Graph</field>
+            <field name="res_model">account.invoice.report</field>
+            <field name="view_id" ref="vtt_view_graph_invoice_report_revenue_cost"/>
+            <field name="view_mode">graph</field>
+            <field name="context">{'search_default_current': 1, 'search_default_vtt_this_month': 1}</field>
+        </record>
+
+        <!--Total Revenue - Cost - Profit Dashboard-->
+        <record id="vtt_act_window_dashboard_invoice_report_total_revenue" model="ir.actions.act_window">
+            <field name="name">Invoice Report Total Revenue Dashboard</field>
+            <field name="res_model">account.invoice.report</field>
+            <field name="view_id" ref="vtt_view_dashboard_invoice_report_total_revenue"/>
+            <field name="view_mode">dashboard</field>
+            <field name="context">{'search_default_current': 1, 'search_default_vtt_this_month': 1}</field>
+        </record>
+
+        <!--Total Product Category Sale Graph-->
+        <record id="vtt_act_window_graph_invoice_report_product_categ" model="ir.actions.act_window">
+            <field name="name">Invoice Report Product Category Graph</field>
+            <field name="res_model">account.invoice.report</field>
+            <field name="view_id" ref="vtt_view_graph_invoice_report_product_categ"/>
+            <field name="view_mode">graph</field>
+            <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+            <field name="context">{'search_default_current': 1, 'search_default_vtt_this_month': 1}</field>
+        </record>
+
+    </data>
+
+    <!--Menu-->
+    <!--<data>
+        <menuitem name="Revenue/ Cost" id="vtt_menu_invoice_report_revenue_cost" parent="account.menu_finance_reports" action="vtt_act_window_graph_invoice_report_revenue_cost"/>
+
+        <menuitem name="Total Revenue" id="vtt_menu_invoice_report_total_revenue" parent="account.menu_finance_reports" action="vtt_act_window_dashboard_invoice_report_total_revenue"/>
+
+        <menuitem name="Product Categ Sale" id="vtt_menu_invoice_report_product_categ" parent="account.menu_finance_reports" action="vtt_act_window_graph_invoice_report_product_categ"/>
+    </data>-->
+</odoo>

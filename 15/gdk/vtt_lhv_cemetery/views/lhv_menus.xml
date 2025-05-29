@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sales Department-->
+    <data>
+        <!--Base menu-->
+        <menuitem id="vtt_menu_lhv_sales_department_base" name="Sales" sequence="10" groups="vtt_lhv_cemetery.vtt_group_cemetery_contract_user" web_icon="vtt_lhv_cemetery,static/description/sale_icon.png"/>
+
+        <!--Sale-->
+        <menuitem id="vtt_menu_lhv_sales_department_sale" name="Sale Orders" sequence="10" parent="vtt_menu_lhv_sales_department_base"/>
+        <!--Land Order menu-->
+        <menuitem id="vtt_menu_sale_lhv_sale_type_land" name="Land Orders" parent="vtt_menu_lhv_sales_department_sale" sequence="10" action="vtt_act_window_sale_order_lhv_type_land"/>
+        <!--Service Order menu-->
+        <menuitem id="vtt_menu_sale_lhv_sale_type_service" name="Service Orders" parent="vtt_menu_lhv_sales_department_sale" sequence="20" action="vtt_act_window_sale_order_lhv_type_service"/>
+        <!--<menuitem id="vtt_menu_lhv_sales_department_sale_order" name="Sale Orders" sequence="10" parent="vtt_menu_lhv_sales_department_sale" action="vtt_act_window_sale_order_lhv_type_land"/>
+        <menuitem id="vtt_menu_lhv_sales_department_sale_team" name="Sale Teams" sequence="20" parent="vtt_menu_lhv_sales_department_sale" action="sales_team.crm_team_action_sales"/>-->
+
+        <!--Contract-->
+        <menuitem id="vtt_menu_lhv_sales_department_contract" name="Contracts" sequence="20" parent="vtt_menu_lhv_sales_department_base" action="vtt_act_window_land_contract"/>
+
+        <!--Lands-->
+        <menuitem id="vtt_menu_lhv_sales_department_land" name="Land Plots" sequence="30" parent="vtt_menu_lhv_sales_department_base" action="vtt_act_window_land_plot"/>
+        <menuitem id="vtt_menu_lhv_sales_department_land_plot" name="Land Plots" sequence="10" parent="vtt_menu_lhv_sales_department_land" action="vtt_act_window_land_plot"/>
+        <menuitem id="vtt_menu_lhv_sales_department_land_sold" name="Land Plots Sold" sequence="20" parent="vtt_menu_lhv_sales_department_land" action="vtt_act_window_land_plot_sold"/>
+
+        <!--Products-->
+        <menuitem id="vtt_menu_lhv_sales_department_products" name="Products" sequence="40" parent="vtt_menu_lhv_sales_department_base"/>
+        <menuitem id="vtt_menu_lhv_sales_department_products_product" name="Products" sequence="10" parent="vtt_menu_lhv_sales_department_products" action="sale.product_template_action"/>
+
+        <!--Report-->
+        <menuitem id="vtt_menu_lhv_sales_department_report" name="Report" sequence="100" parent="vtt_menu_lhv_sales_department_base" action="sale.action_order_report_all"/>
+        <menuitem id="vtt_menu_lhv_sales_department_report_sale" name="Sale Analysis" sequence="10" parent="vtt_menu_lhv_sales_department_report" action="sale.action_order_report_all"/>
+
+        <!--Setting-->
+        <menuitem id="vtt_menu_lhv_sales_department_setting" name="Setting" sequence="200" parent="vtt_menu_lhv_sales_department_base" groups="vtt_lhv_cemetery.vtt_group_cemetery_contract_manager"/>
+        <!--Sale setting-->
+        <menuitem id="vtt_menu_lhv_sales_department_setting_sale" name="Sales" sequence="10" parent="vtt_menu_lhv_sales_department_setting"/>
+        <menuitem id="vtt_menu_lhv_sales_department_setting_sale_team" name="Sale Teams" sequence="10" parent="vtt_menu_lhv_sales_department_setting_sale" action="sales_team.crm_team_action_config"/>
+        <menuitem id="vtt_menu_lhv_sales_department_setting_sale_tag" name="Sale Tags" sequence="20" parent="vtt_menu_lhv_sales_department_setting_sale" action="sales_team.sales_team_crm_tag_action"/>
+        <!--Product setting-->
+        <menuitem id="vtt_menu_lhv_sales_department_setting_product" name="Products" parent="vtt_menu_lhv_sales_department_setting" sequence="20"/>
+        <menuitem id="vtt_menu_lhv_sales_department_setting_product_land_place" name="Places" parent="vtt_menu_lhv_sales_department_setting_product" sequence="10" action="vtt_act_window_land_place"/>
+    </data>
+
+    <!--Construct Department-->
+    <data>
+        <!--Base menu-->
+        <!--<menuitem id="vtt_menu_lhv_construct_department_base" name="Constructs" sequence="20" groups="vtt_lhv_cemetery.vtt_group_categ_cemetery_construct"/>-->
+        <menuitem id="vtt_menu_construct_root" name="Construction" sequence="30" web_icon="vtt_lhv_cemetery,static/description/icon2.png"/>
+
+        <!--Construction-->
+        <menuitem id="vtt_menu_construct_construct" name="Construction" parent="vtt_menu_construct_root" sequence="10"/>
+
+        <!--Project-->
+        <menuitem id="vtt_menu_lhv_construct_department_project" name="Project/ Task" sequence="40" parent="vtt_menu_construct_root"/>
+        <!--<menuitem id="vtt_menu_lhv_construct_department_project_project" name="Project" sequence="10" parent="vtt_menu_lhv_construct_department_project" action="project.open_view_project_all"/>-->
+        <menuitem id="vtt_menu_lhv_construct_department_project_task" name="Task" sequence="20" parent="vtt_menu_lhv_construct_department_project" action="vtt_act_window_project_task_construct_task"/>
+
+        <!--Report-->
+        <menuitem id="vtt_menu_construct_analysis" name="Analysis" parent="vtt_menu_construct_root" sequence="50"/>
+        <menuitem id="vtt_menu_construct_analysis_income" name="Income Analysis" parent="vtt_menu_construct_analysis" sequence="10" action="vtt_act_window_construct_analysis_income"/>
+        <menuitem id="vtt_menu_lhv_construct_department_report_task" name="Task Analysis" sequence="30" parent="vtt_menu_construct_analysis" action="project.action_project_task_user_tree"/>
+
+        <!--Settings-->
+        <menuitem id="vtt_menu_construct_setting" name="Settings" parent="vtt_menu_construct_root" sequence="100"/>
+        <menuitem id="vtt_menu_construct_setting_stage" name="Stages" parent="vtt_menu_construct_setting" sequence="10" action="vtt_act_window_construct_stage"/>
+
+    </data>
+
+    <!--Care Services Department-->
+    <data>
+        <!--Base menu-->
+        <menuitem id="vtt_menu_lhv_care_service_department_base" name="Care Service" sequence="30" groups="vtt_lhv_cemetery.vtt_group_cemetery_care_service_user" web_icon="vtt_lhv_cemetery,static/description/event_icon.png"/>
+
+        <!--Sale-->
+        <menuitem id="vtt_menu_lhv_care_service_department_sale" name="Sale Orders" sequence="10" parent="vtt_menu_lhv_care_service_department_base"/>
+        <!--Land Order menu-->
+        <menuitem id="vtt_menu_lhv_care_service_department_sale_land" name="Land Orders" parent="vtt_menu_lhv_care_service_department_sale" sequence="10" action="vtt_act_window_sale_order_lhv_type_land"/>
+        <!--Service Order menu-->
+        <menuitem id="vtt_menu_lhv_care_service_department_sale_service" name="Service Orders" parent="vtt_menu_lhv_care_service_department_sale" sequence="20" action="vtt_act_window_sale_order_lhv_type_service"/>
+
+        <!--Contract-->
+        <menuitem id="vtt_menu_lhv_care_service_department_contract" name="Contracts" sequence="20" parent="vtt_menu_lhv_care_service_department_base" action="vtt_act_window_land_contract"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_contract_contract" name="Contracts" sequence="10" parent="vtt_menu_lhv_care_service_department_contract" action="vtt_act_window_land_contract"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_contract_tomb_slot" name="Tombs" sequence="20" parent="vtt_menu_lhv_care_service_department_contract" action="vtt_act_window_land_tomb_slot"/>
+
+        <!--Subscription-->
+        <menuitem id="vtt_menu_lhv_care_service_department_subscription" name="Subscriptions" sequence="30" parent="vtt_menu_lhv_care_service_department_base" action="vtt_sale_subscription.sale_subscription_action"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_subscription_subscription" name="Subscriptions" sequence="10" parent="vtt_menu_lhv_care_service_department_subscription" action="vtt_sale_subscription.sale_subscription_action"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_subscription_renew" name="Subscriptions to Renew" sequence="20" parent="vtt_menu_lhv_care_service_department_subscription" action="vtt_sale_subscription.sale_subscription_action_pending"/>
+
+        <!--Lands-->
+        <menuitem id="vtt_menu_lhv_care_service_department_land" name="Lands" sequence="40" parent="vtt_menu_lhv_care_service_department_base" action="vtt_act_window_land_plot"/>
+
+        <!--Products-->
+        <menuitem id="vtt_menu_lhv_care_service_department_product" name="Products" sequence="50" parent="vtt_menu_lhv_care_service_department_base"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_product_product" name="Products" sequence="10" parent="vtt_menu_lhv_care_service_department_product" action="sale.product_template_action"/>
+
+        <!--Events-->
+        <menuitem id="vtt_menu_lhv_care_service_department_event" name="Events" sequence="60" parent="vtt_menu_lhv_care_service_department_base" action="event.action_event_view"/>
+
+        <!--Custom Rating-->
+        <menuitem id="vtt_menu_lhv_care_service_department_rating" name="Ratings" sequence="70" parent="vtt_menu_lhv_care_service_department_base" action="vtt_custom_rating.vtt_act_window_custom_rating"/>
+
+        <!--Report-->
+        <menuitem id="vtt_menu_lhv_care_service_department_report" name="Report" sequence="100" parent="vtt_menu_lhv_care_service_department_base"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_report_sale" name="Sale Report" sequence="10" parent="vtt_menu_lhv_care_service_department_report" action="sale.action_order_report_all"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_report_subscription" name="Subscription Report" sequence="20" parent="vtt_menu_lhv_care_service_department_report" action="vtt_sale_subscription.sale_subscription_report_pivot_action"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_report_event" name="Event Report" sequence="30" parent="vtt_menu_lhv_care_service_department_report" action="event.event_event_action_pivot"/>
+
+        <!--Setting-->
+        <menuitem id="vtt_menu_lhv_care_service_department_setting" name="Setting" sequence="150" parent="vtt_menu_lhv_care_service_department_base" groups="vtt_lhv_cemetery.vtt_group_cemetery_care_service_manager"/>
+        <!--Land-->
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_land" name="Land" sequence="10" parent="vtt_menu_lhv_care_service_department_setting"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_land_place" name="Place" sequence="10" parent="vtt_menu_lhv_care_service_department_setting_land" action="vtt_act_window_land_place"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_land_system" name="System Parameter" sequence="20" parent="vtt_menu_lhv_care_service_department_setting_land" action="vtt_act_window_ir_config_parameter_show_manager"/>
+        <!--Subscription-->
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_subscription" name="Subscription" sequence="20" parent="vtt_menu_lhv_care_service_department_setting"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_subscription_template" name="Subscription Template" sequence="10" parent="vtt_menu_lhv_care_service_department_setting_subscription" action="vtt_sale_subscription.sale_subscription_template_action"/>
+        <!--Event-->
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_event" name="Event" sequence="30" parent="vtt_menu_lhv_care_service_department_setting"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_event_type" name="Event Type" sequence="10" parent="vtt_menu_lhv_care_service_department_setting_event" action="event.action_event_type"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_event_stage" name="Event Stage" sequence="20" parent="vtt_menu_lhv_care_service_department_setting_event" action="event.event_stage_action"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_event_tag_categ" name="Event Tag Category" sequence="30" parent="vtt_menu_lhv_care_service_department_setting_event" action="event.event_tag_category_action_tree"/>
+        <!--Rating-->
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_rating" name="Rating" sequence="40" parent="vtt_menu_lhv_care_service_department_setting"/>
+        <menuitem id="vtt_menu_lhv_care_service_department_setting_rating_stage" name="Rating Stage" sequence="10" parent="vtt_menu_lhv_care_service_department_setting_rating" action="vtt_act_window_custom_rating_stage"/>
+    </data>
+
+    <!--Other menus-->
+    <data>
+        <!--Partner Custom Rating-->
+        <menuitem id="vtt_menu_contact_custom_rating" name="Custom Rating" parent="contacts.menu_contacts" sequence="20" action="vtt_custom_rating.vtt_act_window_custom_rating"/>
+    </data>
+
+    <!--Hidden old menus-->
+    <data>
+        <!--<record id="vtt_menu_contract_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+        </record>-->
+        <record id="sale.sale_menu_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+        </record>
+        <record id="vtt_sale_subscription.menu_sale_subscription_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+        </record>
+        <record id="event.event_main_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+        </record>
+        <record id="vtt_custom_rating.vtt_menu_custom_rating_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Construction Stage default data-->
+    <data noupdate="0">
+        <record id="vtt_construct_design_stage_01" model="vtt.construct.stage">
+            <field name="name">New</field>
+            <field name="stage_type">design</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="vtt_construct_design_stage_02" model="vtt.construct.stage">
+            <field name="name">Design Progress</field>
+            <field name="stage_type">design</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="vtt_construct_design_stage_03" model="vtt.construct.stage">
+            <field name="name">Cost Estimate</field>
+            <field name="stage_type">design</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="vtt_construct_design_stage_04" model="vtt.construct.stage">
+            <field name="name">Contraction</field>
+            <field name="stage_type">design</field>
+            <field name="is_closed">True</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="vtt_construct_construct_stage_01" model="vtt.construct.stage">
+            <field name="name">New</field>
+            <field name="stage_type">construct</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="vtt_construct_construct_stage_02" model="vtt.construct.stage">
+            <field name="name">Construction Received</field>
+            <field name="stage_type">construct</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="vtt_construct_construct_stage_03" model="vtt.construct.stage">
+            <field name="name">Construction Progress</field>
+            <field name="stage_type">construct</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="vtt_construct_construct_stage_04" model="vtt.construct.stage">
+            <field name="name">Construction Acceptance</field>
+            <field name="stage_type">construct</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="vtt_construct_construct_stage_05" model="vtt.construct.stage">
+            <field name="name">Done</field>
+            <field name="sequence">5</field>
+            <field name="is_closed">True</field>
+            <field name="stage_type">construct</field>
+            <!--<field name="fold">True</field>-->
+        </record>
+    </data>
+</odoo>

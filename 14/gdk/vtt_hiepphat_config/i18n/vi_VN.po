@@ -1,0 +1,330 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_hiepphat_config
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-14 03:07+0000\n"
+"PO-Revision-Date: 2022-02-14 03:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_picking__partner_street
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__is_invoiced
+msgid "All Invoiced?"
+msgstr "Đã lên hóa đơn"
+
+#. module: vtt_hiepphat_config
+#: code:addons/vtt_hiepphat_config/models/sale.py:0
+#: code:addons/vtt_odoo_addons181220/viettotal/v14/vtt_hiepphat_config/models/sale.py:0
+#, python-format
+msgid "All Picking"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__ref_picking_ids
+msgid "All Pickings"
+msgstr "Tất cả phiếu giao"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_is_refunded
+msgid "All Refunded?"
+msgstr "Đã hoàn tiền"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_is_returned
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__is_returned
+msgid "All Returned?"
+msgstr "Đã trả hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__product_uom_category_id
+msgid "Category"
+msgstr "Danh mục hàng hóa"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,help:vtt_hiepphat_config.field_vtt_sale_order_return_line__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr "Việc chuyển đổi đơn vị tính chỉ có thể thực hiện khi 2 đơn vị tính thuộc cùng 1 danh mục."
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__display_name
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_report__display_name
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_move__display_name
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_account_move_line__id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_report__id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_move__id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_picking__id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__invoice_line_ids
+msgid "Invoice Lines"
+msgstr "Bút toán chi tiết"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__qty_invoiced
+msgid "Invoiced"
+msgstr "Số lượng đã lập hóa đơn"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model,name:vtt_hiepphat_config.model_account_move_line
+msgid "Journal Item"
+msgstr "Bút toán"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order____last_update
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_report____last_update
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_move____last_update
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_picking____last_update
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__move_ids
+msgid "Moves"
+msgstr "Luân chuyển"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__sale_order_domain
+msgid "Order Domain"
+msgstr ""
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__partner_id
+msgid "Partner"
+msgstr "Khách hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__product_id
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__product_template_id
+msgid "Product Template"
+msgstr "Mẫu Sản phẩm"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__product_uom_qty
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__ref_invoice_ids
+msgid "Ref Invoices"
+msgstr "Hóa đơn liên quan"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_picking__ref_sale_id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__ref_order_id
+msgid "Ref Order"
+msgstr "Đơn hàng liên quan"
+
+#. module: vtt_hiepphat_config
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_form_sale_order_return
+msgid "Refund Product"
+msgstr "Hoàn tiền"
+
+#. module: vtt_hiepphat_config
+#: code:addons/vtt_hiepphat_config/models/sale.py:0
+#: code:addons/vtt_odoo_addons181220/viettotal/v14/vtt_hiepphat_config/models/sale.py:0
+#, python-format
+msgid "Refund product(s) from Order %s"
+msgstr "Hoàn tiền đơn hàng %s"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields.selection,name:vtt_hiepphat_config.selection__sale_report__sale_state__return
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_form_sale_order_return
+msgid "Return"
+msgstr "Trả hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_account_move_line__vtt_return_line_id
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_stock_move__vtt_return_line_id
+msgid "Return Line"
+msgstr "Chi tiết trả hàng"
+
+#. module: vtt_hiepphat_config
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_form_sale_order_return
+msgid "Return Product"
+msgstr "Sản phẩm"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_return_amount_tax
+msgid "Return Taxes"
+msgstr "Thuế"
+
+#. module: vtt_hiepphat_config
+#: code:addons/vtt_hiepphat_config/models/sale.py:0
+#: code:addons/vtt_odoo_addons181220/viettotal/v14/vtt_hiepphat_config/models/sale.py:0
+#, python-format
+msgid "Return of %s"
+msgstr "Trả hàng của %s"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__qty_returned
+msgid "Returned"
+msgstr "Số lượng đã trả"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_return_line_ids
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_return_line_ref_ids
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_search_sale_report_types_filter
+msgid "Returns"
+msgstr "Trả hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields.selection,name:vtt_hiepphat_config.selection__sale_report__sale_state__sale
+msgid "Sale"
+msgstr "Bán"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__order_id
+msgid "Sale Order"
+msgstr "Đơn hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model,name:vtt_hiepphat_config.model_vtt_sale_order_return_line
+msgid "Sale Order Return Line"
+msgstr "Chi tiết trên đơn hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_report__sale_state
+msgid "Sale State"
+msgstr "Loại"
+
+#. module: vtt_hiepphat_config
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_search_sale_report_types_filter
+msgid "Sales"
+msgstr "Bán"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model,name:vtt_hiepphat_config.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Báo cáo phân tích hoạt động kinh doanh"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model,name:vtt_hiepphat_config.model_sale_order
+msgid "Sales Order"
+msgstr "Đơn bán hàng"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model,name:vtt_hiepphat_config.model_stock_move
+msgid "Stock Move"
+msgstr "Hoạt động kho"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__price_subtotal
+msgid "Subtotal"
+msgstr "Thành tiền"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__tax_id
+msgid "Taxes"
+msgstr "Thuế"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__price_total
+msgid "Total"
+msgstr "Tổng tiền"
+
+#. module: vtt_hiepphat_config
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_tree_sale_order_return
+msgid "Total NET"
+msgstr "Thực thu"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_net_amount_total
+msgid "Total Net Amount"
+msgstr "Thực thu"
+
+#. module: vtt_hiepphat_config
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_tree_sale_order_return
+msgid "Total Return"
+msgstr "Tổng tiền"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_return_amount_total
+msgid "Total Return Amount"
+msgstr "Hoàn tiền"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__price_tax
+msgid "Total Tax"
+msgstr "Thuế"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model,name:vtt_hiepphat_config.model_stock_picking
+msgid "Transfer"
+msgstr "Điều chuyển"
+
+#. module: vtt_hiepphat_config
+#: model_terms:ir.ui.view,arch_db:vtt_hiepphat_config.vtt_view_search_sale_report_types_filter
+msgid "Types"
+msgstr "Loại"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__price_unit
+msgid "Unit Price"
+msgstr "Đơn giá"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_vtt_sale_order_return_line__product_uom
+msgid "Unit of Measure"
+msgstr "Đơn vị tính"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_net_amount_untaxed
+msgid "Untaxed Net Amount"
+msgstr "Thực thu (chưa thuế)"
+
+#. module: vtt_hiepphat_config
+#: model:ir.model.fields,field_description:vtt_hiepphat_config.field_sale_order__vtt_return_amount_untaxed
+msgid "Untaxed Return Amount"
+msgstr "Thành tiền"

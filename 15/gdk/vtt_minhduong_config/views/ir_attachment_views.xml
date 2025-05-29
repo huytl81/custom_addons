@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Attachment views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_ir_attachment_user_document" model="ir.ui.view">
+            <field name="name">User Document Form</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_form"/>
+            <field name="arch" type="xml">
+                <field name="type" position="before">
+                    <field name="vtt_user_document" widget="toggle"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_ir_attachment_user_document" model="ir.ui.view">
+            <field name="name">User Document Filter</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_search"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <separator/>
+                    <filter name="filter_user_document" string="Is User Document" domain="[('vtt_user_document', '!=', False)]"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_ir_attachment_user_document" model="ir.ui.view">
+            <field name="name">User Document List</field>
+            <field name="model">ir.attachment</field>
+            <field name="priority" eval="1000"/>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0">
+                    <field name="description"/>
+                    <field name="name" invisible="1"/>
+                    <field name="vtt_user_document" invisible="1"/>
+                    <field name="type"/>
+                    <field name="datas" filename="name" attrs="{'invisible':[('type','=','url')]}" widget="binary"/>
+                    <field name="url" widget="url" attrs="{'invisible':[('type','=','binary')]}"/>
+                    <field name="file_size"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--User Document action-->
+        <record id="vtt_act_window_ir_attachment_user_document" model="ir.actions.act_window">
+            <field name="name">User Documents</field>
+            <field name="res_model">ir.attachment</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('vtt_user_document', '!=', False)]</field>
+        </record>
+        <record id="vtt_act_window_view_ir_attachment_user_document_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="vtt_view_tree_ir_attachment_user_document"/>
+            <field name="act_window_id" ref="vtt_act_window_ir_attachment_user_document"/>
+        </record>
+    </data>
+</odoo>

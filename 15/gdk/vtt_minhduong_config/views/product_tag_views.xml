@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Tag views-->
+    <data>
+        <!--Form view-->
+        <!--<record id="vtt_view_form_product_tag" model="ir.ui.view">
+            <field name="name">Product Tag Form</field>
+            <field name="model">vtt.product.tag</field>
+            <field name="arch" type="xml">
+                <form string="Product Tag">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>-->
+
+        <!--List view-->
+        <record id="vtt_view_tree_product_tag" model="ir.ui.view">
+            <field name="name">Product Tag List</field>
+            <field name="model">vtt.product.tag</field>
+            <field name="arch" type="xml">
+                <tree string="Product Tags" editable="top">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_product_tag" model="ir.actions.act_window">
+            <field name="name">Product Tags</field>
+            <field name="res_model">vtt.product.tag</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_config_stock_product_tag" name="Product Tag" parent="stock.menu_product_in_config_stock" action="vtt_act_window_product_tag" sequence="100"/>
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order views-->
+    <data>
+        <!--Form view add Move Import Wz button-->
+        <record id="vtt_view_form_sale_order_move_import" model="ir.ui.view">
+            <field name="name">Sale Order Form add Product Move Import</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <button name="open_move_import_wz" type="object" string="Product Import" class="oe_highlight" attrs="{'invisible': [('vtt_special_import_show', '=', False)]}" groups="stock.group_stock_manager"/>
+                </header>
+
+                <field name="payment_term_id" position="after">
+                    <field name="vtt_special_import_show" invisible="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

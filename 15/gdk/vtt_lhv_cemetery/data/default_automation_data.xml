@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Automation data-->
+    <data>
+        <!--Notify new SO for Care Service team-->
+        <record id="vtt_data_base_automation_notify_so_care_service" model="base.automation">
+            <field name="name">Notify new SO for Care Service team</field>
+            <field name="model_id" ref="model_sale_order"/>
+            <field name="state">code</field>
+            <field name="trigger">on_create</field>
+            <field name="filter_domain">[('lhv_order_type', '=', 'service_order')]</field>
+            <!--<field name="filter_pre_domain">[]</field>-->
+            <field name="code">
+menu_id = env.ref('vtt_lhv_cemetery.vtt_menu_sale_lhv_sale_type_service').id
+action_id = env.ref('vtt_lhv_cemetery.vtt_act_window_sale_order_lhv_type_service').id
+channel_id = env.ref('vtt_lhv_cemetery.vtt_data_mail_channel_care_service')
+base_url = env['ir.config_parameter'].get_param('web.base.url')
+base_url += '/web#id=%d&amp;view_type=form&amp;model=%s&amp;menu_id=%d&amp;action_id=%d' % (record.id, 'sale.order', menu_id, action_id)
+
+channel_id.message_post(body='&lt;div class="sale.order"&gt;&lt;p&gt;Đơn hàng &lt;a href="%s" class="o_redirect" data-oe-id="%s"&gt;#%s&lt;/a&gt; đã được tạo.&lt;/p&gt;&lt;/div&gt;' % (base_url, record.id, record.name,))
+            </field>
+        </record>
+
+        <!--Auto confirm new Event Registration for Portal Register-->
+        <record id="vtt_data_base_automation_confirm_event_registration_portal_user" model="base.automation">
+            <field name="name">Confirm new Event Registration for Portal Register</field>
+            <field name="model_id" ref="model_event_registration"/>
+            <field name="state">code</field>
+            <field name="trigger">on_create</field>
+            <field name="filter_domain">[('partner_id', '!=', False)]</field>
+            <!--<field name="filter_pre_domain">[]</field>-->
+            <field name="code">
+            if record.partner_id.user_ids:
+                if record.partner_id.user_ids[0].has_group('base.group_portal'):
+                    record.action_confirm()
+            </field>
+            <!--<field name="code">
+print(record.state)
+            </field>-->
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Default name search fields datas-->
+        <record model="ir.config_parameter" id="vtt_contact_name_search_fields">
+            <field name="key">vtt_partner_name_search.vtt_contact_name_search_fields</field>
+            <field name="value">email,ref,vat,phone,mobile</field>
+        </record>
+
+        <!--Default name get fields datas-->
+        <record model="ir.config_parameter" id="vtt_contact_name_get_fields">
+            <field name="key">vtt_partner_name_search.vtt_contact_name_get_fields</field>
+            <field name="value"></field>
+        </record>
+    </data>
+</odoo>

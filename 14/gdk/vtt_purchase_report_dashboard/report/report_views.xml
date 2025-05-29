@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Views-->
+    <data>
+        <!--Dashboard view-->
+        <record id="vtt_view_dashboard_purchase_report" model="ir.ui.view">
+             <field name="name">Purchase Report Dashboard</field>
+             <field name="model">purchase.report</field>
+             <field name="arch" type="xml">
+                 <dashboard>
+                    <group>
+                        <group>
+                            <aggregate name="sum_price_total" string="Total" group_operator="sum" field="price_total" clickable="False" col="4"/>
+                            <aggregate name="orders" string="# Orders" group_operator="count" field="order_id" measure="__count__"/>
+                        </group>
+                    </group>
+                 </dashboard>
+             </field>
+        </record>
+
+        <!--Filter view add This month filter-->
+        <record id="vtt_view_search_purchase_report_this_month" model="ir.ui.view">
+            <field name="name">Purchase Report This month</field>
+            <field name="model">purchase.report</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_search"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <separator/>
+                    <filter name="vtt_this_month" string="This month" domain="[
+                    ('date_order', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('date_order', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01'))]"/>
+                    <separator/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="purchase.action_purchase_order_report_all" model="ir.actions.act_window">
+            <field name="view_mode">graph,pivot,dashboard</field>
+        </record>
+    </data>
+
+</odoo>

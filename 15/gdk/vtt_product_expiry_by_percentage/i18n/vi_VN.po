@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_product_expiry_by_percentage
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-04 09:44+0000\n"
+"PO-Revision-Date: 2022-10-04 09:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_stock_move_line__vtt_expiration_percentage
+msgid "% Expiration Time"
+msgstr "% HSD"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,help:vtt_product_expiry_by_percentage.field_product_product__vtt_alert_time_percentage
+#: model:ir.model.fields,help:vtt_product_expiry_by_percentage.field_product_template__vtt_alert_time_percentage
+msgid ""
+"% of Product Life Time after which an alert should be raised. It will be "
+"computed on the lot/serial number."
+msgstr ""
+"% HSD mà sau đó cảnh báo sẽ được bật. Được tính trên từng lô/ serial sản "
+"phẩm."
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,help:vtt_product_expiry_by_percentage.field_product_product__vtt_removal_time_percentage
+#: model:ir.model.fields,help:vtt_product_expiry_by_percentage.field_product_template__vtt_removal_time_percentage
+msgid ""
+"% of Product Life Time after which the goods should be removed from stock. "
+"It will be computed on the lot/serial number."
+msgstr ""
+"% HSD mà sau đó hàng hóa cần phải được loại bỏ khỏi kho. Được tính trên từng"
+" lô/ serial sản phẩm."
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,help:vtt_product_expiry_by_percentage.field_product_product__vtt_use_time_percentage
+#: model:ir.model.fields,help:vtt_product_expiry_by_percentage.field_product_template__vtt_use_time_percentage
+msgid ""
+"% of Product Life Time the goods can continue on-sale. It will be computed "
+"on the lot/serial number."
+msgstr ""
+"% HSD tối thiểu mà hàng hóa có thể bán. Được tính trên từng lô/ serial sản "
+"phẩm."
+
+#. module: vtt_product_expiry_by_percentage
+#: model_terms:ir.ui.view,arch_db:vtt_product_expiry_by_percentage.vtt_view_form_product_template_expiration_percentage
+#: model_terms:ir.ui.view,arch_db:vtt_product_expiry_by_percentage.vtt_view_form_stock_production_lot_expiration_percentage
+msgid "<span> %</span>"
+msgstr ""
+
+#. module: vtt_product_expiry_by_percentage
+#: model_terms:ir.ui.view,arch_db:vtt_product_expiry_by_percentage.vtt_view_form_product_template_expiration_percentage
+msgid "<span> days</span>"
+msgstr "<span> ngày</span>"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_product__vtt_alert_time_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_template__vtt_alert_time_percentage
+msgid "Alert Time"
+msgstr "Thời gian cảnh báo"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_product__vtt_use_time_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_template__vtt_use_time_percentage
+msgid "Best Before Time"
+msgstr "Thời hạn bán được"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_stock_production_lot__vtt_current_expiration_percentage
+msgid "Current % Expiration"
+msgstr "% HSD còn lại"
+
+#. module: vtt_product_expiry_by_percentage
+#: model_terms:ir.ui.view,arch_db:vtt_product_expiry_by_percentage.vtt_view_form_product_template_expiration_percentage
+msgid "Dates"
+msgstr "Ngày"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model,name:vtt_product_expiry_by_percentage.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lô/Số serial"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model,name:vtt_product_expiry_by_percentage.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Chuyển sản phẩm (Chi tiết phiếu kho)"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model,name:vtt_product_expiry_by_percentage.model_product_template
+msgid "Product Template"
+msgstr "Mẫu sản phẩm"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_stock_move_line__vtt_production_date
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_stock_production_lot__vtt_production_date
+msgid "Production Date"
+msgstr "Ngày sản xuất"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_stock_production_lot__vtt_create_expiration_percentage
+msgid "Received % Expiration"
+msgstr "Thời điểm tiếp nhận"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_product__vtt_removal_time_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_template__vtt_removal_time_percentage
+msgid "Removal Time"
+msgstr "Thời gian loại bỏ"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_product__vtt_use_production_date
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_template__vtt_use_production_date
+msgid "Use Dynamic Production Date"
+msgstr "Sử dụng Ngày sản xuất"
+
+#. module: vtt_product_expiry_by_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_product__vtt_show_expiration_percentage
+#: model:ir.model.fields,field_description:vtt_product_expiry_by_percentage.field_product_template__vtt_show_expiration_percentage
+msgid "Use Expiration Percentage"
+msgstr "Hiển thị % HSD"

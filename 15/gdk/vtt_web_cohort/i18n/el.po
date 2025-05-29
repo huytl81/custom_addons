@@ -1,0 +1,244 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * vtt_web_cohort
+# 
+# Translators:
+# Martin Trigaux, 2019
+# Kostas Goutoudis <goutoudis@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server saas~12.2+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-20 14:08+0000\n"
+"PO-Revision-Date: 2018-08-02 11:37+0000\n"
+"Last-Translator: Kostas Goutoudis <goutoudis@gmail.com>, 2019\n"
+"Language-Team: Greek (https://www.transifex.com/odoo/teams/41243/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: vtt_web_cohort
+#: code:addons/vtt_web_cohort/controllers/main.py:36
+#, python-format
+msgid "%s - By %s"
+msgstr ""
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:76
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:154
+#, python-format
+msgid "- By"
+msgstr ""
+
+#. module: vtt_web_cohort
+#: model:ir.model,name:vtt_web_cohort.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr ""
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Activity"
+msgstr "Δραστηριότητα"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/controllers/main.py:61
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:112
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:184
+#, python-format
+msgid "Average"
+msgstr ""
+
+#. module: vtt_web_cohort
+#: model:ir.model,name:vtt_web_cohort.model_base
+msgid "Base"
+msgstr "Βάση"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Calendar"
+msgstr "Ημερολόγιο"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:22
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+#, python-format
+msgid "Cohort"
+msgstr ""
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:42
+#, python-format
+msgid "Cohort view has not defined \"date_start\" attribute."
+msgstr ""
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:45
+#, python-format
+msgid "Cohort view has not defined \"date_stop\" attribute."
+msgstr ""
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_controller.js:98
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:56
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:17
+#, python-format
+msgid "Count"
+msgstr "Πλήθος"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Dashboard"
+msgstr "Ταμπλό"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:15
+#, python-format
+msgid "Day"
+msgstr "Ημέρα"
+
+#. module: vtt_web_cohort
+#: selection:ir.ui.view,type:0
+msgid "Diagram"
+msgstr "Διάγραμμα"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:36
+#, python-format
+msgid "Download in Excel file"
+msgstr ""
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Form"
+msgstr "Φόρμα"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Gantt"
+msgstr "Gantt"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Graph"
+msgstr "Γράφημα"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Grid"
+msgstr "Πλέγμα"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Kanban"
+msgstr "Kanban"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:6
+#, python-format
+msgid "Measures"
+msgstr "Μετρήσεις"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:17
+#, python-format
+msgid "Month"
+msgstr "Μήνας"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:204
+#, python-format
+msgid "No data available for cohort."
+msgstr ""
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:128
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:201
+#, python-format
+msgid "No data available."
+msgstr ""
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/xml/vtt_web_cohort.xml:43
+#, python-format
+msgid "Period:"
+msgstr "Περίοδος:"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Pivot"
+msgstr "Συγκεντρωτικό"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "QWeb"
+msgstr "QWeb"
+
+#. module: vtt_web_cohort
+#: selection:ir.ui.view,type:0
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#. module: vtt_web_cohort
+#: selection:ir.actions.act_window.view,view_mode:0
+#: selection:ir.ui.view,type:0
+msgid "Tree"
+msgstr "Δέντρο"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:63
+#, python-format
+msgid "Untitled"
+msgstr ""
+
+#. module: vtt_web_cohort
+#: model:ir.model,name:vtt_web_cohort.model_ir_ui_view
+msgid "View"
+msgstr "Προβολή"
+
+#. module: vtt_web_cohort
+#: model:ir.model.fields,field_description:vtt_web_cohort.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:vtt_web_cohort.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Τύπος Προβολής"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:16
+#, python-format
+msgid "Week"
+msgstr "Εβδομάδα"
+
+#. module: vtt_web_cohort
+#. openerp-web
+#: code:addons/vtt_web_cohort/static/src/js/cohort_view.js:18
+#, python-format
+msgid "Year"
+msgstr "Έτος"

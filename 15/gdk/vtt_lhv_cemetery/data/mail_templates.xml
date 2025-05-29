@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--Next anniversary schedule template-->
+        <template id="tomb_slot_next_anniversary_notif">
+            <div>
+                The tomb slot has next anniversary in about <t t-esc="month_param"/> month(s):
+                <div class="mt16">
+                    <!--<p>Exception(s):</p>-->
+                    <ul>
+                        <li>
+                            Solar calendar: <t t-esc="solar_calendar"/>
+                        </li>
+                        <li>
+                            Lunar calendar: <t t-esc="lunar_calendar"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+    </data>
+
+    <!--Email templates data-->
+    <data noupdate="1">
+        <!--Land Purchase thanks-->
+        <record id="vtt_email_template_sale_land_thanks" model="mail.template">
+            <field name="name">Sales Order: Land Purchase Thanks</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Thanks for Land Purchased</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        <t t-set="doc_name" t-value="'quotation' if object.state in ('draft', 'sent') else 'order'"/>
+        Dear <t t-esc="object.partner_id.name"/>,
+        <br/><br/>
+        We are totally honored and grateful to be able to thank you for using our land service.
+        <br/>
+        Hopeful to continuing to serve and receive your support in the future.
+        <br/><br/>
+        Thanks and best regards!
+        <br/>
+    </p>
+</div>
+            </field>
+            <!--<field name="report_template" ref="action_report_saleorder"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>-->
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!--Land Construction Acceptance notice-->
+        <record id="vtt_email_template_construct_accept_notice" model="mail.template">
+            <field name="name">Land Construction: Acceptance Notice</field>
+            <field name="model_id" ref="vtt_lhv_cemetery.model_vtt_construct"/>
+            <field name="subject">Construction Acceptance Notice</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Dear <t t-esc="object.partner_id.name"/>,
+        <br/><br/>
+        Your construction order has tobe done and need your acceptance.
+        <br/>
+        Please give a notice and contact us as soon as you can.
+        <br/><br/>
+        Thanks and best regards!
+        <br/>
+    </p>
+</div>
+            </field>
+            <!--<field name="report_template" ref="action_report_saleorder"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>-->
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

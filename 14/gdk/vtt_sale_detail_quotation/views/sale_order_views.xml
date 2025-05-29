@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order view-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_sale_order_detail_quotation" model="ir.ui.view">
+            <field name="name">Sale Order Detail Quotation</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!--Update button-->
+                <field name="order_line" position="before">
+                    <button name="update_price_by_display_qty" type="object" string="Update Price"/>
+                </field>
+
+                <!--Adding fields-->
+                <!--section-->
+                <xpath expr="//tree/field[@name='product_id']" position="before">
+                    <field name="order_id" invisible="1"/>
+                    <field name="section_domain" invisible="1"/>
+                    <field name="section_id" domain="section_domain" attrs="{'invisible': [('display_type', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='name']" position="attributes">
+                    <attribute name="widget"></attribute>
+                    <attribute name="required">1</attribute>
+                </xpath>
+                <!--Qty-->
+                <xpath expr="//tree/field[@name='product_uom_qty']" position="before">
+                    <field name="display_qty"/>
+                    <field name="section_display_qty" invisible="1"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='product_uom_qty']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!--Price Unit-->
+                <xpath expr="//tree/field[@name='price_unit']" position="after">
+                    <field name="display_price_unit" attrs="{'invisible': [('display_type', '!=', 'line_section')]}"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('qty_invoiced', '&gt;', 0)],
+                        'invisible': [('display_type', '!=', False)]}</attribute>
+                </xpath>
+                <!--Price Total-->
+                <xpath expr="//tree/field[@name='price_subtotal']" position="before">
+                    <field name="display_price_subtotal" widget="monetary" groups="account.group_show_line_subtotals_tax_excluded"/>
+                    <field name="display_price_total" widget="monetary" groups="account.group_show_line_subtotals_tax_included"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='price_subtotal']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='price_total']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!--Modify order_line field-->
+                <field name="order_line" position="attributes">
+                    <attribute name="widget"></attribute>
+                    <attribute name="context">{'current_order_id': active_id}</attribute>
+                </field>
+
+                <!--Modify tree class for adjust column width-->
+                <tree position="attributes">
+                    <attribute name="class">vtt-orderline-width</attribute>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,106 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_sale_owner_contact
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-10 03:29+0000\n"
+"PO-Revision-Date: 2020-11-10 03:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_sale_owner_contact
+#: model_terms:ir.ui.view,arch_db:vtt_sale_owner_contact.vtt_view_form_contact_user_wz
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: vtt_sale_owner_contact
+#: model_terms:ir.ui.view,arch_db:vtt_sale_owner_contact.vtt_view_form_contact_user_wz
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: vtt_sale_owner_contact
+#: model_terms:ir.ui.view,arch_db:vtt_sale_owner_contact.vtt_view_form_contact_user_wz
+msgid "Contact Salesman"
+msgstr "Thiết lập nhân viên chăm sóc"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model,name:vtt_sale_owner_contact.model_vtt_contact_user_wz
+msgid "Contact Salesman Wizard"
+msgstr "Thiết lập nhân viên chăm sóc"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__is_include_child
+msgid "Include Childs?"
+msgstr "Gồm các liên hệ liên quan?"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__is_overwrite
+msgid "Over write?"
+msgstr "Cho phép ghi đè?"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__partner_ids
+#: model_terms:ir.ui.view,arch_db:vtt_sale_owner_contact.vtt_view_form_contact_user_wz
+msgid "Partners"
+msgstr "Đối tác"
+
+#. module: vtt_sale_owner_contact
+#: model_terms:ir.actions.act_window,help:vtt_sale_owner_contact.vtt_action_contact_user_wz
+msgid ""
+"This wizard will validate all journal entries selected. Once journal entries"
+" are validated, you can not update them anymore."
+msgstr ""
+"Tính năng này sẽ xác nhận tất cả bút toán được chọn. Một khi bút toán được "
+"xác nhận, bạn không thể cập nhật nó nữa."
+
+#. module: vtt_sale_owner_contact
+#: model:ir.actions.act_window,name:vtt_sale_owner_contact.vtt_action_contact_user_wz
+msgid "Update Contact Salesman"
+msgstr "Cập nhật nhân viên chăm sóc"
+
+#. module: vtt_sale_owner_contact
+#: model:ir.model.fields,field_description:vtt_sale_owner_contact.field_vtt_contact_user_wz__user_id
+msgid "User"
+msgstr "Nhân viên"

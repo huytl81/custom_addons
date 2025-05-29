@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Land Contract views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_land_contract" model="ir.ui.view">
+            <field name="name">Land Contract Form</field>
+            <field name="model">vtt.land.contract</field>
+            <field name="arch" type="xml">
+                <form string="Land Contract">
+                    <header>
+                        <button name="submit_custom_rating" type="object" string="Partner Rating" groups="vtt_lhv_cemetery.vtt_group_cemetery_contract_user"/>
+                        <!--<field name="state" widget="statusbar"/>-->
+                    </header>
+                    <sheet>
+                        <div name="button_box" class="oe_button_box">
+                            <button name="view_sale_order" type="object" class="oe_stat_button" icon="fa-credit-card" attrs="{'invisible': [('order_count', '=', 0)]}">
+                                <field name="order_count" widget="statinfo" string="Orders"/>
+                            </button>
+                            <button name="view_sale_subscription" type="object" class="oe_stat_button" icon="fa-book" attrs="{'invisible': [('subscription_count', '=', 0)]}">
+                                <field name="subscription_count" widget="statinfo" string="Subscriptions"/>
+                            </button>
+                            <button name="view_construction" type="object" class="oe_stat_button" icon="fa-puzzle-piece" attrs="{'invisible': [('construct_count', '=', 0)]}">
+                                <field name="construct_count" widget="statinfo" string="Constructions"/>
+                            </button>
+                            <button name="view_rating_data" type="object" class="oe_stat_button" icon="fa-smile-o" attrs="{'invisible': [('vtt_custom_rating_count', '=', 0)]}">
+                                <field name="vtt_custom_rating_count" widget="statinfo" string="Ratings"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <!--<field name="plot_id"/>-->
+                                <field name="partner_id"/>
+                                <field name="partner_phone"/>
+                                <field name="partner_mobile"/>
+                                <field name="partner_email"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <!--<field name="order_id" readonly="1"/>-->
+                                <field name="land_certificate_state" widget="radio"/>
+                                <field name="land_certificate" attrs="{'invisible': [('land_certificate_state', '!=', 'certificated')]}"/>
+                                <field name="land_certificate_date" attrs="{'invisible': [('land_certificate_state', '!=', 'certificated')]}"/>
+                            </group>
+                            <!--<field name="description"/>-->
+                        </group>
+                        <notebook>
+                            <page name="contacts" string="Contacts">
+                                <field name="contact_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="phone"/>
+                                        <field name="mobile"/>
+                                        <field name="email"/>
+                                        <field name="dob"/>
+                                        <field name="state_id"/>
+                                        <field name="country_id" optional="hide"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="plots" string="Plots">
+                                <field name="plot_ids">
+                                    <tree>
+                                        <field name="contract_id" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="place_id"/>
+                                        <field name="contract_partner_id" optional="hide"/>
+                                        <field name="priority" widget="priority" readonly="1"/>
+                                        <field name="land_direction"/>
+                                        <field name="area"/>
+                                        <field name="construction_state" widget="badge" decoration-warning="construction_state in ('design_progress', 'construct_progress')" decoration-success="construction_state == 'done'"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <!--<field name="tomb_ids" invisible="1"/>-->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_land_contract" model="ir.ui.view">
+            <field name="name">Land Contract List</field>
+            <field name="model">vtt.land.contract</field>
+            <field name="arch" type="xml">
+                <tree string="Land Contracts">
+                    <field name="name"/>
+                    <field name="plot_id"/>
+                    <field name="partner_id"/>
+                    <field name="partner_phone" optional="hide"/>
+                    <field name="partner_mobile"/>
+                    <field name="partner_email" optional="show"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_land_contract" model="ir.ui.view">
+            <field name="name">Land Contract Filter</field>
+            <field name="model">vtt.land.contract</field>
+            <field name="arch" type="xml">
+                <search string="Land Contract Filter">
+                    <field name="name" string="Name" filter_domain="['|', '|', '|', '|', '|', ('name', 'ilike', self), ('plot_id.name', 'ilike', self), ('plot_id.place_id.name', 'ilike', self), ('partner_id.name', 'ilike', self), ('partner_id.phone', 'ilike', self), ('partner_id.mobile', 'ilike', self)]"/>
+                    <field name="partner_id"/>
+                    <field name="plot_id"/>
+                    <separator/>
+                    <filter string="Date" name="date" date="date"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Partner" name="by_partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Date" name="groupby_date" domain="[]" context="{'group_by': 'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Land Contract list-->
+        <record id="vtt_act_window_land_contract" model="ir.actions.act_window">
+            <field name="name">Land Contracts</field>
+            <field name="res_model">vtt.land.contract</field>
+            <field name="view_mode">tree,pivot,graph,form,activity</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem id="vtt_menu_contract_contract" name="Contract" parent="vtt_menu_contract_root" sequence="20" action="vtt_act_window_land_contract"/>-->
+    </data>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Diagnosys and Workorder modify-->
+    <data>
+        <!--Change context of Diagnosys action to show default Project-->
+        <record id="car_repair_maintenance_service.action_view_task_diagnosis_car" model="ir.actions.act_window">
+            <field name="context" eval="{'default_car_task_type': 'diagnosys', 'default_project_id': ref('vtt_mro_expand.vtt_mro_repair_project')}"/>
+        </record>
+
+        <!--Change context of Workorder action to show default Project-->
+        <record id="car_repair_maintenance_service.action_view_task_workorder" model="ir.actions.act_window">
+            <field name="context" eval="{'default_car_task_type': 'work_order', 'default_project_id': ref('vtt_mro_expand.vtt_mro_repair_project')}"/>
+        </record>
+    </data>
+</odoo>

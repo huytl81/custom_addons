@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Threat Synchronize Request views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_threat_sync_request" model="ir.ui.view">
+            <field name="name">Synchronize Request Form</field>
+            <field name="model">threat.sync.request</field>
+            <field name="arch" type="xml">
+                <form string="Synchronize Request Form">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="sync_config_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="dt"/>
+                            </group>
+                        </group>
+                        <!--Case Success-->
+                        <separator string="Upload Detail" attrs="{'invisible': [('state', 'not in', ['success'])]}"/>
+                        <field name="upload_content" invisible="1"/>
+                        <widget name="json_table_dynamic_columns" options="{'field_name': 'upload_content', 'fields': ['model', 'value'], 'headers': ['Model', 'Records']}" attrs="{'invisible': [('state', 'not in', ['success'])]}"/>
+                        <group col="6" class="mt-2 mt-md-0">
+                            <group colspan="4"></group>
+                            <group colspan="2">
+                                <field name="total_upload" string="Total"/>
+                            </group>
+                        </group>
+
+                        <separator string="Download Detail" attrs="{'invisible': [('state', 'not in', ['success'])]}"/>
+                        <field name="download_content" invisible="1"/>
+                        <widget name="json_table_dynamic_columns" options="{'field_name': 'download_content', 'fields': ['model', 'value'], 'headers': ['Model', 'Records']}" attrs="{'invisible': [('state', 'not in', ['success'])]}"/>
+                        <group col="6" class="mt-2 mt-md-0">
+                            <group colspan="4"></group>
+                            <group colspan="2">
+                                <field name="total_download" string="Total"/>
+                            </group>
+                        </group>
+
+                        <!--Case Failed-->
+                        <separator string="Failed Detail" attrs="{'invisible': [('state', 'not in', ['failed'])]}"/>
+                        <field name="fail_content" attrs="{'invisible': [('state', 'not in', ['failed'])]}"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_threat_sync_request" model="ir.ui.view">
+            <field name="name">Synchronize Request List</field>
+            <field name="model">threat.sync.request</field>
+            <field name="arch" type="xml">
+                <tree string="Synchronize Requests">
+                    <field name="sync_config_id" invisible="1"/>
+                    <field name="dt"/>
+                    <field name="total_download"/>
+                    <field name="total_upload"/>
+                    <field name="state" widget="badge" decoration-danger="state == 'failed'" decoration-success="state == 'success'"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

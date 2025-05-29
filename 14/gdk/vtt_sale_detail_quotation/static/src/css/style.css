@@ -1,0 +1,8 @@
+/* css file */
+
+.vtt-orderline-width [data-name="product_id"] {width: 100px !important;}
+.vtt-orderline-width [data-name="section_id"] {width: 75px !important;}
+.vtt-orderline-width [data-name="name"] {width: 125px !important;}
+.vtt-orderline-width [data-name="product_uom"] {width: 50px !important;}
+.vtt-orderline-width [data-name="display_qty"] {width: 50px !important;}
+.vtt-orderline-width [data-name="price_unit"] {width: 100px !important;}

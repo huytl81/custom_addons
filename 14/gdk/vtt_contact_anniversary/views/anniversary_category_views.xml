@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Anniversary Category views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_contact_anniversary_category" model="ir.ui.view">
+            <field name="name">Anniversary Category Form</field>
+            <field name="model">vtt.contact.anniversary.category</field>
+            <field name="arch" type="xml">
+                <form string="Anniversary Category">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <label for="interval_number" string="Execute Every"/>
+                                <div>
+                                    <field name="interval_number" class="oe_inline"/>
+                                    <field name="interval_type" class="oe_inline" attrs="{'invisible': [('interval_number', '&lt;=', 0)]}"/>
+                                </div>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                            <group>
+                                <field name="activity_type_id"/>
+                                <field name="activity_summary" attrs="{'invisible': [('activity_type_id', '=', False)]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_contact_anniversary_category" model="ir.ui.view">
+            <field name="name">Anniversary Categories</field>
+            <field name="model">vtt.contact.anniversary.category</field>
+            <field name="arch" type="xml">
+                <tree string="Anniversary Categories">
+                    <field name="name"/>
+                    <field name="activity_type_id"/>
+                    <field name="active" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Category List-->
+        <record id="vtt_act_window_contact_anniversary_category_list" model="ir.actions.act_window">
+            <field name="name">Anniversary Categories</field>
+            <field name="res_model">vtt.contact.anniversary.category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+
+        <menuitem id="vtt_menu_anniversary_category" name="Anniversary Categories" parent="contacts.res_partner_menu_config" sequence="4" action="vtt_act_window_contact_anniversary_category_list"/>
+    </data>
+</odoo>

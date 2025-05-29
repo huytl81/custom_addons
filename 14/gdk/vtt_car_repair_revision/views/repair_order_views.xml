@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Car Repair Order views-->
+    <data>
+        <!--Form view add Revision-->
+        <record id="vtt_view_form_car_repair_order_revision" model="ir.ui.view">
+            <field name="name">Repair Order with Revision</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="inherit_id" ref="vtt_car_repair.vtt_view_form_car_repair_order"/>
+            <field name="arch" type="xml">
+                <button name="action_quotation_send" position="before">
+                    <button name="create_revision" type="object" groups="vtt_car_repair.vtt_group_car_repair_accountant" string="New Revision of Quotation" states="draft,cancel"/>
+                </button>
+
+                <button name="action_repair_cancel" position="after">
+                    <button name="%(vtt_car_repair.vtt_action_report_car_repair_order)d" type="action" string="Print" states="cancel"/>
+                </button>
+
+                <page name="technical_info" position="before">
+                    <page name="revisions" string="Revisions" attrs="{'invisible': ['&amp;', ('has_old_revisions', '=', False), ('current_revision_id', '=', False)]}">
+                        <field name="old_revision_ids" domain="['|', ('active', '=', False), ('active', '=', True)]" context="{'active_test': 0}" attrs="{'invisible': [('has_old_revisions', '=', False)]}">
+                            <tree>
+                                <field name="name" />
+                                <field name="create_date" string="Superseeded on" />
+                                <field name="create_uid" string="Superseeded by" />
+                                <field name="amount_total" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                <field name="state" invisible="1" />
+                            </tree>
+                        </field>
+                        <group attrs="{'invisible': [('current_revision_id', '=', False)]}">
+                            <field name="current_revision_id" />
+                            <field name="has_old_revisions" invisible="1" />
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--Search view add Inactive-->
+        <record id="vtt_view_search_car_repair_order_inactive" model="ir.ui.view">
+            <field name="name">Car Repair Order Filter add Inactive</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="inherit_id" ref="vtt_car_repair.vtt_view_search_car_repair_order"/>
+            <field name="arch" type="xml">
+                <filter name="filter_receive_date" position="after">
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

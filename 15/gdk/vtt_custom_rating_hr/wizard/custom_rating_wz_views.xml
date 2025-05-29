@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Custom Rating Wz views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_custom_rating_wz_add_hr" model="ir.ui.view">
+            <field name="name">Custom Rating Wz Form add HR information</field>
+            <field name="model">vtt.custom.rating.wz</field>
+            <field name="inherit_id" ref="vtt_custom_rating.vtt_view_form_custom_rating_wz"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

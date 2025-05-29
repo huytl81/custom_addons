@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order views-->
+    <data>
+        <!--Form view add Size-->
+        <record id="vtt_view_form_sale_order_product_size" model="ir.ui.view">
+            <field name="name">Sale Order add Product Size</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!--Adding fields-->
+                <!--size-->
+                <xpath expr="//tree/field[@name='name']" position="after">
+                    <field name="vtt_sub_uom" optional="show"/>
+                    <field name="vtt_product_width" optional="show"/>
+                    <field name="vtt_product_height" optional="show"/>
+                    <!--<field name="vtt_product_area" optional="hide"/>-->
+                </xpath>
+
+                <!--total area-->
+                <xpath expr="//tree/field[@name='product_uom']" position="after">
+                    <!--<field name="vtt_display_total_area" optional="show"/>
+                    <field name="vtt_line_total_area" optional="show"/>-->
+                    <field name="vtt_product_area" optional="show"/>
+                </xpath>
+
+                <!--size price-->
+                <xpath expr="//tree/field[@name='price_unit']" position="before">
+                    <field name="vtt_product_size_price" optional="show"/>
+                </xpath>
+
+                <!--other service-->
+                <xpath expr="//create[@name='add_note_control']" position="after">
+                    <create name="add_note_control" string="Add other service" context="{'default_vtt_other_service': True}"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='state']" position="after">
+                    <field name="vtt_other_service" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

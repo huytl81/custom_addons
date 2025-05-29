@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.server" id="sh_cancel_stock_picking_multi_action">
+        <field name="name">Cancel Picking</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_picking" />
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_picking_cancel()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_picking_draft_multi_action">
+        <field name="name">Cancel &amp; Reset Draft</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_picking" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_cancel'))]" />
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_picking_cancel_draft()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_picking_delete_multi_action">
+        <field name="name">Cancel &amp; Delete</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_picking" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_cancel'))]" />
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_picking_cancel_delete()
+        </field>
+    </record>
+
+    <!--  Inventory Adjustment -->
+
+    <record model="ir.actions.server" id="sh_cancel_stock_inventory_multi_action">
+        <field name="name">Cancel Inventory</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_inventory" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_adjustment_cancel'))]" />
+        <field name="binding_model_id" ref="stock.model_stock_inventory" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_inventory_cancel()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_inventory_draft_multi_action">
+        <field name="name">Cancel &amp; Reset Draft</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_inventory" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_adjustment_cancel'))]" />
+        <field name="binding_model_id" ref="stock.model_stock_inventory" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_inventory_cancel_draft()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_inventory_delete_multi_action">
+        <field name="name">Cancel &amp; Delete</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_inventory" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_adjustment_cancel'))]" />
+        <field name="binding_model_id" ref="stock.model_stock_inventory" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_inventory_cancel_delete()
+        </field>
+    </record>
+
+    <record model="ir.actions.server" id="sh_cancel_stock_move_cancel_multi_action">
+        <field name="name">Cancel</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_move" />
+        <field name="binding_model_id" ref="stock.model_stock_move" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_move_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_move_cancel()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_move_draft_multi_action">
+        <field name="name">Cancel &amp; Reset Draft</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_move" />
+        <field name="binding_model_id" ref="stock.model_stock_move" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_move_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_move_cancel_draft()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_move_delete_multi_action">
+        <field name="name">Cancel &amp; Delete</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_move" />
+        <field name="binding_model_id" ref="stock.model_stock_move" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_move_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_move_cancel_delete()
+        </field>
+    </record>
+
+    <!-- Scrap -->
+
+    <record model="ir.actions.server" id="sh_cancel_stock_scrap_multi_action">
+        <field name="name">Cancel Scrap</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_scrap" />
+        <field name="binding_model_id" ref="stock.model_stock_scrap" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_scrap_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_inventory_scrap_cancel()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_scrap_draft_multi_action">
+        <field name="name">Cancel &amp; Reset Draft</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_scrap" />
+        <field name="binding_model_id" ref="stock.model_stock_scrap" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_scrap_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_inventory_cancel_scrap_draft()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_cancel_stock_scrap_delete_multi_action">
+        <field name="name">Cancel &amp; Delete</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="stock.model_stock_scrap" />
+        <field name="binding_model_id" ref="stock.model_stock_scrap" />
+        <field name="groups_id" eval="[(4, ref('sh_stock_cancel.group_sh_stock_scrap_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_inventory_cancel_scrap_delete()
+        </field>
+    </record>
+</odoo>

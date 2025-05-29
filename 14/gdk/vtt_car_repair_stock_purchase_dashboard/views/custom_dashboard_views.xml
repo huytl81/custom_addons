@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Custom view-->
+    <data>
+        <record id="vtt_view_custom_car_repair_purchase_stock_dashboard" model="ir.ui.view.custom">
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="ref_id" ref="vtt_board.vtt_view_form_board_company_dash"/>
+            <field name="vtt_is_global" eval="True"/>
+            <field name="arch" type="xml">
+                 <form string="Bảng thông tin của Tôi">
+                     <board style="1-2">
+                         <column>
+                             <action context="{'lang': 'vi_VN', 'tz': 'Asia/Ho_Chi_Minh', 'uid': 2, 'allowed_company_ids': [1], 'group_by_no_leaf': 1, 'group_by': [], 'orderedBy': [], 'dashboard_merge_domains_contexts': False}" domain="['&amp;', ['state', 'in', ['done']], '&amp;', ['dt_receive', '&gt;=',(context_today()).strftime('%Y-%m-01 00:00:00')], ['dt_receive', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01 00:00:00')]]" name="%(vtt_car_repair.vtt_act_window_car_repair_order_report)d" string="Doanh thu tháng" view_mode="dashboard"/>
+                         </column>
+
+                         <column>
+                             <action context="{'lang': 'vi_VN', 'tz': 'Asia/Ho_Chi_Minh', 'uid': 2, 'allowed_company_ids': [1], 'group_by_no_leaf': 1, 'group_by': [], 'orderedBy': [], 'graph_measure': 'price_total', 'graph_mode': 'line', 'graph_groupbys': ['dt_receive:month'], 'dashboard_merge_domains_contexts': False}" domain="['&amp;', ['state', 'in', ['done']], '&amp;', ['dt_receive', '&gt;=', (context_today()).strftime('%Y-01-01 00:00:00')], ['dt_receive', '&lt;', (context_today() + relativedelta(years=1)).strftime('%Y-01-01 00:00:00')]]" name="%(vtt_car_repair.vtt_act_window_car_repair_order_report)d" string="Doanh thu năm nay" view_mode="graph"/>
+                         </column>
+                     </board>
+
+                    <board style="1-2">
+                        <column>
+                            <action context="{'lang': 'vi_VN', 'tz': 'Asia/Ho_Chi_Minh', 'uid': 2, 'allowed_company_ids': [1], 'group_by': [], 'orderedBy': [], 'dashboard_merge_domains_contexts': False}" domain="['&amp;', ['date_order', '&gt;=', (context_today()).strftime('%Y-%m-01')], ['date_order', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01')]]" name="%(purchase.action_purchase_order_report_all)d" string="Chi phí tháng" view_mode="dashboard" modifiers="{}"/>
+
+                            <action context="{'lang': 'vi_VN', 'tz': 'Asia/Ho_Chi_Minh', 'uid': 2, 'allowed_company_ids': [1], 'group_by': [], 'orderedBy': [], 'dashboard_merge_domains_contexts': False}" domain="[['product_id.type', '=', 'product']]" name="%(stock_account.stock_valuation_layer_action)d" string="Tồn kho" view_mode="dashboard"/>
+
+                        </column>
+
+                        <column>
+                            <action context="{'lang': 'vi_VN', 'tz': 'Asia/Ho_Chi_Minh', 'uid': 2, 'allowed_company_ids': [1], 'group_by': ['date_order:week'], 'orderedBy': [], 'graph_measure': 'price_total', 'graph_mode': 'line', 'graph_groupbys': ['date_order:week'], 'dashboard_merge_domains_contexts': False}" domain="['&amp;', ['date_order', '&gt;=', (context_today()).strftime('%Y-%m-01')], ['date_order', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01')]]" name="%(purchase.action_purchase_order_report_all)d" string="Dòng chi phí" view_mode="graph" modifiers="{}"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

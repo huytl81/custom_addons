@@ -1,0 +1,54 @@
+html[data-view-xmlid="vtt_edu_admission_form.vtt_tmp_admission_form"] #wrapwrap main { height: auto; }
+html body > #wrapwrap > main { min-height: 500px; height: auto; }
+
+.vtt_admission_form .right-box { padding: 25px 15px 15px 15px; background: aliceblue; border-radius: 15px; }
+.vtt_admission_form .right-box input[type=file] { background: #ffffff; width: 100%; }
+
+.vtt_admission_form label.caption {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.vtt_admission_form_success .alert-success {
+    text-align: center;
+    margin-top: 20px;
+	border: none;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+	background: #ffffff;
+}
+
+.vtt_admission_form_success .alert-success p { color: #333333; font-size: 20px; font-weight: bold; }
+
+.vtt_admission_form_success .alert-success .icon { font-size: 70px; margin-bottom: 15px; margin-top: 8px; }
+
+
+/* login form */
+.oe_login_form, .oe_signup_form, .oe_reset_password_form, .admission_box { padding: 25px 30px; background: #f8f6f6; }
+.form_wrapper .form_box .oe_login_form { margin: auto; max-width: 400px; }
+.admission_box { margin-left: 25px; }
+.admission_box .form-group { margin-top: 20px; }
+.admission_box .form_button { padding: 10px 15px; background: #00a09d; border-radius: 5px; color: #ffffff; }
+.oe_login_buttons button { background: #0a2491; border-color: #0a2491; }
+
+.form_wrapper .form_box { margin-left: auto; margin-right: auto; max-width: 800px; min-height: 350px; margin-bottom: 50px; }
+.form_box > * { width: 45%; float: left; height: 345px; }
+
+html body > #wrapwrap > main { background: #ffffff; }
+
+header#top { display: none; }
+
+
+/* Responsive */
+@media screen and (max-width: 425px) {
+    .oe_website_login_container .form_wrapper a > img { max-width: 300px; }
+    .form_wrapper .form_box .oe_login_form { margin-bottom: 30px; }
+  .form_box > * { width: 350px; max-width: 350px; margin-bottom: 30px; margin-left: auto; margin-right: auto; float: none; height: auto; }
+
+  .s_website_form form .s_website_form_rows a > img, .s_website_form > div  a > img, .vtt_admission_form_success  a > img { max-width: 350px; }
+  .vtt_admission_form_success .alert-success { width: 100%; }
+}
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- anita list box -->
+    <t t-name="anita_list_free.search_row_item">
+        <div class="anita_search_row_item">
+            <span t-if="show_label" class="field_name">
+                <t t-esc="field.string"/>
+            </span>
+            <select t-if="show_operator" class="o_input field_operation"/>
+            <span class="field_value">
+                <span class="facet" />
+                <span class="facet_value" />
+            </span>
+            <span t-if="show_trash" class="trash_button fa fa-trash-o" role="img" aria-label="Delete" title="Delete"/>
+        </div>
+    </t>
+
+    <div t-name="anita_list_free.search_facet" tabindex="0" class="o_searchview_facet" role="img" aria-label="search">
+        <div class="o_facet_values">
+            <t t-foreach="widget.facetValues" t-as="facetValue">
+                <span t-esc="facetValue"/>
+            </t>
+        </div>
+        <div class="fa fa-sm fa-remove o_facet_remove" role="img" aria-label="Remove" title="Remove"/>
+    </div>
+
+    <t t-name="anita_list_free.auto_complete">
+        <ul class="dropdown-menu anita_autocomplete" role="menu"/>
+    </t>
+
+    <t t-name="anita_list_free.search_row.selection">
+        <select class="o_input">
+            <option t-foreach="widget.field.selection" t-as="element" t-att-value="element[0]">
+                <t t-esc="element[1]"/>
+            </option>
+        </select>
+    </t>
+
+    <t t-name="anita_list_free.search_row.float">
+        <input class="o_input"
+            t-att-type="widget.decimal_point === '.' ? 'number' : 'text'"
+            t-attf-title="Number using #{widget.decimal_point  || '.' } as decimal separator."
+            t-attf-pattern="[0-9]+([\\#{widget.decimal_point || '.' }][0-9]+)?"
+            t-attf-value="0#{widget.decimal_point || '.' }0" step="0.01"/>
+    </t>
+
+</templates>

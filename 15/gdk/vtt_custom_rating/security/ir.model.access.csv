@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+custom_rating_user,custom.rating.user,model_vtt_custom_rating,base.group_user,1,1,1,1
+custom_rating_wz_user,custom.rating.wz.user,model_vtt_custom_rating_wz,base.group_user,1,1,1,1

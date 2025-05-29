@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Barcode Wizard views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_barcode_scan_wizard" model="ir.ui.view">
+            <field name="name">Barcode Scan Wizard</field>
+            <field name="model">vtt.barcode.scan.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string='Apply' name="apply_product_qty" type="object" class="btn-primary"/>
+                        <button string='Apply &amp; continue' name="apply_product_qty_and_continue" type="object" class="btn-primary"/>
+                        <field name="vehicle_license_plate" style="margin-right: 8px; font-weight: bold;"/>
+                    </header>
+                    <div attrs="{'invisible': [('warning', '=', False)]}"  class="alert alert-info text-center" role="status">
+                        Can not recognize the barcode input.
+                    </div>
+                    <sheet>
+                        <script>
+                            $('.barcode-field-require').focus()
+                        </script>
+                        <notebook>
+                            <page string="Product">
+                                <group>
+                                    <group>
+                                        <field name="barcode" widget="field_instant_change_widget" autofocus="True" required="True" class="barcode-field-require" default_focus="1"/>
+                                        <field name="picking_id" invisible="1"/>
+                                        <field name="warning" invisible="1"/>
+                                        <field name="vehicle_id" invisible="1"/>
+                                        <field name="driver_id" invisible="1"/>
+                                        <field name="pack_qty" readonly="False" widget="numeric_step" options="{'step': 1.0}"/>
+                                        <field name="surplus_qty" readonly="False" widget="numeric_step" options="{'step': 1.0}"/>
+                                        <field name="qty" widget="numeric_step" options="{'step': 1.0}"/>
+                                    </group>
+                                    <group>
+
+                                        <!--<field name="lot_id" domain="[('product_id', '=', product_id), ('id', 'in', lot_available_ids)]"/>-->
+                                        <field name="product_id" domain="['|', ('pack_barcode', '=', barcode), ('product_barcode', '=', barcode)]"/>
+                                        <field name="lot_available_ids" invisible="1"/>
+                                        <field name="location_available_ids" invisible="1"/>
+                                        <field name="packing_specification" invisible="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Location">
+                                <group>
+                                    <group>
+                                        <field name="lot_id" domain="[('product_id', '=', product_id), ('id', 'in', lot_available_ids)]" widget="radio"/>
+                                    </group>
+                                    <group>
+                                        <field name="location_id" domain="[('id', 'in', location_available_ids)]" widget="radio"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Options">
+                                <group>
+                                    <group>
+                                        <field name="option_pick_all" widget="boolean_toggle"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string='Apply' name="apply_product_qty" type="object" class="btn-primary"/>
+                        <button string='Apply &amp; continue' name="apply_product_qty_and_continue" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

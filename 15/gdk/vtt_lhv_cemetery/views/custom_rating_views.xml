@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Custom Rating views-->
+    <data>
+        <!--Form view add stage-->
+        <record id="vtt_view_form_custom_rating_add_stage" model="ir.ui.view">
+            <field name="name">Custom Rating Form add Stage</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="inherit_id" ref="vtt_custom_rating.vtt_view_form_custom_rating"/>
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
+
+                <notebook position="inside">
+                    <page string="Customer Comment">
+                        <field name="rating_comment"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <!--Tree view add stage-->
+        <record id="vtt_view_tree_custom_rating_add_stage" model="ir.ui.view">
+            <field name="name">Custom Rating List add Stage</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="inherit_id" ref="vtt_custom_rating.vtt_view_tree_custom_rating"/>
+            <field name="arch" type="xml">
+                <field name="dt_rating" position="after">
+                    <field name="stage_id" widget="badge"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Custom Rating Stage views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_custom_rating_stage" model="ir.ui.view">
+            <field name="name">Custom Rating Stage Form</field>
+            <field name="model">vtt.custom.rating.stage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_title">
+                        <h2>
+                            <label for="name" class="oe_edit_only"/>
+                            <field name="name" nolabel="1"/>
+                        </h2>
+                    </div>
+                    <label for="description" class="oe_edit_only"/>
+                    <field name="description" nolabel="1"/>
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="fold"/>
+                            <field name="is_closed"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Stage Message">
+                            <field name="stage_message"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_custom_rating_stage" model="ir.ui.view">
+            <field name="name">Custom Rating Stage List</field>
+            <field name="model">vtt.custom.rating.stage</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="description" optional="show"/>
+                    <field name="type"/>
+                    <field name="fold"/>
+                    <field name="is_closed"/>
+                    <field name="mobile_icon"/>
+                    <field name="mobile_color"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Custom Rating Stages-->
+        <record id="vtt_act_window_custom_rating_stage" model="ir.actions.act_window">
+            <field name="name">Custom Rating Stages</field>
+            <field name="res_model">vtt.custom.rating.stage</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_contacts_custom_rating_stage" name="Rating Stages" parent="vtt_custom_rating.vtt_menu_custom_rating_config" sequence="10" action="vtt_act_window_custom_rating_stage"/>
+    </data>
+</odoo>

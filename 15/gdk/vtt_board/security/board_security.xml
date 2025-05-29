@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Record Rules-->
+    <data>
+        <record id="base.ir_ui_view_custom_personal" model="ir.rule">
+            <field name="domain_force">
+                ['|', ('vtt_is_global','!=',False), ('user_id','=',user.id)]
+            </field>
+        </record>
+    </data>
+</odoo>

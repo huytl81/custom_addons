@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Report Delivery Document inherit package calculator-->
+    <template id="vtt_template_delivery_document_package_calculator" inherit_id="stock.report_delivery_document">
+        <!--Not Done Picking-->
+        <th name="th_sm_ordered" position="after">
+            <th name="th_sm_packaged"><strong>By Packaged</strong></th>
+        </th>
+
+        <xpath expr="//table[@name='stock_move_table']/tbody//tr[1]//td[2]" position="after">
+            <t t-set="move_by_package" t-value="move.product_id.product_qty_by_packaging(move.product_uom_qty)"/>
+            <td>
+                <t t-foreach="move_by_package" t-as="mbp">
+                    <span t-esc="mbp['qty']"/>
+                    <span t-esc="mbp['name']"/>&#160;
+                </t>
+            </td>
+        </xpath>
+
+        <!--Done Picking-->
+        <th name="th_sml_quantity" position="after">
+            <th name="th_sml_quantity_packaged" class="text-center"><strong>By Packaged</strong></th>
+        </th>
+    </template>
+
+    <!--Move has lot/ serial number-->
+    <template id="vtt_template_report_delivery_has_serial_move_line_package_calculator" inherit_id="stock.stock_report_delivery_has_serial_move_line">
+        <td name="move_line_lot_qty_done" position="after">
+            <t t-set="ml_by_package" t-value="move_line.product_id.product_qty_by_packaging(move_line.qty_done)"/>
+            <td class="text-center">
+                <t t-foreach="ml_by_package" t-as="mlp">
+                    <span t-esc="mlp['qty']"/>
+                    <span t-esc="mlp['name']"/>&#160;
+                </t>
+            </td>
+        </td>
+    </template>
+
+    <!--Move with aggregated products-->
+    <template id="vtt_template_report_delivery_aggregated_move_lines_package_calculator" inherit_id="stock.stock_report_delivery_aggregated_move_lines">
+        <td name="move_line_aggregated_qty_done" position="after">
+            <t t-set="agg_line_product" t-value="o.env['product.product'].browse(int(line.split('_')[0]))"/>
+            <t t-set="agg_by_package" t-value="agg_line_product.with_context(lang=o.partner_id.lang).product_qty_by_packaging(aggregated_lines[line]['qty_done'])"/>
+            <td class="text-center">
+                <t t-foreach="agg_by_package" t-as="alp">
+                    <span t-esc="alp['qty']"/>
+                    <span t-esc="alp['name']"/>&#160;
+                </t>
+            </td>
+        </td>
+    </template>
+
+    <!--Report Picking add Pack Quantity-->
+    <template id="vtt_template_report_picking_pack_qty" inherit_id="stock.report_picking">
+        <th name="th_from" position="before">
+            <th>
+                <strong>Pack Quantity</strong>
+            </th>
+            <th>
+                <strong>Surplus Quantity</strong>
+            </th>
+        </th>
+
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.move_ids_without_package&quot;]" position="attributes">
+          <atrribute name="style">border-collapse: collapse;</atrribute>
+        </xpath>
+
+        <xpath expr="//t[@t-foreach=&quot;o.move_line_ids_without_package&quot;]" position="replace">
+            <t t-foreach="o.move_line_ids_without_package.sorted(lambda r: (r.product_id.id, r.location_id.complete_name))" t-as="ml">
+                <t t-set="pack_specification" t-value="ml.product_id.packing_specification"/>
+                <t t-set="vtt_pack" t-value="ml.product_uom_qty // pack_specification"/>
+                <t t-set="vtt_surplus" t-value="ml.product_uom_qty % pack_specification"/>
+                <tr style="line-height: 35px; border-bottom: 1px dashed black;">
+                    <td style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                        <span t-field="ml.product_id.display_name"/><br/>
+                        <span t-field="ml.product_id.description_picking"/>
+                    </td>
+                    <td style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                        <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+                        <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+                        <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+                    </td>
+                    <td class="text-right" style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                        <span t-esc="vtt_pack" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                    </td>
+                    <td class="text-right" style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                        <span t-esc="vtt_surplus" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                    </td>
+                    <td t-if="o.picking_type_id.code != 'incoming'" style="border-bottom: 1px solid black; border-right: 1px solid black;" groups="stock.group_stock_multi_locations">
+                        <span t-esc="ml.location_id.display_name"/>
+                            <t t-if="ml.package_id">
+                                <span t-field="ml.package_id"/>
+                            </t>
+                    </td>
+                    <td t-if="o.picking_type_id.code != 'outgoing'" style="border-bottom: 1px solid black; border-right: 1px solid black;" groups="stock.group_stock_multi_locations">
+                        <div>
+                            <span t-field="ml.location_dest_id"/>
+                            <t t-if="ml.result_package_id">
+                                <span t-field="ml.result_package_id"/>
+                            </t>
+                        </div>
+                    </td>
+                    <td class=" text-center h6" t-if="has_serial_number" style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                        <div t-if="has_serial_number and (ml.lot_id or ml.lot_name)" t-esc="ml.lot_id.name or ml.lot_name" t-options="{'widget': 'barcode', 'humanreadable': 1, 'width': 400, 'height': 100, 'img_style': 'width:100%;height:35px;'}"/>
+                    </td>
+                    <td class="text-center" t-if="has_barcode" style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                        <t t-if="product_barcode != ml.product_id.barcode">
+                            <span t-if="ml.product_id and ml.product_id.barcode">
+                                <div t-field="ml.product_id.barcode" t-options="{'widget': 'barcode', 'symbology': 'auto', 'width': 400, 'height': 100, 'quiet': 0, 'img_style': 'height:35px;'}"/>
+                            </span>
+                            <t t-set="product_barcode" t-value="ml.product_id.barcode"/>
+                        </t>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+</odoo>

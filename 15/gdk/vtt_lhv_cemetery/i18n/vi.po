@@ -1,0 +1,2420 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_lhv_cemetery
+# 	* project
+#   * vtt_approvals
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-11 20:51+0000\n"
+"PO-Revision-Date: 2022-10-11 20:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_lhv_cemetery
+#: model:mail.template,body_html:vtt_lhv_cemetery.vtt_email_template_sale_land_thanks
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        <t t-set=\"doc_name\" t-value=\"'quotation' if object.state in ('draft', 'sent') else 'order'\"/>\n"
+"        Dear <t t-esc=\"object.partner_id.name\"/>,\n"
+"        <br/><br/>\n"
+"        We are totally honored and grateful to be able to thank you for using our land service.\n"
+"        <br/>\n"
+"        Hopeful to continuing to serve and receive your support in the future.\n"
+"        <br/><br/>\n"
+"        Thanks and best regards!\n"
+"        <br/>\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        <t t-set=\"doc_name\" t-value=\"'quotation' if object.state in ('draft', 'sent') else 'order'\"/>\n"
+"        Thân gửi <t t-esc=\"object.partner_id.name\"/>,\n"
+"        <br/><br/>\n"
+"        Chúng tôi vô cùng trân trọng và vinh dự được gửi tới bạn lời cảm ơn đã sử dụng dịch vụ của chúng tôi.\n"
+"        <br/>\n"
+"        Hi vọng sẽ được tiếp tục phục vụ và nhận được sự ủng hộ của bạn.\n"
+"        <br/><br/>\n"
+"        Thanks and best regards!\n"
+"        <br/>\n"
+"    </p>\n"
+"</div>\n"
+"            "
+
+#. module: vtt_lhv_cemetery
+#: model:mail.template,body_html:vtt_lhv_cemetery.vtt_email_template_construct_accept_notice
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Dear <t t-esc=\"object.partner_id.name\"/>,\n"
+"        <br/><br/>\n"
+"        Your construction order has tobe done and need your acceptance.\n"
+"        <br/>\n"
+"        Please give a notice and contact us as soon as you can.\n"
+"        <br/><br/>\n"
+"        Thanks and best regards!\n"
+"        <br/>\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Thân gửi <t t-esc=\"object.partner_id.name\"/>,\n"
+"        <br/><br/>\n"
+"        Yêu cầu thiết kế xây dựng của bạn đã hoàn thành và cần được nghiệm thu.\n"
+"        <br/>\n"
+"        Vui lòng liên hệ với chúng tôi trong thời gian sớm nhất.\n"
+"        <br/><br/>\n"
+"        Thanks and best regards!\n"
+"        <br/>\n"
+"    </p>\n"
+"</div>\n"
+"            "
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_needaction
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__active
+msgid "Active"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_exception_decoration
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_state
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_type_icon
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_care_service_manager
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_construct_manager
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_contract_manager
+msgid "Administrator"
+msgstr "Người quản lý"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_partner__age
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_users__age
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__age
+msgid "Age"
+msgstr "Tuổi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__res_partner__life_state__alive
+msgid "Alive"
+msgstr "Còn sống"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_land_all
+msgid "All Land"
+msgstr "Tất cả đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_construct_analysis
+msgid "Analysis"
+msgstr "Báo cáo"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Anniversary Next Month"
+msgstr "Ngày giỗ tháng sau"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Anniversary This Month"
+msgstr "Ngày giỗ tháng này"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_approval_request
+msgid "Approval Request"
+msgstr "Yêu cầu phê duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__vtt_approval_request_count
+msgid "Approval Request Count"
+msgstr "Số yêu cầu phê duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__vtt_approval_request_ids
+msgid "Approval Requests"
+msgstr "Đề xuất"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_project_task_department
+msgid "Approvals"
+msgstr "Phê duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_project_task_department
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_sale_order_line_land_reserved
+msgid "Approve"
+msgstr "Duyệt lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order_line__land_plot_state__approved
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__state__approved
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__state__approve
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Approved"
+msgstr "Đã duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__dt_land_approve
+msgid "Approved Date"
+msgstr "Ngày phê duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_approval_request__vtt_approved_user_ids
+msgid "Approved Users"
+msgstr "Người duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__area
+msgid "Area"
+msgstr "Diện tích"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__dt_assign
+msgid "Assign Date"
+msgstr "Ngày cấp"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_customer_card
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+msgid "Assigned"
+msgstr "Đã cấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__is_assigned
+msgid "Assigned?"
+msgstr "Tình trạng cấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__attachment_count
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_attachment_count
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tài liệu"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__attachment_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+msgid "Attachments"
+msgstr "Tài liệu"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.config_parameter,description:vtt_lhv_cemetery.vtt_lhv_next_anniversary_month_notif
+msgid "Automation notification next anniversary (months)"
+msgstr "Tự động nhắc nhớ ngày giỗ tiếp theo (tháng)"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.config_parameter,description:vtt_lhv_cemetery.vtt_lhv_land_plot_day_unreserved
+msgid "Automation unreserved land plot (days)"
+msgstr "Tự động hủy giữ chỗ lô đất (ngày)"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__available_check
+msgid "Available?"
+msgstr "Còn trống"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__rating__2
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_project_task_rating
+msgid "Average"
+msgstr "Trung bình"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Bad Rating"
+msgstr "Đánh giá xấu"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_partner__dob
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_users__dob
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dob
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Birthday"
+msgstr "Ngày sinh"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_calendar_event
+msgid "Calendar Event"
+msgstr "Lịch sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_calendar_event_list_no_scheduled
+msgid "Calendar Event Not Scheduled"
+msgstr "Lịch chưa chốt"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_project_task_department
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_sale_order_land_plot
+msgid "Care Service Order"
+msgstr "Đơn hàng Dịch vụ hậu cần"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,name:vtt_lhv_cemetery.vtt_group_categ_cemetery_care_service
+msgid "Care Services"
+msgstr "Chăm sóc khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,description:vtt_lhv_cemetery.vtt_group_categ_cemetery_care_service
+msgid "Care Services Access Rights"
+msgstr "Phân quyền quản lý Chăm sóc khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,description:vtt_lhv_cemetery.vtt_group_categ_cemetery_construct
+msgid "Cemetery Constructions Access Rights"
+msgstr "Phân quyền quản lý Xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,description:vtt_lhv_cemetery.vtt_group_categ_cemetery_contract
+msgid "Cemetery Contract Access Rights"
+msgstr "Phân quyền quản lý Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.server,name:vtt_lhv_cemetery.vtt_ir_cron_sale_order_line_land_plot_unreserved_daily_ir_actions_server
+#: model:ir.cron,cron_name:vtt_lhv_cemetery.vtt_ir_cron_sale_order_line_land_plot_unreserved_daily
+#: model:ir.cron,name:vtt_lhv_cemetery.vtt_ir_cron_sale_order_line_land_plot_unreserved_daily
+msgid "Cemetery Land Plot: Daily Unreserved"
+msgstr "Quản lý lô đất: Kiểm tra giữ chỗ hàng ngày"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,name:vtt_lhv_cemetery.vtt_group_categ_cemetery_root
+msgid "Cemetery Management"
+msgstr "Quản lý nghĩa trang"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,description:vtt_lhv_cemetery.vtt_group_categ_cemetery_root
+msgid "Cemetery Management Access Rights"
+msgstr "Phân quyền quản lý nghĩa trang"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.server,name:vtt_lhv_cemetery.vtt_ir_cron_tomb_slot_next_anniversary_notif_ir_actions_server
+#: model:ir.cron,cron_name:vtt_lhv_cemetery.vtt_ir_cron_tomb_slot_next_anniversary_notif
+#: model:ir.cron,name:vtt_lhv_cemetery.vtt_ir_cron_tomb_slot_next_anniversary_notif
+msgid "Cemetery Tomb Slot: Next Anniversary Notification"
+msgstr "Quản lý mộ: Nhắc nhớ ngày giỗ tiếp theo"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_contract__land_certificate_state__certificated
+msgid "Certificated"
+msgstr "Đã cấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__is_closed
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__is_closed
+msgid "Closing Stage"
+msgstr "Gia đoạn kết thúc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__can_confirm
+msgid "Conferable?"
+msgstr "Có thể duyệt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_ir_config_parameter_show_manager
+msgid "Config Parameter"
+msgstr "Cấu hình kỹ thuật"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__vtt_construct_id
+msgid "Construct"
+msgstr "Yêu cầu xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_construct_item
+msgid "Construct Item"
+msgstr "Hạng mục"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__construct_item_ids
+msgid "Construct Items"
+msgstr "Hạng mục"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+msgid "Construct Status"
+msgstr "Tình trạng xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Constructed"
+msgstr "Đã xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_construct
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__construct_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__construct_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__construct_ids
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct_stage__stage_type__construct
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_construct_construct
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_construct_root
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+msgid "Construction"
+msgstr "Xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__construct_acceptance
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_construct_stage_04
+msgid "Construction Acceptance"
+msgstr "Nghiệm thu"
+
+#. module: vtt_lhv_cemetery
+#: model:mail.template,subject:vtt_lhv_cemetery.vtt_email_template_construct_accept_notice
+msgid "Construction Acceptance Notice"
+msgstr "Thông báo nghiệm thu xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+msgid "Construction Filter"
+msgstr "Lọc Xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+msgid "Construction Items"
+msgstr "Hạng mục"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__construct_progress
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__construction_state__construct_progress
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_construct_stage_03
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Construction Progress"
+msgstr "Đang xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_construct_stage_02
+msgid "Construction Received"
+msgstr "Đã tiếp nhận"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_construct_stage
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__construct_stage_id
+msgid "Construction Stage"
+msgstr "Giai đoạn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_construct_stage
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_construct_stage
+msgid "Construction Stages"
+msgstr "Giai đoạn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__construction_state
+msgid "Construction State"
+msgstr "Trạng thái xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_construct
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_construct_inprogress
+#: model:ir.module.category,name:vtt_lhv_cemetery.vtt_group_categ_cemetery_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_tomb
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_construct_inprogress
+msgid "Constructions"
+msgstr "Xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_construct_analysis_income
+msgid "Constructions Analysis Income"
+msgstr "Báo cáo doanh thu xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__contact_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__contact_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+msgid "Contacts"
+msgstr "Liên hệ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__contract_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__contract_ids
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_contract
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_root
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Contract"
+msgstr "Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__date_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+msgid "Contract Date"
+msgstr "Ngày hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__contract_partner_id
+msgid "Contract Partner"
+msgstr "Chủ hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__contract
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_design_stage_04
+msgid "Contraction"
+msgstr "Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.module.category,name:vtt_lhv_cemetery.vtt_group_categ_cemetery_contract
+msgid "Contracts"
+msgstr "Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__cost_estimate
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_design_stage_03
+msgid "Cost Estimate"
+msgstr "Dự toán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__cost_review
+msgid "Cost Review"
+msgstr "KH phản hồi dự toán"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_sale_order_land_plot
+msgid "Create Invoice"
+msgstr "Tạo Hóa đơn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__create_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__create_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_dashboard_land_tomb_slot_next_anniversary
+msgid "Current and Next Anniversary"
+msgstr "Ngày giỗ tháng này và tháng sau"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_custom_rating
+msgid "Custom Rating"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__vtt_custom_rating_count
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__vtt_custom_rating_count
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__vtt_custom_rating_count
+msgid "Custom Rating Count"
+msgstr "Số bản đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_custom_rating_stage
+msgid "Custom Rating Stage"
+msgstr "Trạng thái phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_custom_rating_stage
+msgid "Custom Rating Stages"
+msgstr "Trạng thái phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_custom_rating_wz
+msgid "Custom Rating Wizard"
+msgstr "Trình hỗ trợ đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__vtt_custom_rating_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__vtt_custom_rating_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__vtt_custom_rating_ids
+msgid "Custom Ratings"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+msgid "Customer Card Filter"
+msgstr "Lọc Thẻ khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_customer_card
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__customer_card_ids
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contacts_customer_card
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Customer Cards"
+msgstr "Thẻ khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_custom_rating_add_stage
+msgid "Customer Comment"
+msgstr "Ý kiến"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__date
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Date"
+msgstr "Ngày"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dead_id
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__res_partner__life_state__dead
+msgid "Dead"
+msgstr "Người mất"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Dead Day"
+msgstr "Ngày mất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_partner__dod
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_users__dod
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod
+msgid "Dead day"
+msgstr "Ngày mất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_hr_department
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_calendar_event__vtt_department_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__department_id
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Department"
+msgstr "Phòng/Ban"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__department_ids
+msgid "Departments"
+msgstr "Phòng ban"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_ir_config_parameter__description
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__description
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__description
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__description
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__description
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__design_done
+msgid "Design Done"
+msgstr "Hoàn thành thiết kế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__design_progress
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_design_stage_02
+msgid "Design Progress"
+msgstr "Đang thiết kế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct_stage__stage_type__design
+msgid "Designing"
+msgstr "Thiết kế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__construction_state__design_progress
+msgid "Designing Progress"
+msgstr "Đang thiết kế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__stage_id
+msgid "Designing Stage"
+msgstr "Trạng thái thiết kế"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Direction"
+msgstr "Hướng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_tomb_slot__dirt_fill_type__dirt
+msgid "Dirt"
+msgstr "Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dirt_fill_type
+msgid "Dirt Fill Type"
+msgstr "Tình trạng lấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__display_name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: code:addons/vtt_lhv_cemetery/models/construct.py:0
+#, python-format
+msgid "Documents"
+msgstr "Tài liệu"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__done
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct_item__state__done
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__construction_state__done
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_construct_stage_05
+#: model:vtt.custom.rating.stage,name:vtt_lhv_cemetery.vtt_custom_rating_stage_done
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__dt_done
+msgid "Done Time"
+msgstr "Thời gian hoàn thành"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order_line__land_plot_state__draft
+msgid "Draft"
+msgstr "Nháp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__partner_email
+msgid "Email"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Empty"
+msgstr "Ô Trống"
+
+#. module: vtt_lhv_cemetery
+#: code:addons/vtt_lhv_cemetery/models/land_tomb_slot.py:0
+#, python-format
+msgid "Empty Slot"
+msgstr "Ô trống"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_event_event
+msgid "Event"
+msgstr "Sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__rating__5
+msgid "Excellent"
+msgstr "Tuyệt vời"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__res_partner__gender__female
+msgid "Female"
+msgstr "Nữ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__fold
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__fold
+msgid "Folded in Kanban"
+msgstr "Đóng trong Kanban"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_follower_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_partner_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__activity_type_icon
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_partner__gender
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__gender
+msgid "Gender"
+msgstr "Giới tính"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__rating__3
+msgid "Good"
+msgstr "Tốt"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Good Rating"
+msgstr "Đánh giá tốt"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Group By"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__date_handing
+msgid "Handing Date"
+msgstr "Ngày bàn giao"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__has_message
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__priority__2
+msgid "High"
+msgstr "VIP"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__project_task__priority__2
+msgid "High Important"
+msgstr "Quan trọng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_exception_icon
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_hr_department__vtt_mobile_image
+msgid "Icon on mobile"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__activity_exception_icon
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_needaction
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_unread
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_needaction
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_has_error
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_has_sms_error
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_has_error
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_event_event__image
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_category__vtt_mobile_image
+msgid "Image"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:vtt.custom.rating.stage,name:vtt_lhv_cemetery.vtt_custom_rating_stage_progress
+msgid "In Progress"
+msgstr "Đang xử lý"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__is_include_care_service
+msgid "Included Care Service"
+msgstr "Gồm Dịch vụ hậu cần"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__is_include_land_product
+msgid "Included Land Product"
+msgstr "Gồm Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_construct_analysis_income
+msgid "Income Analysis"
+msgstr "Báo cáo doanh thu"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order_line__land_plot_state__interest
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__state__interest
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_sale_order_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_sale_order_line_land_reserved
+msgid "Interest"
+msgstr "Quan tâm"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__interest_count
+msgid "Interest Count"
+msgstr "Số quan tâm"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Interested"
+msgstr "Đã quan tâm"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Interests"
+msgstr "Quan tâm"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_custom_rating_stage__type__internal
+msgid "Internal"
+msgstr "Nội bộ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__invoice_count
+msgid "Invoice Count"
+msgstr "Số Hóa đơn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__invoice_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+msgid "Invoices"
+msgstr "Hóa đơn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_product__is_care_service
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_template__is_care_service
+msgid "Is Care Service"
+msgstr "Là Dịch vụ hậu cần"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__is_care_service_product
+msgid "Is Care Service Product"
+msgstr "Là Dịch vụ hậu cần"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_is_follower
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_product__is_land
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_template__is_land
+msgid "Is Land"
+msgstr "Là đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__is_land_product
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_report__is_land_product
+msgid "Is Land Product"
+msgstr "Là đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_land
+msgid "Land"
+msgstr "Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__land_certificate_state
+msgid "Land Certificate State"
+msgstr "Giấy CN quyền SD đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__land_certificate_date
+msgid "Land Certificate Date"
+msgstr "Ngày cấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__land_certificate
+msgid "Land Certificate"
+msgstr "Số"
+
+#. module: vtt_lhv_cemetery
+#: model:mail.template,name:vtt_lhv_cemetery.vtt_email_template_construct_accept_notice
+msgid "Land Construction: Acceptance Notice"
+msgstr "Quản lý thiết kế - xây dựng: Thông báo nghiệm thu"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+msgid "Land Contract"
+msgstr "Hợp đồng đất"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_contract
+msgid "Land Contract Filter"
+msgstr "Lọc Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_land_contract
+msgid "Land Contracts"
+msgstr "Hợp đồng đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_land_customer_card
+msgid "Land Customer Card"
+msgstr "Thẻ khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__land_direction
+msgid "Land Direction"
+msgstr "Hướng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_sale_order_lhv_type_land
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order__lhv_order_type__land_order
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_sale_order_land_plot
+msgid "Land Order"
+msgstr "Đơn hàng Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_sale_lhv_sale_type_land
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_sale_land
+msgid "Land Orders"
+msgstr "Đơn hàng đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_land_place
+msgid "Land Place"
+msgstr "Đồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_place
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_land_place
+msgid "Land Places"
+msgstr "Đồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_sale_order_land_plot
+msgid "Land Plot"
+msgstr "Lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_contract_approve
+msgid "Land Plot Approve"
+msgstr "Duyệt lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Land Plot Filter"
+msgstr "Lọc Lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_land_plot
+msgid "Land Plots"
+msgstr "Lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__land_plot_state
+msgid "Land State"
+msgstr "Trạng thái đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_land_tomb
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_tomb
+msgid "Land Tomb"
+msgstr "Mộ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_tomb
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_land_tomb
+msgid "Land Tombs"
+msgstr "Mộ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot____last_update
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__write_uid
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__write_date
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_partner__life_state
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_res_users__life_state
+msgid "Life State"
+msgstr "Trạng thái"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__priority__0
+msgid "Low"
+msgstr "Thấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_lunar_str
+msgid "Lunar Dead Date"
+msgstr "Ngày mất âm lịch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_lunar_day
+msgid "Lunar Dead Day"
+msgstr "Ngày mất âm lịch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_lunar_month
+msgid "Lunar Dead Month"
+msgstr "Tháng mất âm lịch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_lunar_warning
+msgid "Lunar Dead Warning"
+msgstr "Cảnh báo ngày giỗ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_lunar_year
+msgid "Lunar Dead Year"
+msgstr "Năm mất âm lịch"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.tomb_slot_next_anniversary_notif
+msgid "Lunar calendar:"
+msgstr "Âm lịch:"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_main_attachment_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__res_partner__gender__male
+msgid "Male"
+msgstr "Nam"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__priority__1
+msgid "Medium"
+msgstr "Thường"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_has_error
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__partner_mobile
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__mobile
+msgid "Mobile"
+msgstr "Di động"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__mobile_color
+msgid "Mobile hex color"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__mobile_icon
+msgid "Mobile icon"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_hr_department__vtt_mobile_order
+msgid "Mobile order"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__project_task__priority__3
+msgid "Most Important"
+msgstr "Rất quan trọng"
+
+#. module: project
+#: model:ir.model.fields.selection,name:project.selection__project_task__priority__1
+msgid "Important"
+msgstr "Thường"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__my_activity_date_deadline
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_project_task_my_inprogress
+msgid "My Tasks"
+msgstr "Công việc của tôi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__name
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__name
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Name"
+msgstr "Tên"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__vtt_approve_need
+msgid "Need Approve?"
+msgstr "Cần duyệt"
+
+#. module: vtt_lhv_cemetery
+#: code:addons/vtt_lhv_cemetery/models/sale_order.py:0
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__new
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__state__new
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_construct_stage_01
+#: model:vtt.construct.stage,name:vtt_lhv_cemetery.vtt_construct_design_stage_01
+#: model:vtt.custom.rating.stage,name:vtt_lhv_cemetery.vtt_custom_rating_stage_new
+#, python-format
+msgid "New"
+msgstr "Mới"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_sale_lhv_sale
+msgid "New Orders"
+msgstr "Đơn hàng mới"
+
+#. module: vtt_lhv_cemetery
+#: model:approval.category,name:vtt_lhv_cemetery.vtt_approval_category_data_task_approve
+msgid "New Task Approve"
+msgstr "Duyệt công việc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_calendar_event_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_date_deadline
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_summary
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_type_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_next_anniversary
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Next Anniversary"
+msgstr "Ngày giỗ tiếp theo"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dod_next_anniversary_lunar_str
+msgid "Next Anniversary Lunar"
+msgstr "Ngày giỗ âm lịch"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_sale_subscription_next_recurrent
+msgid "Next Invoice"
+msgstr "Ngày gia hạn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_contract__land_certificate_state__new
+msgid "No Certificate"
+msgstr "Chưa cấp"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__construction_state__new
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "No Construction"
+msgstr "Chưa xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_calendar_event_no_scheduled
+msgid "No Scheduled Events"
+msgstr "Lịch chưa chốt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_tomb_slot__dirt_fill_type__none
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__rating__0
+msgid "None"
+msgstr "Chưa lấp"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_calendar_event_add_scheduled
+msgid "Not Scheduled"
+msgstr "Chưa chốt"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_needaction_counter
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_has_error_counter
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_needaction_counter
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_has_error_counter
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__message_unread_counter
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__state__open
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Open"
+msgstr "Mở"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Open Plots"
+msgstr "Lô đang bán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__lhv_order_type
+msgid "Order Type"
+msgstr "Loại đơn hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_category__vtt_mobile_order
+msgid "Order category for mobile"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__res_partner__gender__other
+msgid "Other"
+msgstr "Khác"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__partner_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__partner_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__partner_id
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+msgid "Partner"
+msgstr "Chủ hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_sale_order_land_plot
+msgid "Partner Rating"
+msgstr "Phản hồi của khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_res_partner_life_state
+msgid "Passed Away"
+msgstr "Đã mất"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_res_partner_life_state
+msgid "Not Users"
+msgstr "Không phải người dùng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_res_partner_life_state
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__payment
+msgid "Payment"
+msgstr "Thanh toán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__state__pending
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Pending"
+msgstr "Tạm dừng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__partner_phone
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__phone
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+msgid "Phone"
+msgstr "Điện thoại"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__place_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__place
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Place"
+msgstr "Đồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__place
+msgid "Place Description"
+msgstr "Mô tả vị trí"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_setting_place
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_setting_product_land_place
+msgid "Places"
+msgstr "Đồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct_item__state__plan
+msgid "Plan"
+msgstr "Kế hoạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__dt_plan
+msgid "Plan Time"
+msgstr "Thời gian kế hoạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__land_plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_report__land_plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_subscription__land_plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_customer_card__plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__plot_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__plot_id
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_sale_subscription_add_land_plot
+msgid "Plot"
+msgstr "Lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__land_plot_ids
+msgid "Plots"
+msgstr "Lô đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__rating__1
+msgid "Poor"
+msgstr "Tệ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_product__price_text
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_template__price_text
+msgid "Price show on mobile"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__priority
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Priority"
+msgstr "Phân loại"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__priority
+msgid "Priority"
+msgstr "Độ quan trọng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_product_category
+msgid "Product Category"
+msgstr "Nhóm sản phẩm"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__product_id_domain
+msgid "Product Domain"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_product_template
+msgid "Product Template"
+msgstr "Mẫu sản phẩm"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct_item__state__progress
+msgid "Progress"
+msgstr "Đang thực hiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_custom_rating_stage__type__public
+msgid "Public"
+msgstr "Công khai"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__rating
+msgid "Rating"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating__rating_comment
+msgid "Rating Comment"
+msgstr "Ý kiến"
+
+#. module: vtt_lhv_cemetery
+#: code:addons/vtt_lhv_cemetery/models/partner.py:0
+#, python-format
+msgid "Rating Data"
+msgstr "Dữ liệu phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__rating_score
+msgid "Rating Score"
+msgstr "Điểm đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contacts_custom_rating_stage
+msgid "Rating Stages"
+msgstr "Trạng thái phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_project_task_department
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_res_partner_dob
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_sale_order_land_plot
+msgid "Ratings"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__date_receipt
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Receipt Date"
+msgstr "Ngày tiếp nhận"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__dt_receipt
+msgid "Receipt Datetime"
+msgstr "Ngày giờ tiếp nhận"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__time_receipt
+msgid "Receipt Time"
+msgstr "Giờ tiếp nhận"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Receive Warning"
+msgstr "Chưa có giờ tiếp nhận"
+
+#. module: vtt_lhv_cemetery
+#: model:vtt.custom.rating.stage,name:vtt_lhv_cemetery.vtt_custom_rating_stage_received
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Received"
+msgstr "Đã tiếp nhận"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__internal_ref
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__internal_ref
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__internal_ref
+msgid "Ref."
+msgstr "Mã"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__can_land_reserved
+msgid "Reservable?"
+msgstr "Có thể giữ chỗ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order_line__land_plot_state__reserved
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__state__reserved
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_sale_order_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_sale_order_line_land_reserved
+msgid "Reserved"
+msgstr "Đã giữ chỗ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__dt_land_reserved
+msgid "Reserved Date"
+msgstr "Ngày giữ chỗ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__amount_residual
+msgid "Residual Amount"
+msgstr "Số tiền nợ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__activity_user_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_construct__state__design_review
+msgid "Review Design"
+msgstr "KH phản hồi thiết kế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_has_sms_error
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__sale_line_ids
+msgid "Sale Line"
+msgstr "Dòng hàng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_sale_order_line_land_reserved
+msgid "Sale Lines"
+msgstr "Dòng hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__order_id
+msgid "Sale Order"
+msgstr "Đơn hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_sale_subscription_next_recurrent
+msgid "Sale Subscription"
+msgstr "Gia hạn dịch vụ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Báo cáo phân tích kinh doanh"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_sale_order
+msgid "Sales Order"
+msgstr "Đơn bán hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Dòng đơn bán hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:mail.template,name:vtt_lhv_cemetery.vtt_email_template_sale_land_thanks
+msgid "Sales Order: Land Purchase Thanks"
+msgstr "Đơn hàng: Cảm ơn mua đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_tomb_slot__dirt_fill_type__sand
+msgid "Sand"
+msgstr "Cát"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_calendar_event__vtt_is_scheduled
+msgid "Scheduled status"
+msgstr "Trạng thái chốt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__sequence
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__sequence
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_place__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_sale_order_lhv_type_service
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order__lhv_order_type__service_order
+msgid "Service Order"
+msgstr "Đơn hàng dịch vụ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_sale_lhv_sale_type_service
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_sale_service
+msgid "Service Orders"
+msgstr "Đơn hàng dịch vụ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_construct_setting
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_setting
+msgid "Settings"
+msgstr "Cấu hình"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__construct_state_simple
+msgid "Short Construct State"
+msgstr "Trạng thái"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__show_construct_stage
+msgid "Show Construct Stage?"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_ir_config_parameter__show_manager
+msgid "Show for Manager?"
+msgstr "Hiển thị cho người quản lý"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_hr_department__vtt_show_on_mobile
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_product_category__vtt_show_on_mobile
+msgid "Show on mobile"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__slot_buried_count
+msgid "Slot Buried count"
+msgstr "Số âm trạch đã đưa vào"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__slot_count
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Slot Count"
+msgstr "Số âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__slot_count
+msgid "Slot count"
+msgstr "Số âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__slot_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb__slot_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_tomb
+msgid "Slots"
+msgstr "Âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.tomb_slot_next_anniversary_notif
+msgid "Solar calendar:"
+msgstr "Dương lịch:"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__sale_order_line__land_plot_state__sold
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__state__sold
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Sold"
+msgstr "Đã bán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_land_sold
+msgid "Sold Land"
+msgstr "Đất đã bán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_land
+msgid "Lands"
+msgstr "Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_plot_sold
+msgid "Sold Land Plots"
+msgstr "Đất đã bán"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Sold Plots"
+msgstr "Lô đã bán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating__stage_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_wz__stage_id
+msgid "Stage"
+msgstr "Trạng thái"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__stage_message
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_custom_rating_stage
+msgid "Stage Message"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_stage__stage_type
+msgid "Stage Type"
+msgstr "Loại"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_construct_setting_stage
+msgid "Stages"
+msgstr "Trạng thái"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__state
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct_item__state
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__state
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_plot
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__activity_state
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_sale_subscription
+msgid "Subscription"
+msgstr "Dịch vụ Định kỳ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__subscription_count
+msgid "Subscription Count"
+msgstr "Số dịch vụ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__subscription_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Subscriptions"
+msgstr "Dịch vụ Định kỳ"
+
+#. module: vtt_lhv_cemetery
+#: model:approval.category,name:vtt_lhv_cemetery.vtt_approval_category_data_supply_purchase
+msgid "Supply Purchase"
+msgstr "Mua sắm vật tư"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__vtt_support_user_ids
+msgid "Supporters"
+msgstr "Người hỗ trợ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_ir_config_parameter
+msgid "System Parameter"
+msgstr "Tham số hệ thống"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_project_task
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_approval_request__vtt_task_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__task_id
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Task"
+msgstr "Nhiệm vụ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__task_count
+msgid "Task Count"
+msgstr "Số công việc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_project_task_rating
+msgid "Task Rating"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_project_task_rating
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_project_report_task_rating
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_project_task_department
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_project_task_rating
+msgid "Task Ratings"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "Task Ratings Filter"
+msgstr "Lọc đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: code:addons/vtt_lhv_cemetery/models/construct.py:0
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__task_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_construct
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_project_task_construct_task
+#, python-format
+msgid "Tasks"
+msgstr "Công việc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__amount_tax
+msgid "Tax Amount"
+msgstr "Tiền thuế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_setting_technical
+msgid "Technical Settings"
+msgstr "Cấu hình kỹ thuật"
+
+#. module: vtt_lhv_cemetery
+#: model:mail.template,subject:vtt_lhv_cemetery.vtt_email_template_sale_land_thanks
+msgid "Thanks for Land Purchased"
+msgstr "Cảm ơn đã mua đất"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.tomb_slot_next_anniversary_notif
+msgid "The tomb slot has next anniversary in about"
+msgstr "Mộ có ngày giỗ tiếp theo trong khoảng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__tomb_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__tomb_id
+msgid "Tomb"
+msgstr "Mộ"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_tomb_slot
+msgid "Tomb SLot Form"
+msgstr "Chi tiết Âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model,name:vtt_lhv_cemetery.model_vtt_land_tomb_slot
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order_line__land_slot_id
+msgid "Tomb Slot"
+msgstr "Âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_tomb_slot
+msgid "Tomb Slot Filter"
+msgstr "Lọc Mộ"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_land_tomb_slot
+msgid "Tomb Slot List"
+msgstr "Danh sách Âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_tomb_slot
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_tomb_slot_dashboard
+#: model:ir.actions.act_window,name:vtt_lhv_cemetery.vtt_act_window_land_tomb_slot_tree_next_anni
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Tomb Slots"
+msgstr "Âm trạch"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__tomb_count
+msgid "Tomb count"
+msgstr "Số mộ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__tomb_ids
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contract_tomb_slot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_land_tomb_slot_next_anniversary
+msgid "Tombs"
+msgstr "Mộ"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_tree_sale_order_line_land_reserved
+msgid "Total"
+msgstr "Thành tiền"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__amount_total
+msgid "Total Amount"
+msgstr "Tổng tiền"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_custom_rating_stage__type
+msgid "Type"
+msgstr "Loại"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__activity_exception_decoration
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_customer_card
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_land_customer_card
+msgid "Unassigned"
+msgstr "Thu hồi"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_plot
+msgid "Unassigned All"
+msgstr "Thu hồi tất cả"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_unread
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__message_unread_counter
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Thành tiền chưa thuế"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_project_task_rating__user_id
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_care_service_user
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_construct_user
+#: model:res.groups,name:vtt_lhv_cemetery.vtt_group_cemetery_contract_user
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_project_task_rating
+msgid "User"
+msgstr "Người dùng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_project_task__vtt_task_rating_ids
+msgid "User Rating"
+msgstr "Đánh giá"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_project_task_rating__rating__4
+msgid "Very Good"
+msgstr "Rất tốt"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields.selection,name:vtt_lhv_cemetery.selection__vtt_land_plot__priority__3
+msgid "Very High"
+msgstr "Siêu VIP"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+msgid "Warranty Date"
+msgstr "Hạn bảo hành"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__date_warranty
+msgid "Warranty End Date"
+msgstr "Hạn bảo hành"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__warranty_policy
+msgid "Warranty Policy"
+msgstr "Nội dung bảo hành"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__website_message_ids
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_tomb_slot__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_construct__website_message_ids
+#: model:ir.model.fields,help:vtt_lhv_cemetery.field_vtt_land_tomb_slot__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.tomb_slot_next_anniversary_notif
+msgid "month(s):"
+msgstr "tháng:"
+
+#. module: vtt_approvals
+#: model:ir.model.fields,field_description:vtt_approvals.field_approval_request__request_owner_id
+msgid "Request Owner"
+msgstr "Người đề xuất"
+
+#. module: vtt_lhv_cemetery
+#: code:addons/vtt_lhv_cemetery/models/land_tomb_slot.py:0
+#, python-format
+msgid "Lunar Day"
+msgstr "Âm lịch"
+
+#. module: project
+#: code:addons/project/controllers/portal.py:0
+#: model:ir.model.fields,field_description:project.field_project_task__name
+#: model:ir.model.fields,field_description:project.field_project_update__name
+#, python-format
+msgid "Title"
+msgstr "Tiêu đề"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_event_event__seat_count
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_event_registration__seat_count
+msgid "Seat Count"
+msgstr "Số người đăng ký"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__partner_contact_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_sale_order_land_plot
+msgid "Contacts"
+msgstr "Liên hệ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_order__land_contract_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_sale_subscription__land_contract_id
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_construct__land_contract_id
+msgid "Land Contract"
+msgstr "Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_sale_subscription_add_land_plot
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_search_construct
+msgid "Contract"
+msgstr "Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__order_ids
+msgid "Sale Orders"
+msgstr "Đơn hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__subscription_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+msgid "Subscriptions"
+msgstr "Dịch vụ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__construct_ids
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+msgid "Constructions"
+msgstr "Xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__order_count
+msgid "Order Count"
+msgstr "Số đơn hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__construct_count
+msgid "Construction Count"
+msgstr "Số y/c xây dựng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_contract__subscription_count
+msgid "Subscription Count"
+msgstr "Số dịch vụ"
+
+#. module: vtt_lhv_cemetery
+#: model_terms:ir.ui.view,arch_db:vtt_lhv_cemetery.vtt_view_form_land_contract
+msgid "Orders"
+msgstr "Đơn hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_base
+msgid "Sales"
+msgstr "Kinh doanh"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_setting_sale
+msgid "Sales"
+msgstr "Bán hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_setting_sale_tag
+msgid "Sale Tags"
+msgstr "Thẻ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_contact_custom_rating
+msgid "Custom Rating"
+msgstr "Phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_sale
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_sale_order
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_sale
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_sale_order
+msgid "Sale Orders"
+msgstr "Đơn hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_sale_team
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_setting_sale_team
+msgid "Sale Teams"
+msgstr "Đội bán hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_contract
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_contract
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_contract_contract
+msgid "Contracts"
+msgstr "Hợp đồng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_land
+msgid "Land Plots"
+msgstr "Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_land_plot
+msgid "Land Plots"
+msgstr "Tất cả đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_land_sold
+msgid "Land Plots Sold"
+msgstr "Đất đã bán"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_report
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_report
+msgid "Report"
+msgstr "Báo cáo"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_report_sale
+msgid "Sale Analysis"
+msgstr "Báo cáo bán hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_setting
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting
+msgid "Setting"
+msgstr "Cấu hình"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_construct_department_project
+msgid "Project/ Task"
+msgstr "Công việc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_construct_department_project_project
+msgid "Project"
+msgstr "Dự án"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_construct_department_project_task
+msgid "Task"
+msgstr "Công việc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_construct_department_report_task
+msgid "Task Analysis"
+msgstr "Báo cáo công việc"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_base
+msgid "Care Service"
+msgstr "Chăm sóc khách hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_contract_tomb_slot
+msgid "Tombs"
+msgstr "Mộ"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_subscription
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_subscription_subscription
+msgid "Subscription"
+msgstr "Đăng ký"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_subscription_renew
+msgid "Subscriptions to Renew"
+msgstr "Cần gia hạn"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_product
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_products
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_products_product
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_sales_department_setting_product
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_product_product
+msgid "Products"
+msgstr "Sản phẩm"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_event
+msgid "Events"
+msgstr "Sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_rating
+msgid "Ratings"
+msgstr "Phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_report_sale
+msgid "Sale Report"
+msgstr "Báo cáo bán hàng"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_report_subscription
+msgid "Subscription Report"
+msgstr "Phân tích đăng ký"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_report_event
+msgid "Event Report"
+msgstr "Phân tích sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_land
+msgid "Land"
+msgstr "Đất"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_land_place
+msgid "Place"
+msgstr "Đồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_land_system
+msgid "System Parameter"
+msgstr "Thông số kỹ thuật"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_subscription
+msgid "Subscription"
+msgstr "Đăng ký"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_subscription_template
+msgid "Subscription Template"
+msgstr "Mẫu đăng ký"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_event
+msgid "Event"
+msgstr "Sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_event_type
+msgid "Event Type"
+msgstr "Mẫu sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_event_stage
+msgid "Event Stage"
+msgstr "Giai đoạn sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_event_tag_categ
+msgid "Event Tag Category"
+msgstr "Danh mục thẻ sự kiện"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_rating
+msgid "Rating"
+msgstr "Phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.ui.menu,name:vtt_lhv_cemetery.vtt_menu_lhv_care_service_department_setting_rating_stage
+msgid "Rating Stage"
+msgstr "Trạng thái phản hồi"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__lst_price
+msgid "Sales Price"
+msgstr "Giá công ty"
+
+#. module: vtt_lhv_cemetery
+#: model:ir.model.fields,field_description:vtt_lhv_cemetery.field_vtt_land_plot__market_price
+msgid "Market Price"
+msgstr "Giá thị trường"

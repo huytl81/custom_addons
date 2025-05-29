@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Comparison Template views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_threat_comparison_template" model="ir.ui.view">
+            <field name="name">Comparison Template Form</field>
+            <field name="model">threat.comparison.template</field>
+            <field name="arch" type="xml">
+                <form string="Comparison Template Form">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="type"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Fields">
+                                <field name="compare_field_ids">
+                                    <tree editable="top">
+                                        <field name="compare_template_id" invisible="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <field name="field_id" domain="[('model_id.model', '=', type), '|', ('ttype', 'in', ['char', 'text', 'selection', 'integer', 'float']), ('name', 'in', ['malware_activity_detail', 'threat_activity_ids', 'malware_type_id'])]"/>
+                                        <field name="description"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_threat_comparison_template" model="ir.ui.view">
+            <field name="name">Comparison Template List</field>
+            <field name="model">threat.comparison.template</field>
+            <field name="arch" type="xml">
+                <tree string="Comparison Template List">
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Comparison list action-->
+        <record id="vtt_act_window_threat_comparison_template_list" model="ir.actions.act_window">
+            <field name="name">Comparison Templates</field>
+            <field name="res_model">threat.comparison.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Comparison Menu-->
+        <menuitem id="vtt_menu_threat_comparison_template" name="Comparison Templates" sequence="100" parent="vtt_menu_threat_analysis_config" action="vtt_act_window_threat_comparison_template_list"/>
+    </data>
+</odoo>

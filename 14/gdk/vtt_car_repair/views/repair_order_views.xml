@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Repair Order views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Form</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="arch" type="xml">
+                <form string="Repair Order">
+                   <header>
+                       <button name="action_repair_confirm" groups="vtt_car_repair.vtt_group_car_repair_accountant" type="object" string="Confirm" class="btn-primary" states="draft"/>
+                       <button name="action_quotation_send" type="object" string="Send by Email"/>
+                       <button name="action_repair_cancel_draft" groups="vtt_car_repair.vtt_group_car_repair_accountant" type="object" string="To Draft" states="cancel"/>
+                       <button name="action_start_repair" groups="vtt_car_repair.vtt_group_car_repair_accountant" type="object" string="Start Repair" class="btn-primary" states="confirmed"/>
+                       <button name="action_end_repair" groups="vtt_car_repair.vtt_group_car_repair_accountant" type="object" string="Done Repair" class="btn-primary" states="under_repair"/>
+                       <button name="action_done" type="object" string="Done" groups="vtt_car_repair.vtt_group_car_repair_accountant" class="btn-primary" states="confirmed,under_repair,repaired"/>
+                       <button name="action_repair_invoice_create" type="object" string="Create Invoice" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'in', ['draft', 'cancel']), ('invoice_id', '!=', False)]}" groups="account.group_account_invoice"/>
+                       <button name="action_repair_picking_create" type="object" string="Create Inventory Picking" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'in', ['draft', 'cancel']), ('picking_ids', '!=', [])]}" groups="stock.group_stock_user"/>
+                       <button name="update_stock_picking" type="object" string="Update Inventory" class="oe_highlight" attrs="{'invisible': ['|', '|', ('state', 'in', ['draft', 'cancel']), ('picking_ids', '=', False), ('has_update_inventory', '=', False)]}" groups="stock.group_stock_user"/>
+                       <button name="action_repair_cancel" groups="vtt_car_repair.vtt_group_car_repair_accountant" type="object" string="Cancel" states="confirmed,under_repair"/>
+                       <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                   </header>
+                   <sheet string="Repairs order">
+                       <!--Invisible-->
+                       <field name="can_modify" invisible="1"/>
+                        <field name="invoice_state" invisible="1"/>
+                        <field name="repaired" invisible="1"/>
+                        <field name="invoiced" invisible="1"/>
+                       <field name="has_update_inventory" invisible="1"/>
+                       <field invisible="1" name="picking_ids"/>
+                       <div class="oe_button_box" name="button_box">
+                            <field name="invoice_id" invisible="1"/>
+                            <button name="action_created_invoice"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                attrs="{'invisible': [('invoice_id', '=', False)]}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">1</span>
+                                    <span class="o_stat_text">Invoices</span>
+                                </div>
+                            </button>
+                           <button type="object"
+                                name="action_view_delivery"
+                                class="oe_stat_button"
+                                icon="fa-truck"
+                                attrs="{'invisible': [('delivery_count', '=', 0)]}">
+                                <field name="delivery_count" widget="statinfo" string="Delivery"/>
+                            </button>
+                        </div>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <group>
+                            <group>
+
+                                <field name="vehicle_id" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                <field name="partner_id" widget="res_partner_many2one" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                <field name="partner_phone"/>
+                                <field name="user_id" domain="[('share', '=', False)]" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="location_id" options="{'no_create': True}" domain="[('usage', '=', 'internal')]"/>
+                                <field name="picking_type_id" options="{'no_create': True}" domain="[('code', 'in', ['internal', 'outgoing'])]" invisible="1"/>
+                                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                <field name="receive_user_id" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                <field name="dt_receive" states="draft,cancel" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                <field name="dt_confirmed" readonly="0" states="confirmed,under_repair,done" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                <field name="dt_deadline"/>
+                                <field name="pricelist_id" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                       <group>
+                           <group>
+                               <label for="odometer"/>
+                                <div class="o_row">
+                                    <field name="odometer"/>
+                                    <field name="odometer_unit"/>
+                                </div>
+                                <field name="guarantee_limit"/>
+                           </group>
+                           <group>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                           </group>
+                       </group>
+                       <field name="vtt_car_service_ids" widget="many2many_checkboxes" domain="[('category', '=', 'service'), ('is_show', '!=', False)]"/>
+                        <button name="button_dummy"
+                    states="draft" string="(update)" type="object" class="oe_edit_only oe_link"/>
+                    <notebook>
+                        <page string="Details" name="details">
+                            <field name="order_line_ids" attrs="{'readonly': [('can_modify', '=', False)]}" widget="section_and_note_one2many">
+                                <tree string="Operations" editable="bottom">
+                                    <control>
+                                        <create name="add_product_control" string="Add a product"/>
+                                        <create name="add_section_control" string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                        <create name="add_note_control" string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                    </control>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="display_type" invisible="1"/>
+                                    <field name="company_id" invisible="1" force_save="1"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="product_id" attrs="{'required': [('display_type', '=', False), ('state', 'not in', ['draft'])]}" widget="product_configurator"/>
+                                    <field name="name" optional="show" widget="section_and_note_text"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="product_uom" string="UoM" optional="show" domain="product_uom_domain" attrs="{'required': [('display_type', '=', False), ('state', 'not in', ['draft'])]}"/>
+                                    <field name="product_uom_domain" invisible="1"/>
+                                    <field name="product_uom_qty" string="Quantity"/>
+                                    <field name="in_delivery_qty" invisible="1"/>
+                                    <field name="price_unit"/>
+                                    <field name="discount" string="Disc.%" optional="show" widget="product_discount"/>
+                                    <field name="tax_id" widget="many2many_tags" optional="show"/>
+                                    <field name="price_subtotal" widget="monetary"/>
+                                    <!--<field name="amount_reduced" invisible="1"/>-->
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group colspan="4">
+                                    <label for="amount_total_text" colspan="4"/>
+                                    <field name="amount_total_text" nolabel="1" colspan="4"/>
+                                    <field name="quotation_notes" nolabel="1" placeholder="Terms and conditions..."/>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                    <field name="amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline">
+                                        <label for="amount_total" />
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="amount_reduced" invisible="1"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                        <page string="Technical Info" name="technical_info">
+                            <field name="repair_state" widget="statusbar" statusbar_visible="draft,progress,done" style="float:right; direction: rtl;" states="under_repair,done"/>
+                            <group>
+                                <group>
+                                    <field name="technical_user_id" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                </group>
+                                <group>
+                                    <field name="dt_start_repair" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                    <field name="dt_end_repair" attrs="{'readonly': [('can_modify', '=', False)]}"/>
+                                    <field name="total_repair_time" widget="float_time"/>
+                                </group>
+                            </group>
+                            <label for="internal_notes"/>
+                            <field name="internal_notes" placeholder="Add internal technical notes."/>
+                        </page>
+                        <page string="Images" name="page_images">
+                            <group>
+                                <group>
+                                    <field name="img1" string="Image 1" widget="image" class="oe_avatar"/>
+                                    <field name="img3" string="Image 3" widget="image" class="oe_avatar"/>
+                                </group>
+                                <group>
+                                    <field name="img2" string="Image 2" widget="image" class="oe_avatar"/>
+                                    <field name="img4" string="Image 4" widget="image" class="oe_avatar"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Vehicle Info" name="vehicle_info">
+                            <group>
+                                <group>
+                                    <field name="vehicle_brand_id"/>
+                                    <field name="vehicle_model_id"/>
+                                </group>
+                                <group>
+                                    <field name="vehicle_license_plate"/>
+                                    <field name="vehicle_color"/>
+                                    <field name="vehicle_model_year"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order List</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="arch" type="xml">
+                <tree string="Repairs order" multi_edit="1" sample="0">
+                    <field name="name"/>
+                    <field name="dt_receive" widget="date" optional="show"/>
+                    <field name="receive_user_id" optional="hide" widget='many2one_avatar_user'/>
+                    <field name="dt_confirmed" widget="date" optional="hide"/>
+                    <field name="dt_deadline" widget="date" optional="hide"/>
+                    <field name="vehicle_id"/>
+                    <field name="partner_id" readonly="1" optional="show"/>
+                    <field name="technical_user_id" optional="show" widget='many2one_avatar_user'/>
+                    <field name="odometer" optional="hide" readonly="1"/>
+                    <field name="guarantee_limit" optional="show"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="location_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" readonly="1" optional="hide"/>
+                    <field name="amount_untaxed" optional="hide" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Total Untaxed"/>
+                    <field name="amount_tax" optional="hide" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Taxes"/>
+                    <field name="amount_total" optional="show" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Total"/>
+                    <field name="state" optional="show" widget='badge' decoration-success="state == 'done'" decoration-info="state not in ('done', 'cancel')"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Kanban view-->
+        <record id="vtt_view_kanban_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Kanban</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="0">
+                    <field name="name"/>
+                    <field name="vehicle_id"/>
+                    <field name="technical_user_id"/>
+                    <field name="partner_id"/>
+                    <field name="amount_total"/>
+                    <field name="dt_receive"/>
+                    <field name="dt_confirmed"/>
+                    <field name="dt_deadline"/>
+                    <field name="tag_ids"/>
+                    <field name="state"/>
+                    <field name="currency_id"/>
+                    <field name="activity_state"/>
+                    <progressbar field="activity_state" colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong><field name="name"/></strong>
+                                        <span class="o_kanban_record_subtitle"><span t-esc="record.vehicle_id.value"/></span>
+                                    </div>
+                                    <strong><field name="amount_total" widget="monetary"/></strong>
+                                </div>
+                                <strong class="o_kanban_record_title"><span><t t-esc="record.partner_id.value"/></span></strong>
+                                <div class="o_kanban_tags_section">
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                                <!--<div class="o_kanban_record_body">
+                                    <field name="internal_notes"/><br/>
+                                    <field name="guarantee_limit"/><br/>
+                                    <field name="company_id" groups="base.group_multi_company"/><br/>
+                                    <field name="location_id" groups="base.group_multi_company"/><br/>
+                                </div>-->
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <span><t t-esc="record.dt_receive.value"/></span>
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="technical_user_id" widget="many2one_avatar_user"/>
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 'cancel': 'default', 'done': 'success'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--Graph view-->
+        <record id="vtt_view_graph_base_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Base Graph</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="priority">16</field>
+            <field name="arch" type="xml">
+                <graph string="Repairs Analysis" stacked="Fasle" sample="1">
+                    <field name="dt_receive" interval="month" type="col"/>
+                    <field name="amount_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--Pivot view-->
+        <record id="vtt_view_pivot_base_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Base Pivot</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="priority">16</field>
+            <field name="arch" type="xml">
+                <pivot string="Repairs Analysis" sample="1">
+                    <field name="dt_receive" interval="month" type="col"/>
+                    <field name="dt_receive" interval="week" type="col"/>
+                    <field name="technical_user_id" type="row"/>
+                    <field name="amount_total" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--Activity view-->
+        <record id="vtt_view_activity_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Activity</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="arch" type="xml">
+                <activity string="Repair Orders">
+                    <templates>
+                        <div t-name="activity-box">
+                            <div>
+                                <field name="name" display="full"/>
+                                <field name="vehicle_id" muted="1" display="full"/>
+                                <field name="partner_id" muted="1" display="full"/>
+                            </div>
+                        </div>
+                    </templates>
+                </activity>
+            </field>
+        </record>
+
+        <!--Calendar view-->
+        <record id="vtt_view_calendar_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Calendar</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="arch" type="xml">
+                <calendar string="Repair Orders" mode="month" date_start="dt_receive" color="state" hide_time="true" event_limit="5">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="technical_user_id" avatar_field="image_128"/>
+                    <field name="amount_total" widget="monetary"/>
+                    <field name="vehicle_id"/>
+                    <field name="partner_id"/>
+                    <field name="state" filters="1" invisible="1"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_car_repair_order" model="ir.ui.view">
+            <field name="name">Car Repair Order Filter</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="arch" type="xml">
+                <search string="Repair Orders">
+                    <field name="name" string="Order"/>
+                    <field name="vehicle_id"/>
+                    <field name="partner_id"/>
+                    <field name="technical_user_id"/>
+                    <field name="order_line_ids" string="Product" filter_domain="[('order_line_ids.product_id', 'ilike', self)]"/>
+                    <!--Filter-->
+                    <filter string="My Orders" name="my_repair_orders_filter" help="My Repair Orders" domain="['|', ('receive_user_id', '=', uid), ('technical_user_id', '=', uid)]"/>
+                    <separator/>
+                        <filter string="Quotations" name="draft" domain="[('state','in',['draft'])]"/>
+                        <filter string="Confirmed" name="confirmed" domain="[('state','not in',['draft','cancel'])]"/>
+                        <filter string="Done" name="done" domain="[('state','in',['done'])]"/>
+                    <separator/>
+                    <separator/>
+                        <filter name="current_month" string="Current Month" domain="[
+                        ('dt_receive', '&gt;=', (context_today()).strftime('%Y-%m-01 00:00:00')),
+                        ('dt_receive', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01 00:00:00'))]"/>
+                        <filter name="current_year" string="Current Year" domain="[
+                            ('dt_receive', '&gt;=', (context_today()).strftime('%Y-01-01 00:00:00')),
+                            ('dt_receive', '&lt;', (context_today() + relativedelta(years=1)).strftime('%Y-01-01 00:00:00'))]"/>
+                    <separator/>
+                    <filter string="Receive Date" name="filter_receive_date" date="dt_receive"/>
+                    <!--<separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>-->
+                    <separator/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                        domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Vehicle" name="vehicle" context="{'group_by': 'vehicle_id'}"/>
+                        <filter string="Partner" name="customer" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Technical" name="technical" context="{'group_by': 'technical_user_id'}"/>
+                        <filter string="State" name="stategroup" context="{'group_by': 'state'}"/>
+                        <separator/>
+                        <filter string="Receive Date" name="group_receive" domain="[]" context="{'group_by': 'dt_receive'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Action List-->
+        <record id="vtt_action_car_repair_order_tree" model="ir.actions.act_window">
+            <field name="name">Repair Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.car.repair.order</field>
+            <field name="view_mode">tree,kanban,calendar,graph,pivot,form,activity</field>
+            <field name="context">{'search_default_current_month': 1}</field>
+        </record>
+
+        <!--Action Report-->
+        <record id="vtt_action_car_repair_order_graph" model="ir.actions.act_window">
+            <field name="name">Repair Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.car.repair.order</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="context">{'search_default_current_month': 1, 'search_default_confirmed': 1}</field>
+        </record>
+
+        <!--Action Tags-->
+        <record id="vtt_action_car_repair_tag" model="ir.actions.act_window">
+            <field name="name">Repair Tags</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.car.repair.tags</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Action Customer-->
+        <record id="vtt_action_car_repair_customer" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+            <field name="context">{'res_partner_search_mode': 'customer', 'default_is_company': True, 'default_customer_rank': 1}</field>
+        </record>
+
+        <!--Action Vehicle-->
+        <record id="vtt_action_car_repair_vehicle" model="ir.actions.act_window">
+            <field name="name">Vehicles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fleet.vehicle</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <menuitem name="Car Repair" id="vtt_menu_car_repair" groups="vtt_car_repair.vtt_group_car_repair_user" web_icon="vtt_car_repair,static/description/icon.png"/>
+    <menuitem id="vtt_menu_car_repair_order"
+              name="Repair Orders"
+              parent="vtt_menu_car_repair"
+              sequence="10"
+              action="vtt_action_car_repair_order_tree"/>
+
+    <!--Report-->
+    <menuitem id="vtt_menu_car_repair_report_root"
+              name="Analysis"
+              parent="vtt_menu_car_repair"
+              groups="vtt_car_repair.vtt_group_car_repair_manager"
+              sequence="80"/>
+    <menuitem id="vtt_menu_car_repair_report"
+              name="Repair Analysis"
+              parent="vtt_menu_car_repair_report_root"
+              groups="vtt_car_repair.vtt_group_car_repair_manager"
+              sequence="10"
+              action="vtt_action_car_repair_order_graph"/>
+
+    <!--Additional Menus from other Modules-->
+    <!--Vehicles menu-->
+    <menuitem id="vtt_menu_car_repair_customer_vehicle"
+              name="Vehicles"
+              parent="vtt_menu_car_repair"
+              sequence="20"
+              action="vtt_action_car_repair_vehicle"/>
+    <!--Customer menu-->
+    <!--<menuitem id="vtt_menu_car_repair_customer"
+              name="Customer"
+              sequence="30"
+              parent="vtt_menu_car_repair"/>-->
+    <menuitem id="vtt_menu_car_repair_customer_customer"
+              name="Customers"
+              parent="vtt_menu_car_repair"
+              sequence="30"
+              action="vtt_action_car_repair_customer"/>
+
+    <!--Product menu-->
+    <menuitem id="vtt_menu_car_repair_product"
+              name="Products"
+              parent="vtt_menu_car_repair"
+              sequence="40"/>
+    <menuitem id="vtt_menu_car_repair_product_product"
+              name="Products"
+              parent="vtt_menu_car_repair_product"
+              sequence="10"
+              action="sale.product_template_action"/>
+    <menuitem id="vtt_menu_car_repair_product_uom"
+              name="Unit of Measure"
+              parent="vtt_menu_car_repair_product"
+              sequence="20"
+              action="uom.product_uom_form_action"/>
+    <menuitem id="vtt_menu_car_repair_product_uom_category"
+              name="UoM Category"
+              parent="vtt_menu_car_repair_product"
+              sequence="30"
+              action="uom.product_uom_categ_form_action"/>
+
+    <menuitem id="vtt_menu_car_repair_config"
+              name="Configuration"
+              sequence="100"
+              groups="vtt_car_repair.vtt_group_car_repair_manager"
+              parent="vtt_menu_car_repair"/>
+    <menuitem id="vtt_menu_car_repair_config_tag"
+              name="Repair Tags"
+              parent="vtt_menu_car_repair_config"
+              sequence="40"
+              action="vtt_action_car_repair_tag"/>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.project_role</field>
+            <field name="model">res.config.settings</field>
+            <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@data-key='general_settings']/div[@id='user_default_rights']" position="after">
+                    <h2>Odoo Maintenance Mode</h2>
+                    <div class="row mt16 o_settings_container" id="user_default_rights">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                             title="By default, new users get highest access rights for all installed apps."
+                             id="access_rights">
+                            <div class="o_setting_left_pane">
+                                <field name="maintenance_mode" context="{'maintenance_mode_check': 1}"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Maintenance Mode" for="maintenance_mode"/>
+                                <div class="text-muted">
+                                    Set maintenance mode for odoo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

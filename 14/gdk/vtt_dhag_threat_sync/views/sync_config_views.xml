@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sync Config views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_threat_sync_config" model="ir.ui.view">
+            <field name="name">Synchronize Config Form</field>
+            <field name="model">threat.sync.config</field>
+            <field name="arch" type="xml">
+                <form string="Synchronize Config Form">
+                    <header>
+                        <button name="upload_datas" type="object" string="Synchronize" class="oe_highlight"/>
+                        <button name="test_call" type="object" string="Test Connection"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="host" required="1"/>
+                                <field name="db" required="1"/>
+                            </group>
+                            <group>
+                                <field name="username" required="1"/>
+                                <field name="pwd" password="True" required="1"/>
+                            </group>
+                            <group>
+                                <field name="ssid" invisible="1"/>
+                                <field name="dt"/>
+                            </group>
+                        </group>
+                        <!--Requests-->
+                        <separator string="Requests"/>
+                        <field name="request_ids" readonly="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_threat_sync_config" model="ir.ui.view">
+            <field name="name">Synchronize Config List</field>
+            <field name="model">threat.sync.config</field>
+            <field name="arch" type="xml">
+                <tree string="Synchronize Config List">
+                    <field name="name"/>
+                    <field name="host"/>
+                    <field name="db"/>
+                    <field name="username"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vttt_act_window_threat_sync_config_list" model="ir.actions.act_window">
+            <field name="name">Synchronize Config List</field>
+            <field name="res_model">threat.sync.config</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_threat_sync_config" name="Sync Config" parent="vtt_dhag_threat_analysis.vtt_menu_threat_analysis_config" action="vttt_act_window_threat_sync_config_list" sequence="150"/>
+    </data>
+</odoo>

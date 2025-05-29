@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Custom view-->
+    <data>
+        <record id="vtt_view_custom_threat_analysis_dashboard" model="ir.ui.view.custom">
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="ref_id" ref="vtt_board.vtt_view_form_board_company_dash"/>
+            <field name="vtt_is_global" eval="True"/>
+            <field name="arch" type="xml">
+                 <form string="Bảng thông tin" create="false" delete="false" edit="false" js_class="board">
+                    <board style="2-1">
+                        <column>
+                            <!--Report Location by Time-->
+                            <action name="%(vtt_dhag_threat_analysis.vtt_act_window_malware_report_location_graph)d" string="Địa bàn" view_mode="graph" context="{'lang': 'vi_VN', 'tz': 'Asia/Bangkok', 'uid': 2, 'allowed_company_ids': [1], 'group_by': [], 'orderedBy': [], 'graph_measure': '__count__', 'graph_mode': 'bar', 'graph_groupbys': ['location_id', 'dt_submission:year'], 'dashboard_merge_domains_contexts': False}" domain="['&amp;', ['dt_submission', '&gt;=',(context_today() + relativedelta(years=-3)).strftime('%Y-01-01 00:00:00')], ['dt_submission', '&lt;', (context_today() + relativedelta(years=1)).strftime('%Y-01-01 00:00:00')]]"/>
+                            <!--Report Malware Type by Time-->
+                            <action name="%(vtt_dhag_threat_analysis.vtt_act_window_malware_report_location_malware_type)d" string="Loại Mã độc" view_mode="graph" context="{'lang': 'vi_VN', 'tz': 'Asia/Bangkok', 'uid': 2, 'allowed_company_ids': [1], 'group_by': [], 'orderedBy': [], 'graph_measure': '__count__', 'graph_mode': 'line', 'graph_groupbys': ['dt_submission:year', 'malware_type_id'], 'dashboard_merge_domains_contexts': False}" domain="[]"/>
+                        </column>
+
+                        <column>
+                            <action name="%(vtt_dhag_threat_analysis.vtt_act_window_malware_report_location_malware_type)d" string="Độ phổ biến" view_mode="graph" context="{'lang': 'vi_VN', 'tz': 'Asia/Bangkok', 'uid': 2, 'allowed_company_ids': [1], 'group_by': [], 'orderedBy': [], 'graph_measure': '__count__', 'graph_mode': 'pie', 'graph_groupbys': ['malware_type_id'], 'dashboard_merge_domains_contexts': False}" domain="[]"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+    </data>
+
+</odoo>

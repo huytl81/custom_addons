@@ -1,0 +1,180 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_invoice_report_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 07:49+0000\n"
+"PO-Revision-Date: 2021-05-19 07:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.model.fields,field_description:vtt_invoice_report_dashboard.field_account_invoice_report__abs_price_average
+msgid "ABS Average Price"
+msgstr "Giá trung bình (abs)"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.model.fields,field_description:vtt_invoice_report_dashboard.field_account_invoice_report__abs_price_subtotal
+msgid "ABS Untaxed Total"
+msgstr "Tổng trước thuế (abs)"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Amount Due"
+msgstr "Phải trả"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.model.fields,field_description:vtt_invoice_report_dashboard.field_account_invoice_report__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_search_account_move_this_month
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_search_invoice_report_this_month
+msgid "Due this month"
+msgstr "Đến hạn tháng này"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.model.fields,field_description:vtt_invoice_report_dashboard.field_account_invoice_report__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Invoice Date"
+msgstr "Ngày hóa đơn"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.actions.act_window,name:vtt_invoice_report_dashboard.vtt_act_window_graph_invoice_report_product_categ
+msgid "Invoice Report Product Category Graph"
+msgstr "Biểu đồ theo Nhóm sản phẩm"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.actions.act_window,name:vtt_invoice_report_dashboard.vtt_act_window_graph_invoice_report_revenue_cost
+msgid "Invoice Report Revenue/ Cost Graph"
+msgstr "Biểu đồ Doanh thu/ Chi phí"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.actions.act_window,name:vtt_invoice_report_dashboard.vtt_act_window_dashboard_invoice_report_total_revenue
+msgid "Invoice Report Total Revenue Dashboard"
+msgstr "Tổng doanh thu"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.model,name:vtt_invoice_report_dashboard.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Thống kê hóa đơn"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.ui.menu,name:vtt_invoice_report_dashboard.vtt_menu_account_move_last_bill
+msgid "Last Bill"
+msgstr "Hóa đơn mới nhất"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.actions.act_window,name:vtt_invoice_report_dashboard.vtt_act_window_list_account_move_last_bill
+msgid "Last Bill List"
+msgstr "Hóa đơn mới nhất"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.model.fields,field_description:vtt_invoice_report_dashboard.field_account_invoice_report____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.actions.act_window,name:vtt_invoice_report_dashboard.vtt_act_window_list_account_move_out_upcoming
+msgid "Out Invoice Upcoming Date List"
+msgstr "Hóa đơn sắp đến hạn"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.ui.menu,name:vtt_invoice_report_dashboard.vtt_menu_invoice_report_product_categ
+msgid "Product Categ Sale"
+msgstr "Doanh thu/ Nhóm sản phẩm"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_graph_invoice_report_product_categ
+msgid "Product Category"
+msgstr "Nhóm sản phẩm"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_dashboard_invoice_report_total_revenue
+msgid "Profit"
+msgstr "Lợi nhuận"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.ui.menu,name:vtt_invoice_report_dashboard.vtt_menu_invoice_report_revenue_cost
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_graph_invoice_report_revenue_cost
+msgid "Revenue/ Cost"
+msgstr "Doanh thu/ Chi phí"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Sales Person"
+msgstr "Nhân viên"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Source Document"
+msgstr "Tài liệu nguồn"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Tax"
+msgstr "Thuế"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Tax Excluded"
+msgstr "Trước thuế"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_search_account_move_this_month
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_search_invoice_report_this_month
+msgid "This month"
+msgstr "Tháng này"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Total"
+msgstr "Tổng"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_dashboard_invoice_report_total_revenue
+msgid "Total Cost"
+msgstr "Tổng chi phí"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.ui.menu,name:vtt_invoice_report_dashboard.vtt_menu_invoice_report_total_revenue
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_dashboard_invoice_report_total_revenue
+msgid "Total Revenue"
+msgstr "Tổng doanh thu"
+
+#. module: vtt_invoice_report_dashboard
+#: model:ir.ui.menu,name:vtt_invoice_report_dashboard.vtt_menu_account_move_upcoming
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Upcoming Invoice"
+msgstr "Hóa đơn sắp đến hạn"
+
+#. module: vtt_invoice_report_dashboard
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_last_bill
+#: model_terms:ir.ui.view,arch_db:vtt_invoice_report_dashboard.vtt_view_tree_account_move_upcoming
+msgid "Vendor"
+msgstr "Nhà cung cấp"

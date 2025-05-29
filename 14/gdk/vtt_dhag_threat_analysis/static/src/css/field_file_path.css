@@ -1,0 +1,29 @@
+.o_form_editable .table-selected-items .fp_delete_button{
+    padding: 0px;
+    background: none;
+    border-style: none;
+    display: table-cell;
+    cursor: pointer;
+}
+
+.o_form_readonly .file_paths_wrapper .header-box { display: none; }
+
+
+.list .fa-check-circle { display: none; }
+.list .data-row.selected .fa-check-circle { display: block; }
+
+.activity_table_wrapper {
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.activity_table_wrapper .col-sm.detail { margin-top: 10px; }
+
+.activity_table_wrapper .data-row { cursor: pointer; }
+.activity_table_wrapper .data-row.selected { background-color: rgba(0, 0, 0, 0.1); }
+
+.col-sm.detail .description {
+    border-color: #ddd;
+    border-radius: 3px;
+    padding: 5px;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Template views-->
+    <data>
+        <!--Form view add Size-->
+        <record id="vtt_view_form_product_template_add_size" model="ir.ui.view">
+            <field name="name">Product Template Form add Size fields</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <group name="group_standard_price" position="after">
+                    <group name="vtt_group_product_size">
+                        <field name="vtt_product_door_type"/>
+                        <field name="vtt_product_width"/>
+                        <field name="vtt_product_height"/>
+                        <field name="vtt_product_area"/>
+                        <field name="vtt_sub_uom"/>
+                        <field name="vtt_product_size_price"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>

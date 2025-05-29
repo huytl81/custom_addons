@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Project Task Rating views-->
+    <data>
+        <!--Tree view-->
+        <record id="vtt_view_tree_project_task_rating" model="ir.ui.view">
+            <field name="name">Project Task Rating List</field>
+            <field name="model">vtt.project.task.rating</field>
+            <field name="arch" type="xml">
+                <tree string="Task Ratings" create="0">
+                    <field name="task_id"/>
+                    <field name="user_id"/>
+                    <field name="department_id"/>
+                    <field name="rating" widget="priority" attrs="{'readonly': [('state', '=', 'approve')]}"/>
+                    <field name="rating_score" optional="hide" avg="Average"/>
+                    <field name="date" optional="hide"/>
+                    <field name="state" widget="badge" decoration-success="state=='approve'" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_project_task_rating" model="ir.ui.view">
+            <field name="name">Project Task Rating Filter</field>
+            <field name="model">vtt.project.task.rating</field>
+            <field name="arch" type="xml">
+                <search string="Task Ratings Filter">
+                    <field name="user_id"/>
+                    <field name="task_id"/>
+                    <field name="department_id"/>
+                    <separator/>
+                    <filter name="filter_approve" string="Approved" domain="[('state', '=', 'approve')]"/>
+                    <separator/>
+                    <filter name="filter_good_rate" string="Good Rating" domain="[('rating', 'in', ['3', '4', '5'])]"/>
+                    <filter name="filter_bad_rate" string="Bad Rating" domain="[('rating', 'not in', ['3', '4', '5'])]"/>
+                    <separator/>
+                    <filter name="filter_date" string="Date" date="date"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Department" name="groupby_department" domain="[]" context="{'group_by': 'department_id'}"/>
+                        <filter string="User" name="groupby_user" domain="[]" context="{'group_by': 'user_id'}"/>
+                        <filter string="Task" name="groupby_task" domain="[]" context="{'group_by': 'task_id'}"/>
+                        <filter string="Date" name="groupby_date" domain="[]" context="{'group_by': 'date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_project_task_rating" model="ir.actions.act_window">
+            <field name="name">Task Ratings</field>
+            <field name="res_model">vtt.project.task.rating</field>
+            <field name="view_mode">tree,pivot,graph</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_project_report_task_rating" name="Task Ratings" parent="project.menu_project_report" sequence="50" action="vtt_act_window_project_task_rating"/>
+    </data>
+</odoo>

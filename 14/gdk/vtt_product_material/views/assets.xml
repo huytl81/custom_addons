@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="vtt_product_material_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/vtt_product_material/static/src/js/product_product_material_list_controller.js"></script>
+            <script type="text/javascript" src="/vtt_product_material/static/src/js/product_product_material_list_view.js"></script>
+        </xpath>
+    </template>
+</odoo>

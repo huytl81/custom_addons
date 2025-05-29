@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Threat Subject Field Mapper views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_threat_subject_field_mapper" model="ir.ui.view">
+            <field name="name">Subject Field Mapper</field>
+            <field name="model">threat.subject.field.mapper</field>
+            <field name="arch" type="xml">
+                <form string="Subject Field Mapper">
+                    <header></header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="src_name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Rules">
+                                <field name="line_ids">
+                                    <tree editable="top">
+                                        <field name="mapper_id" invisible="1"/>
+                                        <field name="res_field"/>
+                                        <field name="src_tag"/>
+                                        <field name="active" widget="toggle_button"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_threat_subject_field_mapper" model="ir.ui.view">
+            <field name="name">Subject Field Mapper List</field>
+            <field name="model">threat.subject.field.mapper</field>
+            <field name="arch" type="xml">
+                <tree string="Subject Field Mappers">
+                    <field name="src_name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Campaign list-->
+        <record id="vtt_act_window_threat_subject_field_mapper" model="ir.actions.act_window">
+            <field name="name">Subject Field Mappers</field>
+            <field name="res_model">threat.subject.field.mapper</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Mapper menu-->
+        <menuitem id="vtt_menu_threat_analysis_config_subject_mapper" name="Subject Mapper" sequence="50" parent="vtt_menu_threat_analysis_config" action="vtt_act_window_threat_subject_field_mapper"/>
+    </data>
+</odoo>

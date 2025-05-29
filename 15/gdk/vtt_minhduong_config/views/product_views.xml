@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Template views-->
+    <data>
+        <!--Form view add new fields-->
+        <record id="vtt_view_form_product_template_add_size_fields" model="ir.ui.view">
+            <field name="name">Product Form add Size Fields</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='weight']" position="after">
+                    <label for="packing_specification" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}" string="Packing Specification"/>
+                    <div class="o_row" name="packing_specification" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                        <field name="packing_specification"/>
+                        <span><field name="uom_id"/></span>
+                    </div>
+
+                    <label for="vtt_length" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}" string="Length"/>
+                    <div class="o_row" name="vtt_length" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                        <field name="vtt_length"/>
+                        <span>cm</span>
+                    </div>
+
+                    <label for="vtt_width" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}" string="Width"/>
+                    <div class="o_row" name="vtt_width" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                        <field name="vtt_width"/>
+                        <span>cm</span>
+                    </div>
+
+                    <label for="vtt_height" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}" string="Height"/>
+                    <div class="o_row" name="vtt_height" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                        <field name="vtt_height"/>
+                        <span>cm</span>
+                    </div>
+                </xpath>
+
+                <!--Add tag-->
+                <field name="categ_id" position="after">
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <!--barcode-->
+                    <!--<field name="pack_barcode"/>-->
+                </field>
+                <!--Barcode-->
+                <!--<field name="barcode" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="barcode" position="after">
+                    <field name="product_barcode"/>
+                </field>-->
+            </field>
+        </record>
+
+        <!--Form view add barcode-->
+        <record id="vtt_view_form_product_template_barcodes" model="ir.ui.view">
+            <field name="name">Product Template Form add Barcodes</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <!--Barcode-->
+                <field name="barcode" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="barcode" position="after">
+                    <field name="product_barcode"/>
+                    <field name="pack_barcode"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="vtt_view_form_product_product_barcodes" model="ir.ui.view">
+            <field name="name">Product Form add Barcodes</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <!--Barcode-->
+                <field name="barcode" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="barcode" position="after">
+                    <field name="product_barcode"/>
+                    <field name="pack_barcode"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view add tag-->
+        <record id="vtt_view_tree_product_template_tags" model="ir.ui.view">
+            <field name="name">Product Template Form add Barcodes</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <!--Tags-->
+                <field name="barcode" position="after">
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view add tags-->
+        <record id="vtt_view_search_product_template_tags" model="ir.ui.view">
+            <field name="name">Product Template Filter add Tags</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="vtt_tag_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

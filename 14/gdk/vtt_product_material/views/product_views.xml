@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Template views-->
+    <data>
+        <!--Form view add Material-->
+        <record id="vtt_view_form_product_template_product_material" model="ir.ui.view">
+            <field name="name">Product Template Form add Product Material</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button name="action_view_material_template" type="object" icon="fa-sitemap" class="oe_stat_button" string="Materials"/>
+                </div>
+            </field>
+        </record>
+    </data>
+
+    <!--Product views-->
+    <data>
+        <!--List view add Material Choose button-->
+        <record id="vtt_view_tree_product_product_material_choose" model="ir.ui.view">
+            <field name="name">Product List add Material button</field>
+            <field name="model">product.product</field>
+            <field name="priority">50</field>
+            <field name="active">False</field>
+            <field name="arch" type="xml">
+                <tree string="Products" js_class="vtt_product_product_material_list" create="0">
+                    <field name="default_code" optional="show" readonly="1"/>
+                    <field name="barcode" optional="hide" readonly="1"/>
+                    <field name="name" readonly="1"/>
+                    <field name="product_template_attribute_value_ids" widget="many2many_tags" groups="product.group_product_variant" readonly="1"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="hide" readonly="1"/>
+                    <field name="lst_price" optional="show" string="Sales Price"/>
+                    <field name="standard_price" optional="show"/>
+                    <field name="categ_id" optional="hide"/>
+                    <field name="type" optional="hide" readonly="1"/>
+                    <field name="price" invisible="not context.get('pricelist',False)"/>
+                    <field name="uom_id" options="{'no_open': True, 'no_create': True}" groups="uom.group_uom" optional="show" readonly="1"/>
+                    <field name="product_tmpl_id" invisible="1" readonly="1"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

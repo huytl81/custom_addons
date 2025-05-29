@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Modify base record rules to apply contact owner rule-->
+    <data>
+        <!--De-active base rules-->
+        <record id="base.res_partner_rule_private_employee" model="ir.rule">
+            <field name="active" eval="0"/>
+        </record>
+    </data>
+
+    <!--Addition new rules-->
+    <data>
+        <!--Internal user access users ref only-->
+        <record id="vtt_rule_res_partner_internal_user_users_only" model="ir.rule">
+            <field name="name">Internal User access Users Ref only</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">
+                [('user_ids', '!=', False)]
+            </field>
+        </record>
+
+        <!--Sale own-document access own partner-->
+        <record id="vtt_rule_res_partner_sale_own_document_own_partner" model="ir.rule">
+            <field name="name">Salesman access own Partner only</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+            <field name="domain_force">
+                ['|', ('user_id', '=', False),
+                ('user_id', '=', user.id)]
+            </field>
+        </record>
+
+        <!--Sale all-leads access all partner-->
+        <record id="vtt_rule_res_partner_sale_all_lead_all_partner" model="ir.rule">
+            <field name="name">Sale leader access all Partner</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+            <field name="domain_force">
+                [('user_ids', '=', False)]
+            </field>
+        </record>
+
+        <!--Admin system access all-->
+        <record id="vtt_rule_res_partner_admin_all_partner" model="ir.rule">
+            <field name="name">Admin system access all Partner</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field name="domain_force">
+                [(1, '=', 1)]
+            </field>
+        </record>
+    </data>
+</odoo>

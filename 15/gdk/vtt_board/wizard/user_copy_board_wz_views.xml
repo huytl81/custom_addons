@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="vtt_view_form_user_copy_board_wizard" model="ir.ui.view">
+            <field name="name">User Copy Board Form</field>
+            <field name="model">vtt.user.copy.board.wz</field>
+            <field name="arch" type="xml">
+                <form string="Copy Board Wizard">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                            <group>
+                                <field name="board_view_id"/>
+                            </group>
+                        </group>
+                        <field name="user_ids"/>
+                    </sheet>
+                    <footer>
+                        <button name="do_copy_board" string="Copy" class="btn-primary" type="object"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Action-->
+    <data>
+        <record id="ev_act_window_user_copy_board_wz" model="ir.actions.act_window">
+            <field name="name">Copy Board Wizard</field>
+            <field name="res_model">vtt.user.copy.board.wz</field>
+            <field name="binding_model_id" ref="base.model_res_users"/>
+            <field name="binding_view_types">list</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

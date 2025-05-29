@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Res Partner views-->
+    <data>
+        <!--Partner new form-->
+        <record id="vtt_view_form_res_partner_anniversary" model="ir.ui.view">
+            <field name="name">Partner Anniversary</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <!--Notebook-->
+                <notebook position="inside">
+                    <page string="Anniversaries">
+                        <field name="anniversary_ids">
+                            <tree string="Anniversaries" delete="false" editable="top">
+                                <field name="category_id"/>
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="next_date" optional="hide"/>
+                                <field name="int_day" invisible="1"/>
+                                <field name="int_month" invisible="1"/>
+                                <field name="interval_number"/>
+                                <field name="interval_type" attrs="{'invisible': [('interval_number', '&lt;=', 0)]}"/>
+                                <field name="is_planned" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <!--Partner Tree-->
+        <record id="vtt_view_tree_res_partner_anniversary" model="ir.ui.view">
+            <field name="name">Partner List Anniversary</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="is_incoming_anniversary" invisible="1"/>
+                </field>
+
+                <tree position="attributes">
+                    <attribute name="decoration-info">is_incoming_anniversary</attribute>
+                </tree>
+
+            </field>
+        </record>
+
+        <!--Partner filter-->
+        <record id="vtt_view_filter_res_partner_anniversary" model="ir.ui.view">
+            <field name="name">Partner Filter Anniversary</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="anniversary_ids" string="Anniversary" filter_domain="['|', ('anniversary_ids', 'ilike', self), ('anniversary_ids.category_id', 'ilike', self)]"/>
+
+                    <!--<filter name="anniversary_next_date" string="Anniversary Date" date="anniversary_ids.next_date"/>-->
+                </field>
+
+            </field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <record id="contacts.res_partner_menu_config" model="ir.ui.menu">
+            <field name="sequence" eval="100"/>
+        </record>
+    </data>
+</odoo>
