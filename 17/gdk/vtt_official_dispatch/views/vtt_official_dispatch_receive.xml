@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Form view-->
+        <record id="vtt_official_dispatch_receive_form_view" model="ir.ui.view">
+            <field name="name">Official Dispatch Receive</field>
+            <field name="model">vtt.official.dispatch.receive</field>
+            <field name="arch" type="xml">
+                <form string="Official Dispatch Receive">
+                    <header>
+                        <button class="btn-primary" groups="vtt_official_dispatch.group_official_dispatch_clerical" invisible="state not in ('draft', 'not_received')" name="action_receive_confirm" string="Receive" type="object"/>
+                        <button class="btn-primary" groups="vtt_official_dispatch.group_official_dispatch_clerical" invisible="state != 'draft'" name="action_not_receive_confirm" string="Not receive" type="object"/>
+                        <button class="btn-primary" groups="vtt_official_dispatch.group_official_dispatch_clerical" invisible="state != 'received'" name="action_sent" string="Send" type="object"/>
+                        <button groups="vtt_official_dispatch.group_official_dispatch_clerical" invisible="state not in ('received', 'not_received')" name="action_cancel" string="Cancel" type="object"/>
+                        <button groups="vtt_official_dispatch.group_official_dispatch_clerical" invisible="state != 'cancel'" name="action_draft" string="Set to draft" type="object"/>
+                        <field name="state" options="{'clickable': False}" statusbar_visible="draft,not_received,received,sent" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <div class="oe_title">
+                                <span class="o_form_label" invisible="state in 'draft'">
+                                    Dispatch
+                                    Receive
+                                </span>
+                                <h1>
+                                    <field name="name" readonly="state != 'draft'"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="description" readonly="state == 'sent'"/>
+                                <field name="delivery_type" readonly="state == 'sent'"/>
+                                <field name="allow_unseal" readonly="state == 'sent'"/>
+                                <field name="creator_id" options="{'no_create_edit':True,'no_quick_create':True, 'no_open':True}"/>
+                                <field name="receive_date" readonly="state != 'draft'"/>
+                            </group>
+                            <group>
+                                <field context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" name="sender_id" options="{&quot;always_reload&quot;: True,'no_create_edit':True,'no_quick_create':True, 'no_open':True}" readonly="state != 'draft'" widget="res_partner_many2one"/>
+                                <label for="is_archive_dispatch"/>
+                                <div class="o_row">
+                                    <field name="is_archive_dispatch"/>
+                                    <button class="btn-primary" invisible="is_archive_dispatch == False or is_sent_to_keeper == True" name="action_send_to_keeper" string="Send to keeper" type="object"/>
+                                </div>
+                                <field invisible="1" name="is_sent_to_keeper"/>
+                                <field filename="file_name" name="attachment_ids" widget="many2many_binary"/>
+                                <field invisible="1" name="file_name"/>
+                                <field invisible="1" name="user_id"/>
+                                <field invisible="1" name="company_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="Dispatch Receive Line" string="Details">
+                                <field name="recipient_ids"><tree editable="top">
+                                        <field invisible="1" name="vtt_official_dispatch_id"/>
+                                        <field name="recipient_id" options="{'no_create_edit':True,'no_quick_create':True, 'no_open':True}" readonly="parent.state == 'sent'"/>
+                                        <field name="reception_department_id" options="{'no_create_edit':True,'no_quick_create':True, 'no_open':True}" readonly="parent.state == 'sent'"/>
+                                        <field name="company_id" readonly="1"/>
+                                        <field name="number_of_dispatch" readonly="parent.state == 'sent'"/>
+                                        <field name="confirm_date" readonly="True"/>
+                                        <field decoration-info="state == 'not_received'" decoration-success="state == 'received'" name="state" readonly="1" widget="badge"/>
+                                        <button class="btn-primary" invisible="state == 'received' or parent.state != 'sent'" name="action_confirm" string="Confirm" type="object"/>
+                                    </tree></field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form></field>
+        </record>
+        <!--List view-->
+        <record id="vtt_official_dispatch_receive_tree_view" model="ir.ui.view">
+            <field name="name">Official Dispatch Receive Tree</field>
+            <field name="model">vtt.official.dispatch.receive</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="creator_id"/>
+                    <field name="receive_date"/>
+                    <field name="sender_id"/>
+                    <field decoration-danger="state == 'cancel'" decoration-info="state == 'not_received'" decoration-success="state == 'sent'" name="state" widget="badge"/>
+                </tree></field>
+        </record>
+        <!-- Search View -->
+        <record id="vtt_official_dispatch_receive_search_view" model="ir.ui.view">
+            <field name="name">Official Dispatch Receive Search</field>
+            <field name="model">vtt.official.dispatch.receive</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter context="{'group_by':'sender_id'}" name="filter_by_sender" string="Filter By Sender"/>
+                    <filter context="{'group_by':'state'}" name="filter_by_state" string="Filter By State"/>
+                </search></field>
+        </record>
+        <!--Actions-->
+        <record id="vtt_official_dispatch_action" model="ir.actions.act_window">
+            <field name="name">Eq Official Dispatch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.official.dispatch.receive</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vtt_official_dispatch_receive_tree_view"/>
+            <field name="domain"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No dispatch receive found. Let's create one!
+                </p></field>
+        </record>
+    </data>
+</odoo>

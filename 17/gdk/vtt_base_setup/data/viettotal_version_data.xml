@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--License data-->
+    <data>
+        <function model="ir.config_parameter" name="set_param" eval="('database.expiration_date', (datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d 07:00:00'))"/>
+        <!--<record id="vtt_data_version_expiration_date" model="ir.config_parameter">
+            <field name="key">database.expiration_date</field>
+            <field name="value" eval="(datetime.now() + timedelta(days=12)).strftime('%Y-%m-%d 07:00:00')"/>
+        </record>-->
+    </data>
+</odoo>

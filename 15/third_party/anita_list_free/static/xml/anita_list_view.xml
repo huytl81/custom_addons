@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- anita list box -->
+    <t t-name="anita_list_free.list_view">
+        <div class="anita_list_view">
+            <div class="anita_list_container">
+                <div class="anita_list_header anita_table_header">
+                        <table cellspacing="0" cellpadding="0" border="0" class="anita_list anita_header_table anita_bordered"/>
+                </div>
+                <div class="anita_table_body">
+                    <div class="anita_page_simulater" />
+                    <table cellspacing="0" cellpadding="0" border="0" class="anita_list anita_body_table"/>
+                </div>
+                <div class="anita_table_footer">
+                    <div class="footer_scroller" style="overflow:hidden">
+                        <table cellspacing="0" cellpadding="0" border="0" class="anita_list anita_footer_table anita_bordered"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

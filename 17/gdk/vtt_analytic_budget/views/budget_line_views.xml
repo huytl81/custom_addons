@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Analytic Budget Line views-->
+    <data>
+        <!--Tree view hierarchy-->
+        <record id="vtt_view_tree_analytic_budget_line" model="ir.ui.view">
+            <field name="name">Budget Items</field>
+            <field name="model">vtt.analytic.budget.line</field>
+            <field name="arch" type="xml">
+                <tree js_class="hierarchy_tree">
+                    <field name="account_analytic_id" column_invisible="1"/>
+                    <field name="type" column_invisible="1"/>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="full_path" column_invisible="1"/>
+                    <field name="level" column_invisible="1"/>
+                    <field name="parent_id" optional="hide"/>
+                    <field name="product_id"/>
+                    <field name="product_uom_qty" invisible="type == 'group'"/>
+                    <field name="product_uom" string="UoM" groups="uom.group_uom" optional="show" invisible="type == 'group'"/>
+
+                    <field name="price_unit"/>
+                    <field name="planned_amount" widget="monetary" sum="Planned Amount"/>
+                    <field name="practical_amount" sum="Practical Amount" widget="monetary"/>
+                    <field name="percentage" widget="percentage"/>
+
+                    <field name="currency_id" column_invisible="True"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_analytic_budget_line" model="ir.ui.view">
+            <field name="name">Budget Item Filter</field>
+            <field name="model">vtt.analytic.budget.line</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="['|', '|', ('name', 'ilike', self), ('full_path', 'ilike', self), ('product_id', 'ilike', self)]"/>
+                    <field name="product_id"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_account" string="Account" context="{'group_by': 'account_analytic_id'}" domain="[]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--Search view with context-->
+        <record id="vtt_view_search_analytic_budget_line_context" model="ir.ui.view">
+            <field name="name">Budget Item Filter with Context</field>
+            <field name="model">vtt.analytic.budget.line</field>
+            <field name="priority" eval="1000"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="['|', '|', ('name', 'ilike', self), ('full_path', 'ilike', self), ('product_id', 'ilike', self)]"/>
+                    <field name="product_id"/>
+                    <separator/>
+                    <filter name="filter_suggest" string="Product Suggest" domain="[('id', 'in', context.get('product_suggest_ids', False))]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_account" string="Account" context="{'group_by': 'account_analytic_id'}" domain="[]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

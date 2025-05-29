@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Subscription views-->
+    <data>
+        <!--Form view add Land Plot-->
+        <record id="vtt_view_form_sale_subscription_add_land_plot" model="ir.ui.view">
+            <field name="name">Sale Subscription add Land Plot</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="vtt_sale_subscription.sale_subscription_view_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="before">
+                    <field name="land_contract_id"/>
+                    <field name="land_plot_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view add Land Plot-->
+        <record id="vtt_view_tree_sale_subscription_add_land_plot" model="ir.ui.view">
+            <field name="name">Sale Subscription List add Land Plot</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="vtt_sale_subscription.sale_subscription_view_list"/>
+            <field name="arch" type="xml">
+                <!--Add Contract-->
+                <field name="code" position="after">
+                    <field name="land_contract_id"/>
+                    <field name="land_plot_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view add Land Plot-->
+        <record id="vtt_view_search_sale_subscription_add_land_plot" model="ir.ui.view">
+            <field name="name">Sale Subscription add Land Plot</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="vtt_sale_subscription.sale_subscription_view_search"/>
+            <field name="arch" type="xml">
+                <field name="team_id" position="after">
+                    <field name="land_contract_id"/>
+                    <field name="land_plot_id"/>
+                </field>
+
+                <filter name="sales_team" position="after">
+                    <filter string="Contract" name="groupby_land_contract" domain="[]" context="{'group_by':'land_contract_id'}"/>
+                    <filter string="Plot" name="groupby_land_plot" domain="[]" context="{'group_by':'land_plot_id'}"/>
+                </filter>
+
+                <field name="name" position="attributes">
+                    <attribute name="filter_domain">['|', '|', ('name', 'ilike', self), ('code', 'ilike', self), ('land_contract_id.name', 'ilike', self)]</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Subscription list for Dashboard-->
+        <record id="vtt_view_tree_sale_subscription_next_recurrent" model="ir.ui.view">
+            <field name="name">Sale Subscription List Next Recurrent</field>
+            <field name="model">sale.subscription</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <tree limit="15">
+                    <field name="land_contract_id"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="land_plot_id"/>
+                    <field name="recurring_next_date" string="Next Invoice"/>
+                    <field name="recurring_total_incl" decoration-bf="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="to_renew" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="pricelist_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Sale Subscription Next Recurrent for Dashboard-->
+        <record id="vtt_act_window_sale_subscription_next_recurrent" model="ir.actions.act_window">
+            <field name="name">Sale Subscription</field>
+            <field name="res_model">sale.subscription</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vtt_lhv_cemetery.vtt_view_tree_sale_subscription_next_recurrent"/>
+            <field name="domain">['|', ('to_renew', '!=', False), '&amp;', '&amp;', ('recurring_next_date', '&gt;=', (datetime.datetime.combine(context_today(), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01')), ('recurring_next_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=1), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01')), ('stage_category', '=', 'progress')]</field>
+        </record>
+    </data>
+</odoo>

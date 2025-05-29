@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Views-->
+    <data>
+        <!--Global Dashboard view-->
+        <record id="vtt_view_form_board_company_dash" model="ir.ui.view">
+            <field name="name">Company Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <form string="Company Dashboard">
+                    <board style="2-1">
+                        <column>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!--View Custom add Global field-->
+        <record id="vtt_view_form_ui_view_custom_global" model="ir.ui.view">
+            <field name="name">View Custom adding Global check</field>
+            <field name="model">ir.ui.view.custom</field>
+            <field name="inherit_id" ref="base.view_view_custom_form"/>
+            <field name="groups_id" eval="[(4,ref('base.group_system'))]"/>
+            <field name="arch" type="xml">
+                <field name="ref_id" position="after">
+                    <field name="vtt_is_global"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Action-->
+    <data>
+        <record id="vtt_act_window_open_company_board" model="ir.actions.act_window">
+            <field name="name">Company Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="usage">menu</field>
+            <field name="view_id" ref="vtt_view_form_board_company_dash"/>
+        </record>
+    </data>
+
+    <!--Menu-->
+    <data>
+        <record id="board.menu_board_my_dash" model="ir.ui.menu">
+            <field name="sequence">50</field>
+        </record>
+
+        <menuitem
+            id="vtt_menu_board_company_dash"
+            parent="base.menu_board_root"
+            action="vtt_act_window_open_company_board"
+            sequence="20"/>
+    </data>
+</odoo>

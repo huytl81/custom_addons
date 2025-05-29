@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--New Admin groups-->
+    <data>
+        <!--<record id="vtt_categ_group_admin" model="ir.module.category">
+            <field name="name">System Access Rights</field>
+            <field name="parent_id" ref="base.module_category_administration"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="vtt_group_admin" model="res.groups">
+            <field name="name">Administration</field>
+            <field name="category_id" ref="vtt_categ_group_admin"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user')), (4, ref('base.group_erp_manager'))]"/>
+        </record>-->
+
+        <record id="base.group_system" model="res.groups">
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+    </data>
+
+    <!--Modify rules-->
+    <data>
+        <!--New res.users access rules-->
+        <!--<record id="vtt_rule_users_member" model="ir.rule">
+            <field name="name">vtt.rule.users.member</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="domain_force">
+                [
+                ('vtt_user_type', 'not in', ['admin', 'manager'])
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="vtt_rule_users_admin" model="ir.rule">
+            <field name="name">vtt.rule.users.admin</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="domain_force">
+                [
+                (1, '=', 1)
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>-->
+    </data>
+</odoo>

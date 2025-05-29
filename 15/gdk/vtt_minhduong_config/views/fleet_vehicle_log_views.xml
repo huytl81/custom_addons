@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Fleet Vehicle Log Services views-->
+    <data>
+        <!--List view modify state edit rights-->
+        <record id="vtt_view_tree_fleet_vehicle_log_services_edit_rights" model="ir.ui.view">
+            <field name="name">Fleet Log Services modify Edit Rights</field>
+            <field name="model">fleet.vehicle.log.services</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after">
+                    <field name="has_state_edit_groups" invisible="1"/>
+                </field>
+
+                <field name="state" position="replace">
+                    <field name="state" decoration-bf="state!='new'" decoration-success="state == 'done'" decoration-warning="state == 'new'" decoration-info="state == 'running'" attrs="{'readonly': [('has_state_edit_groups', '=', False)]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Filter view add Date-->
+        <record id="vtt_view_search_fleet_vehicle_log_services_filter_date" model="ir.ui.view">
+            <field name="name">Fleet Log Services Filter Date</field>
+            <field name="model">fleet.vehicle.log.services</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_search"/>
+            <field name="arch" type="xml">
+                <filter name="inactive" position="after">
+                    <separator/>
+                    <filter name="date" string="Date" date="date"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Date" name="groupby_date" context="{'group_by': 'date:month'}"/>
+                    </group>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

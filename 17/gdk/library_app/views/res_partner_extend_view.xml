@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_form_res_partner_extend" model="ir.ui.view">
+        <field name="name">Published books:</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="category_id" position="before">
+                <field name="published_book_ids" widget="many2many_tags"/>
+                <field name="count_books"/>
+            </field>
+        </field>
+    </record>
+</odoo>

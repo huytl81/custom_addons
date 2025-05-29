@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+
+<!-- <t t-name="sh_barcode_scanner.stock_adjustment.tree.scan_feature">
+  <div class="row js_cls_sh_barcode_scanner_scanning_wrapper" style='align-items: center;padding: 10px 16px;'>
+    <div class="col-md-4" t-if="widget.sh_barcode_scanner_user_has_stock_multi_locations">
+		
+		<div class="form-group mb-0">
+		  <select class="form-control js_cls_sh_barcode_scanner_location_select">
+		  	<t t-foreach="widget.sh_barcode_scanner_locations" t-as="dic_location">
+		  		<option t-att-value="dic_location.id" t-att-selected="dic_location.id == widget.sh_barcode_scanner_location_selected and 'selected' or None">
+		  			<span t-esc="dic_location.display_name"/> 
+		  		</option>
+		  	</t>
+		  </select>
+		</div>
+
+
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control js_cls_sh_barcode_scanner_stock_quant_tree_input_barcode" placeholder="barcode"/>
+    </div>
+    <div class="col-md-2" t-if="widget.sh_barcode_scanner_user_is_stock_manager">
+
+      
+  <a href="" class="btn btn-primary js_cls_sh_barcode_scanner_stock_quant_tree_btn_apply">
+  	<i class="fa fa-fw o_button_icon fa-save"></i><span>Apply</span>
+  </a>
+      
+    </div>
+    
+  </div>
+</t> -->
+
+<t t-name="sh_all_in_one_mbs.stock_adjustment.tree.scan_feature">
+
+  <div class="row js_cls_sh_barcode_scanner_scanning_wrapper" style='align-items: center;padding: 10px 16px;'>
+    <div class="col-md-4" t-if="widget.sh_barcode_scanner_user_has_stock_multi_locations">
+		
+		<div class="form-group mb-0">
+		  <select class="form-control js_cls_sh_barcode_scanner_location_select">
+		  	<t t-foreach="widget.sh_barcode_scanner_locations" t-as="dic_location">
+		  		<option t-att-value="dic_location.id" t-att-selected="dic_location.id == widget.sh_barcode_scanner_location_selected and 'selected' or None">
+		  			<span t-esc="dic_location.display_name"/> 
+		  		</option>
+		  	</t>
+		  </select>
+		</div>
+
+
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control js_cls_sh_barcode_scanner_stock_quant_tree_input_barcode" placeholder="barcode"/>
+    </div>
+    <div class="col-md-2" t-if="widget.sh_barcode_scanner_user_is_stock_manager">
+
+      
+  <a href="" class="btn btn-primary js_cls_sh_barcode_scanner_stock_quant_tree_btn_apply">
+  	<i class="fa fa-fw o_button_icon fa-save"></i><span>Apply</span>
+  </a>
+      
+    </div>
+    
+  </div>
+  
+  
+
+
+                <section style='padding: 0 16px;'>
+                    <div>
+                        <a role="button" style="color: #fff; border-radius: 0px; margin-bottom: 5px; margin-right: 5px;" class="btn btn-primary" id="js_id_sh_inventory_adjt_barcode_mobile_start_btn">
+                            <i class="fa fa-barcode"></i>
+                            Start
+                        </a>
+                        <a role="button" style="display: none; color: #fff; border-radius: 0px; margin-bottom: 5px; margin-right: 5px;" class="btn btn-danger" id="js_id_sh_inventory_adjt_barcode_mobile_reset_btn">
+                            <i class="fa fa-barcode"></i>
+                            Stop
+                        </a>
+                    </div>
+
+                    <div id="js_id_sh_inventory_adjt_barcode_mobile_vid_div"  style="display: none;">
+                        <group style="margin-bottom: 10px;">
+                            <div class="form-group row mb-3" style="margin-bottom: 0px;">
+                                <strong style="align-self:center;" class="col-3">Camera</strong>
+                                 <select class="col-8 form-control" id="js_id_sh_inventory_adjt_barcode_mobile_cam_select"> </select>
+                         
+                            </div>
+                        </group>
+
+                        <video id="js_id_sh_inventory_adjt_barcode_mobile_video" class="cls_sh_all_in_one_mbs_video_tag" style="border: 1px solid gray;"></video>
+
+                        <span style="display: block;">Result:</span>
+                        <code id="js_id_sh_inventory_adjt_barcode_mobile_result"></code>
+                    </div>
+                </section>
+                
+</t>
+                
+          
+ 
+<t t-name="sh_all_in_one_mbs.stock_adjustment.tree.cam_select"> 
+ 
+   <select class="col-8 form-control" id="js_id_sh_inventory_adjt_barcode_mobile_cam_select"> </select>
+                                          
+</t>
+                                          
+          
+                
+
+</templates>

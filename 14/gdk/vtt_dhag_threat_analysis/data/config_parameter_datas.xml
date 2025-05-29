@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Virustotal API key-->
+    <data>
+        <record id="vtt_config_parameter_virustotal_api" model="ir.config_parameter">
+            <field name="key">vtt_dhag_threat_analysis.virustotal_api_key</field>
+            <field name="value">f61dabd27c8333fde0d7eed0692eab0e36194c42be6a6fee8335239c73137001</field>
+        </record>
+    </data>
+</odoo>

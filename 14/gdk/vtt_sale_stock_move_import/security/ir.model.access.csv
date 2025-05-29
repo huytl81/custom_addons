@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_stock_move_import_wz_user,stock.move.import.wz.user,model_vtt_stock_move_import_wz,stock.group_stock_user,1,1,1,1

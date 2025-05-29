@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_loyalty_tier_config,access_loyalty_tier_config,model_loyalty_tier_config,base.group_user,1,1,1,1
+access_loyalty_wizard_manually,access_loyalty_wizard_manually,model_loyalty_wizard_manually,base.group_user,1,1,1,1
+access_import_loyalty_wizard,access_import_loyalty_wizard,model_import_loyalty_wizard,base.group_user,1,1,1,1
+access_custom_pop_message,custom.pop.message,model_custom_pop_message,,1,1,1,1

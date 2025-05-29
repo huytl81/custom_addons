@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="loyalty_tier_config_form_view" model="ir.ui.view">
+            <field name="name">loyalty.config.tier.form.view</field>
+            <field name="model">loyalty.tier.config</field>
+            <field name="arch" type="xml">
+                <form string=" Loyalty Tier Configuration">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tier_name" required="1"/>
+                                <field name="default"/>
+                                <field name="ribbon_color" widget="color_picker"/>
+                            </group>
+                            <group>
+                                <field name="min_range"/>
+                                <field name="max_range"/>
+                                <field name="ribbon_text"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="loyalty_tier_config_tree_view" model="ir.ui.view">
+            <field name="name">loyalty.tier.config.tree.view</field>
+            <field name="model">loyalty.tier.config</field>
+            <field name="arch" type="xml">
+                <tree string=" Loyalty Tier Configuration">
+                    <field name="tier_name"/>
+                    <field name="min_range"/>
+                    <field name="max_range"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="loyalty_tier_config_action">
+            <field name="name">Loyalty Tier Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">loyalty.tier.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem parent="bi_loyalty_generic.menu_web_loyalty_id" action="loyalty_tier_config_action"
+                  id="loyalty_tier_config_menu"
+                  name="Loyalty Tier" sequence="10"/>
+    </data>
+</odoo>

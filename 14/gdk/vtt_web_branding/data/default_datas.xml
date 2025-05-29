@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Default page branding datas-->
+        <record model="ir.config_parameter" id="vtt_page_title">
+            <field name="key">vtt_web_branding.page_title</field>
+            <field name="value">VICTO</field>
+        </record>
+        <record model="ir.config_parameter" id="vtt_page_documentation">
+            <field name="key">vtt_web_branding.page_documentation</field>
+            <field name="value">http://viettotal.com/</field>
+        </record>
+        <record model="ir.config_parameter" id="vtt_page_support">
+            <field name="key">vtt_web_branding.page_support</field>
+            <field name="value">http://viettotal.com/</field>
+        </record>
+    </data>
+</odoo>

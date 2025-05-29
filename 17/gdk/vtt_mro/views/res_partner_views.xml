@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Partner views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_res_partner_maintenance" model="ir.ui.view">
+            <field name="name">Partner Form add Maintenance Information</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button name="action_view_repair" type="object"
+                        class="oe_stat_button" icon="fa-wrench"
+                        invisible="repair_order_count == 0">
+                        <div class="o_stat_info">
+                            <field name="repair_order_count" class="o_stat_value"/>
+                            <span class="o_stat_text">Repairs</span>
+                        </div>
+                    </button>
+                    <button name="action_view_maintenance" type="object"
+                        class="oe_stat_button" icon="fa-calendar-check-o"
+                        invisible="maintenance_plan_count == 0">
+                        <div class="o_stat_info">
+                            <field name="maintenance_plan_count" class="o_stat_value"/>
+                            <span class="o_stat_text">Maintenance</span>
+                        </div>
+                    </button>
+                    <button name="action_view_warranty" type="object"
+                        class="oe_stat_button" icon="fa-ticket"
+                        invisible="warranty_ticket_count == 0">
+                        <div class="o_stat_info">
+                            <field name="warranty_ticket_count" class="o_stat_value"/>
+                            <span class="o_stat_text">Warranty</span>
+                        </div>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_res_partner_maintenance" model="ir.ui.view">
+            <field name="name">Partner List Maintenance</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="maintenance_plan_this_month" column_invisible="1"/>
+                    <field name="maintenance_plan_next_month" column_invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_res_partner_maintenance" model="ir.ui.view">
+            <field name="name">Partner Filter Maintenance</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="inactive" position="before">
+                    <filter name="filter_this_month" string="Maintenance This Month" domain="[('maintenance_plan_this_month', '!=', False)]"/>
+                    <filter name="filter_next_month" string="Maintenance Next Month" domain="[('maintenance_plan_next_month', '!=', False)]"/>
+                    <separator/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

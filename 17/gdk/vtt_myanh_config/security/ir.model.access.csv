@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_project_type_user,projec.type.user,model_vtt_project_type,base.group_user,1,0,0,0
+access_project_type_manager,projec.type.manager,model_vtt_project_type,project.group_project_manager,1,1,1,1
+access_project_task_reason_type_user,project.task.reason.type.user,model_vtt_project_task_reason_type,project.group_project_user,1,0,0,0
+access_project_task_reason_type_manager,project.task.reason.type.manager,model_vtt_project_task_reason_type,project.group_project_manager,1,1,1,1
+access_task_duplicate_wz_user,task.duplicate.wz.user,model_vtt_project_task_duplicate_wz,project.group_project_user,1,1,1,1

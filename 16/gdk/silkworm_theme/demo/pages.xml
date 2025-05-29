@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="services_page" model="website.page">
+            <field name="name">Art Approval</field>
+            <field name="website_published">True</field>
+            <field name="url">/approval</field>
+            <field name="type">qweb</field>
+            <field name="key">theme_tutorial.artapproval_page</field>
+            <field name="arch" type="xml">
+                <t t-name="theme_tutorial.artapproval_page_template">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="container">
+                                <h1>Art Approval Checklist</h1>
+                                <ul>
+                                    <li>Check the spelling of all proofs</li>
+                                    <li>Verify your color selections</li>
+                                    <li>Provide detailed feedback on any changes</li>
+                                </ul>
+                                <!-- Area for Snippets === -->
+                                <div class="oe_structure"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>

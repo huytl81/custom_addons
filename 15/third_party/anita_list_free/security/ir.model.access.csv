@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_anita_list_user_data,anita_list_free.user_data,model_anita_list_free_user_data,base.group_user,1,1,1,1
+access_anita_list_user_field,anita_list_free.user_field,model_anita_list_free_user_field,base.group_user,1,1,1,1

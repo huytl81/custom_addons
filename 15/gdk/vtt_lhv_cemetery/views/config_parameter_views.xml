@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Ir Config Parameter views-->
+    <data>
+        <!--Tree view-->
+        <record id="vtt_view_tree_ir_config_parameter_show_manager" model="ir.ui.view">
+            <field name="name">Config Parameter Manager</field>
+            <field name="model">ir.config_parameter</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree editable="top" create="0" delete="0">
+                    <field name="description"/>
+                    <field name="key" invisible="1"/>
+                    <field name="value"/>
+                    <field name="show_manager" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Config Parameter action-->
+        <record id="vtt_act_window_ir_config_parameter_show_manager" model="ir.actions.act_window">
+            <field name="name">Config Parameter</field>
+            <field name="res_model">ir.config_parameter</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('show_manager', '!=', False)]</field>
+            <field name="view_id" ref="vtt_lhv_cemetery.vtt_view_tree_ir_config_parameter_show_manager"/>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem id="vtt_menu_contract_setting_technical" name="Technical Settings" parent="vtt_menu_contract_setting" sequence="50" action="vtt_act_window_ir_config_parameter_show_manager"/>-->
+    </data>
+</odoo>

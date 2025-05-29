@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+	<record id="action_cloud_dashboard" model="ir.actions.client">
+		<field name="name">Cloud Dashboard</field>
+		<field name="tag">dashboard_cloud</field>
+	</record>
+</odoo>

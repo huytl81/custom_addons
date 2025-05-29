@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--Sale Report A5-->
+        <template id="vtt_report_saleorder_a5">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="vtt_sale_report_template.vtt_report_sale_doc_a5" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <!--Change Sale report to new paper format-->
+        <record id="sale.action_report_saleorder" model="ir.actions.report">
+            <!--Change Paper format-->
+            <field name="paperformat_id" ref="vtt_sale_report_template.vtt_paperformat_standard_a5"/>
+
+            <!--Modify report name-->
+            <!--<field name="print_report_name">(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name + ' - ' + object.partner_id.display_name)) or 'Order - %s' % (object.name + ' - ' + object.partner_id.display_name)</field>-->
+
+            <!--Change report document-->
+            <field name="report_name">vtt_hiepphat_config.vtt_report_saleorder_a5</field>
+            <field name="report_file">vtt_hiepphat_config.vtt_report_saleorder_a5</field>
+        </record>
+    </data>
+
+</odoo>

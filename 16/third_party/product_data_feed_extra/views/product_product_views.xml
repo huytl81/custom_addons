@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.form.inherit.product_data_feed_extra</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='extra_variant']" position="inside">
+                <field name="feed_size"/>
+                <field name="feed_color"/>
+                <field name="feed_material"/>
+                <field name="feed_pattern"/>
+                <field name="feed_gender" widget="radio" options="{'horizontal': true}"/>
+            </xpath>
+            <xpath expr="//group[@name='extra_data']" position="inside">
+                <label for="feed_length" string="Product Sizes"/>
+                <div class="o_row">
+                    <field name="feed_length"/>
+                    <span class="text-muted"> x </span>
+                    <field name="feed_width"/>
+                    <span class="text-muted"> x </span>
+                    <field name="feed_height"/>
+                    <field name="feed_size_uom" widget="selection" attrs="{'required': [('feed_length', '!=', 0), ('feed_width', '!=', 0), ('feed_height', '!=', 0)]}"/>
+                </div>
+                <field name="feed_expiration_date"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

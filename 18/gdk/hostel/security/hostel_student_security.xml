@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record model="res.groups" id="group_hostel_student_user">
+        <field name="name">Hostel Student User Group</field>
+        <field name="category_id" ref="module_category_hostel"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <record model="res.groups" id="group_hostel_student_manager">
+        <field name="name">Hostel Student Manager Group</field>
+        <field name="category_id" ref="module_category_hostel"/>
+        <field name="implied_ids" eval="[(4,ref('group_hostel_student_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

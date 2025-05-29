@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Picking Product Import Report-->
+    <data>
+        <!--Export Product Quantity Report-->
+        <record id="vtt_report_stock_picking_product_quantity" model="ir.actions.report">
+            <field name="name">Stock Picking Products</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">stock.picking</field>
+            <field name="report_name">vtt_stock_picking_product_qty_py3o</field>
+            <field name="print_report_name">'picking_%s_products' % (object.name or '.').replace(' ','')</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">xls</field>
+            <!--<field name="py3o_filetype">docx</field>-->
+            <field name="module">vtt_minhduong_config</field>
+            <field name="py3o_multi_in_one">False</field>
+            <field name="py3o_template_fallback">report/stock_picking_product_quantity.ods</field>
+            <!--<field name="py3o_template_fallback">report/stock2.odt</field>-->
+            <field name="binding_model_id" ref="vtt_minhduong_config.model_stock_picking" />
+            <field name="binding_view_types">form</field>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

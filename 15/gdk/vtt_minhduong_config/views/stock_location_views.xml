@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Location views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_from_stock_location_int_transfer" model="ir.ui.view">
+            <field name="name">Stock Location List add Internal Transfer</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button string="Internal Move Out" class="oe_stat_button" context="{'loc_move_type': 'move_out'}" icon="fa-arrow-up" name="action_create_internal_transfer" type="object" invisible="1"/>
+                    <button string="Internal Move In" class="oe_stat_button" context="{'loc_move_type': 'move_in'}" icon="fa-arrow-down" name="action_create_internal_transfer" type="object" invisible="1"/>
+                </div>
+
+                <!--Add Tag-->
+                <field name="return_location" position="after">
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                </field>
+
+                <!--Add Sequence-->
+                <field name="usage" position="after">
+                    <field name="sequence" widget="numeric_step" options="{'step': 1.0}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_stock_location_quant_sum" model="ir.ui.view">
+            <field name="name">Stock Location List add Quant Sum</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_tree2"/>
+            <field name="arch" type="xml">
+                <field name="usage" position="after">
+                    <!--Add Sequence-->
+                    <field name="sequence" optional="show"/>
+                    <!--Add tag-->
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
+
+                    <field name="vtt_quants_sum" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_stock_location_quant_sum" model="ir.ui.view">
+            <field name="name">Stock Location Filter add Quant Sum</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_search"/>
+            <field name="arch" type="xml">
+                <field name="location_id" position="after">
+                    <!--Add Tag-->
+                    <field name="vtt_tag_ids"/>
+                    <separator/>
+                    <filter name="vtt_quant_sum_free" string="Free Location" domain="[('vtt_quants_sum', '&lt;=', 0.0)]"/>
+                    <separator/>
+                    <filter name="filter_product_onhand" string="Product Onhand" domain="[('target_product_onhand', '!=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Tags" name="groupby_tags" domain="[]" context="{'group_by': 'vtt_tag_ids'}"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Stock Location Tag views-->
+    <data>
+        <!--List view-->
+        <record id="vtt_view_tree_stock_location_tag" model="ir.ui.view">
+            <field name="name">Stock Location Tag List</field>
+            <field name="model">vtt.stock.location.tag</field>
+            <field name="arch" type="xml">
+                <tree string="Tags" editable="top">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_stock_location_tag" model="ir.actions.act_window">
+            <field name="name">Location Tags</field>
+            <field name="res_model">vtt.stock.location.tag</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_config_stock_location_tag" name="Location Tag" parent="stock.menu_warehouse_config" action="vtt_act_window_stock_location_tag" sequence="100"/>
+    </data>
+</odoo>

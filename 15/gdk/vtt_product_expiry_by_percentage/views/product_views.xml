@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Template views-->
+    <data>
+        <!--Form view add Expiration Percentage-->
+        <record id="vtt_view_form_product_template_expiration_percentage" model="ir.ui.view">
+            <field name="name">Product Template Form add Expiration Percentage</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product_expiry.view_product_form_expiry" />
+            <field name="arch" type="xml">
+                <field name="use_expiration_date" position="after">
+                    <field name="vtt_show_expiration_percentage" attrs="{'invisible': ['|', ('tracking', '=','none'), ('use_expiration_date', '=', False)]}"/>
+                    <field name="vtt_use_production_date" attrs="{'invisible': ['|', ('tracking', '=','none'), ('use_expiration_date', '=', False)]}"/>
+                </field>
+
+                <group name="expiry_and_lots" position="after">
+                    <group string="Dates" name="expiry_percentage" groups="stock.group_production_lot" attrs="{'invisible': ['|', ('vtt_show_expiration_percentage', '=', False), '|', ('tracking', '=','none'), ('use_expiration_date', '=', False)]}">
+                        <label for="expiration_time"/>
+                        <div>
+                            <field name="expiration_time" class="oe_inline"/>
+                            <span> days</span>
+                        </div>
+                        <label for="vtt_use_time_percentage"/>
+                        <div>
+                            <field name="vtt_use_time_percentage" class="oe_inline"/>
+                            <span> %</span>
+                        </div>
+                        <label for="vtt_removal_time_percentage"/>
+                        <div>
+                            <field name="vtt_removal_time_percentage" class="oe_inline"/>
+                            <span> %</span>
+                        </div>
+                        <label for="vtt_alert_time_percentage"/>
+                        <div>
+                            <field name="vtt_alert_time_percentage" class="oe_inline"/>
+                            <span> %</span>
+                        </div>
+                    </group>
+                </group>
+
+                <group name="expiry_and_lots" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('vtt_show_expiration_percentage', '!=', False), '|', ('tracking', '=','none'), ('use_expiration_date', '=', False)]}</attribute>
+                </group>
+            </field>
+        </record>
+
+        <!--List view add Expiration-->
+        <record id="vtt_view_tree_product_template_expiration_data" model="ir.ui.view">
+            <field name="name">Product Template List add Expiration Data</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="uom_id" position="after">
+                    <field name="expiration_time"/>
+                    <field name="vtt_use_time_percentage"/>
+                    <field name="vtt_removal_time_percentage"/>
+                    <field name="vtt_alert_time_percentage"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Move Line views-->
+    <data>
+        <!--Tree view Operation add Expiration Percentage-->
+        <record id="vtt_view_tree_stock_move_line_operation_expiry_perc" model="ir.ui.view">
+            <field name="name">Stock Move Line Operation add Expiration Percentage</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="product_expiry.view_stock_move_line_operation_tree_expiry"/>
+            <field name="arch" type="xml">
+                <field name="expiration_date" position="before">
+                    <field name="vtt_production_date" optional="show" force_save="1" attrs="{'column_invisible': [('parent.use_expiration_date', '!=', True)], 'readonly': [('picking_type_use_existing_lots', '=', True)]}"/>
+                </field>
+
+                <field name="expiration_date" position="after">
+                    <!--<field name="vtt_expiration_percentage" readonly="1" force_save="1" attrs="{'column_invisible': ['|', ('parent.use_expiration_date', '!=', True), ('parent.picking_code', '!=', 'incoming')]}"/>-->
+                    <field name="vtt_expiration_percentage" readonly="1" force_save="1" attrs="{'column_invisible': [('parent.use_expiration_date', '!=', True)]}"/>
+                </field>
+
+                <!--Show expiration date in delivery-->
+                <field name="expiration_date" position="attributes">
+                    <attribute name="attrs">{'readonly': [('picking_type_use_existing_lots', '=', True)]}</attribute>
+                    <attribute name="widget">date</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view Detailed Operation add Expiration Percentage-->
+        <record id="vtt_view_tree_stock_move_line_detailed_operation_expiry_perc" model="ir.ui.view">
+            <field name="name">Stock Move Line Detailed Operation add Expiration Percentage</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="product_expiry.view_stock_move_line_detailed_operation_tree_expiry"/>
+            <field name="arch" type="xml">
+                <field name="expiration_date" position="before">
+                    <field name="vtt_production_date" optional="show" force_save="1" attrs="{'readonly': [('picking_type_use_existing_lots', '=', True)],}"/>
+                </field>
+
+                <field name="expiration_date" position="after">
+                    <!--<field name="vtt_expiration_percentage" readonly="1" force_save="1" attrs="{'column_invisible': ['|', ('parent.use_expiration_date', '!=', True), ('parent.picking_code', '!=', 'incoming')]}"/>-->
+                    <field name="vtt_expiration_percentage" readonly="1" force_save="1"/>
+                </field>
+
+                <!--Show expiration date in delivery-->
+                <field name="expiration_date" position="attributes">
+                    <attribute name="attrs">{'readonly': [('picking_type_use_existing_lots', '=', True)]}</attribute>
+                    <attribute name="widget">date</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

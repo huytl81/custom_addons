@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Security group category-->
+    <data>
+        <!--Cemetery group category root-->
+        <record id="vtt_group_categ_cemetery_root" model="ir.module.category">
+            <field name="name">Cemetery Management</field>
+            <field name="description">Cemetery Management Access Rights</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!--Contract group category-->
+        <record id="vtt_group_categ_cemetery_contract" model="ir.module.category">
+            <field name="name">Contracts</field>
+            <field name="description">Cemetery Contract Access Rights</field>
+            <field name="parent_id" ref="vtt_group_categ_cemetery_root"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!--Construction group category-->
+        <record id="vtt_group_categ_cemetery_construct" model="ir.module.category">
+            <field name="name">Constructions</field>
+            <field name="description">Cemetery Constructions Access Rights</field>
+            <field name="parent_id" ref="vtt_group_categ_cemetery_root"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <!--Care service group category-->
+        <record id="vtt_group_categ_cemetery_care_service" model="ir.module.category">
+            <field name="name">Care Services</field>
+            <field name="description">Care Services Access Rights</field>
+            <field name="parent_id" ref="vtt_group_categ_cemetery_root"/>
+            <field name="sequence">30</field>
+        </record>
+    </data>
+
+    <!--Security group-->
+    <data>
+        <!--Contract groups-->
+        <!--Contract user group-->
+        <record id="vtt_group_cemetery_contract_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="vtt_group_categ_cemetery_contract"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+
+        <record id="vtt_group_cemetery_contract_approve" model="res.groups">
+            <field name="name">Land Plot Approve</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('vtt_lhv_cemetery.vtt_group_cemetery_contract_user'))]"/>
+        </record>
+
+        <!--Contract manager group-->
+        <record id="vtt_group_cemetery_contract_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="vtt_group_categ_cemetery_contract"/>
+            <field name="implied_ids" eval="[(4, ref('vtt_lhv_cemetery.vtt_group_cemetery_contract_user')), (4, ref('vtt_lhv_cemetery.vtt_group_cemetery_contract_approve')), (4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+
+        <!--Construction groups-->
+        <!--Construction user group-->
+        <record id="vtt_group_cemetery_construct_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="vtt_group_categ_cemetery_construct"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('account.group_account_invoice'))]"/>
+        </record>
+
+        <!--Construction manager group-->
+        <record id="vtt_group_cemetery_construct_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="vtt_group_categ_cemetery_construct"/>
+            <field name="implied_ids" eval="[(4, ref('vtt_lhv_cemetery.vtt_group_cemetery_construct_user'))]"/>
+        </record>
+
+        <!--Care Service groups-->
+        <!--Care Service user group-->
+        <record id="vtt_group_cemetery_care_service_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="vtt_group_categ_cemetery_care_service"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+
+        <!--Care Service manager group-->
+        <record id="vtt_group_cemetery_care_service_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="vtt_group_categ_cemetery_care_service"/>
+            <field name="implied_ids" eval="[(4, ref('vtt_lhv_cemetery.vtt_group_cemetery_care_service_user')), (4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+
+        <!--Apply manager groups to Administrator-->
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('vtt_lhv_cemetery.vtt_group_cemetery_contract_manager')), (4, ref('vtt_lhv_cemetery.vtt_group_cemetery_construct_manager')), (4, ref('vtt_lhv_cemetery.vtt_group_cemetery_care_service_manager'))]"/>
+        </record>
+    </data>
+
+    <!--Security rules-->
+    <data></data>
+</odoo>

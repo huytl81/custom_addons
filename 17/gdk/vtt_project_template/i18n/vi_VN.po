@@ -1,0 +1,207 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_project_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-07 04:16+0000\n"
+"PO-Revision-Date: 2024-08-07 04:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_project_template
+#: model:ir.model.fields.selection,name:vtt_project_template.selection__vtt_project_template__privacy_visibility__employees
+msgid "All internal users"
+msgstr "Tất cả người dùng nội bộ"
+
+#. module: vtt_project_template
+#: model:project.task.type,name:vtt_project_template.vtt_data_project_task_type_cancel
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: vtt_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+msgid "Create New Project"
+msgstr "Tạo Dự án"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__create_uid
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__create_date
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__create_date
+msgid "Created on"
+msgstr "Ngày tạo"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__description
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__description
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template_task
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__display_name
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vtt_project_template
+#: model:project.task.type,name:vtt_project_template.vtt_data_project_task_type_done
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: vtt_project_template
+#: model:ir.model.fields.selection,name:vtt_project_template.selection__vtt_project_template_task__priority__1
+msgid "High"
+msgstr "Cao"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__id
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_project_template
+#: model:ir.model.fields.selection,name:vtt_project_template.selection__vtt_project_template__privacy_visibility__followers
+msgid "Invited internal users (private)"
+msgstr "Người dùng nội bộ được mời (riêng tư)"
+
+#. module: vtt_project_template
+#: model:ir.model.fields.selection,name:vtt_project_template.selection__vtt_project_template__privacy_visibility__portal
+msgid "Invited portal users and all internal users (public)"
+msgstr "Người dùng cổng thông tin được mời và tất cả người dùng nội bộ (công khai)"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__write_uid
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__write_date
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: vtt_project_template
+#: model:ir.model.fields.selection,name:vtt_project_template.selection__vtt_project_template_task__priority__0
+msgid "Low"
+msgstr "Thấp"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__name
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__name
+msgid "Name"
+msgstr "Tên Mẫu"
+
+#. module: vtt_project_template
+#: model:project.task.type,name:vtt_project_template.vtt_data_project_task_type_new
+msgid "New"
+msgstr "Mới"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__parent_id
+msgid "Parent Task"
+msgstr "Nhiệm vụ cha"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__priority
+msgid "Priority"
+msgstr "Mức độ ưu tiên"
+
+#. module: vtt_project_template
+#: model:project.task.type,name:vtt_project_template.vtt_data_project_task_type_progress
+msgid "Progress"
+msgstr "Đang thực hiện"
+
+#. module: vtt_project_template
+#: model:ir.model,name:vtt_project_template.model_project_project
+msgid "Project"
+msgstr "Dự án"
+
+#. module: vtt_project_template
+#: model:ir.model,name:vtt_project_template.model_vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__project_template_id
+msgid "Project Template"
+msgstr "Mẫu Dự án"
+
+#. module: vtt_project_template
+#: model:ir.model,name:vtt_project_template.model_vtt_project_template_task
+msgid "Project Template Task"
+msgstr "Nhiệm vụ"
+
+#. module: vtt_project_template
+#: model:ir.actions.act_window,name:vtt_project_template.vtt_act_window_project_template
+#: model:ir.ui.menu,name:vtt_project_template.vtt_menu_project_config_project_template
+msgid "Project Templates"
+msgstr "Mẫu Dự án"
+
+#. module: vtt_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+msgid "Project description..."
+msgstr "Mô tả dự án"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: vtt_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__child_ids
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template_task
+msgid "Sub-tasks"
+msgstr "Nhiệm vụ phụ"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__tag_ids
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template_task__tag_ids
+msgid "Tags"
+msgstr "Thẻ"
+
+#. module: vtt_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template_task
+msgid "Task Title..."
+msgstr "Tiêu đề công việc"
+
+#. module: vtt_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template_task
+msgid "Task description..."
+msgstr "Mô tả công việc"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__task_ids
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+msgid "Tasks"
+msgstr "Nhiệm vụ"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__type_ids
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+msgid "Tasks Stages"
+msgstr "Giai đoạn"
+
+#. module: vtt_project_template
+#: model:ir.model.fields,field_description:vtt_project_template.field_vtt_project_template__privacy_visibility
+msgid "Visibility"
+msgstr "Hiển thị"
+
+#. module: vtt_project_template
+#: model_terms:ir.ui.view,arch_db:vtt_project_template.vtt_view_form_project_template
+msgid "e.g. Tasks by Production"
+msgstr "Ví dụ: Đầu việc theo phân loại sản phẩm"

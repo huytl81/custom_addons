@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Python code views-->
+    <data>
+        <!--Form view-->
+        <record id="ev_view_form_python_code" model="ir.ui.view">
+            <field name="name">Python Code Form</field>
+            <field name="model">ev.python.code</field>
+            <field name="arch" type="xml">
+                <form string="Execute Python Code">
+                    <header>
+                         <button name="execute_code" string="Execute" type="object" icon="fa-play"/>
+                         <button special="cancel" string="Cancel" icon="fa-close"/>
+                     </header>
+                    <sheet>
+                        <notebook>
+                            <page string="Name">
+                                <div class="oe_title">
+                                    <h1>
+                                        <field name="name"/>
+                                    </h1>
+                                </div>
+                                <!--<field name="name" nolabel="1" colspan="4"/>-->
+                            </page>
+
+                            <page string="Result">
+                                <field name="result" widget="code" nolabel="1"/>
+                            </page>
+
+                            <page string="Sort Property">
+                                <group>
+                                    <group>
+                                        <field name="sequence"/>
+                                        <field name="active" widget="boolean_toggle"/>
+                                    </group>
+                                    <group>
+                                        <field name="color"/>
+                                        <field name="notice"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
+                        <separator colspan="4" string="Generate your python code below and click on Execute button."/>
+
+                        <field name="code" nolabel="1" widget="code" options="{'mode':'python'}" style="font-size:50px;"/>
+
+                        <group>
+                            <button special="cancel" string="Cancel" icon="fa-close"/>
+                            <button name="execute_code" string="Execute" type="object" icon="fa-play"/>
+                         </group>
+                        <separator string="Result"/>
+                        <field name="result" widget="code" nolabel="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="ev_view_tree_python_code" model="ir.ui.view">
+            <field name="name">Python Code List</field>
+            <field name="model">ev.python.code</field>
+            <field name="arch" type="xml">
+                <tree string="Python Code" decoration-danger="color=='red'" decoration-warning="color=='yellow'" decoration-info="color=='blue'" decoration-success="color=='green'" decoration-bf="notice" multi_edit="1">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" readonly="1"/>
+                    <field name="color"/>
+                    <field name="notice"/>
+                    <button name="execute_code" string="Execute" type="object" icon="fa-play"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="ev_view_search_python_code" model="ir.ui.view">
+            <field name="name">Python Code Filter</field>
+            <field name="model">ev.python.code</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter string="Notice" name="notices" domain="[('notice', '!=', False)]"/>
+                    <filter string="Regular" name="innotices" domain="[('notice', '=', False)]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Color" name="groupby_color" context="{'group_by': 'color'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="ev_act_window_python_code" model="ir.actions.act_window">
+            <field name="name">Execute Python Code</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ev.python.code</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem name="Python Code" id="ev_menu_python_code_root" sequence="30" web_icon="ev_python_code_order,static/description/icon.png"/>-->
+        <menuitem name="Python Code" id="ev_menu_python_code_code" parent="base.menu_automation" sequence="10" action="ev_act_window_python_code"/>
+    </data>
+</odoo>

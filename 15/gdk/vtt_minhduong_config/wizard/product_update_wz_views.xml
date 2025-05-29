@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Update Wizard views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_product_update_wizard" model="ir.ui.view">
+            <field name="name">Product Update Wizard</field>
+            <field name="model">vtt.product.update.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="filename" invisible="1"/>
+                                <field name="datas" filename="filename"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='Update Now' name="submit_product_update_wz" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_product_update_wz" model="ir.actions.act_window">
+            <field name="name">Product Update Wizard</field>
+            <field name="res_model">vtt.product.update.wz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_stock_inventory_control_product_update_wz" name="Product Update Wizard" parent="stock.menu_stock_inventory_control" action="vtt_act_window_product_update_wz" sequence="200"/>
+    </data>
+</odoo>

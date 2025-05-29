@@ -1,0 +1,294 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_sale_report_template
+#   * sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-06 03:06+0000\n"
+"PO-Revision-Date: 2020-11-06 03:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "&amp;nbsp;<span>on</span>&amp;nbsp;"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "024-36 757 313"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "024-62913207/62913307"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "0913 281 688"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<i class=\"fa fa-at\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<i class=\"fa fa-building-o\" role=\"img\" aria-label=\"Fiscal number\"/>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<i class=\"fa fa-globe\" role=\"img\" aria-label=\"Website\" title=\"Website\"/>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<i class=\"fa fa-phone\" role=\"img\" aria-label=\"Phone\" title=\"Phone\"/>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<span>Disc.(%)</span>"
+msgstr "<span>Chiết khấu(%)</span>"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<span>Pro-Forma Invoice # </span>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Tổng cộng tiền hàng</strong>"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Address</strong>:"
+msgstr "<strong>Địa chỉ</strong>:"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Cc</strong>:"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Customer</strong>:"
+msgstr "<strong>Khách hàng</strong>:"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>Email:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Email</strong>:"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>Fax:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>Hotline:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Mobile</strong>:"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Payment Terms:</strong>"
+msgstr "<strong>Điều khoản thanh toán:</strong>"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Phone</strong>:"
+msgstr "<strong>Điện thoại</strong>:"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Salesperson</strong>:"
+msgstr "<strong>Nhân viên</strong>:"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Signature</strong>"
+msgstr "<strong>Chữ ký</strong>"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Tổng cộng tiền hàng</strong>"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>Tel:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Total</strong>"
+msgstr "<strong>Tổng tiền thanh toán</strong>"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>Trụ sở:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>VP Hà Nội:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>VP Hồ Chí Minh:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "<strong>Website:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "<strong>Your Reference:</strong>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Amount"
+msgstr "Thành tiền"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Date Ordered"
+msgstr "Ngày đơn hàng"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Expiration Date:"
+msgstr "Ngày hết hạn:"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "Logo"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Name"
+msgstr "Tên hàng hóa, dịch vụ"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Order #"
+msgstr "Đơn hàng #"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid ""
+"Page:\n"
+"                        <span class=\"page\"/>\n"
+"                        of\n"
+"                        <span class=\"topage\"/>"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Quotation #"
+msgstr "Báo giá #"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Quotation Date"
+msgstr "Ngày báo giá"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "STT"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid ""
+"Số 3A/ 10 đường Trần Văn Giàu, xã Phạm Văn Hai, huyện Bình Chánh, thành phố "
+"Hồ Chí Minh"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid ""
+"Số 48, ngõ 68/137, đường Nguyễn Văn Linh, tổ 14, phường Thạch Bàn, quận Long"
+" Biên, Hà Nội"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "Số C3-2B/No4, Phường Thạch Bàn, Quận Long Biên, Hà Nội."
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Total Price"
+msgstr "Thành tiền"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "Unit Price"
+msgstr "Đơn giá"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_report_sale_doc
+msgid "UoM"
+msgstr "Đơn vị tính"
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "info@tiendatco.com.vn"
+msgstr ""
+
+#. module: vtt_sale_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_sale_report_template.vtt_layout_background
+msgid "www.tiendatco.com.vn"
+msgstr ""
+
+#. module: sale
+#: model:ir.actions.report,print_report_name:sale.action_report_saleorder
+msgid ""
+"(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or "
+"'Order - %s' % (object.name)"
+msgstr ""
+"(object.state in ('draft', 'sent') and 'Báo giá - %s' % (object.name + ' - ' + object.partner_id.display_name)) or "
+"'Đơn hàng - %s' % (object.name + ' - ' + object.partner_id.display_name)"

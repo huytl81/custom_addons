@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Production Lot views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_stock_production_lot" model="ir.ui.view">
+            <field name="name">Stock Production Lot</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="vtt_is_expired"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_stock_production_lot_expired" model="ir.ui.view">
+            <field name="name">Production Lot List add Expired</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="product_expiry.view_production_lot_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="expiration_date" position="after">
+                    <field name="vtt_is_expired"/>
+                    <field name="product_qty_available" invisible="1"/>
+
+                    <!--Add tag-->
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="hide"/>
+                </field>
+
+                <!--Tree add Expired decoration-->
+                <tree position="attributes">
+                    <attribute name="decoration-danger">vtt_is_expired</attribute>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_stock_production_lot_expired" model="ir.ui.view">
+            <field name="name">Production Lot Filter add Expired</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="product_expiry.search_product_lot_filter_inherit_product_expiry"/>
+            <field name="arch" type="xml">
+                <filter name="expiration_alerts" position="after">
+                    <separator/>
+                    <filter name="vtt_is_expired_alerts" string="Is Expired Lot" domain="[('vtt_is_expired', '!=', False)]"/>
+                    <separator/>
+                    <filter name="vtt_is_qty_available" string="Quantity Available" domain="[('product_qty_available', '!=', False)]"/>
+                </filter>
+
+                <field name="product_id" position="after">
+                    <field name="vtt_tag_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Lots action add filter available-->
+        <record id="stock.action_production_lot_form" model="ir.actions.act_window">
+            <field name="context">{
+                'search_default_group_by_product': 1,
+                'display_complete': True,
+                'default_company_id': allowed_company_ids[0],
+                'search_default_vtt_is_qty_available': 1
+            }</field>
+        </record>
+    </data>
+</odoo>

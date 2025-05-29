@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Warranty Ticket views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_warranty_ticket" model="ir.ui.view">
+            <field name="name">Warranty Ticket</field>
+            <field name="model">vtt.warranty.ticket</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_valid" type="object" string="Valid" class="btn-primary" invisible="state == '1_valid'"/>
+                        <button name="action_expire" type="object" string="Expire" class="btn-primary" invisible="state == '2_expire'"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <!--Ribbons-->
+                        <widget name="web_ribbon" title="Expired" bg_color="text-bg-warning" invisible="state != 'expire'"/>
+
+                        <div class="oe_title">
+                            <label for="code"/>
+                            <h1>
+                                <field name="code" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" readonly="state != 'draft'"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                            <group>
+                                <field name="type" readonly="state != 'draft'"/>
+                                <field name="date_warranty" readonly="state != 'draft'"/>
+                            </group>
+                            <group>
+                                <field name="equipment_id" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id}" readonly="state != 'draft'"/>
+                                <field name="equipment_model_name"/>
+                                <field name="equipment_manufacture"/>
+                                <field name="equipment_manufacture_year"/>
+                                <field name="equipment_serial_number"/>
+                            </group>
+                            <group string="Related Part" invisible="type != 'parts'">
+                                <field name="product_id" readonly="state != 'draft'"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_warranty_ticket" model="ir.ui.view">
+            <field name="name">Warranty Ticket List</field>
+            <field name="model">vtt.warranty.ticket</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="state == '2_expire'">
+                    <field name="date_warranty"/>
+                    <field name="display_name" column_invisible="1"/>
+                    <field name="code" optional="show"/>
+                    <field name="partner_id"/>
+                    <field name="equipment_id"/>
+                    <field name="type"/>
+                    <field name="product_id"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="state" widget="badge" decoration-muted="state == '0_draft'" decoration-success="state == '1_valid'" decoration-danger="state == '2_expire'"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Kanban view-->
+        <record id="vtt_view_kanban_warranty_ticket" model="ir.ui.view">
+            <field name="name">Warranty Ticket Kanban</field>
+            <field name="model">vtt.warranty.ticket</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="date_warranty"/>
+                    <field name="code"/>
+                    <field name="partner_id"/>
+                    <field name="equipment_id"/>
+                    <field name="type"/>
+                    <field name="product_id"/>
+                    <field name="state"/>
+                    <progressbar field="activity_state" colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong><span t-esc="record.equipment_id.value"/></strong>
+                                        <span class="o_kanban_record_subtitle"><span t-esc="record.partner_id.value"/></span>
+                                    </div>
+                                    <div>
+                                        <strong>
+                                            <field name="date_warranty" widget="date"/>
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+                                Type: <strong class="o_kanban_record_title"><span><span t-esc="record.type.value"/></span></strong>
+                                <span t-if="record.type == 'parts'" t-esc="record.product_id.value"/>
+
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                        <field name="state" widget="label_selection" options="{'classes': {'0_draft': 'muted', '2_expire': 'danger', '1_valid': 'success'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_warranty_ticket" model="ir.ui.view">
+            <field name="name">Warranty Ticket Filter</field>
+            <field name="model">vtt.warranty.ticket</field>
+            <field name="arch" type="xml">
+                <search string="Warranty Ticket">
+                    <field name="code" filter_domain="['|', '|', ('code', 'ilike', self), ('partner_id.name', 'ilike', self), ('equipment_id.name', 'ilike', self)]" string="Name"/>
+                    <field name="partner_id"/>
+                    <field name="equipment_id"/>
+                    <field name="display_name" filter_domain="[('date_warranty', 'ilike', self)]" string="Warranty Date"/>
+                    <separator/>
+                    <filter string="Valid" domain="[('state', '=', '1_valid')]" name="state_valid"/>
+                    <filter string="Expired" domain="[('state', '=', '2_expire')]" name="state_expire"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Partner" name="groupby_partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Equipment" name="groupby_equipment" domain="[]" context="{'group_by': 'equipment_id'}"/>
+                        <filter string="Warranty Date" name="groupby_date_warranty" domain="[]" context="{'group_by': 'date_warranty:month'}"/>
+                        <filter string="Status" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_warranty_ticket" model="ir.actions.act_window">
+            <field name="name">Warranty Tickets</field>
+            <field name="res_model">vtt.warranty.ticket</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+    </data>
+</odoo>

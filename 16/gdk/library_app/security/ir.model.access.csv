@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_user,access.book.user,model_library_book,library_group_user,1,1,1,0
+access_book_manager,access.book.manager,model_library_book,library_group_manager,1,1,1,1
+access_book_category_user,access.book.category.user,model_library_book_category,library_group_user,1,0,0,0
+access_book_category_user,access.book.category.user,model_library_book_category,library_group_manager,1,1,1,1
+access_book_category_user,access.book.category.user,model_library_book_rent,library_group_user,1,0,0,0
+access_book_category_user,access.book.category.user,model_library_book_rent,library_group_manager,1,1,1,1
+access_book_rent_wizard_manager,access.book.rent.wizard.manager,model_library_rent_wizard,library_group_manager,1,1,1,1
+access_book_return_wizard_manager,access.book.return.wizard.manager,model_library_return_wizard,library_group_manager,1,1,1,1
+access_book_rent_statistics_manager,access.book.rent.statistics.manager,model_library_book_rent_statistics,library_group_manager,1,1,1,1

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ward_tree" model="ir.ui.view">
+            <field name="name">ward.tree</field>
+            <field name="model">res.ward</field>
+            <field name="arch" type="xml">
+                <tree string="Wards">
+                    <field name="name" />
+                    <field name="district_id" />
+                    <field name="state_id" />
+                    <field name="country_id" />
+<!--                    <field name="ghn_ward_id" />-->
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <data>
+        <record id="action_ward" model="ir.actions.act_window">
+            <field name="name">Wards</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.ward</field>
+            <field name="help">Display Wards list</field>
+        </record>
+    </data>
+
+    <data>
+        <menuitem id="menu_ward_tree"
+                  action="action_ward"
+                  name="Wards" parent="contacts.menu_localisation"
+                  sequence="2"/>
+    </data>
+
+</odoo>

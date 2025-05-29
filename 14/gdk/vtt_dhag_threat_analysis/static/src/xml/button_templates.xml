@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <button t-name="VttMalwareImport.Buttons" class="btn btn-primary" type="button">
+        Import Malware
+    </button>
+
+    <button t-name="VttCampaignImport.Buttons" class="btn btn-primary" type="button">
+        Import Campaign
+    </button>
+
+</templates>

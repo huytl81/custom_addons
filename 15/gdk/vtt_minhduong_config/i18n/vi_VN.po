@@ -1,0 +1,1267 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_minhduong_config
+# 	* stock_picking_batch
+# 	* product_expiry
+# 	* stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-16 05:42+0000\n"
+"PO-Revision-Date: 2022-11-16 05:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_template_delivery_document_package_calculator
+msgid "<strong>By Packaged</strong>"
+msgstr "<strong>Đóng gói</strong>"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_picking_batch
+msgid "Batch Transfer"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_block_expired
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_block_expired
+msgid "Block Expired Lot"
+msgstr "Chặn lô hàng trôi HSD"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_update_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_partner_update_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_fleet_update_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_fleet_log_services_import_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_custom_import_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_location_gen_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_move_import_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_gen_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_split_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_internal_transfer_wz
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__create_uid
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__create_uid
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__create_date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__create_date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__datas
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_partner_update_wz__datas
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_update_wz__datas
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_log_services_import_wz__datas
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__datas
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_picking_move_import_wz__datas
+msgid "Datas"
+msgstr "File Import"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_partner_update_wz__date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_update_wz__date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_log_services_import_wz__date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__date
+msgid "Date"
+msgstr "Ngày"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__display_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_partner_update_wz__display_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_update_wz__display_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_log_services_import_wz__display_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__display_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking_batch__vtt_fleet_driver_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_fleet_driver_id
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_picking_batch_vehicle
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_fleet_driver_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__vtt_fleet_driver_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__driver_id
+msgid "Driver"
+msgstr "Tài xế"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__filename
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_partner_update_wz__filename
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_update_wz__filename
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_fleet_log_services_import_wz__filename
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__filename
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_picking_move_import_wz__filename
+msgid "Filename"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_location_quant_sum
+msgid "Free Location"
+msgstr "Địa điểm trống"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_location_quant_sum
+msgid "Group By"
+msgstr "Nhóm"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_location_quant_sum
+msgid "Tags"
+msgstr "Nhãn"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_location_gen_wizard
+msgid "Generate Now"
+msgstr "Tạo Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_custom_import_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_fleet_log_services_import_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_move_import_wizard
+msgid "Import Now"
+msgstr "Import dữ liệu"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_kanban_stock_picking_type_custom_import
+msgid "Import from EXCEL"
+msgstr "Import từ EXCEL"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_custom_import_wz__type__incoming
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Incoming"
+msgstr "Nhận hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_custom_import_wz__type__internal
+msgid "Internal"
+msgstr "Nội bộ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_location
+msgid "Inventory Locations"
+msgstr "Địa điểm Kiểm kê"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_production_lot_expired
+msgid "Is Expired Lot"
+msgstr "Đã trôi HSD"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_production_lot_expired
+msgid "Quantity Available"
+msgstr "Còn tồn kho"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_production_lot__vtt_is_expired
+msgid "Is Expired?"
+msgstr "Trôi HSD"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz____last_update
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz____last_update
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__write_uid
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__write_uid
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_update_wz__write_date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__write_date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__loc_level
+msgid "Level"
+msgstr "Tầng"
+
+#. module: vtt_minhduong_config
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_stock_setting_stock_loc_gen
+msgid "Location Generate"
+msgstr "Trình tạo Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__code
+msgid "Location Keyword"
+msgstr "Từ khóa"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__pattern
+msgid "Location Pattern"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_production_lot
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__lot_id
+msgid "Lot/Serial"
+msgstr "Lô/Số serial"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__new_loc_name
+msgid "New Location Name"
+msgstr "Tên Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.constraint,message:vtt_minhduong_config.constraint_res_partner_unique_partner_code
+msgid "One Partner should only have one Partner Code."
+msgstr "Mỗi Mã Đối tác chỉ được gán cho một Đối tác."
+
+#. module: vtt_minhduong_config
+#: model:ir.model.constraint,message:vtt_minhduong_config.constraint_stock_warehouse_unique_warehouse_code
+msgid "One Warehouse should only have one Warehouse Code."
+msgstr "Mỗi Mã Kho chỉ được gán cho một Kho hàng."
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__picking_type_id
+msgid "Operation"
+msgstr "Hoạt động"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_custom_import_wz__type__outgoing
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Outgoing"
+msgstr "Giao hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__loc_pallet
+msgid "Pallets Number/ Level"
+msgstr "Số Pallet/ tầng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__loc_parent_id
+msgid "Parent Location"
+msgstr "Địa điểm cha"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_res_partner__vtt_partner_code
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_res_users__vtt_partner_code
+msgid "Partner Code"
+msgstr "Mã Đối tác"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Loại giao nhận"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_product_update_wz
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_product_update_wz
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_stock_inventory_control_product_update_wz
+msgid "Product Update Wizard"
+msgstr "Trình cập nhật thông tin sản phẩm"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_partner_update_wz
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_partner_update_wz
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_contacts_config_partner_update_wz
+msgid "Partner Update Wizard"
+msgstr "Trình cập nhật thông tin liên hệ"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_fleet_update_wz
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_fleet_update_wz
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_fleet_vehicles_fleet_update_wz
+msgid "Fleet Update Wizard"
+msgstr "Trình cập nhật thông tin đội xe"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_fleet_log_services_import_wz
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_fleet_log_services_import_wz
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_fleet_vehicles_log_services_import_wz
+msgid "Fleet Log Services Import Wizard"
+msgstr "Trình Import chi phí"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_quant
+msgid "Quants"
+msgstr "Số lượng"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/wizard/product_update_wz.py:0
+#: code:addons/vtt_minhduong_config/wizard/stock_picking_move_import_wz.py:0
+#, python-format
+msgid "Some problem occur from your product details.Please checkout of it."
+msgstr ""
+"Đã có lỗi xảy ra trong chi tiết hàng hóa của bạn. Vui lòng kiểm tra lại "
+"trước khi tiếp tục."
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/wizard/partner_update_wz.py:0
+#, python-format
+msgid "Some problem occur from your partner details.Please checkout of it."
+msgstr ""
+"Đã có lỗi xảy ra trong chi tiết thông tin liên hệ của bạn. Vui lòng kiểm tra lại "
+"trước khi tiếp tục."
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/wizard/fleet_update_wz.py:0
+#, python-format
+msgid "Some problem occur from your data details.Please checkout of it."
+msgstr ""
+"Đã có lỗi xảy ra trong dữ liệu chi tiết của bạn. Vui lòng kiểm tra lại "
+"trước khi tiếp tục."
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_custom_import_wz
+msgid "Stock Custom Import Wizard"
+msgstr "Trình import dữ liệu kho"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_picking_type.py:0
+#, python-format
+msgid "Stock Import From EXCEL"
+msgstr "Import từ file EXCEL"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_stock_location_gen
+msgid "Stock Location Generate"
+msgstr "Trình tạo Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_location_gen_wz
+msgid "Stock Location Generate Wizard"
+msgstr "Trình tạo Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_move
+msgid "Stock Move"
+msgstr "Hoạt động kho"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_location__vtt_quants_sum
+msgid "Total Quant Sum"
+msgstr "Tổng khối lượng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_picking
+msgid "Transfer"
+msgstr "Điều chuyển"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__type
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__type
+msgid "Type"
+msgstr "Loại"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_update_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_partner_update_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_fleet_update_wizard
+msgid "Update Now"
+msgstr "Cập nhật dữ liệu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__use_barcode
+msgid "Use Barcode?"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking_batch__vtt_fleet_vehicle_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_fleet_vehicle_id
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_picking_batch_vehicle
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_picking_add_vehicle
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_fleet_vehicle_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__vtt_fleet_vehicle_id
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_line_add_vehicle
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__vehicle_id
+msgid "Vehicle"
+msgstr "Xe"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_stock_warehouse
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__warehouse_id
+msgid "Warehouse"
+msgstr "Kho"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_warehouse__vtt_warehouse_code
+msgid "Warehouse Code"
+msgstr "Mã Kho"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/wizard/product_update_wz.py:0
+#, python-format
+msgid "Your Excel template does not meet the valid template."
+msgstr "File Excel của bạn không khớp với bản mẫu hợp lệ"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/wizard/stock_custom_import_wz.py:0
+#: code:addons/vtt_minhduong_config/wizard/stock_picking_move_import_wz.py:0
+#, python-format
+msgid ""
+"Your file might not valid or included some mistake.Please checkout of it."
+msgstr ""
+"File dữ liệu của bạn không hợp lệ hoặc chứa một nhầm lẫn nào đó. Vui lòng "
+"kiểm tra lại."
+
+#. module: stock_picking_batch
+#: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__state
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__packing_specification
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__packing_specification
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__packing_specification
+msgid "Packing Specification"
+msgstr "Quy cách"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__vtt_length
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__vtt_length
+msgid "Length (cm)"
+msgstr "Dài (cm)"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__vtt_width
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__vtt_width
+msgid "Width (cm)"
+msgstr "Rộng (cm)"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__vtt_height
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__vtt_height
+msgid "Height (cm)"
+msgstr "Cao (cm)"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_template_add_size_fields
+msgid "Packing Specification"
+msgstr "Quy cách"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_template_add_size_fields
+msgid "Length"
+msgstr "Dài"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_template_add_size_fields
+msgid "Width"
+msgstr "Rộng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_template_add_size_fields
+msgid "Height"
+msgstr "Cao"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__vtt_expiration_date
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_label_layout_line__expiration_date
+msgid "Expiration Date"
+msgstr "HSD"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__note
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__need_note
+msgid "Need Note?"
+msgstr "Cần ghi chú?"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_picking.py:0
+#, python-format
+msgid "Some of your details line need to note the reason before proceed."
+msgstr "Một vài sản phẩm của bạn cần ghi chú lý do trước khi tiếp tục."
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_custom_import_wz__use_batch
+msgid "Use Batch?"
+msgstr "Tạo Batch?"
+
+#. module: product_expiry
+#: model:ir.model.fields,field_description:product_expiry.field_product_template__expiration_time
+#: model:ir.model.fields,field_description:product_expiry.field_product_product__expiration_time
+msgid "Expiration Time"
+msgstr "HSD"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Update Expire."
+msgstr "Cập nhật HSD"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Clear Empty Lines"
+msgstr "Xóa dòng trống"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__fleet_vehicle_model__vehicle_type__motorbike
+msgid "Motorbike"
+msgstr "Xe máy"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_demand_qty
+msgid "Demand Quantity"
+msgstr "Yêu cầu"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__product_uom_qty
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
+msgid "Demand"
+msgstr "Được xác nhận"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.view_move_kandan
+msgid "Initial Demand"
+msgstr "Được xác nhận"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move_line__location_dest_id
+#: model:ir.model.fields,field_description:stock.field_stock_package_level__location_dest_id
+#: model_terms:ir.ui.view,arch_db:stock.report_picking
+#: model_terms:ir.ui.view,arch_db:stock.report_stock_body_print
+#: model_terms:ir.ui.view,arch_db:stock.report_stock_inventory
+#: model_terms:ir.ui.view,arch_db:stock.view_move_tree
+#: model_terms:ir.ui.view,arch_db:stock.vpicktree
+msgid "To"
+msgstr "Đến"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_pack_qty
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__vtt_pack_qty
+msgid "Amount of Packages"
+msgstr "SL Thùng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_surplus_qty
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__vtt_surplus_qty
+msgid "Amount of Surplus"
+msgstr "SL Lẻ"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Import Move"
+msgstr "Import nhập hàng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Move Gen"
+msgstr "Tạo lô chờ"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.report,name:vtt_minhduong_config.vtt_report_stock_picking_product_quantity
+msgid "Stock Picking Products"
+msgstr "Danh mục hàng nhập"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_gen_wz__picking_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_picking_move_import_wz__picking_id
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__picking_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__picking_id
+msgid "Picking"
+msgstr "Mã phiếu"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/wizard/stock_picking_move_import_wz.py:0
+#, python-format
+msgid "Your Picking name does not match.Please checkout of it."
+msgstr ""
+"Số phiếu cập nhật không đúng. Vui lòng kiểm tra lại "
+"trước khi tiếp tục."
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_gen_wizard
+msgid "Generate Line Now"
+msgstr "Tạo Lô"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_gen_wizard
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_gen_wz__line_ids
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_label_layout_move_lines
+msgid "Details"
+msgstr "Chi tiết"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_product_label_layout_move_lines
+msgid "Print Details"
+msgstr "Chi tiết"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_gen_wizard
+msgid "Set All"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_gen_wizard
+msgid "Clear All"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_gen_wz__lot_count_set
+msgid "Lot Count Set"
+msgstr "Số Lô cần tạo"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_gen_wz_line__product_id
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__product_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__product_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_label_layout_line__product_id
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_gen_wz_line__product_default_code
+msgid "Default Code"
+msgstr "Mã nội bộ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_gen_wz_line__lot_count
+msgid "Lot To Generate"
+msgstr "Lô cần tạo"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_move_line_gen_wz
+msgid "Stock Move Line Generate Wizard"
+msgstr "Trình tạo lô hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_picking_move_import_wz
+msgid "Stock Picking Move Import Wizard"
+msgstr "Trình import dữ liệu nhập hàng"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_picking.py:0
+#, python-format
+msgid "Stock Picking Move Import Wizard"
+msgstr "Trình import dữ liệu nhập hàng"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_picking.py:0
+#, python-format
+msgid "Stock Move Line Generate Wizard"
+msgstr "Trình tạo lô hàng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_location_quant_sum
+msgid "Product Onhand"
+msgstr "Hàng tương tự"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_from_stock_location_int_transfer
+msgid "Internal Move Out"
+msgstr "Xuất hàng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_from_stock_location_int_transfer
+msgid "Internal Move In"
+msgstr "Nhập hàng"
+
+#. module: vtt_minhduong_config
+#: model:project.task.type,name:vtt_minhduong_config.vtt_data_project_task_type_todo
+msgid "Todo"
+msgstr "Cần làm"
+
+#. module: vtt_minhduong_config
+#: model:project.task.type,name:vtt_minhduong_config.vtt_data_project_task_type_progress
+msgid "Progress"
+msgstr "Đang xử lý"
+
+#. module: vtt_minhduong_config
+#: model:project.task.type,name:vtt_minhduong_config.vtt_data_project_task_type_done
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: vtt_minhduong_config
+#: model:project.task.type,name:vtt_minhduong_config.vtt_data_project_task_type_cancel
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_ir_attachment__vtt_user_document
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_ir_attachment_user_document
+msgid "Is User Document"
+msgstr "Tài liệu Người dùng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_fleet_vehicle_log_services_filter_date
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Date"
+msgstr "Ngày"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__sequence
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_location__sequence
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__location_sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_amount_total
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_amount_total
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_tree_stock_move_amount
+msgid "Amount Total"
+msgstr "Đã nhận"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_amount_demand
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_amount_demand
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_tree_stock_move_amount
+msgid "Amount Demand"
+msgstr "Yêu cầu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_amount_confirm
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_amount_confirm
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_tree_stock_move_amount
+msgid "Amount Confirm"
+msgstr "Được xác nhận"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "To Do"
+msgstr "Cần làm"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Inventory"
+msgstr "Kho vận"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Creation Date"
+msgstr "Ngày tạo"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Scheduled Date"
+msgstr "Ngày dự kiến"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Source Location"
+msgstr "Địa điểm nguồn"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Destination Location"
+msgstr "Địa điểm đích"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Reference"
+msgstr "Mã phiếu"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Location"
+msgstr "Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_move_demand_report
+msgid "Partner"
+msgstr "Đối tác"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_stock_move_demand_report
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_stock_move_demand_report
+msgid "Product Demand Report"
+msgstr "Báo cáo nhập hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__vtt_current_expiration_percentage
+msgid "Current % Expiration"
+msgstr "% HSD còn lại"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__vtt_use_date
+msgid "Use Date"
+msgstr "Thời hạn bán được"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_quant_product_expired
+msgid "Expired Products"
+msgstr "Trôi HSD"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_quant_product_expired
+msgid "Not Expired Products"
+msgstr "Còn HSD"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.server,name:vtt_minhduong_config.vtt_act_server_stock_quant_multi_apply
+msgid "Apply All"
+msgstr "Áp dụng tất cả"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_move_line_split_wz
+msgid "Stock Move Line Split Wizard"
+msgstr "Trình phân chia dòng hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_split_wz__move_line_id
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__move_line_id
+msgid "Move"
+msgstr "Dòng hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_split_wz__type
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__move_type
+msgid "Type"
+msgstr "Phương thức"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_move_line_split_wz__type__number
+msgid "Number"
+msgstr "Số dòng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_move_line_split_wz__type__quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_move_line_split_wz__amount
+msgid "Amount"
+msgstr "Số lượng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_move_line_split_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_internal_transfer_wz
+msgid "Apply"
+msgstr "Áp dụng"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_move_line.py:0
+#, python-format
+msgid "Move Line Split Wizard"
+msgstr "Trình phân chia dòng hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_barcode_scan_wz
+msgid "Barcode Scan Wizard"
+msgstr "Trình quét mã vạch"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Add Product"
+msgstr "Mở trình quét mã vạch"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__qty
+msgid "Quantity"
+msgstr "Tổng SL Lẻ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__pack_qty
+msgid "Amount of Packages"
+msgstr "SL Thùng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__surplus_qty
+msgid "Amount of Surplus"
+msgstr "SL Lẻ"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+msgid "Apply & continue"
+msgstr "Áp dụng & tiếp tục"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+msgid "Can not recognize the barcode input."
+msgstr "Mã vạch đưa vào không tồn tại trên hệ thống hoặc không thể nhận diện."
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_picking.py:0
+#, python-format
+msgid "Barcode Scan Wizard"
+msgstr "Trình quét mã vạch"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_stock_move_line_picking_details_report
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_stock_move_line_picking_details_report
+msgid "Picking Details Report"
+msgstr "Báo cáo nhập - xuất chi tiết"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_product_tag
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_config_stock_product_tag
+msgid "Product Tag"
+msgstr "Nhãn sản phẩm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_location_tag
+msgid "Stock Location Tag"
+msgstr "Nhãn địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_product_label_layout_line
+msgid "Product Label Layout Line"
+msgstr "Chi tiết bản in"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_label_layout_line__lot_name
+msgid "Lot/ Serial"
+msgstr "Lô/Số Serial"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_label_layout_line__product_uom_id
+msgid "UoM"
+msgstr "Đơn vị"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_label_layout_line__print_count
+msgid "Count"
+msgstr "Số lượng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_tag__name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_tag__name
+msgid "Name"
+msgstr "Tên nhãn"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_product_tag__color
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_tag__color
+msgid "Color Index"
+msgstr "Mã màu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__vtt_tag_ids
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__vtt_tag_ids
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__vtt_tag_ids
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_production_lot__vtt_tag_ids
+msgid "Tags"
+msgstr "Nhãn sản phẩm"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_product_tag
+msgid "Product Tags"
+msgstr "Nhãn sản phẩm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__vtt_location_alter_id
+msgid "Alter Location"
+msgstr "Di chuyển"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_location__vtt_tag_ids
+msgid "Tag"
+msgstr "Nhãn"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Generate LN"
+msgstr "Tạo Mã lô/ Serial"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Accepted Quantity"
+msgstr "Được xác nhận"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Done Quantity"
+msgstr "Hoàn thành"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_stock_production_lot_print
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_stock_production_quant_print
+msgid "Print Lot/Serial Label"
+msgstr "In Tem nhãn"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.act_window,name:vtt_minhduong_config.vtt_act_window_stock_location_tag
+msgid "Location Tags"
+msgstr "Nhãn địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.ui.menu,name:vtt_minhduong_config.vtt_menu_config_stock_location_tag
+msgid "Location Tag"
+msgstr "Nhãn địa điểm"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.vtt_view_kanban_stock_move_color
+msgid "Register lots, packs, location"
+msgstr "Đăng ký lô hàng, gói hàng, địa điểm"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.vtt_view_kanban_stock_move_color
+msgid "Due"
+msgstr "Thiếu"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_move.py:0
+#, python-format
+msgid "Pack"
+msgstr "Thùng"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_move.py:0
+#, python-format
+msgid "Odd"
+msgstr "Lẻ"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.vtt_view_tree_stock_quant_expiration_time
+msgid "Inventory Quantity"
+msgstr "SL thực tế"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.vtt_view_tree_stock_quant_expiration_time
+msgid "Available Quantity"
+msgstr "SL hiện có"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.vtt_view_tree_stock_quant_inventory_expiration_time
+msgid "Inventory Quantity"
+msgstr "SL thực tế"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.vtt_view_tree_stock_quant_inventory_expiration_time
+msgid "Available Quantity"
+msgstr "SL hiện có"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__license_plate
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vehicle_license_plate
+msgid "License Plate"
+msgstr "Biển số"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__product_default_code
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__product_default_code
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__product_default_code
+msgid "Product Default Code"
+msgstr "Mã hàng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__product_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move_line__product_name
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__product_name
+msgid "Product Name"
+msgstr "Tên hàng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_search_stock_picking_add_vehicle
+msgid "Picking Date"
+msgstr "Ngày điều chuyển"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__loc_pallet_start
+msgid "Pallet Start Number"
+msgstr "Số Pallet bắt đầu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_location_gen_wz__loc_level_start
+msgid "Level Start Number"
+msgstr "Số tầng bắt đầu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_location_gen_wz__type__main_loc
+msgid "New Main Location"
+msgstr "Tạo khu mới"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields.selection,name:vtt_minhduong_config.selection__vtt_stock_location_gen_wz__type__sub_loc
+msgid "Adjustment Sub Location"
+msgstr "Điều chỉnh khu cũ"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Lots/Serial Numbers"
+msgstr "Lô/ Số Serial"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_template_report_picking_pack_qty
+msgid "<strong>Pack Quantity</strong>"
+msgstr "<strong>SL Thùng</strong>"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_template_report_picking_pack_qty
+msgid "<strong>Surplus Quantity</strong>"
+msgstr "<strong>SL Lẻ</strong>"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_kanban_stock_move_color
+msgid "Due"
+msgstr "Thiếu"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_kanban_stock_move_color
+msgid "Initial Demand"
+msgstr "Nhu cầu"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_kanban_stock_move_color
+msgid "Pack"
+msgstr "Thùng"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_kanban_stock_move_color
+msgid "Odd"
+msgstr "Lẻ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_qty_due
+msgid "Due Quantity"
+msgstr "Thiếu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_move__vtt_pack_qty_due_str
+msgid "Dues"
+msgstr "Thiếu"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_amount_pack_qty
+msgid "Amount of Packages"
+msgstr "Tổng thùng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_amount_surplus_qty
+msgid "Amount of Surplus"
+msgstr "Tổng lẻ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_done_pack_qty
+msgid "Done of Packages"
+msgstr "Tổng thùng nhận"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_picking__vtt_done_surplus_qty
+msgid "Done of Surplus"
+msgstr "Tổng lẻ nhận"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_picking_allow_expired
+msgid "Inventory Support"
+msgstr "Truy xuất nhanh"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__pack_barcode
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__pack_barcode
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_production_lot__pack_barcode
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__pack_barcode
+msgid "Packing Barcode"
+msgstr "Mã vạch thùng"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_template__product_barcode
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_product_product__product_barcode
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_production_lot__product_barcode
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_stock_quant__product_barcode
+msgid "Product Barcode"
+msgstr "Mã vạch"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.report_stock_inventory
+msgid "Received"
+msgstr "Tiếp nhận"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__is_empty_location
+msgid "Use Empty Location?"
+msgstr "Lọc địa điểm trống"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__location_ids
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_stock_internal_transfer_wz
+msgid "Locations"
+msgstr "Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_stock_internal_transfer_wz__location_available_ids
+msgid "Available Locations"
+msgstr "Địa điểm khả dụng"
+
+#. module: vtt_minhduong_config
+#: code:addons/vtt_minhduong_config/models/stock_move_line.py:0
+#, python-format
+msgid "Internal Transfer Wizard"
+msgstr "Trình luân chuyển nội bộ"
+
+#. module: vtt_minhduong_config
+#: model:ir.model,name:vtt_minhduong_config.model_vtt_stock_internal_transfer_wz
+msgid "Internal Transfer Wizard"
+msgstr "Trình luân chuyển nội bộ"
+
+#. module: vtt_minhduong_config
+#: model:ir.actions.server,name:vtt_minhduong_config.vtt_act_server_fix_unreserved_qty
+msgid "Fix Unreserved Quantity"
+msgstr "Fix Giữ chỗ hàng hóa"
+
+#. module: vtt_minhduong_config
+#: model:ir.model.fields,field_description:vtt_minhduong_config.field_vtt_barcode_scan_wz__option_pick_all
+msgid "Pick All"
+msgstr "Xuất hết theo nhu cầu"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+msgid "Location"
+msgstr "Địa điểm"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: vtt_minhduong_config
+#: model_terms:ir.ui.view,arch_db:vtt_minhduong_config.vtt_view_form_barcode_scan_wizard
+msgid "Options"
+msgstr "Tùy chọn"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Product category views-->
+    <data>
+        <!--Form view add field for mobile -->
+        <record id="vtt_view_form_product_category_add_mobile_fields" model="ir.ui.view">
+            <field name="name">Product category add mobile fields</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="before">
+                    <field name="vtt_show_on_mobile"/>
+                    <field name="vtt_mobile_image" widget="image"/>
+                    <field name="vtt_mobile_order"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Contact User Wizard-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_contact_user_wz" model="ir.ui.view">
+            <field name="name">Contact User Wizard form</field>
+            <field name="model">vtt.contact.user.wz</field>
+            <field name="arch" type="xml">
+                <form string="Contact Salesman">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                            <group>
+                                <field name="is_include_child"/>
+                                <field name="is_overwrite"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Partners">
+                                <field name="partner_ids">
+                                    <tree create="0" edit="0">
+                                        <field name="name"/>
+                                        <field name="phone"/>
+                                        <field name="email"/>
+                                        <field name="state_id"/>
+                                        <field name="user_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button name="update_contact_salesman" string="Confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!--Action-->
+        <record id="vtt_action_contact_user_wz" model="ir.actions.act_window">
+            <field name="name">Update Contact Salesman</field>
+            <!--<field name="type">ir.actions.act_window</field>-->
+            <field name="res_model">vtt.contact.user.wz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <!--field name="context">{'default_calendar_id': active_id}</field>-->
+            <field name="binding_model_id" ref="base.model_res_partner"/>
+            <field name="binding_view_types">list,form</field>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+    </data>
+</odoo>

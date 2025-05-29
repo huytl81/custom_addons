@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="FieldMany2ManyCheckBoxes">
+        <t t-jquery="div:first" t-operation="replace">
+            <div class="o_group">
+                <table class="o_group o_inner_group o_group_col_6">
+                    <tbody>
+                        <t t-foreach="widget.m2mValues" t-as="record">
+                            <t t-if="record_parity == 'odd'">
+                                <t t-set="id_for_label" t-value="'o_many2many_checkbox_' + _.uniqueId()"/>
+                                <tr>
+                                    <td colspan="1" class="o_td_label">
+                                        <label t-att-for="id_for_label" class="o_form_label"><t t-esc="record[1]"/></label>
+                                    </td>
+
+                                    <td colspan="1" style="width: 50%;">
+                                        <div class="o_checkbox o_form_field_boolean o_form_field">
+                                            <div class="o_checkbox">
+                                                <input type="checkbox" t-att-id="id_for_label" t-att-data-record-id="JSON.stringify(record[0])"/>
+                                                <span/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+
+                <table class="o_group o_inner_group o_group_col_6 pull-right">
+                    <tbody>
+                        <t t-foreach="widget.m2mValues" t-as="record">
+                            <t t-if="record_parity == 'even'">
+                                <t t-set="id_for_label" t-value="'o_many2many_checkbox_' + _.uniqueId()"/>
+                                <tr>
+                                    <td colspan="1" class="o_td_label">
+                                        <label t-att-for="id_for_label" class="o_form_label"><t t-esc="record[1]"/></label>
+                                    </td>
+
+                                    <td colspan="1" style="width: 50%;">
+                                        <div class="o_checkbox o_form_field_boolean o_form_field">
+                                            <div class="o_checkbox">
+                                                <input type="checkbox" t-att-id="id_for_label" t-att-data-record-id="JSON.stringify(record[0])"/>
+                                                <span/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </t>
+</templates>

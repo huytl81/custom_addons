@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vtt_task_checklist_manager,vtt.task.checklist.manager,model_vtt_task_checklist,project.group_project_manager,1,1,1,1
+access_vtt_task_checklist_line_manager,vtt.task.checklist.line.manager,model_vtt_task_checklist_line,project.group_project_manager,1,1,1,1
+access_vtt_checklist_line_manager,vtt.checklist.line.manager,model_vtt_checklist_line,project.group_project_manager,1,1,1,1

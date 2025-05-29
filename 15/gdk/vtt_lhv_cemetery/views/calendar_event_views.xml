@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Calendar Event views-->
+    <data>
+        <!--Form view add Department-->
+        <record id="vtt_view_form_calendar_event_add_department" model="ir.ui.view">
+            <field name="name">Calendar Event add Department</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='d-flex align-items-baseline']" position="after">
+                    <div class="d-flex align-items-baseline">
+                        <field name="vtt_department_ids" widget="many2many_tags" class="oe_inline o_calendar_attendees"/>
+                    </div>
+                </xpath>
+                <field name="categ_ids" position="before">
+                    <field name="vtt_is_scheduled"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view add Scheduled check-->
+        <record id="vtt_view_tree_calendar_event_add_scheduled" model="ir.ui.view">
+            <field name="name">Calendar Event List add Scheduled</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+            <field name="arch" type="xml">
+                <field name="message_needaction" position="after">
+                    <field name="vtt_is_scheduled" invisible="1"/>
+                </field>
+
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-danger">not vtt_is_scheduled</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Search view add Scheduled check-->
+        <record id="vtt_view_search_calendar_event_add_scheduled" model="ir.ui.view">
+            <field name="name">Calendar Event Filter add Scheduled</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+            <field name="arch" type="xml">
+                <filter name="filter_start_date" position="before">
+                    <filter string="Not Scheduled" name="filter_no_scheduled" domain="[('vtt_is_scheduled', '=', False)]"/>
+                    <separator/>
+                </filter>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Calendar Event List Not Scheduled-->
+        <record id="vtt_act_window_calendar_event_list_no_scheduled" model="ir.actions.act_window">
+            <field name="name">Calendar Event Not Scheduled</field>
+            <field name="res_model">calendar.event</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_filter_no_scheduled':1}</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_calendar_event_no_scheduled" name="No Scheduled Events" parent="calendar.mail_menu_calendar" sequence="30" action="vtt_act_window_calendar_event_list_no_scheduled"/>
+    </data>
+</odoo>

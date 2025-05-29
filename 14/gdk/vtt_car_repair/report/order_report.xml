@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Order report-->
+        <record id="vtt_action_report_car_repair_order" model="ir.actions.report">
+            <field name="name">Repair Order</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">vtt_car_repair.report_car_repair_order</field>
+            <field name="report_file">vtt_car_repair.report_car_repair_order</field>
+            <!--<field name="print_report_name">(object.state in ('draft', 'cancel') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)</field>-->
+            <!--New print name from separate purpose-->
+            <field name="print_report_name">'Order - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_vtt_car_repair_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!--Quotation report-->
+        <record id="vtt_action_report_car_repair_quotation" model="ir.actions.report">
+            <field name="name">Repair Quotation</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">vtt_car_repair.report_car_repair_quotation</field>
+            <field name="report_file">vtt_car_repair.report_car_repair_quotation</field>
+            <field name="print_report_name">'Quotation - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_vtt_car_repair_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!--Work Order report-->
+        <record id="vtt_action_report_car_repair_workorder" model="ir.actions.report">
+            <field name="name">Repair Work Order</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">vtt_car_repair.report_car_repair_workorder</field>
+            <field name="report_file">vtt_car_repair.report_car_repair_workorder</field>
+            <field name="print_report_name">'Work Order - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_vtt_car_repair_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

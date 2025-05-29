@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="anita_list_res" name="anita_list_res" inherit_id="web.assets_backend">
+
+            <xpath expr="." position="inside">
+ 
+                <link rel="stylesheet" type="text/css" href='/anita_list_free/static/css/anita_list_free.scss'/>
+                <link rel="stylesheet" type="text/css" href='/anita_list_free/static/css/iconfont.css'/>
+                <link rel="stylesheet" type="text/css" href='/anita_list_free/static/libs/daterangepicker/daterangepicker.css'/>
+
+                <script type="application/javascript" src='/anita_list_free/static/libs/resize_helper.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/libs/sortable.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/libs/daterangepicker/daterangepicker.js'/>
+                
+                # list view
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_list_controller.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_list_render.js'/> 
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_list_view.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_list_model.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_resize_manager.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_util.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/anita_fake_view.js'/>
+
+                # config
+                <script type="application/javascript" src='/anita_list_free/static/js/config/anita_list_config.js'/>
+
+                # search
+                <script type="application/javascript" src='/anita_list_free/static/js/search/search_item_registry.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/search/anita_search_fields.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/search/anita_search_facet.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/search/anita_search_auto_complete.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/search/anita_auto_complete_sources.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/search/anita_search_auto_complete_source_registry.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/search/anita_search_row.js'/>
+
+                # form
+                <script type="application/javascript" src='/anita_list_free/static/js/form/anita_form_view.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/form/anita_form_render.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/form/anita_form_controller.js'/>
+                <script type="application/javascript" src='/anita_list_free/static/js/form/anita_form_model.js'/>
+
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

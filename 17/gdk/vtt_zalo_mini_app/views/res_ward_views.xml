@@ -1,0 +1,66 @@
+<odoo>
+    <!-- Res ward views -->
+  <data>
+
+    <record id="zalo_res_ward_tree_inherit" model="ir.ui.view">
+        <field name="name">zalo.res.ward.tree.inherit</field>
+      <field name="model">res.ward</field>
+      <field name="inherit_id" ref="vtt_base_address_vn.ward_tree"/>
+      <field name="arch" type="xml">
+          <xpath expr="//tree" position="attributes">
+              <attribute name="editable">bottom</attribute>
+          </xpath>
+          <xpath expr="//field[@name='country_id']" position="attributes">
+              <attribute name="column_invisible">1</attribute>
+          </xpath>
+          <xpath expr="//field[@name='state_id']" position="after">
+              <field name="shipping_allowed"/>
+              <field name="default_shipping_method_price"/>      
+              <!-- <field name="full_text_search"/>         -->
+          </xpath>
+      </field>
+    </record>
+
+    <!-- Thêm hành động server để gọi hàm allow_shipping -->
+    <record id="action_res_ward_allow_shipping" model="ir.actions.server">
+        <field name="name">Cho phép giao hàng</field>
+        <field name="model_id" ref="vtt_zalo_mini_app.model_res_ward"/>
+        <field name="binding_model_id" ref="vtt_zalo_mini_app.model_res_ward"/>
+        <field name="binding_view_types">form,list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.allow_shipping()</field>
+    </record>
+
+    <!-- Thêm hành động server để gọi hàm disallow_shipping -->
+    <record id="action_res_ward_disallow_shipping" model="ir.actions.server">
+        <field name="name">Bỏ cho phép giao hàng</field>
+        <field name="model_id" ref="vtt_zalo_mini_app.model_res_ward"/>
+        <field name="binding_model_id" ref="vtt_zalo_mini_app.model_res_ward"/>
+        <field name="binding_view_types">form,list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.disallow_shipping()</field>
+    </record>
+
+    <!-- Thêm hành động server để cập nhật default_shipping_method_price -->    
+    <record id="action_res_ward_update_shipping_price" model="ir.actions.server">
+        <field name="name">Cập nhật phí ship mặc định</field>
+        <field name="model_id" ref="vtt_zalo_mini_app.model_res_ward"/>
+        <field name="binding_model_id" ref="vtt_zalo_mini_app.model_res_ward"/>
+        <field name="binding_view_types">form,list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.update_shipping_price()
+        </field>
+    </record>
+
+    <!-- Thêm hành động server để mở wizard cập nhật giá phương thức giao hàng -->
+    <!-- <record id="action_res_ward_open_update_shipping_price_wizard" model="ir.actions.act_window">
+        <field name="name">Cập nhật giá phương thức giao hàng</field>
+        <field name="res_model">update.shipping.price.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_shipping_price': 0}</field>
+    </record> -->
+
+  </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="FieldFilePaths">
+        <div id="file_paths" class="file_paths_wrapper">
+            <div class="header-box">
+                <input type="text" t-att-value="widget.input_data.insert_path_value" class="o_input" name="txtAddPath"/>
+                <button type="button" class="btn btn-primary add-path" title="Thêm">
+                    <i class="fa fa-plus" />
+                </button>
+            </div>
+            <div class="content-box">
+<!--                <t t-esc="widget._displayPath('bbb')"/>-->
+<!--                <span t-att-aclo="widget._displayPath('bbb')">ae</span>-->
+            </div>
+        </div>
+    </t>
+
+    <t t-name="FieldFilePaths.Table">
+        <div>
+            <t t-if="records">
+                <table class="o_list_table table table-sm table-hover table-striped table-selected-items">
+                    <t t-foreach="records" t-as="record">
+                        <tr class="data-row" t-att-row_id="record.row_id">
+                            <td class="col-path">
+                                <t t-if="record.path">
+                                    <t t-esc="record.path"/>
+                                </t>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="FieldFilePaths.TableEdit">
+        <div>
+            <t t-if="records">
+                <table class="o_list_table table table-sm table-hover table-striped table-selected-items">
+                    <t t-foreach="records" t-as="record">
+                        <tr class="data-row" t-att-row_id="record.row_id">
+                            <td class="col-path">
+                                <input type="text" t-att-value="record.path" class="o_input" t-att-row_id="record.row_id"/>
+                            </td>
+                            <td>
+                                <button string="Delete" class="fa fa-trash-o fp_delete_button" name="btnFpDelete" t-att-data-row_id="record.row_id"></button>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </t>
+        </div>
+    </t>
+</templates>

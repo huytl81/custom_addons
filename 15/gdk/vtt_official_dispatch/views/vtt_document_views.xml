@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Document View -->
+        <!-- Form View -->
+        <record id="vtt_official_dispatch_document_form_view" model="ir.ui.view">
+            <field name="name">Official Dispatch Document Form View</field>
+            <field name="model">vtt.official.dispatch.document</field>
+            <field name="arch" type="xml">
+                <form string="Document">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm"
+                                class="btn-primary"
+                                groups="hr.group_hr_user"
+                                attrs="{'invisible': &quot;['|',('composer_user_id','!=',uid),('state','not in',['draft'])]&quot;}"/>
+<!--                        <button name="action_approve" type="object" string="Approve"-->
+<!--                                class="btn-primary"-->
+<!--                                attrs="{'invisible': &quot;['|',('requestor_user_id','!=',uid),('state','not in',['confirm'])]&quot;}"/>-->
+<!--                        <button name="action_reject" type="object" string="Reject"-->
+<!--                                attrs="{'invisible': &quot;['|',('requestor_user_id','!=',uid),('state','not in',['confirm'])]&quot;}"/>-->
+                        <button name="action_send" type="object" string="Send" class="btn-primary"
+                                groups="vtt_official_dispatch.group_official_dispatch_clerical"
+                                states='confirm'/>
+                        <button name="action_complete_amount" type="object"
+                                string="Complete Copies Amount"
+                                groups="vtt_official_dispatch.group_official_dispatch_clerical"
+                                attrs="{'invisible':['|',('check_copy_done','=',True),('state','!=','send')]}"
+                        />
+                        <button name="action_send_done" type="object" string="Send Done"
+                                class="btn-primary"
+                                groups="vtt_official_dispatch.group_official_dispatch_clerical"
+                                states='send'/>
+                        <button name="action_cancel" type="object" string="Cancel" states="draft"
+                                groups="vtt_official_dispatch.group_official_dispatch_editor"/>
+<!--                        <button name="action_draft" type="object" string="To Draft" states="reject"-->
+<!--                                groups="vtt_official_dispatch.group_official_dispatch_editor"/>-->
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,confirm,approve"
+                               options="{'clickable': False}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <div class="oe_title">
+                                <span class="o_form_label"
+                                      attrs="{'invisible': [('state','in',('draft'))]}">Document
+                                </span>
+                                <h1>
+                                    <field name="name" readonly="1"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="request_line_id"
+                                       options="{'no_open':True, 'no_create':True}"/>
+                                <field name="request_id" invisible="1"/>
+                                <field name="check_copy_done" invisible="1"/>
+                                <field name="requestor_id" options="{'no_open':True, 'no_create':True}" readonly="1"/>
+                                <field name="requestor_user_id" invisible="1"/>
+                                <field name="composer_id" invisible="1"
+                                       attrs="{'readonly': [('state','not in',('draft'))]}"
+                                       options="{'no_open':True, 'no_create':True}"/>
+                                <field name="composer_user_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="delivery_type"
+                                       attrs="{'readonly': [('state','not in',('draft'))]}"/>
+                                <field name="type"
+                                       attrs="{'readonly': [('state','not in',('draft'))]}"/>
+                                <field name="compose_date" invisible="1"
+                                       attrs="{'readonly': [('state','not in',('draft'))]}"/>
+                                <field name="category_id" options="{'no_open':True, 'no_create':True}" attrs="{'readonly': [('state','not in',('draft'))]}"/>
+                                <field name="allow_unseal" attrs="{'readonly': [('state','not in',('draft'))]}"/>
+                            </group>
+                            <group>
+                                <field name="attachment_ids" filename="file_name"
+                                       widget="many2many_binary" attrs="{'readonly': [('state','not in',('draft'))]}"/>
+                                <field name="file_name" invisible="1"/>
+                                <field name="company_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="Destination" string="Destination Details">
+                                <field name="line_ids">
+                                    <tree editable="top">
+                                        <field name="document_id" invisible="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="partner_id"
+                                               attrs="{'readonly': [('parent.state', 'not in', ['draft'])]}"
+                                               options="{'no_open':True, 'no_create':True}"/>
+                                        <field name="dispatch_to_department_id"
+                                               attrs="{'readonly': [('parent.state', 'not in', ['draft','progress'])]}"/>
+                                        <field name="dispatch_to_company_id"
+                                               attrs="{'readonly': ['|',('parent.state', 'not in', ['draft','progress']),('parent.type','=','internal')]}"/>
+                                        <field name="copies"
+                                               attrs="{'readonly': [('parent.state', 'not in', ['draft','progress'])]}"/>
+                                        <field name="copies_done"
+                                               attrs="{'column_invisible': [('parent.state','not in',('send','sent'))],'readonly': [('state', 'not in', ['draft','process'])]}"/>
+                                        <field name="receive_location"
+                                               attrs="{'readonly': [('parent.state', 'not in', ['draft'])]}"/>
+                                        <field name="address"
+                                               attrs="{'readonly': [('parent.state', 'not in', ['draft'])]}"/>
+                                        <field name="phone"
+                                               attrs="{'readonly': [('parent.state', 'not in', ['draft'])]}"/>
+                                        <field name='state' readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="Delivery" string="Delivery Details">
+                                <group colspan="4">
+                                    <group>
+                                        <field name="total_copies" readonly="1"/>
+                                        <field name="total_copies_done"
+                                               attrs="{'invisible': [('state','not in',('send','sent'))]}"/>
+                                    </group>
+                                    <!--                                        <field name="dispatch_to_department_id"-->
+                                    <!--                                               options="{'no_create': True, 'no_create_edit':True}"/>-->
+                                    <!--                                        <field name="dispatch_to_company_id"-->
+                                    <!--                                               options="{'no_create': True, 'no_create_edit':True}"/>-->
+                                </group>
+                                <group>
+                                    <field name="delivery_details"/>
+                                </group>
+                            </page>
+                            <page name="Document" string="Document Details">
+                                <group>
+                                    <group>
+                                        <field name="department_id"
+                                               options="{'no_open':True, 'no_create':True}"/>
+                                        <field name="request_approve_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="approver_id"
+                                               options="{'no_open':True, 'no_create':True}"/>
+                                        <field name="approver_job_id"
+                                               options="{'no_open':True, 'no_create':True}"/>
+                                    </group>
+                                    <group>
+                                        <field name="content"/>
+                                        <field name="request_attachment_ids" filename="file_name"
+                                               widget="many2many_binary"/>
+                                        <field name="request_file_name" invisible="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- List View -->
+        <record id="vtt_official_dispatch_document_tree_view" model="ir.ui.view">
+            <field name="name">Official Dispatch Document Tree</field>
+            <field name="model">vtt.official.dispatch.document</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="requestor_id"/>
+                    <field name="composer_id"/>
+                    <field name="approver_id"/>
+                    <!--                    <field name="dispatch_to_department_id" optional="hide"/>-->
+                    <!--                    <field name="dispatch_to_company_id" optional="hide"/>-->
+                    <field name="delivery_type"/>
+                    <field name="category_id"/>
+                    <field name="request_approve_date"/>
+                    <field name="compose_date"/>
+                    <field name="state" widget="badge" decoration-success="state == 'approve'"
+                           decoration-danger="state == 'reject'"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search view -->
+        <record id="vtt_official_dispatch_document_search_view" model="ir.ui.view">
+            <field name="name">Documents Search</field>
+            <field name="model">vtt.official.dispatch.document</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="request_id"/>
+                    <field name="approver_id"/>
+                    <filter string="Filter By State" name="filter_by_state"
+                            context="{'group_by':'state'}"/>
+                    <filter string="Filter By Category" name="filter_by_category"
+                            context="{'group_by':'category_id'}"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

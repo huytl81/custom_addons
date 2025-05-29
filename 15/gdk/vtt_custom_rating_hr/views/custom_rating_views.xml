@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Custom Rating views-->
+    <data>
+        <!--Form view add Employee-->
+        <record id="vtt_view_form_custom_rating_add_hr" model="ir.ui.view">
+            <field name="name">Custom Rating Form add HR information</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="inherit_id" ref="vtt_custom_rating.vtt_view_form_custom_rating"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_custom_rating_add_hr" model="ir.ui.view">
+            <field name="name">Custom Rating List add HR information</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="inherit_id" ref="vtt_custom_rating.vtt_view_tree_custom_rating"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_custom_rating_add_hr" model="ir.ui.view">
+            <field name="name">Custom Rating Filer add HR information</field>
+            <field name="model">vtt.custom.rating</field>
+            <field name="inherit_id" ref="vtt_custom_rating.vtt_view_search_custom_rating"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                </field>
+                <filter name="groupby_user" position="after">
+                    <filter string="Employee" name="groupby_employee" context="{'group_by':'employee_id'}" help="Employee"/>
+                    <filter string="Department" name="groupby_department" context="{'group_by':'department_id'}" help="Department"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

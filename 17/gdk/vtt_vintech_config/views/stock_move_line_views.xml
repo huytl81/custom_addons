@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Move Line views-->
+    <data>
+        <!--List view for Report-->
+        <record id="vtt_view_tree_stock_move_line_report" model="ir.ui.view">
+            <field name="name">Stock Move Line List Report</field>
+            <field name="model">stock.move.line</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="1000"/>
+            <field name="arch" type="xml">
+                <tree string="Move Lines" create="0" default_order="id desc" action="action_open_reference" type="object" duplicate="0">
+                    <field name="location_usage" column_invisible="True"/>
+                    <field name="location_dest_usage" column_invisible="True"/>
+                    <field name="date"/>
+                    <field name="reference" string="Reference" column_invisible="context.get('no_reference', False)"/>
+                    <field name="partner_ref"/>
+                    <field name="picking_partner_id"/>
+                    <field name="partner_street"/>
+                    <field name="partner_vat"/>
+                    <field name="product_default_code"/>
+                    <field name="product_id"/>
+                    <field name="lot_id" optional="show" groups="stock.group_production_lot"/>
+                    <field name="product_uom_id" options="{'no_open': True, 'no_create': True}" string="Unit" groups="uom.group_uom"/>
+                    <field name="product_category_id"/>
+                    <field name="package_id" optional="hide" groups="stock.group_tracking_lot"/>
+                    <field name="result_package_id" optional="hide" groups="stock.group_tracking_lot"/>
+                    <field name="warehouse_code" optional="show" column_invisible="context.get('incoming_report', False)"/>
+                    <field name="warehouse_id" optional="show" column_invisible="context.get('incoming_report', False)"/>
+                    <field name="location_id" optional="hide" column_invisible="context.get('incoming_report', False)"/>
+                    <field name="warehouse_dest_code" optional="show" column_invisible="context.get('outgoing_report', False)"/>
+                    <field name="warehouse_dest_id" optional="show" column_invisible="context.get('outgoing_report', False)"/>
+                    <field name="location_dest_id" optional="hide" column_invisible="context.get('outgoing_report', False)"/>
+                    <field name="company_id" optional="hide" groups="base.group_multi_company" force_save="1"/>
+                    <field name="quantity" string="Quantity" decoration-danger="(location_usage in ('internal','transit')) and (location_dest_usage not in ('internal','transit'))" decoration-success="(location_usage not in ('internal','transit')) and (location_dest_usage in ('internal','transit'))"/>
+
+                    <field name="state" widget="badge" optional="show" decoration-danger="state=='cancel'" decoration-info="state== 'assigned'" decoration-muted="state == 'draft'" decoration-success="state == 'done'" decoration-warning="state not in ('draft','cancel','done','assigned')"/>
+                    <field name="create_uid" string="Done By" widget="many2one_avatar_user" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Incoming Report-->
+        <record id="vtt_act_window_stock_move_line_incoming_report" model="ir.actions.act_window">
+            <field name="name">Incoming Report</field>
+            <field name="res_model">stock.move.line</field>
+            <field name="view_mode">tree,kanban,pivot,form</field>
+            <field name="domain">[('picking_id.picking_type_id.code', '=', 'incoming')]</field>
+            <field name="view_id" ref="vtt_vintech_config.vtt_view_tree_stock_move_line_report"/>
+            <field name="context">{
+                    'incoming_report': 1,
+                    'search_default_done': 1,
+                    'create': 0,
+                    'pivot_measures': ['quantity_product_uom', '__count__'],
+                }
+            </field>
+        </record>
+
+        <!--Outgoing Report-->
+        <record id="vtt_act_window_stock_move_line_outgoing_report" model="ir.actions.act_window">
+            <field name="name">Outgoing Report</field>
+            <field name="res_model">stock.move.line</field>
+            <field name="view_mode">tree,kanban,pivot,form</field>
+            <field name="domain">[('picking_id.picking_type_id.code', '=', 'outgoing')]</field>
+            <field name="view_id" ref="vtt_vintech_config.vtt_view_tree_stock_move_line_report"/>
+            <!--<field name="search_view_id" ref="vtt_vintech_config.vtt_view_tree_stock_move_line_report"/>-->
+            <field name="context">{
+                    'outgoing_report': 1,
+                    'search_default_done': 1,
+                    'create': 0,
+                    'pivot_measures': ['quantity_product_uom', '__count__'],
+                }
+            </field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Incoming report-->
+        <menuitem
+                id="vtt_menu_stock_report_vintech_incoming_report"
+                name="Incoming Report"
+                parent="stock.menu_warehouse_report"
+                action="vtt_act_window_stock_move_line_incoming_report"
+                groups="stock.group_stock_manager"
+                sequence="500"/>
+
+        <!--Outgoing report-->
+        <menuitem
+                id="vtt_menu_stock_report_vintech_outgoing_report"
+                name="Outgoing Report"
+                parent="stock.menu_warehouse_report"
+                action="vtt_act_window_stock_move_line_outgoing_report"
+                groups="stock.group_stock_manager"
+                sequence="510"/>
+    </data>
+</odoo>

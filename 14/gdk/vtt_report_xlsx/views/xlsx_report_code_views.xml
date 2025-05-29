@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--XLSX Report Code views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_xlsx_report_code" model="ir.ui.view">
+            <field name="name">XLSX Report Code Form</field>
+            <field name="model">vtt.xlsx.report.code</field>
+            <field name="arch" type="xml">
+                <form string="XLSX Report Code">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                                <field name="priority"/>
+                            </group>
+                        </group>
+                        <label for="generate_code"/>
+                        <field name="generate_code" widget="ace" options="{'mode': 'python'}"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_xlsx_report_code" model="ir.ui.view">
+            <field name="name">XLSX Report Code List</field>
+            <field name="model">vtt.xlsx.report.code</field>
+            <field name="arch" type="xml">
+                <tree string="XLSX Report Codes">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="priority"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_xlsx_report_code" model="ir.actions.act_window">
+            <field name="name">XLSX Report Code</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vtt.xlsx.report.code</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menu-->
+    <data>
+        <menuitem parent="base.menu_automation"
+                  name="XLSX Report Code"
+                  groups="base.group_system"
+                  id="vtt_menu_xlsx_report_code"
+                  action="vtt_act_window_xlsx_report_code"/>
+    </data>
+</odoo>

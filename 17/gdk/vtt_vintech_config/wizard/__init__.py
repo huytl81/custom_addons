@@ -1,0 +1,1 @@
+from . import stock_picking_move_import_wz

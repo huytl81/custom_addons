@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Change default purchase report template to new (TienDatCo) template-->
+    <data>
+        <!--Change Purchase report name and document-->
+        <record id="purchase.action_report_purchase_order" model="ir.actions.report">
+            <field name="report_name">vtt_purchase_report_template.vtt_report_purchaseorder</field>
+            <field name="report_file">vtt_purchase_report_template.vtt_report_purchaseorder</field>
+            <!--<field name="print_report_name">
+                (object.state in ('draft', 'sent') and 'Request for Quotation - %s' % (object.name) or
+                'Purchase Order - %s' % (object.name))</field>-->
+        </record>
+
+        <!--Change Purchase quotation report name and document-->
+        <record id="purchase.report_purchase_quotation" model="ir.actions.report">
+            <field name="report_name">vtt_purchase_report_template.vtt_report_purchasequotation</field>
+            <field name="report_file">vtt_purchase_report_template.vtt_report_purchasequotation</field>
+            <!--<field name="print_report_name">'Request for Quotation - %s' % (object.name)</field>-->
+        </record>
+    </data>
+</odoo>

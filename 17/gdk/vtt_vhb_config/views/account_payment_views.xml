@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Account Payment view-->
+    <data>
+        <!--List view-->
+        <record id="vtt_view_tree_account_payment_sale_info" model="ir.ui.view">
+            <field name="name">Account Payment List add Sale Info</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="vtt_reconciled_sale_ids" widget="many2many_tags" optional="show"/>
+                </field>
+
+                <field name="partner_id" position="after">
+                    <field name="reconciled_invoice_ids" optional="hide"/>
+                    <field name="vtt_reconciled_inv_user_ids" optional="show" widget="many2many_avatar_user"/>
+                </field>
+
+                <header position="inside">
+                    <button name="action_custom_sales_report" type="object" string="Custom Sales Report" class="btn-primary ms-1" display="always" groups=""/>
+                </header>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_account_payment_sale_info" model="ir.ui.view">
+            <field name="name">Account Payment Filter add Sale Info</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_search"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="vtt_reconciled_inv_user_ids"/>
+                    <field name="vtt_reconciled_sale_ids"/>
+                </field>
+
+                <filter name="partner" position="after">
+                    <filter string="Invoice User" name="groupby_inv_user" domain="[]" context="{'group_by': 'vtt_reconciled_inv_user_ids'}"/>
+                    <filter string="Sale Order" name="groupby_inv_sale" domain="[]" context="{'group_by': 'vtt_reconciled_sale_ids'}"/>
+                </filter>
+            </field>
+        </record>
+
+        <!--Form view-->
+        <record id="vtt_view_form_account_payment_sale_info" model="ir.ui.view">
+            <field name="name">Account Payment Form add Sale Info</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+
+                <field name="journal_id" position="after">
+                    <field name="reconciled_invoice_ids" invisible="1"/>
+                    <field name="vtt_reconciled_sale_ids" widget="many2many_tags" options="{'no_quick_create': True, 'no_create': True, 'no_delete': True}" invisible="not reconciled_invoice_ids"/>
+                    <field name="vtt_reconciled_inv_user_ids" widget="many2many_avatar_user" options="{'no_quick_create': True, 'no_create': True, 'no_delete': True}" invisible="not reconciled_invoice_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view for Custom Report-->
+        <record id="vtt_view_tree_account_payment_custom_sales_report" model="ir.ui.view">
+            <field name="name">Account Payment List Custom Sales Report</field>
+            <field name="model">account.payment</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="1000"/>
+            <field name="arch" type="xml">
+                <tree edit="false" create="false" decoration-info="state == 'draft'" decoration-muted="state == 'cancel'">
+                    <field name="company_currency_id" column_invisible="True"/>
+                    <field name="suitable_journal_ids" column_invisible="True"/>
+                    <field name="available_payment_method_line_ids" column_invisible="True"/>
+                    <field name="date" readonly="state in ['cancel', 'posted']"/>
+                    <field name="vtt_reconciled_sale_ids" widget="many2many_tags" optional="show"/>
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+                    <field name="payment_method_line_id"/>
+                    <field name="partner_id" string="Customer"/>
+                    <field name="reconciled_invoice_ids" optional="hide"/>
+                    <field name="vtt_reconciled_inv_user_ids" optional="show" widget="many2many_avatar_user"/>
+                    <field name="amount_signed" string="Amount in Currency" optional="hide" groups="!base.group_multi_currency"/>
+                    <field name="amount_signed" string="Amount in Currency" optional="show" groups="base.group_multi_currency"/>
+                    <field name="currency_id" string="Payment Currency" optional="hide"/>
+                    <!--<field name="activity_ids" widget="list_activity" optional="hide"/>-->
+                    <field name="amount_company_currency_signed" widget="monetary" string="Amount" sum="Total"/>
+                    <field name="vtt_sales_amount_info" widget="monetary" string="Sales Amount" sum="Sales"/>
+                    <field name="vtt_reconciled_taxes_info" widget="monetary" optional="hide" string="Tax Info"/>
+                    <field name="vtt_reconciled_residual_info" widget="monetary" optional="hide" string="Residual Info"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'posted'"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

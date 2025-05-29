@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Partner views-->
+    <data>
+        <!--Form view add Dob-->
+        <record id="vtt_view_form_res_partner_dob" model="ir.ui.view">
+            <field name="name">Partner add Dob</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!--Partner dob information-->
+                <notebook position="before">
+                    <group attrs="{'invisible': [('is_company', '!=', False)]}">
+                        <group>
+                            <field name="gender" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="dob"/>
+                            <field name="dod"/>
+                            <field name="age"/>
+                            <field name="life_state" invisible="1"/>
+                        </group>
+                    </group>
+                </notebook>
+
+                <!--Partner rated data-->
+                <div name="button_box" position="inside">
+                    <button name="action_view_rated_data" type="object" class="oe_stat_button" icon="fa-smile-o" string="Ratings"/>
+                </div>
+            </field>
+        </record>
+
+        <!--Search view add life state-->
+        <record id="vtt_view_search_res_partner_life_state" model="ir.ui.view">
+            <field name="name">Partner Filter add Life state</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="inactive" position="before">
+                    <filter string="Not Users" name="not_users" domain="[('user_ids', '=', False)]"/>
+                    <filter string="Users" name="is_users" domain="[('user_ids', '!=', False)]"/>
+                    <separator/>
+                    <filter string="Passed Away" name="dead_person" domain="[('life_state', '=', 'dead')]"/>
+                    <separator/>
+                </filter>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Invoice Partner action add Users filter-->
+        <record id="account.res_partner_action_customer" model="ir.actions.act_window">
+            <field name="context">{
+                'search_default_customer': 1,
+                'search_default_not_users': 1,
+                'res_partner_search_mode': 'customer',
+                'default_is_company': True,
+                'default_customer_rank': 1}
+            </field>
+        </record>
+    </data>
+</odoo>

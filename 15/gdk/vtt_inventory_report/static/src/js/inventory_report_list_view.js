@@ -1,0 +1,19 @@
+odoo.define('vtt_inventory_report.InventoryReportListView', function (require) {
+"use strict";
+
+var ListView = require('web.ListView');
+var InventoryReportListController = require('vtt_inventory_report.InventoryReportListController');
+var viewRegistry = require('web.view_registry');
+
+
+var InventoryReportListView = ListView.extend({
+    config: _.extend({}, ListView.prototype.config, {
+        Controller: InventoryReportListController,
+    }),
+});
+
+viewRegistry.add('vtt_inventory_report_list', InventoryReportListView);
+
+return InventoryReportListView;
+
+});

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Activity Type data-->
+    <data>
+        <record id="vtt_threat_activity_type_defend_evasion" model="threat.malware.activity.type">
+            <field name="name">Defend Evasion</field>
+            <field name="ss_code">TMAT/00001</field>
+        </record>
+        <record id="vtt_threat_activity_type_collection" model="threat.malware.activity.type">
+            <field name="name">Collections</field>
+            <field name="ss_code">TMAT/00002</field>
+        </record>
+        <record id="vtt_threat_activity_type_command_control" model="threat.malware.activity.type">
+            <field name="name">Command and Control</field>
+            <field name="ss_code">TMAT/00003</field>
+        </record>
+        <record id="vtt_threat_activity_type_impact" model="threat.malware.activity.type">
+            <field name="name">Impact</field>
+            <field name="ss_code">TMAT/00004</field>
+        </record>
+        <record id="vtt_threat_activity_type_privilege_escalation" model="threat.malware.activity.type">
+            <field name="name">Privilege Escalation</field>
+            <field name="ss_code">TMAT/00005</field>
+        </record>
+    </data>
+</odoo>

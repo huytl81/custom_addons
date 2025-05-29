@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Origin datas-->
+    <data>
+        <record id="vtt_default_data_sale_product_origin1" model="sale.product.origin">
+            <field name="name">DOVAXA</field>
+        </record>
+
+        <record id="vtt_default_data_sale_product_origin2" model="sale.product.origin">
+            <field name="name">Mitsubishi</field>
+        </record>
+
+        <record id="vtt_default_data_sale_product_origin3" model="sale.product.origin">
+            <field name="name">China</field>
+        </record>
+
+        <record id="vtt_default_data_sale_product_origin4" model="sale.product.origin">
+            <field name="name">Idec</field>
+        </record>
+
+        <record id="vtt_default_data_sale_product_origin5" model="sale.product.origin">
+            <field name="name">Malaysia</field>
+        </record>
+    </data>
+</odoo>

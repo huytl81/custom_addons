@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="import_loyalty_wizard_form" model="ir.ui.view">
+            <field name="name">import_loyalty_form_wizard</field>
+            <field name="model">import.loyalty.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import Loyalty Points">
+                    <sheet>
+                        <group>
+                            <field name="file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="button_import" string="Import" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="import_loyalty_wizard_action" model="ir.actions.act_window">
+            <field name="name">Import Loyalty Points</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.loyalty.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem parent="bi_loyalty_generic_advance.menu_web_loyalty" id="import_loyalty_wizard_menu"
+                  action="import_loyalty_wizard_action" sequence="30"/>
+    </data>
+</odoo>

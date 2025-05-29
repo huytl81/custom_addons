@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_dhag_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-19 04:58+0000\n"
+"PO-Revision-Date: 2021-04-19 04:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_dhag_project
+#: code:addons/vtt_dhag_project/models/project_task.py:0
+#, python-format
+msgid "<b>Set done:</b> %s"
+msgstr "<b>Hoàn thành:</b> %s"
+
+#. module: vtt_dhag_project
+#: code:addons/vtt_dhag_project/models/project_task.py:0
+#, python-format
+msgid "<b>Set open:</b> %s"
+msgstr "<b>Mở lại:</b> %s"
+
+#. module: vtt_dhag_project
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_project_task__checklist_line_ids
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_checklist_line__checklist_id
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist__line_ids
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist_line__task_id
+#: model:ir.ui.menu,name:vtt_dhag_project.vtt_menu_task_checklist
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_project.vtt_view_form_project_task_checklist
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_project.vtt_view_form_task_checklist
+msgid "Checklist"
+msgstr "Danh mục xử lý"
+
+#. module: vtt_dhag_project
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_checklist_line__description
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist_line__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: vtt_dhag_project
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_project.vtt_view_form_project_task_checklist
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: vtt_dhag_project
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist_line__is_done
+msgid "Done?"
+msgstr "Đã hoàn thành?"
+
+#. module: vtt_dhag_project
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_project.vtt_view_form_task_checklist
+msgid "Lines"
+msgstr "Chi tiết"
+
+#. module: vtt_dhag_project
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_checklist_line__name
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist__name
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist_line__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: vtt_dhag_project
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_project.vtt_view_form_project_task_checklist
+msgid "Open"
+msgstr "Mở"
+
+#. module: vtt_dhag_project
+#: model:ir.model,name:vtt_dhag_project.model_vtt_task_checklist
+msgid "Project Task Checklist"
+msgstr "Danh mục xử lý"
+
+#. module: vtt_dhag_project
+#: model:ir.model,name:vtt_dhag_project.model_vtt_checklist_line
+#: model:ir.model,name:vtt_dhag_project.model_vtt_task_checklist_line
+msgid "Project Task Checklist Line"
+msgstr "Chi tiết danh mục xử lý"
+
+#. module: vtt_dhag_project
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_project.vtt_view_form_project_task_checklist
+msgid "Save"
+msgstr "Lưu"
+
+#. module: vtt_dhag_project
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_checklist_line__sequence
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_vtt_task_checklist_line__sequence
+msgid "Sequence"
+msgstr "Trình tự"
+
+#. module: vtt_dhag_project
+#: model:ir.actions.act_window,name:vtt_dhag_project.vtt_act_window_task_checklist
+msgid "Task Checklist"
+msgstr "Danh mục xử lý"
+
+#. module: vtt_dhag_project
+#: model:ir.model.fields,field_description:vtt_dhag_project.field_project_task__checklist_id
+msgid "Type of Task"
+msgstr "Loại công việc"

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Budget Add Item Wz views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_budget_add_item_wz" model="ir.ui.view">
+            <field name="name">Add Budget Item Wizard</field>
+            <field name="model">vtt.budget.add.item.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="budget_template_line_id" invisible="budget_analytic_line_id"/>
+                                <field name="budget_analytic_line_id" invisible="budget_template_line_id"/>
+                            </group>
+                            <group>
+                                <field name="type" widget="radio"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Items">
+                                <field name="item_ids">
+                                    <tree editable="bottom">
+                                        <field name="product_uom_category_id" column_invisible="True"/>
+                                        <field name="name"/>
+                                        <field name="product_id" widget="sol_product_many2one" column_invisible="parent.type == 'group'" required="parent.type == 'item'"/>
+                                        <field name="product_uom_qty" column_invisible="parent.type == 'group'"/>
+                                        <field name="product_uom" string="UoM" groups="uom.group_uom" options="{'no_open': True}" force_save="1" optional="show" column_invisible="parent.type == 'group'"/>
+                                        <field name="price_unit" column_invisible="parent.type == 'group' or parent.budget_template_line_id"/>
+                                        <field name="amount" widget="monetary" column_invisible="parent.type == 'group' or parent.budget_template_line_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string="Apply New Items" name="apply_new_item" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

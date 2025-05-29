@@ -1,0 +1,53 @@
+<odoo>
+    <!--Security group category-->
+    <data>
+        <!--Library group category root-->
+        <record id="library_book_security_group_category" model="ir.module.category">
+            <field name="name">Library Book Management</field>
+            <field name="description">Library Book Management Access Rights</field>
+            <field name="sequence">10</field>
+        </record>
+    </data>
+
+    <data>
+        <!-- Library User Group -->
+        <record id="library_group_user" model="res.groups">
+            <field name="name">Library User</field>
+            <field name="category_id" ref="base.module_category_library"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+        <!-- Library Manager Group -->
+        <record id="library_group_manager" model="res.groups">
+            <field name="name">Library Manager</field>
+            <field name="category_id" ref="base.module_category_library"/>
+            <field name="implied_ids" eval="[(4,ref('library_group_user'))]"/>
+            <field name="users" eval="[(4,ref('base.user_root')),(4,ref('base.user_admin'))]"/>
+        </record>
+    </data>
+
+    <data noupdate="0">
+        <record id="book_user_rule" model="ir.rule">
+            <field name="name">Library Book User Access Rule</field>
+            <field name="model_id" ref="model_library_book"/>
+            <!--<field name="domain_force">
+                [('active', '=', True)]
+            </field>-->
+            <field name="groups" eval="[(4,ref('library_group_user'))]"/>
+        </record>
+    </data>
+
+    <data noupdate="0">
+        <record id="book_rent_user_rule" model="ir.rule">
+            <field name="name">Library Book Rent User Access Rule</field>
+            <field name="model_id" ref="model_library_book_rent"/>
+            <field name="domain_force">
+                [('create_uid', '=', user.id)]
+            </field>
+        </record>
+    </data>
+
+    <record id="group_self_borrow" model="res.groups">
+        <field name="name">Self borrow</field>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

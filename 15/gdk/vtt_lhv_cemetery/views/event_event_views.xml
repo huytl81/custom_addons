@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Event views-->
+    <data>
+        <!--Form view add image-->
+        <record id="vtt_view_form_event_event_img" model="ir.ui.view">
+            <field name="name">Event add image</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="image" widget="image"/>
+                </field>
+
+                <!--Add Seat count-->
+                <field name="address_id" position="after">
+                    <field name="seat_count"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Event Registration views-->
+    <data>
+        <!--Form view add Seat count-->
+        <record id="vtt_view_form_event_registration_seat" model="ir.ui.view">
+            <field name="name">Event Registration Form add Seat Count</field>
+            <field name="model">event.registration</field>
+            <field name="inherit_id" ref="event.view_event_registration_form"/>
+            <field name="arch" type="xml">
+                <field name="date_open" position="after">
+                    <field name="seat_count"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

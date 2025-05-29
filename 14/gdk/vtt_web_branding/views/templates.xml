@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Powered by Template-->
+    <template id="vtt_brand_promotion_message" inherit_id="web.brand_promotion_message" name="VTT Brand Promotion Message">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+                <a target="_blank"
+                    t-attf-href="http://www.viettotal.com?utm_source=db&amp;utm_medium=#{_utm_medium}"
+                    class="badge badge-light">
+                    <img alt="VietTotal"
+                            src="/vtt_web_branding/static/src/img/vtt_logo_tiny.png"
+                            style="height: 1em; vertical-align: baseline;"/>
+                </a>
+            </t>
+        </xpath>
+    </template>
+
+    <!--Login layout-->
+    <template id="vtt_login_layout" name="Login Layout" inherit_id="web.login_layout">
+        <xpath expr="//a[@target='_blank']" position="replace">
+            <a href="http://www.viettotal.com" target="_blank">Developed by <span>VietTotal</span></a>
+        </xpath>
+    </template>
+</odoo>

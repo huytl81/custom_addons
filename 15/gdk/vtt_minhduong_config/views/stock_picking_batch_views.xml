@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Picking Batch views-->
+    <data>
+        <!--Form view add Vehicle and Driver-->
+        <record id="vtt_view_form_stock_picking_batch_vehicle" model="ir.ui.view">
+            <field name="name">Picking Batch Form add Vehicle</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+            <field name="arch" type="xml">
+                <field name="scheduled_date" position="after">
+                    <field name="vtt_fleet_vehicle_id" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                    <field name="vtt_fleet_driver_id" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view add Vehicle and Driver-->
+        <record id="vtt_view_tree_stock_picking_batch_vehicle" model="ir.ui.view">
+            <field name="name">Picking Batch List add Vehicle</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree"/>
+            <field name="arch" type="xml">
+                <field name="picking_type_id" position="after">
+                    <field name="vtt_fleet_vehicle_id"/>
+                    <field name="vtt_fleet_driver_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view add Vehicle and Driver-->
+        <record id="vtt_view_search_stock_picking_batch_vehicle" model="ir.ui.view">
+            <field name="name">Picking Batch Filter add Vehicle</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_filter"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="vtt_fleet_vehicle_id"/>
+                    <field name="vtt_fleet_driver_id"/>
+                </field>
+
+                <filter name="user" position="after">
+                    <filter string="Vehicle" name="groupby_vtt_vehicle" domain="[]" context="{'group_by': 'vtt_fleet_vehicle_id'}"/>
+                    <filter string="Driver" name="groupby_vtt_driver" domain="[]" context="{'group_by': 'vtt_fleet_driver_id'}"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

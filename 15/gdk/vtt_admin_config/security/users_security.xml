@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--New Admin groups-->
+    <data>
+        <!--Modify security groups-->
+        <record id="vtt_categ_group_admin" model="ir.module.category">
+            <field name="name">System Access Rights</field>
+            <field name="parent_id" ref="base.module_category_administration"/>
+        </record>
+
+        <record id="vtt_group_admin" model="res.groups">
+            <field name="name">Administration</field>
+            <field name="category_id" ref="vtt_categ_group_admin"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user')), (4, ref('base.group_erp_manager'))]"/>
+        </record>
+
+        <record id="base.change_password_wizard_action" model="ir.actions.act_window">
+            <field name="groups_id" eval="[(4,ref('base.group_erp_manager'))]"/>
+        </record>
+
+        <!--Modify menu access rule-->
+        <record id="base.menu_administration" model="ir.ui.menu">
+            <field name="groups_id" eval="[(3,ref('base.group_erp_manager'))]"/>
+        </record>
+    </data>
+
+    <!--Modify rules-->
+    <data>
+        <!--New res.users access rules-->
+        <record id="vtt_rule_users_member" model="ir.rule">
+            <field name="name">vtt.rule.users.member</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="domain_force">
+                [
+                ('vtt_user_type', 'not in', ['admin', 'manager'])
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="vtt_rule_users_admin" model="ir.rule">
+            <field name="name">vtt.rule.users.admin</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="domain_force">
+                [
+                (1, '=', 1)
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <!--Allow user to modify his own mobile, phone in reference form-->
+        <!--<record id="base.access_res_users_all" model="ir.model.access">
+            <field name="perm_write" eval="1"/>
+        </record>-->
+    </data>
+</odoo>

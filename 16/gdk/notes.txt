@@ -1,0 +1,209 @@
+=== read_group() ===
+
+The domain argument is a list with a domain expression to filter the records to retrieve.
+The fields argument is a list of field names, along with an aggregation function to apply in the format of field:aggr. Aggregation functions are the ones allowed by PostgreSQL, such as sum, avg, min, max, count, and count_distinct. For example: ["subtotal:sum"].
+The groupby argument is a list with the data field names to group by.
+The limit argument is an optional maximum number of groups to return.
+The offset argument is an optional number of records to skip.
+The orderby argument is an optional string with an order by clause to apply to the result (similar to what search() supports).
+The lazy argument, if set to True, only groups by the first field, and adds the remaining group of fields to the __context result. This argument defaults to True, so set it to False to have all group by fields immediately applied.
+
+self.env["res.partner"].read_group([("display_name", "like","Azure")], fields=["state_id:count_distinct",], groupby=["country_id"], lazy=False)
+
+=================================================================================================================================================
+
+=== Assign ===
+blackdot_binary = b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x04\x00\x00\x00\xb5\x1c\x0c\x02\x00\x00\x00\x0bIDATx\xdacd\xf8\x0f\x00\x01\x05\x01\x01'\x18\xe3f\x00\x00\x00\x00IEND\xaeB'\x82"
+self.image_1920 = base64.b64encode(blackdot_binary).decode("utf-8")
+
+=== write ===
+Partner = self.env['res.partner']
+recs = Partner.search( [("name", "ilike", "Azure")])
+for rec in recs:
+  rec.write({'display_name': 'Hello! %s' % rec.display_name, 'name': 'Goodbye %s' % rec.name})
+  
+self.write({ 'child_ids': address1 | address2})
+self.write({ 'child_ids': [(6, 0, [address1.id, address2.id])]})
+
+=== create / copy ===
+Partner = self.env['res.partner']
+new = Partner.create({'name': 'ACME', 'is_company': True})
+
+demo = self.env.ref("base.user_demo")
+new = demo.copy({"name": "John", "login": "john@example.com"})
+
+=== unlink ===
+recs = Partner.search([('name', '=', 'ACME')])
+recs.unlink()
+
+=================================================================================================================================================
+
+timedelta: weeks, days, hours, minutes, seconds
+from datetime import timedelta
+date(2022,6,1) + timedelta(days=9)
+
+relativedelta: months, years
+from dateutil.relativedelta import relativedelta
+date(2022,5,30) + relativedelta(months=3, years=5)
+
+from odoo.tools import date_utils
+tools.date_utils: start_of, end_of, add, substract
+
+convert: Date.to_date(), Datetime.to_datetime, to_string("2020-11-21 23:11:55")
+
+format: 
+datetime.strptime("04/08/2022","%d/%m/%Y")
+date(2022,8,4).strftime("%d/%m/%Y")
+
+
+
+=================================================================================================================================================
+
+partners = self.env["res.partner"].search([("display_name", "like","Azure")])
+partners.ids
+
+partners.filtered(lambda r: r.name.startswith('Nicole'))
+partners.filtered("is_company")
+
+partners.mapped("name")
+partners.mapped(lambda r: (r.id, r.name))
+
+partners.sorted("name", reverse=True).mapped("name")
+
+rs[0] and rs[-1] retrieve the first element and the last element,respectively.
+rs[1:] results in a copy of the recordset without the first element.
+rs[:1] returns the first element of the recordset.
+
+
+Partner = self.env["res.partner"]
+recs = self.env["res.partner"]
+for i in range(3):
+  rec = Partner.create({"name": "Partner %s" % i})
+  recs |= rec
+  
+  
+values = []
+for i in range(3):
+  value = {"name": "Partner %s" % i}
+  values.append(value)
+recs = self.env["res.partner"].create(values)
+
+
+Partner = self.env["res.partner"]
+recs = []
+for i in range(3):
+  new_rec = Partner.create({"name": "Partner %s" % i})
+  recs.append(new_rec)
+  
+  
+self.env.cr.commit()
+self.env.cr.rollback()
+
+self.env.cr.execute("SELECT login,id from res_users WHERE login=%s OR id=%s",("demo",1))
+self.env.cr.execute("SELECT login,id from res_users WHERE login=%(login)s OR id=%(id)s",{"login":"admin", "id":2})
+
+self.env.cr.fetchall()
+self.env.cr.dictfetchall()
+
+=================================================================================================================================================
+
+load([fields], [data])
+export_data([fields]) 
+
+self.message_post("Hello again!",subject="Hello",subtype="mail.mt_comment",)
+message_subscribe(partner_ids=<list of int IDs>) adds partners
+message_subscribe(channel_ids=<list of int IDs>) adds channels
+message_subscribe_users(user_ids=<list of int IDs>) adds users
+
+=== Environment's context ===
+Active_model, which is the technical name of the model
+Active_id, which is the ID of the form active record or the tree view's first record, if you're navigating from a list
+active_ids, which is a list that contains the selected records or just one element if you're navigating from a form
+active_domain, if the action is triggered from a form view
+
+self.env.context["active_ids"]
+
+_logger.debug('A DEBUG message')
+_logger.info('An INFO message')
+_logger.warning('A WARNING message')
+_logger.error('An ERROR message')
+
+
+=============================================== API ==========================================================
+from xmlrpc import client
+srv = "http://localhost:8069"
+common = client.ServerProxy("%s/xmlrpc/2/common" % srv)
+api = xmlrpc.client.ServerProxy('%s/xmlrpc/2/object' % srv)
+
+common.version()
+
+db, user, password = "odoo15EE", "admin", "admin"
+uid = common.authenticate(db, user, password, {})
+
+=== browse ===
+self.env["res.partner"].browse(uid).display_name
+
+=== read ===
+api.execute_kw(db, uid, password, "res.users", "read", [[2,10],["login", "name", "company_id"]])
+
+=== search/search_count/search_read ===
+result = api.execute_kw(db, uid, password, "res.users", "search_count",[[]])
+result = api.execute_kw(db, uid, password, "res.users", "search",[[]])
+domain = ['&','|',("login", "=", "admin"),("login", "=", "demo"),("company_id","=", 2)]
+result = api.execute_kw(db, uid, password, "res.users", "search",[domain])
+result = api.execute_kw(db, uid, password, "res.users", "search_read", [domain,["login", "name", "company_id"]])
+result = api.execute_kw(db, uid, password, "res.users", "search_read", [], {"domain": domain, "fields": ["login", "name", "company_id"]})
+
+=== CRUD ===
+x = api.execute_kw(db, admin, password, "res.partner", "create",[{'name': 'NXB Kim Dong', 'is_company': True}])
+result = x
+result = api.execute_kw(db, uid, password, "res.partner", "write",[[x], {'name': 'Packt Publishing'}])
+result = api.execute_kw(db, uid, password, "res.partner", "read",[[x], ["name"]])
+result = api.execute_kw(db, uid, password, "res.partner", "unlink",[[x]])
+
+=============================================== Views ==========================================================
+A window action is an ir.actions.act_window record:
+- target defaults to current and opens the view inline in the main content area. If it's set to new, it will open the view in a pop-up dialog window; for example, target="new".
+
+- context sets context information on the target views, which can set default values or activate filters, among other things; 
+for example, <field name="context">{'default_user_id': uid}</field>.
+
+- domain is a domain expression that forces a filter for the records that can be browsed in the opened views; 
+for example, domain="[('user_id', '=',uid)]".
+
+- limit is the number of records for each page in the list view; for example,limit="80".
+
+- view_id is a reference to a particular view to be used. It can't be used together with view_mode. It is often used together with target="new", to open a particular form as a popup
+
+The Action context menu:
+- binding_model_id is a reference to the model to use the action for; for example, <field name="binding_model_id" ref="model_library_checkout" />.
+
+- binding_view_types can be used to limit the option's visibility to specific view types, such as form or list; 
+for example, <field name="binding_view_types">form,list</field>.
+
+name is the field name in the model and identifies the field that's being rendered by this element.
+string is the label text to be used. It overrides the model definition.help provides some tooltip help text that's shown when the mouse is hovered over the field.
+placeholder provides suggestion text to be displayed inside the field.
+widget sets a specific widget to be used to render the field. The available widgets will be discussed later in this section.
+options is a JSON data structure that's used to pass additional options to the widget. The values to use depend on the widget being used.
+Class is a comma-separated list of CSS classes to use for the field HTML rendering process.
+nolabel="True" prevents the automatic field label from being presented. It only makes sense for fields inside a <group> element and is often used along with a <label for="..."> element.
+invisible="True" makes the field not visible, but its data is fetched from the server and is available on the form. Note that forms can't write on invisible fields.
+readonly="True" makes the field read-only on the form.
+required="True" makes the field mandatory on the form.
+password="True" is used for text fields. It is displayed as a password field, masking the characters that are typed in.
+filename is used for binary fields and is the name of the model field to be used for the name of the uploaded file
+
+
+
+
+
+
+
+
+
+
+
+
+
+

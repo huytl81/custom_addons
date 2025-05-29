@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--TienDatco layout-->
+    <data>
+        <record id="vtt_report_layout_background" model="report.layout">
+            <field name="name">VietTotal Background</field>
+            <field name="sequence">10</field>
+            <field name="view_id" ref="vtt_report_layout.vtt_external_layout_background"/>
+            <!--<field name="image">/vtt_report_layout/static/img/preview_background.png</field>
+            <field name="pdf">/vtt_report_layout/static/pdf/preview_background.pdf</field>-->
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Security groups-->
+    <data>
+        <record id="vtt_group_stock_viewer" model="res.groups">
+            <field name="name">Stock Viewer</field>
+            <!--<field name="category_id" ref="base.module_category_hidden"/>-->
+            <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+            <field name="users" eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"/>
+        </record>
+    </data>
+
+    <!--Groups modify-->
+    <data>
+        <!--Stock Manager add Barcode Mobile product/ search-->
+        <record id="stock.group_stock_manager" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('vtt_inventory_mbs.sh_product_barcode_mobile_group')), (4, ref('vtt_inventory_mbs.group_vtt_inventory_mbs_global_document_search'))]"/>
+        </record>
+    </data>
+</odoo>

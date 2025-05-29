@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Custom Import views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_stock_custom_import_wizard" model="ir.ui.view">
+            <field name="name">Stock Custom Import Wizard</field>
+            <field name="model">vtt.stock.custom.import.wz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="type" invisible="1"/>
+                                <field name="picking_type_id" invisible="1" readonly="1"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="filename" invisible="1"/>
+                                <field name="datas" filename="filename"/>
+                            </group>
+                            <group>
+                                <field name="use_batch" attrs="{'invisible': [('type', 'in', ['incoming'])]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='Import Now' name="stock_custom_import" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

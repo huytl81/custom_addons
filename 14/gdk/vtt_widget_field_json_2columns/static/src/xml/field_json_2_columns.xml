@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="FieldJsonTable">
+        <div>
+            <table class="o_list_table table table-sm table-hover table-striped">
+                <tr>
+                    <td><strong>Title</strong></td>
+                    <td><strong>Content</strong></td>
+                </tr>
+                <t t-foreach="records" t-as="line">
+                    <tr>
+                        <td>
+                            <t t-if="line.title">
+                                <t t-esc="line.title"/>
+                            </t>
+                        </td>
+                        <td>
+                            <t t-if="line.content">
+                                <t t-esc="line.content"/>
+                            </t>
+                        </td>
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </t>
+
+</templates>

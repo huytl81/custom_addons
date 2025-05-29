@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="account assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+
+            <script type="text/javascript" src="/vtt_widget_field_json_2columns/static/src/js/field_json_2_columns.js"/>
+            <script type="text/javascript" src="/vtt_widget_field_json_2columns/static/src/js/json_table_2_columns.js"/>
+            <script type="text/javascript" src="/vtt_widget_field_json_2columns/static/src/js/json_table_dynamic_columns.js"/>
+            <script type="text/javascript" src="/vtt_widget_field_json_2columns/static/src/js/field_popup.js"/>
+        </xpath>
+    </template>
+</odoo>

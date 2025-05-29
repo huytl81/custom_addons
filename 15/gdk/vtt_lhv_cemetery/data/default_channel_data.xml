@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default mail channel data-->
+    <data>
+        <!--Care service group channel-->
+        <record id="vtt_data_mail_channel_care_service" model="mail.channel">
+            <field name="name">Care Service Team</field>
+            <field name="public">groups</field>
+            <field name="group_public_id" ref="vtt_lhv_cemetery.vtt_group_cemetery_care_service_user"/>
+            <field name="group_ids" eval="[(4, ref('vtt_lhv_cemetery.vtt_group_cemetery_care_service_user'))]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Hr Department views-->
+    <data>
+        <!--Form view add field for mobile -->
+        <record id="vtt_view_form_hr_department_add_mobile_fields" model="ir.ui.view">
+            <field name="name">Department add mobile fields</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+
+                <field name="manager_id" position="after">
+                    <field name="vtt_show_on_mobile"/>
+                    <field name="vtt_mobile_image" widget="image"/>
+                    <field name="vtt_mobile_order"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

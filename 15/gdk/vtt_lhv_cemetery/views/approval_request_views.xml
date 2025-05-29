@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Approval Request views-->
+    <data>
+        <!--Form view add Task-->
+        <record id="vtt_view_form_approval_request_task" model="ir.ui.view">
+            <field name="name">Approval Request Form add Task</field>
+            <field name="model">approval.request</field>
+            <field name="inherit_id" ref="vtt_approvals.approval_request_view_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="before">
+                    <field name="vtt_task_id"/>
+                </field>
+
+                <!--Show approval category for user-->
+                <field name="category_id" position="attributes">
+                    <attribute name="groups"></attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order views-->
+    <data>
+        <!--Form view return product-->
+        <record id="vtt_view_form_sale_order_return" model="ir.ui.view">
+            <field name="name">Sale Order Form Return Product</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <page name="order_lines" position="after">
+                    <page name="product_returns" string="Return">
+                        <field name="vtt_is_returned" invisible="1"/>
+                        <field name="vtt_is_refunded" invisible="1"/>
+
+                        <field name="vtt_return_line_ref_ids" nolabel="1" context="{'default_partner_id': partner_id}" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}">
+                            <tree editable="top">
+                                <field name="ref_order_id" invisible="1"/>
+                                <field name="partner_id" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="product_template_id" invisible="1"/>
+                                <field name="order_id" domain="sale_order_domain"/>
+                                <field name="product_uom_qty"/>
+                                <field name="qty_returned" optional="hide"/>
+                                <field name="qty_invoiced" optional="hide"/>
+                                <field name="product_uom_category_id" invisible="1"/>
+                                <field name="product_uom" domain="[('category_id', '=', product_uom_category_id)]"/>
+                                <field name="price_unit" attrs="{'readonly': [('parent.state', 'in', ['sale', 'done', 'cancel'])]}"/>
+                                <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" domain="[('type_tax_use','=','sale'),('company_id','=',parent.company_id)]" attrs="{'readonly': [('parent.state', 'in', ['sale', 'done', 'cancel'])]}" optional="show"/>
+                                <field name="price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                <field name="price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                                <field name="sale_order_domain" invisible="1"/>
+                                <field name="is_returned" invisible="1"/>
+                                <field name="is_invoiced" invisible="1"/>
+                                <field name="move_ids" invisible="1"/>
+                                <field name="invoice_line_ids" invisible="1"/>
+                            </tree>
+                        </field>
+                        <group col="6" class="mt-2 mt-md-0">
+                            <group colspan="4">
+
+                            </group>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <field name="vtt_return_amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="vtt_return_amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="vtt_return_amount_total"/>
+                                </div>
+                                <field name="vtt_return_amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                            <div class="oe_clear"/>
+                        </group>
+                    </page>
+                </page>
+
+                <header position="inside">
+                    <button name="return_product_other_order" type="object" string="Return Product" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['sale']), ('vtt_is_returned', '!=', False)]}"/>
+                    <button name="refund_product_other_order" type="object" string="Refund Product" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['sale']), ('vtt_is_refunded', '!=', False)]}"/>
+                </header>
+
+                <field name="amount_total" position="after">
+                    <p></p>
+                    <span>-</span>
+                    <field name="vtt_return_amount_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="vtt_net_amount_total"/>
+                    </div>
+                    <field name="vtt_net_amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Sale view return product-->
+        <record id="vtt_view_tree_sale_order_return" model="ir.ui.view">
+            <field name="name">Sale Order List Return Product</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <field name="amount_total" position="after">
+                    <field name="vtt_return_amount_total" optional="hide" widget="monetary" sum="Total Return"/>
+                    <field name="vtt_net_amount_total" optional="hide" widget="monetary" sum="Total NET"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Sale Report view add sale_state filter-->
+        <record id="vtt_view_search_sale_report_types_filter" model="ir.ui.view">
+            <field name="name">Sale Report Filter add Types</field>
+            <field name="model">sale.report</field>
+            <field name="inherit_id" ref="sale.view_order_product_search"/>
+            <field name="arch" type="xml">
+                <filter name="Sales" position="after">
+                    <separator/>
+                    <filter name="type_sales" string="Sales" domain="[('sale_state','=','sale')]"/>
+                    <filter name="type_return" string="Returns" domain="[('sale_state','=','return')]"/>
+                </filter>
+
+                <filter name="status" position="after">
+                    <filter name="types" string="Types" context="{'group_by':'sale_state'}"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

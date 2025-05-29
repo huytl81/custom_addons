@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Quant views-->
+    <data>
+        <!--List view inventory-->
+        <record id="vtt_view_tree_stock_quant_inventory_expiration_time" model="ir.ui.view">
+            <field name="name">Stock Quant Inventory add Expiration Time</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+            <field name="arch" type="xml">
+                <field name="lot_id" position="after">
+                    <field name="vtt_expiration_date" widget="date" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <field name="vtt_current_expiration_percentage" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <field name="vtt_is_expired" optional="hide" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <field name="vtt_use_date" widget="date" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <!--Add tag-->
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="hide"/>
+                </field>
+
+                <!--Add Sum-->
+                <field name="quantity" position="attributes">
+                    <attribute name="sum">Inventory Quantity</attribute>
+                </field>
+                <field name="available_quantity" position="attributes">
+                    <attribute name="sum">Available Quantity</attribute>
+                </field>
+
+                <!--Add Sequence-->
+                <field name="location_id" optional="after">
+                    <field name="location_sequence" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!--List view report-->
+        <record id="vtt_view_tree_stock_quant_expiration_time" model="ir.ui.view">
+            <field name="name">Stock Quant List add Expiration Time</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="product_expiry.view_stock_quant_tree_editable_expiry"/>
+            <field name="arch" type="xml">
+                <field name="lot_id" position="after">
+                    <field name="vtt_expiration_date" widget="date" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <field name="vtt_current_expiration_percentage" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <field name="vtt_is_expired" optional="hide" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <field name="vtt_use_date" widget="date" groups="stock.group_production_lot" invisible="context.get('hide_lot', False)"/>
+                    <!--Add tag-->
+                    <field name="vtt_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="hide"/>
+                </field>
+
+                <!--Hide removal date-->
+                <field name="removal_date" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+
+                <!--Add Sum-->
+                <field name="inventory_quantity_auto_apply" position="attributes">
+                    <attribute name="sum">Inventory Quantity</attribute>
+                </field>
+                <field name="available_quantity" position="attributes">
+                    <attribute name="sum">Available Quantity</attribute>
+                </field>
+
+                <!--Show product name - default code-->
+                <field name="product_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="product_id" position="after">
+                    <field name="product_default_code" optional="show"/>
+                    <field name="product_name" optional="show"/>
+                </field>
+
+                <!--Add Sequence-->
+                <field name="location_id" optional="after">
+                    <field name="location_sequence" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Filter view add Expired-->
+        <record id="vtt_view_search_stock_quant_product_expired" model="ir.ui.view">
+            <field name="name">Stock Quant Filter add Product Expired</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.quant_search_view"/>
+            <field name="arch" type="xml">
+                <filter name="reserved" position="after">
+                    <separator/>
+                    <filter name="filter_expired" string="Expired Products" domain="[('vtt_is_expired', '!=', False)]"/>
+                    <filter name="filter_not_expired" string="Not Expired Products" domain="[('vtt_is_expired', '=', False)]"/>
+                </filter>
+
+                <field name="lot_id" position="after">
+                    <field name="vtt_tag_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Multi Quants apply-->
+        <record id="vtt_act_server_stock_quant_multi_apply" model="ir.actions.server">
+            <field name="name">Apply All</field>
+            <field name="model_id" ref="model_stock_quant"/>
+            <field name="binding_model_id" ref="model_stock_quant"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+                res = records.action_multi_apply_inventory_by_sv()
+                if isinstance(res, dict):
+                    action = res
+            </field>
+        </record>
+    </data>
+</odoo>

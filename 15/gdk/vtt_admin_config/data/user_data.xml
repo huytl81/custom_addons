@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--Default Vietnam timezone-->
+        <!--Use ir.default instead-->
+        <!--<record id="base.default_user" model="res.users">
+            <field name="groups_id" eval="[(3,ref('base.group_partner_manager'))]"/>
+            <field name="tz">Asia/Ho_Chi_Minh</field>
+        </record>-->
+
+        <record id="base.user_admin" model="res.users">
+            <field name="vtt_user_type">admin</field>
+        </record>
+
+        <!--Remove to access Odoobot-->
+        <!--<record id="base.user_root" model="res.users">
+            <field name="vtt_user_type">admin</field>
+        </record>-->
+    </data>
+
+    <!--User groups parameter-->
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="vtt_user_groups_hidden_extra_categ">
+            <field name="key">vtt_admin_config.hidden_extra_categ</field>
+            <field name="value">base.module_category_administration_administration</field>
+        </record>
+
+        <record model="ir.config_parameter" id="vtt_user_groups_hidden_selection_categ">
+            <field name="key">vtt_admin_config.hidden_selection_categ</field>
+            <field name="value">base.module_category_administration_administration</field>
+        </record>
+    </data>
+</odoo>

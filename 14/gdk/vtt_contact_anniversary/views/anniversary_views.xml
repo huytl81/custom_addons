@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Anniversary views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_contact_anniversary" model="ir.ui.view">
+            <field name="name">Anniversary Form</field>
+            <field name="model">vtt.contact.anniversary</field>
+            <field name="arch" type="xml">
+                <form string="Contact Anniversary">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="next_date" invisible="1"/>
+                                <field name="category_id"/>
+                            </group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="int_day" invisible="1"/>
+                                <field name="int_month" invisible="1"/>
+                                <field name="is_planned" invisible="1"/>
+                                <field name="count" invisible="1"/>
+                            </group>
+                            <group>
+                                <label for="interval_number" string="Execute Every"/>
+                                <div>
+                                    <field name="interval_number" class="oe_inline"/>
+                                    <field name="interval_type" class="oe_inline" attrs="{'invisible': [('interval_number', '&lt;=', 0)]}"/>
+                                </div>
+                            </group>
+                        </group>
+                        <label for="description"/>
+                        <field name="description"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_contact_anniversary" model="ir.ui.view">
+            <field name="name">Anniversary List</field>
+            <field name="model">vtt.contact.anniversary</field>
+            <field name="arch" type="xml">
+                <tree string="Anniversaries">
+                    <field name="category_id"/>
+                    <field name="date"/>
+                    <field name="next_date" optional="hide"/>
+                    <field name="name"/>
+                    <field name="partner_id" optional="show"/>
+                    <field name="count" optional="hide"/>
+                    <field name="is_planned" invisible="1"/>
+                    <field name="int_month" invisible="1"/>
+                    <field name="int_day" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Calendar view-->
+        <record id="vtt_view_calendar_contact_anniversary" model="ir.ui.view">
+            <field name="name">Anniversary Calendar</field>
+            <field name="model">vtt.contact.anniversary</field>
+            <field name="arch" type="xml">
+                <calendar string="Anniversaries" date_start="next_date" hide_time="true" mode="month" color="category_id">
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="category_id" invisible="1"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--Filter view-->
+        <record id="vtt_view_search_contact_anniversary" model="ir.ui.view">
+            <field name="name">Anniversary Filter</field>
+            <field name="model">vtt.contact.anniversary</field>
+            <field name="arch" type="xml">
+                <search string="Anniversary Filter">
+                    <field name="name" string="Name" filter_domain="['|',('name','ilike',self),('category_id','ilike',self)]"/>
+                    <field name="partner_id"/>
+                    <field name="category_id"/>
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]" invisible="1"/>
+                    <separator/>
+                    <filter name="filter_next_date" string="Next Date" date="next_date"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_partner" string="Partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter name="group_category" string="Category" domain="[]" context="{'group_by':'category_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="category_id" select="multi" string="Categories" icon="fa-list"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Anniversary-->
+        <record id="vtt_act_window_contact_anniversary_calendar" model="ir.actions.act_window">
+            <field name="name">Anniversaries</field>
+            <field name="res_model">vtt.contact.anniversary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">calendar,form,tree</field>
+            <!--<field name="context">{'default_type': 'global'}</field>
+            <field name="domain">[('type', '=', 'global')]</field>-->
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_anniversary_anniversary" name="Contacts Anniversaries" sequence="20" action="vtt_act_window_contact_anniversary_calendar" parent="contacts.menu_contacts" />
+    </data>
+</odoo>

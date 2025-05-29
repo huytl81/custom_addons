@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Land Tomb views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_land_tomb" model="ir.ui.view">
+            <field name="name">Land Tomb Form</field>
+            <field name="model">vtt.land.tomb</field>
+            <field name="arch" type="xml">
+                <form string="Land Tomb">
+                    <header>
+                        <!--<field name="state" widget="statusbar"/>-->
+                    </header>
+                    <sheet>
+                        <!--<div name="button_box">
+                            <button class="oe_stat_button"
+                                icon="fa-pencil"
+                                name="view_list_tombs"
+                                type="object">
+                                <field name="tomb_count" widget="statinfo" string="Tombs"/>
+                            </button>
+                        </div>-->
+                        <group>
+                            <group>
+                                <field name="plot_id"/>
+                                <field name="name"/>
+                                <field name="internal_ref"/>
+                            </group>
+                            <group>
+                                <field name="construct_state_simple"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="tomb_slots" string="Slots">
+                                <field name="slot_ids" widget="many2many" domain="[('plot_id', '=', plot_id)]">
+                                    <tree>
+                                        <field name="plot_id" invisible="1"/>
+                                        <field name="tomb_id" invisible="1"/>
+                                        <field name="internal_ref"/>
+                                        <field name="dead_id"/>
+                                        <field name="dob"/>
+                                        <field name="dod"/>
+                                        <field name="age"/>
+                                        <field name="date_receipt"/>
+                                        <field name="time_receipt" widget="float_time"/>
+                                        <field name="dt_receipt" invisible="1"/>
+                                        <field name="dirt_fill_type"/>
+                                        <field name="available_check" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="constructions" string="Constructions">
+                                <field name="construct_ids">
+                                    <tree>
+                                        <field name="tomb_id" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="date_contract"/>
+                                        <field name="date_handing"/>
+                                        <field name="date_warranty"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_land_tomb" model="ir.ui.view">
+            <field name="name">Land Tomb List</field>
+            <field name="model">vtt.land.tomb</field>
+            <field name="arch" type="xml">
+                <tree string="Land Tombs">
+                    <field name="plot_id"/>
+                    <field name="internal_ref"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Land Tomb list-->
+        <record id="vtt_act_window_land_tomb" model="ir.actions.act_window">
+            <field name="name">Land Tombs</field>
+            <field name="res_model">vtt.land.tomb</field>
+            <field name="view_mode">tree,pivot,graph,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem id="vtt_menu_contract_tomb" name="Tomb" parent="vtt_menu_contract_root" sequence="30" action="vtt_act_window_land_tomb"/>-->
+    </data>
+
+</odoo>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Tomb Slot views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_land_tomb_slot" model="ir.ui.view">
+            <field name="name">Tomb Slot Form</field>
+            <field name="model">vtt.land.tomb.slot</field>
+            <field name="arch" type="xml">
+                <form string="Tomb SLot Form">
+                    <header>
+                        <field name="dirt_fill_type" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="dead_id"/>
+                                <field name="dob"/>
+                                <field name="dod"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                                <field name="available_check" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="plot_id"/>
+                                <!--<field name="tomb_id" domain="[('plot_id', '=', plot_id)]"/>-->
+                                <field name="internal_ref"/>
+                            </group>
+                            <group>
+                                <field name="date_receipt"/>
+                                <field name="time_receipt" widget="float_time"/>
+                                <field name="dt_receipt" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="dod_lunar_year"/>
+                                <field name="dod_lunar_month"/>
+                                <field name="dod_lunar_day"/>
+                                <field name="dod_lunar_str" invisible="1"/>
+                                <field name="dod_next_anniversary"/>
+                                <field name="dod_next_anniversary_lunar_str" invisible="1"/>
+                                <field name="dod_lunar_warning" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_land_tomb_slot" model="ir.ui.view">
+            <field name="name">Tomb Slot List</field>
+            <field name="model">vtt.land.tomb.slot</field>
+            <field name="arch" type="xml">
+                <tree string="Tomb Slot List" decoration-danger="dod_lunar_warning" decoration-warning="date_receipt and time_receipt == 0.0">
+                    <field name="plot_id"/>
+                    <!--<field name="tomb_id"/>-->
+                    <field name="internal_ref"/>
+                    <field name="dead_id"/>
+                    <field name="dob"/>
+                    <field name="dod"/>
+                    <field name="age"/>
+                    <field name="gender" optional="show"/>
+                    <field name="date_receipt" optional="show"/>
+                    <field name="time_receipt" widget="float_time" optional="show"/>
+                    <field name="dt_receipt" invisible="1"/>
+                    <field name="dod_lunar_year" optional="hide"/>
+                    <field name="dod_lunar_month" optional="hide"/>
+                    <field name="dod_lunar_day" optional="hide"/>
+                    <field name="dod_lunar_str" optional="hide"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="dod_next_anniversary"/>
+                    <field name="dod_next_anniversary_lunar_str" optional="hide"/>
+                    <field name="dirt_fill_type" optional="hide"/>
+                    <field name="available_check" invisible="1"/>
+                    <field name="dod_lunar_warning" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_land_tomb_slot" model="ir.ui.view">
+            <field name="name">Tomb Slot Filter</field>
+            <field name="model">vtt.land.tomb.slot</field>
+            <field name="arch" type="xml">
+                <search string="Tomb Slot Filter">
+                    <field name="internal_ref" string="Name" filter_domain="['|', '|', ('dead_id.name', 'ilike', self), ('plot_id.name', 'ilike', self), ('plot_id.place_id.name', 'ilike', self)]"/>
+                    <field name="plot_id"/>
+                    <field name="dod_lunar_month"/>
+                    <separator/>
+                    <filter string="Receive Warning" name="slot_receive_warning" domain="[('date_receipt', '!=', False), ('time_receipt', '=', 0.0)]"/>
+                    <separator/>
+                    <filter string="Received" name="slot_received" domain="[('available_check', '!=', False)]"/>
+                    <filter string="Empty" name="slot_empty" domain="[('available_check', '=', False)]"/>
+                    <separator/>
+                    <filter name="anniversary_this_month" string="Anniversary This Month" domain="[('dod_next_anniversary', '&gt;=', (datetime.datetime.combine(context_today(), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01')), ('dod_next_anniversary', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=1), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01'))]"/>
+                    <filter name="anniversary_next_month" string="Anniversary Next Month" domain="[('dod_next_anniversary', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(months=1), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01')), ('dod_next_anniversary', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=2), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01'))]"/>
+                    <separator/>
+                    <filter string="Birthday" name="dob" date="dob"/>
+                    <filter string="Dead Day" name="dod" date="dod"/>
+                    <separator/>
+                    <filter string="Next Anniversary" name="dod_next_anniversary" date="dod_next_anniversary"/>
+                    <separator/>
+                    <filter string="Receipt Date" name="date_receipt" date="date_receipt"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Plot" name="by_plot" domain="[]" context="{'group_by': 'plot_id'}"/>
+                        <filter string="Dead Day" name="groupby_dead_day" domain="[]" context="{'group_by': 'dod'}"/>
+                        <filter string="Receipt Date" name="groupby_receipt_date" domain="[]" context="{'group_by': 'date_receipt'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--Tree view for Dashboard-->
+        <record id="vtt_view_tree_land_tomb_slot_next_anniversary" model="ir.ui.view">
+            <field name="name">Tomb Slot List Next Anniversary</field>
+            <field name="model">vtt.land.tomb.slot</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <tree string="Tombs" decoration-danger="dod_lunar_warning" limit="10">
+                    <field name="plot_id"/>
+                    <!--<field name="tomb_id" optional="hide"/>-->
+                    <field name="internal_ref" optional="hide"/>
+                    <field name="dead_id"/>
+                    <field name="dob" invisible="1"/>
+                    <field name="dod" invisible="1"/>
+                    <field name="age"/>
+                    <field name="gender" optional="show"/>
+                    <field name="date_receipt" optional="hide"/>
+                    <field name="time_receipt" widget="float_time" optional="hide"/>
+                    <field name="dt_receipt" invisible="1"/>
+                    <field name="dod_lunar_year" invisible="1"/>
+                    <field name="dod_lunar_month" invisible="1"/>
+                    <field name="dod_lunar_day" invisible="1"/>
+                    <field name="dod_lunar_str" optional="hide"/>
+                    <field name="dod_next_anniversary"/>
+                    <field name="dod_next_anniversary_lunar_str" optional="show"/>
+                    <field name="dirt_fill_type" optional="hide"/>
+                    <field name="available_check" invisible="1"/>
+                    <field name="dod_lunar_warning" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Pivot view for Dashboard-->
+        <record id="vtt_view_pivot_land_tomb_slot_next_anniversary" model="ir.ui.view">
+            <field name="name">Tomb Slot Pivot Next Anniversary for Dashboard</field>
+            <field name="model">vtt.land.tomb.slot</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <pivot sample="0">
+                    <field name="dod_next_anniversary" interval="month" type="col"/>
+                    <field name="dod_next_anniversary_lunar_str" type="col"/>
+                    <field name="dead_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--Dashboard view next anniversary for Dashboard-->
+        <record id="vtt_view_dashboard_land_tomb_slot_next_anniversary" model="ir.ui.view">
+            <field name="name">Tomb Slot Dashboard Next Anniversary for Dashboard</field>
+            <field name="model">vtt.land.tomb.slot</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <dashboard sample="0">
+                    <group>
+                        <group>
+                            <aggregate name="next_anniversary" string="Current and Next Anniversary" field="id" domain="[('dod_next_anniversary', '&gt;=', (datetime.datetime.combine(context_today(), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01')), ('dod_next_anniversary', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=2), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01'))]" group_operator="count"/>
+                        </group>
+
+                    </group>
+                    <!--<view type="pivot" ref="vtt_lhv_cemetery.vtt_view_pivot_land_tomb_slot_next_anniversary"/>-->
+                </dashboard>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Tomb Slot list-->
+        <record id="vtt_act_window_land_tomb_slot" model="ir.actions.act_window">
+            <field name="name">Tomb Slots</field>
+            <field name="res_model">vtt.land.tomb.slot</field>
+            <field name="view_mode">tree,pivot,graph,form,activity</field>
+        </record>
+
+        <!--Tomb Slot Dashboard-->
+        <record id="vtt_act_window_land_tomb_slot_dashboard" model="ir.actions.act_window">
+            <field name="name">Tomb Slots</field>
+            <field name="res_model">vtt.land.tomb.slot</field>
+            <field name="view_mode">dashboard,tree,form</field>
+            <field name="view_id" ref="vtt_lhv_cemetery.vtt_view_dashboard_land_tomb_slot_next_anniversary"/>
+            <field name="context">{'search_default_anniversary_this_month': 1, 'search_default_anniversary_next_month': 1}</field>
+        </record>
+
+        <!--Tomb Slot list next anniversary-->
+        <record id="vtt_act_window_land_tomb_slot_tree_next_anni" model="ir.actions.act_window">
+            <field name="name">Tomb Slots</field>
+            <field name="res_model">vtt.land.tomb.slot</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vtt_lhv_cemetery.vtt_view_tree_land_tomb_slot_next_anniversary"/>
+            <field name="domain">[('dod_next_anniversary', '&gt;=', (datetime.datetime.combine(context_today(), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01')), ('dod_next_anniversary', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=2), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-01'))]</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<menuitem id="vtt_menu_contract_tomb_slot" name="Tombs" parent="vtt_menu_contract_root" sequence="30" action="vtt_act_window_land_tomb_slot"/>-->
+    </data>
+</odoo>

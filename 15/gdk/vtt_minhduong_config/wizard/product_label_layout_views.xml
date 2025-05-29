@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Label Layout views-->
+    <data>
+        <!--Form view add Move Lines-->
+        <record id="vtt_view_form_product_label_layout_move_lines" model="ir.ui.view">
+            <field name="name">Product Label Layout Form add Move Lines</field>
+            <field name="model">product.label.layout</field>
+            <field name="inherit_id" ref="product.product_label_layout_form"/>
+            <field name="arch" type="xml">
+                <field name="custom_quantity" position="replace">
+                    <label for="custom_quantity"/>
+                    <div class="o_row">
+                        <field name="custom_quantity"/>
+                        <button name="action_set_all_count" type="object" string="Set All" class="btn btn-primary"/>
+                        <button name="action_clear_all_count" type="object" string="Clear All"/>
+                    </div>
+                </field>
+
+                <footer position="before">
+                    <notebook>
+                        <page name="report_lines" string="Print Details" attrs="{'invisible': [('report_line_ids', '=', [])]}">
+                            <field name="report_line_ids">
+                                <tree editable="top" create="0" limit="80">
+                                    <field name="wz_id" invisible="1"/>
+                                    <field name="product_id"/>
+                                    <field name="lot_name"/>
+                                    <field name="expiration_date"/>
+                                    <field name="product_uom_id"/>
+                                    <field name="print_count"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page name="picking_moves" string="Details" attrs="{'invisible': ['|', ('report_line_ids', '!=', []), ('lot_ids', '!=', [])]}">
+                            <field name="move_line_ids">
+                                <tree create="0">
+                                    <field name="product_id"/>
+                                    <field name="lot_name"/>
+                                    <field name="expiration_date"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page name="product_lots" string="Lot/Serial" attrs="{'invisible': ['|', ('report_line_ids', '!=', []), ('lot_ids', '=', [])]}">
+                            <field name="quant_ids" invisible="1"/>
+                            <field name="lot_ids">
+                                <tree create="0">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="expiration_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </footer>
+            </field>
+        </record>
+
+        <record id="vtt_view_form_product_label_layout_report_buttons" model="ir.ui.view">
+            <field name="name">Product Label Layout Form add Report Buttons</field>
+            <field name="model">product.label.layout</field>
+            <field name="inherit_id" ref="stock.product_label_layout_form_picking"/>
+            <field name="arch" type="xml">
+                <button name="action_set_all_count" position="attributes">
+                    <attribute name="attrs">{'invisible': [('picking_quantity', '=', 'picking')]}</attribute>
+                </button>
+                <button name="action_clear_all_count" position="attributes">
+                    <attribute name="attrs">{'invisible': [('picking_quantity', '=', 'picking')]}</attribute>
+                </button>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_stock_production_lot_print" model="ir.actions.act_window">
+            <field name="name">Print Lot/Serial Label</field>
+            <field name="res_model">product.label.layout</field>
+            <field name="context">{
+                'default_lot_ids': active_ids,
+                'lot_ids': active_ids,
+                'default_picking_quantity': 'custom',
+                'default_print_format': '3x1'}</field>
+            <field name="view_mode">form</field>
+            <field name="binding_model_id" ref="model_stock_production_lot"/>
+            <field name="binding_view_types">list,form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="vtt_act_window_stock_production_quant_print" model="ir.actions.act_window">
+            <field name="name">Print Lot/Serial Label</field>
+            <field name="res_model">product.label.layout</field>
+            <field name="context">{
+                'default_quant_ids': active_ids,
+                'quant_ids': active_ids,
+                'default_picking_quantity': 'custom',
+                'default_print_format': '3x1'}</field>
+            <field name="view_mode">form</field>
+            <field name="binding_model_id" ref="model_stock_quant"/>
+            <field name="binding_view_types">list</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

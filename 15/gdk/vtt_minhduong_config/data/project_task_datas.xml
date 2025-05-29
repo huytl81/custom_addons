@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Project Task Type-->
+    <data>
+        <record id="vtt_data_project_task_type_todo" model="project.task.type">
+            <field name="name">Todo</field>
+            <field name="sequence" eval="1"/>
+            <field name="fold" eval="False"/>
+            <field name="is_closed" eval="False"/>
+        </record>
+
+        <record id="vtt_data_project_task_type_progress" model="project.task.type">
+            <field name="name">Progress</field>
+            <field name="sequence" eval="2"/>
+            <field name="fold" eval="False"/>
+            <field name="is_closed" eval="False"/>
+        </record>
+
+        <record id="vtt_data_project_task_type_done" model="project.task.type">
+            <field name="name">Done</field>
+            <field name="sequence" eval="3"/>
+            <field name="fold" eval="True"/>
+            <field name="is_closed" eval="True"/>
+        </record>
+
+        <record id="vtt_data_project_task_type_cancel" model="project.task.type">
+            <field name="name">Cancel</field>
+            <field name="sequence" eval="4"/>
+            <field name="fold" eval="True"/>
+            <field name="is_closed" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <!-- Custom code to add row numbers -->
+    <t
+        t-name="rowno_in_tree.add_number"
+        t-inherit="web.ListRenderer.Rows"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//t[@t-foreach='list.records']" position="before">
+            <t t-set="rowNumber" t-value="0"/>
+        </xpath>
+        <xpath
+            expr="//t[@t-call='{{ constructor.recordRowTemplate }}']"
+            position="before"
+        >
+            <t t-set="rowNumber" t-value="rowNumber + 1"/>
+        </xpath>
+    </t>
+
+    <!-- Custom code to display row numbers -->
+    <t
+        t-name="rowno_in_tree.ListRenderer.RecordRowNumber"
+        t-inherit="web.ListRenderer.RecordRow"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//tr/td[@t-if='hasSelectors']" position="before">
+            <td tabindex="-1">
+                <span t-esc="rowNumber"/>
+            </td>
+        </xpath>
+
+    </t>
+    <t
+        t-name="rowno_in_tree.ListRenderer.RecordRowNumber"
+        t-inherit="sale.ListRenderer.RecordRow"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//tr/td[@t-if='hasSelectors']" position="before">
+            <td tabindex="-1">
+                <span t-esc="rowNumber"/>
+            </td>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_admin_config
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-28 08:57+0000\n"
+"PO-Revision-Date: 2020-10-28 08:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_admin_config
+#: model_terms:ir.ui.view,arch_db:vtt_admin_config.vtt_view_user_form
+msgid ""
+"<i style=\"color: crimson;\">Username already exist, please change to "
+"something else!</i>"
+msgstr "<i style=\"color: crimson;\">Tên đăng nhập đã tồn tại, vui lòng lựa chọn 1 tên đăng nhập khác!</i>"
+
+#. module: vtt_admin_config
+#: model:ir.model,name:vtt_admin_config.model_res_groups
+msgid "Access Groups"
+msgstr "Nhóm truy cập"
+
+#. module: vtt_admin_config
+#: model_terms:ir.ui.view,arch_db:vtt_admin_config.vtt_view_tree_res_user
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: vtt_admin_config
+#: model:res.groups,name:vtt_admin_config.vtt_group_admin
+msgid "Administration"
+msgstr "Quản trị hệ thống"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields.selection,name:vtt_admin_config.selection__res_users__vtt_user_type__admin
+msgid "Administrator"
+msgstr "Quản trị"
+
+#. module: vtt_admin_config
+#: model:ir.model,name:vtt_admin_config.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_groups__display_name
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_partner__display_name
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_users__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_groups__id
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_partner__id
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_groups____last_update
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_partner____last_update
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_users____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields.selection,name:vtt_admin_config.selection__res_users__vtt_user_type__manager
+msgid "Manager"
+msgstr "Quản lý"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields.selection,name:vtt_admin_config.selection__res_users__vtt_user_type__member
+msgid "Member"
+msgstr "Thành viên"
+
+#. module: vtt_admin_config
+#: model:ir.module.category,name:vtt_admin_config.vtt_categ_group_admin
+msgid "System Access Rights"
+msgstr "Quản trị hệ thống"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_partner__tz
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_users__tz
+msgid "Timezone"
+msgstr "Múi giờ"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_users__vtt_user_type
+msgid "Type of User"
+msgstr "Loại user"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,field_description:vtt_admin_config.field_res_users__vtt_exist_username
+msgid "Username Existed"
+msgstr "Tên đăng nhập đã tồn tại"
+
+#. module: vtt_admin_config
+#: model:ir.actions.act_window,name:vtt_admin_config.vtt_action_menu_users
+#: model:ir.model,name:vtt_admin_config.model_res_users
+#: model:ir.ui.menu,name:vtt_admin_config.vtt_menu1_res_users
+#: model:ir.ui.menu,name:vtt_admin_config.vtt_menu2_res_users
+#: model:ir.ui.menu,name:vtt_admin_config.vtt_menu_res_users
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: vtt_admin_config
+#: model:ir.ui.menu,name:vtt_admin_config.vtt_menu2_res_company
+msgid "Companies"
+msgstr "Công ty"
+
+#. module: vtt_admin_config
+#: model:ir.model.fields,help:vtt_admin_config.field_res_partner__tz
+#: model:ir.model.fields,help:vtt_admin_config.field_res_users__tz
+msgid ""
+"When printing documents and exporting/importing data, time values are computed according to this timezone.\n"
+"If the timezone is not set, UTC (Coordinated Universal Time) is used.\n"
+"Anywhere else, time values are computed according to the time offset of your web client."
+msgstr ""
+"Khi in ấn hoặc kết xuất thông tin, dữ liệu thời gian được tính toán dựa trên múi giờ.\n"
+"Nếu múi giờ chưa được thiết lập, hệ thống sẽ sử dụng múi giờ UTC (Coordinated Universal Time)."

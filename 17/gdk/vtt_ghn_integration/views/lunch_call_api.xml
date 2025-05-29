@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Get States Button in action menu  res_country_state-->
+        <record id="model_call_api_state" model="ir.actions.server">
+            <field name="name">Get States</field>
+            <field name="model_id" ref="base.model_res_country_state"/>
+            <field name="binding_model_id" ref="base.model_res_country_state"/>
+            <field name="state">code</field>
+            <field name="code">action = records.fetch_all_province_id()</field>
+        </record>
+
+        <!-- Get Districts Button in action menu  model_account_move-->
+        <record id="model_call_api_district" model="ir.actions.server">
+            <field name="name">Get Districts</field>
+            <field name="model_id" ref="model_res_district"/>
+            <field name="binding_model_id" ref="model_res_district"/>
+            <field name="state">code</field>
+            <field name="code">action = records.create_district_data()</field>
+        </record>
+
+        <!-- Get  Button in action menu  model_account_move-->
+        <record id="model_call_api_ward" model="ir.actions.server">
+            <field name="name">Get Wards</field>
+            <field name="model_id" ref="model_res_ward"/>
+            <field name="binding_model_id" ref="model_res_ward"/>
+            <field name="state">code</field>
+            <field name="code">action = records.create_ward_data()</field>
+        </record>
+    </data>
+</odoo>

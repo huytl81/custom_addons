@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.zalo</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="200"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+        <xpath expr="//form" position="inside">
+            <div class="app_settings_block" data-string="Zalo" string="Zalo" data-key="vtt_zalo_app" groups="base.group_user">
+                <h2>Zalo settings</h2>
+                <div class="row mt16 o_settings_container">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_odoo_account_api_key_right_pane">
+                            <label for="odoo_account_api_key"/>
+                            <field name="odoo_account_api_key"/>
+                            <div class="text-muted">
+                                Tài khoản Odoo sở hữu Auth API key
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_odoo_auth_api_key_right_pane">
+                            <label for="odoo_auth_api_key"/>
+                            <field name="odoo_auth_api_key"/>
+                            <div class="text-muted">
+                                Odoo API key sử dụng để tạo tài khoản cho API Zalo Auth
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_oa_id">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_oa_id_right_pane">
+                            <label for="zalo_oa_id"/>
+                            <field name="zalo_oa_id"/>
+<!--                            <div class="text-muted">-->
+<!--                                Không phải Id của Zalo Mini App-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_oa_secret_key">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_oa_secret_key_right_pane">
+                            <label for="zalo_oa_secret_key"/>
+                            <field name="zalo_oa_secret_key"/>
+                            <div class="text-muted">
+                                (Developer > Webhook)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_app_id">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_app_id_right_pane">
+                            <label for="zalo_app_id"/>
+                            <field name="zalo_app_id"/>
+                            <div class="text-muted">
+                                Zalo Super app (Developer > ứng dụng)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_app_secret_key">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_app_secret_key_right_pane">
+                            <label for="zalo_app_secret_key"/>
+                            <field name="zalo_app_secret_key"/>
+                            <div class="text-muted">
+                                Zalo App Secret Key (Sử dụng để check auth ...)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_mini_app_id">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_mini_app_id_right_pane">
+                            <label for="zalo_mini_app_id"/>
+                            <field name="zalo_mini_app_id"/>
+<!--                            <div class="text-muted">-->
+<!--                                Mini App -->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_mini_app_checkout_private_key">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_mini_app_checkout_private_key_right_pane">
+                            <label for="zalo_mini_app_checkout_private_key"/>
+                            <field name="zalo_mini_app_checkout_private_key"/>
+                            <div class="text-muted">
+                                Sử dụng để phục vụ payment-tạo mac ...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_oa_api_access_token">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_oa_api_access_token_right_pane">
+                            <label for="zalo_oa_api_access_token"/>
+                            <field name="zalo_oa_api_access_token"/>
+                            <div class="text-muted">
+                                Zalo OA API access token
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt16 o_settings_container" id="zalo_oa_api_refresh_token">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zalo_oa_api_refresh_token_right_pane">
+                            <label for="zalo_oa_api_refresh_token"/>
+                            <field name="zalo_oa_api_refresh_token"/>
+                            <div class="text-muted">
+                                Zalo OA API refresh token
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thêm nút chức năng gọi đến get_new_zalo_token() -->
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <button name="action_check_zalo_oa_token" type="object" string="Check Zalo Access Token" class="btn btn-primary"/> -
+                        <button name="action_get_new_zalo_token" type="object" string="Get New Zalo Access Token" class="btn btn-primary"/> - 
+                        <button name="action_sync_zalo_oa_tags" type="object" string="Sync Zalo OA Tags" class="btn btn-primary"/>
+                    </div>
+                </div>
+
+
+                <h2>ZNS template</h2>
+                <div class="row mt16 o_settings_container" id="zns_tmpl_payment_id">
+                    <div id="use_collaborative_pad" class="col-12 col-lg-6 o_setting_box" title="App Id">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane" name="vtt_zalo_app_zns_tmpl_payment_id_right_pane">
+                            <label for="zns_tmpl_payment_id"/>
+                            <field name="zns_tmpl_payment_id"/>
+                            <div class="text-muted">
+                                Payment template
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        </field>
+    </record>
+</odoo>

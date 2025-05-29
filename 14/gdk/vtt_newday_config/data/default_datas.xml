@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default datas-->
+    <data>
+        <!--Product Size precision-->
+        <record forcecreate="True" id="decimal_product_size" model="decimal.precision">
+            <field name="name">Product Size</field>
+            <field name="digits">2</field>
+        </record>
+    </data>
+</odoo>

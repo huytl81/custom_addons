@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Inventory Report History views-->
+    <data>
+        <!--New tree view for report-->
+        <record id="vtt_view_tree_product_inventory_report" model="ir.ui.view">
+            <field name="name">Product Inventory Report List</field>
+            <field name="model">product.product</field>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Product Variants" multi_edit="1" create="0" duplicate="false" sample="1" js_class="vtt_inventory_report_list" decoration-success="vtt_qty_date_from &lt; vtt_qty_date_to" decoration-danger="vtt_qty_date_from &gt; vtt_qty_date_to" decoration-info="vtt_qty_date_from == vtt_qty_date_to and vtt_qty_in &gt; 0.0">
+                    <field name="default_code" optional="hide" readonly="1"/>
+                    <field name="barcode" optional="hide" readonly="1"/>
+                    <field name="name" readonly="1"/>
+                    <field name="product_template_attribute_value_ids" widget="many2many_tags" groups="product.group_product_variant" readonly="1" optional="hide"/>
+                    <field name="uom_id" options="{'no_open': True, 'no_create': True}" groups="uom.group_uom" optional="show" readonly="1"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="hide" readonly="1"/>
+                    <field name="lst_price" optional="hide" string="Sales Price"/>
+                    <field name="standard_price" optional="show"/>
+                    <field name="vtt_price_past" optional="hide"/>
+                    <field name="categ_id" optional="hide"/>
+                    <field name="type" optional="hide" readonly="1"/>
+                    <field name="price" invisible="not context.get('pricelist',False)"/>
+                    <field name="vtt_qty_date_from" sum="Inventory First"/>
+                    <field name="vtt_qty_in" sum="Total Move In"/>
+                    <field name="vtt_value_in" sum="Move In Value" optional="hide"/>
+                    <field name="vtt_qty_out" sum="Total Move Out"/>
+                    <field name="vtt_value_out" sum="Move Out Value" optional="hide"/>
+                    <field name="vtt_sale_value_out" sum="Sales Value" invisible="1"/>
+                    <field name="vtt_price_last" optional="hide"/>
+                    <field name="vtt_qty_date_to" sum="Inventory Last"/>
+                    <!--<field name="qty_available" attrs="{'invisible':[('type', '!=', 'product')]}" optional="hide" decoration-danger="virtual_available &lt; 0" decoration-warning="virtual_available == 0" decoration-bf="1"/>
+                    <field name="virtual_available" attrs="{'invisible':[('type', '!=', 'product')]}" string="Forecasted Quantity" optional="hide" decoration-danger="virtual_available &lt; 0" decoration-warning="virtual_available == 0"/>-->
+                    <field name="vtt_value_last" sum="Total Value Last"/>
+                    <field name="product_tmpl_id" invisible="1" readonly="1"/>
+                    <field name="active" invisible="1"/>
+                    <field name="vtt_period_changed" invisible="1"/>
+                    <field name="vtt_period_stand" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Addition filter for report-->
+        <record id="vtt_view_search_product_inventory_report" model="ir.ui.view">
+            <field name="name">Product Inventory Report Filter</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <filter name="consumable" position="after">
+                    <separator/>
+                    <filter name="filter_period_change" string="Period Changed" domain="[('vtt_period_changed', '!=', False)]"/>
+                    <filter name="filter_period_stand" string="Period Stand" domain="[('vtt_period_stand', '!=', False)]"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+
+    <!--Inventory Report History Action-->
+    <data>
+        <record model="ir.actions.act_window" id="vtt_action_inventory_report_history">
+            <field name="name">Inventory Report History</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="vtt_view_tree_product_inventory_report"/>
+            <field name="context">{'search_default_consumable': 1, 'default_type': 'product', 'search_default_filter_period_change': 1}</field>
+            <!--<field name="search_view_id" ref="analytic.view_account_analytic_line_filter"/>-->
+            <field name="domain">[('type', 'in', ['product'])]</field>
+        </record>
+    </data>
+
+    <!--Inventory Report History Menu-->
+    <data>
+        <menuitem name="Inventory Report History" id="vtt_menu_inventory_report_history" parent="stock.menu_warehouse_report" action="vtt_action_inventory_report_history" sequence="120" groups="stock.group_stock_manager"/>
+    </data>
+</odoo>

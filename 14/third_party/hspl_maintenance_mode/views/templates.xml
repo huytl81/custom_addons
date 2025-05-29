@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <template id="under_maintenance" name="Maintenance">
+            <t t-call="web.layout">
+                <t t-set="head">
+                    <t t-call-assets="web.assets_frontend"/>
+                </t>
+                <div class="bg-g1 size1 flex-w flex-col-c-sb p-l-15 p-r-15 p-b-30">
+                    <div class="flex-w flex-c wsize1 bor1">
+                        <img class="img img-fluid d-block mx-auto" src="/web/binary/company_logo" alt="Logo"/>
+                    </div>
+
+
+                    <div class="flex-col-c w-full p-t-50 p-b-80">
+                        <p class="txt-center l1-txt2 p-b-43">
+                            Our website is currently under construction.
+                        </p>
+                        <p class="txt-center l1-txt2 p-b-43">
+                            Thank you for your patience.
+                        </p>
+                    </div>
+
+                    <span class="s1-txt2 txt-center">
+                        <div class="text-muted text-center text-md-left">
+                            <span>Copyright &amp;copy;</span> <span t-field="res_company.name" itemprop="name">Company name</span>
+                        </div>
+                    </span>
+                </div>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

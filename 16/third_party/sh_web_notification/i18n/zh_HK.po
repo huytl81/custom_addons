@@ -1,0 +1,231 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_web_notification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-28 14:17+0000\n"
+"PO-Revision-Date: 2021-04-28 14:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__active
+msgid "Active"
+msgstr "积极的"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__notification_type__danger
+msgid "Alert"
+msgstr "警报"
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Animation"
+msgstr "动画片"
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Archived"
+msgstr "存档"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__background_color
+msgid "Background Color"
+msgstr "背景颜色"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__font_family
+msgid "Body Font Family"
+msgstr "身体字体家族"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__create_uid
+msgid "Created by"
+msgstr "由...制作"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__date
+msgid "Creation Date"
+msgstr "创立日期"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__description
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__description_text
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Description"
+msgstr "描述"
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Design"
+msgstr "设计"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__direction
+msgid "Direction"
+msgstr "方向"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__emoji
+msgid "Emoji"
+msgstr "表情符号"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__is_animation
+msgid "Enable Animation ?"
+msgstr "启用动画？"
+
+#. module: sh_web_notification
+#: model:res.groups,name:sh_web_notification.group_web_notification
+msgid "Enable Web Notification Configuration"
+msgstr "启用Web通知配置"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__fantasy
+msgid "Fantasy"
+msgstr "幻想"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__font_color
+msgid "Font Color"
+msgstr "字体颜色"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__font_size
+msgid "Font Size"
+msgstr "字体大小"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__google_font_family
+msgid "Google Font Family"
+msgstr "谷歌字体家族"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__notification_type__warning
+msgid "Info"
+msgstr "信息"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement____last_update
+msgid "Last Modified on"
+msgstr "最后修改了"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__write_uid
+msgid "Last Updated by"
+msgstr "最后更新"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__write_date
+msgid "Last Updated on"
+msgstr "上次更新了"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__direction__right
+msgid "Left to Right"
+msgstr "左到右"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__math
+msgid "Math"
+msgstr "数学"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__monospace
+msgid "Monospace"
+msgstr "单座"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__name
+msgid "Name"
+msgstr "姓名"
+
+#. module: sh_web_notification
+#: model:ir.actions.act_window,name:sh_web_notification.sh_web_notitification_settings_action
+#: model:ir.ui.menu,name:sh_web_notification.sh_web_notitification_settings_menuitem
+msgid "Notification"
+msgstr "通知"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__notification_type
+msgid "Notification Type"
+msgstr "通知类型"
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Notify User"
+msgstr "通知用户"
+
+#. module: sh_web_notification
+#: code:addons/sh_web_notification/models/models.py:0
+#: code:addons/sh_web_notification/models/models.py:0
+#, python-format
+msgid "Notitification"
+msgstr "迷信"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__padding
+msgid "Padding"
+msgstr "填充"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__is_popup_notification
+msgid "Popup Notification ?"
+msgstr "弹出通知？"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__direction__left
+msgid "Right To Left"
+msgstr "右到左"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__roboto
+msgid "Roboto"
+msgstr "Roboto."
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__sans-serif
+msgid "Sans-serif"
+msgstr "无衬线字体"
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__serif
+msgid "Serif"
+msgstr "衬里"
+
+#. module: sh_web_notification
+#: model:ir.model,name:sh_web_notification.model_sh_announcement
+msgid "Sh Announcement"
+msgstr "SH公告"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__user_ids
+msgid "Users"
+msgstr "用户"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__simple_text
+msgid "Want Simple Text ?"
+msgstr "想要简单的文字？"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="rule_bi_loyalty_points_multi_company" model="ir.rule">
+        <field name="name">Loyalty Points Settings</field>
+        <field name="model_id" ref="model_all_loyalty_setting" />
+        <field name="domain_force">[('multi_company_ids', 'child_of', company_ids)]</field>
+    </record>
+
+    <record id="rule_bi_loyalty_points_history_multi_company" model="ir.rule">
+        <field name="name">Loyalty Points History</field>
+        <field name="model_id" ref="model_all_loyalty_history" />
+        <field name="domain_force">[('multi_company_ids', 'in',company_ids)]</field>
+    </record>
+
+</odoo>

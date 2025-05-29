@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Investigate Location views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_investigate_location" model="ir.ui.view">
+            <field name="name">Location Form</field>
+            <field name="model">investigate.location</field>
+            <field name="arch" type="xml">
+                <form string="Location">
+                    <header></header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="id" invisible="1"/>
+                                <field name="address_id" invisible="1"/>
+                                <field name="street"/>
+                                <field name="ward"/>
+                                <field name="district"/>
+                                <field name="state_id" domain="[('country_id', '=', country_id)]"/>
+                                <field name="country_id" invisible="0"/>
+                            </group>
+                            <group>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                        </group>
+                        <label for="full_address"/>
+                        <field name="full_address"/>
+                        <group>
+                            <group>
+                                <field name="partner_latitude"/>
+                                <field name="partner_longitude"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <notebook>
+                            <page string="Campaigns" name="campaigns">
+                                <field name="campaign_ids" context="{'default_location_id': id}">
+                                    <tree editable="top">
+                                        <field name="location_id" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="date_from"/>
+                                        <field name="date_to"/>
+                                        <field name="user_ids" widget="many2many_tags"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_investigate_location" model="ir.ui.view">
+            <field name="name">Location List</field>
+            <field name="model">investigate.location</field>
+            <field name="arch" type="xml">
+                <tree string="Locations">
+                    <field name="name"/>
+                    <field name="state_id"/>
+                    <field name="district" optional="show"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_investigate_location" model="ir.ui.view">
+            <field name="name">Location Filter</field>
+            <field name="model">investigate.location</field>
+            <field name="arch" type="xml">
+                <search string="Location Filter">
+                    <field name="name"/>
+                    <field name="state_id"/>
+                    <field name="phone"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_state_id" string="States" domain="[]" context="{'group_by':'state_id'}"/>
+                        <filter name="group_country_id" string="Country" domain="[]" context="{'group_by':'country_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Location list-->
+        <record id="vtt_act_window_investigate_location" model="ir.actions.act_window">
+            <field name="name">Locations</field>
+            <field name="res_model">investigate.location</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Location menu-->
+        <menuitem id="vtt_menu_threat_analysis_campaign_location" name="Locations" sequence="30" parent="vtt_menu_threat_analysis_campaign" action="vtt_act_window_investigate_location"/>
+    </data>
+</odoo>

@@ -1,0 +1,148 @@
+<odoo>
+    <!-- Loyalty views -->
+  <data>
+
+      <!-- Loyalty form views -->
+    <record id="zalo_loyalty_program_form_inherit" model="ir.ui.view">
+        <field name="name">zalo.loyalty.program.form.inherit</field>
+      <field name="model">loyalty.program</field>
+      <field name="inherit_id" ref="loyalty.loyalty_program_view_form"/>
+<!--      <field name="mode">form</field>-->
+      <field name="arch" type="xml">            
+          <xpath expr="//notebook" position="before">
+              <group name="Zalo group" invisible="program_type not in ('coupons', 'loyalty')">
+                  <group>
+                      <field name="loyalty_program_apply_id" widget="res_partner_many2one" string="Dựa trên" placeholder="Áp dụng trên thẻ khách hàng thân thiết" invisible="program_type not in ('coupons')"/>
+                      <field name="required_points" string="Điểm cần để đổi" invisible="program_type not in ('coupons')"/>
+<!--                      <field name="init_points" string="Init points" invisible="program_type not in ('coupons')"/>-->
+                      <field name="auto_apply" string="Kích hoạt tự động trên đơn hàng Zalo app" invisible="program_type not in ('loyalty')"/>
+                      <field name="is_zalo_loyalty_program" invisible="program_type not in ('loyalty')" string="Áp dụng trên Zalo app"/>
+                      <!-- <field name="description" string="Mô tả trên Zalo app" placeholder="Mô tả trên Zalo"/> -->
+                  </group>
+                  <group>
+                      <field name="image" widget="image" string="Ảnh hiển thị trên Zalo" invisible="program_type not in ('coupons')"/>
+                      <label for="exchange_money" string="Quy tắc đổi điểm" invisible="program_type not in ('loyalty')"/>
+                      <div invisible="program_type not in ('loyalty')">
+                          <field name="exchange_money" invisible="program_type not in ('loyalty')" placeholder="VNĐ"/>
+                          <label for="exchange_points" string="="/>
+                          <field name="exchange_points" invisible="program_type not in ('loyalty')" placeholder="Điểm"/>
+                      </div>
+                  </group>
+
+<!--              <field name="level" string="Card level"/>-->
+<!--              <field name="end_point" string="Required point"/>-->
+<!--              <field name="loyalty_program_apply_id" string="Program apply"/>-->
+
+                  <div name="loyalty_tiers" invisible="program_type not in ('loyalty')">
+                      <label for="loyalty_tier_ids" string="Hạng thẻ"/>
+                      <field name="loyalty_tier_ids">
+                        <tree>
+<!--                            <field name="loyalty_program_id" invisible="1"/>-->
+                            <field name="name" string="Hạng"/>
+                            <field name="description" string="Mô tả"/>
+                            <field name="range_min" string="Từ"/>
+                            <field name="range_max" string="Đến"/>
+        <!--                    <field name="contract_partner_id" optional="hide"/>-->
+        <!--                    <field name="priority" widget="priority" readonly="1"/>-->
+        <!--                    <field name="construction_state" widget="badge" decoration-warning="construction_state in ('design_progress', 'construct_progress')" decoration-success="construction_state == 'done'"/>-->
+                        </tree>
+                    </field>
+                  </div>
+              </group>
+          </xpath>
+
+          <xpath expr="//page[@name='rules_rewards']" position="attributes">
+              <attribute name="invisible">program_type in ('loyalty')</attribute>
+          </xpath>
+          <xpath expr="//page[@name='communications']" position="attributes">
+              <attribute name="invisible">program_type in ('loyalty')</attribute>
+          </xpath>
+      </field>
+    </record>
+
+
+      <!-- Loyalty Tier forms -->
+      <record id="vtt_loyalty_tier_form_view" model="ir.ui.view">
+        <field name="name">vtt.loyalty.tier.form</field>
+        <field name="model">vtt.loyalty.tier</field>
+        <field name="arch" type="xml">
+            <form string="Loyalty tier">
+                <sheet>
+                    <!-- <field name="icon" widget="image" class="oe_avatar"/> -->
+                    <div class="float-start">
+                        <group>
+                            <field name="name" string="Tên hạng thẻ"/>
+                            <!-- <field name="level" placeholder="Card level" readonly="1" /> -->
+                            <field name="description" placeholder="Mô tả ưu đãi" string="Mô tả ưu đãi"/>
+                            <field name="range_min" placeholder="Tính theo tổng số tiền đã mua hàng" string="Từ"/>
+                            <field name="range_max" placeholder="Tính theo tổng số tiền đã mua hàng" string="Đến"/>
+                            <field name="color" placeholder="Color (hex)" string="Màu trên Mini app"/>
+                            <field name="tier_reward_ids" string="Ưu đãi">
+                                <tree>
+<!--                                    <field name="tier_id" invisible="1"/>-->
+                                    <field name="name"/>
+                                    <field name="value"/>
+                                    <field name="value_type"/>
+<!--                                    <field name="range_max"/>-->
+                <!--                    <field name="contract_partner_id" optional="hide"/>-->
+                <!--                    <field name="priority" widget="priority" readonly="1"/>-->
+                <!--                    <field name="construction_state" widget="badge" decoration-warning="construction_state in ('design_progress', 'construct_progress')" decoration-success="construction_state == 'done'"/>-->
+                                </tree>
+                            </field>
+<!--                            <field name="parent_id"/>-->
+<!--                            <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>-->
+<!--                            <field name="sequence" groups="base.group_no_one"/>-->
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="vtt_loyalty_tier_tree_view" model="ir.ui.view">
+        <field name="name">vtt.loyalty.tier.tree</field>
+        <field name="model">vtt.loyalty.tier</field>
+        <field name="arch" type="xml">
+            <tree string="Loyalty tier">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+<!--                <field name="publish_date"/>-->
+                <!--                <field name="website_id" groups="website.group_multi_website"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <record id="vtt_loyalty_tier_action" model="ir.actions.act_window">
+        <field name="name">Vtt Loyalty Tier</field>
+        <field name="res_model">vtt.loyalty.tier</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+    </record>
+
+
+
+    <!-- Inherit and update tree view for loyalty.card -->
+        <record id="view_loyalty_card_tree_inherit" model="ir.ui.view">
+            <field name="name">loyalty.card.tree.inherit</field>
+            <field name="model">loyalty.card</field>
+            <field name="inherit_id" ref="loyalty.loyalty_card_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <field name="level_points"/>
+                </xpath>
+            </field>
+        </record>
+
+    <!-- Inherit and update form view for loyalty.card -->
+        <record id="view_loyalty_card_form_inherit" model="ir.ui.view">
+            <field name="name">loyalty.card.form.inherit</field>
+            <field name="model">loyalty.card</field>
+            <field name="inherit_id" ref="loyalty.loyalty_card_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group" position="inside">
+                    <field name="level_points"/>
+                </xpath>
+            </field>
+        </record>
+  </data>
+</odoo>

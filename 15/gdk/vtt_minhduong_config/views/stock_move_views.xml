@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Stock Move Line views-->
+    <data>
+        <!--Tree view Operation add Note-->
+        <record id="vtt_view_tree_stock_move_line_operation_note" model="ir.ui.view">
+            <field name="name">Stock Move Line Operation add Note</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+            <field name="arch" type="xml">
+                <field name="product_uom_id" position="after">
+                    <field name="note"/>
+                    <field name="need_note" invisible="1"/>
+                    <button class="fa fa-2x fa-warning btn-warning" attrs="{'invisible': [('need_note', '=', False)]}"/>
+                    <!--<a class="fa fa-2x fa-warning btn-warning" invisible="!need_note"/>-->
+                </field>
+
+                <!--Add Pack qty-->
+                <field name="qty_done" position="before">
+                    <field name="vtt_pack_qty" attrs="{'readonly': ['|', '&amp;', ('state', '=', 'done'), ('is_locked', '=', True), '&amp;', ('package_level_id', '!=', False), ('parent.picking_type_entire_packs', '=', True)]}"/>
+                    <field name="vtt_surplus_qty" attrs="{'readonly': ['|', '&amp;', ('state', '=', 'done'), ('is_locked', '=', True), '&amp;', ('package_level_id', '!=', False), ('parent.picking_type_entire_packs', '=', True)]}"/>
+                </field>
+
+                <!--Copy LN-->
+                <field name="lot_name" position="after">
+                    <field name="picking_code" invisible="1"/>
+                    <button name="make_empty_copy" type="object" icon="fa-paper-plane-o" aria-label="Copy" title="Copy" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'incoming')]}"/>
+                    <button name="make_2_split" type="object" icon="fa-sliders" aria-label="Split" title="Split" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'incoming')]}"/>
+                    <button name="action_internal_transfer" type="object" icon="fa-exchange" aria-label="Internal Transfer" title="Internal Transfer" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'internal')]}"/>
+                    <button name="get_all_from_loc" type="object" icon="fa-sign-out" aria-label="Take All" title="Take All" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'internal')]}"/>
+                </field>
+
+                <!--Add Sequence handle-->
+                <field name="product_id" position="before">
+                    <field name="sequence" widget="handle"/>
+                </field>
+
+                <!--Add Alter Location-->
+                <field name="location_dest_id" position="after">
+                    <field name="vtt_location_alter_id" context="{'target_product': product_id}" attrs="{'invisible': [('picking_code', '!=', 'outgoing')], 'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view Detailed Operation add Note-->
+        <record id="vtt_view_tree_stock_move_line_detailed_operation_note" model="ir.ui.view">
+            <field name="name">Stock Move Line Detailed Operation add Expiration Percentage</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+            <field name="arch" type="xml">
+                <field name="product_uom_id" position="after">
+                    <field name="note"/>
+                    <field name="need_note" invisible="1"/>
+                    <button class="fa fa-2x fa-warning btn-warning" attrs="{'invisible': [('need_note', '=', False)]}"/>
+                </field>
+
+                <!--Add Pack qty-->
+                <field name="qty_done" position="before">
+                    <field name="vtt_pack_qty" attrs="{'readonly': [('state', 'in', ('done', 'cancel')), ('is_locked', '=', True)]}" force_save="1"/>
+                    <field name="vtt_surplus_qty" attrs="{'readonly': [('state', 'in', ('done', 'cancel')), ('is_locked', '=', True)]}" force_save="1"/>
+                </field>
+
+                <!--Add Target Product context-->
+                <field name="location_id" position="attributes">
+                    <attribute name="context">{'target_product': product_id}</attribute>
+                </field>
+
+                <!--Copy LN-->
+                <field name="lot_name" position="after">
+                    <field name="picking_code" invisible="1"/>
+                    <button name="make_empty_copy" type="object" icon="fa-paper-plane-o" aria-label="Copy" title="Copy" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'incoming')]}"/>
+                    <button name="make_2_split" type="object" icon="fa-sliders" aria-label="Split" title="Split" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'incoming')]}"/>
+                    <button name="action_internal_transfer" type="object" icon="fa-exchange" aria-label="Internal Transfer" title="Internal Transfer" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'internal')]}"/>
+                    <button name="get_all_from_loc" type="object" icon="fa-sign-out" aria-label="Take All" title="Take All" attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('picking_code', '!=', 'internal')]}"/>
+                </field>
+
+                <!--Add Sequence handle-->
+                <field name="product_id" position="before">
+                    <field name="sequence" widget="handle"/>
+                </field>
+
+                <!--Add Alter Location-->
+                <field name="location_dest_id" position="after">
+                    <field name="vtt_location_alter_id" context="{'target_product': product_id}" attrs="{'invisible': [('picking_code', '!=', 'outgoing')], 'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Batch Move Line add Note-->
+        <record id="vtt_view_tree_stock_move_line_batch_note" model="ir.ui.view">
+            <field name="name">Picking Batch Move Line add Note</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock_picking_batch.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="qty_done" position="after">
+                    <field name="note"/>
+                    <field name="need_note" invisible="1"/>
+                    <button class="fa fa-2x fa-warning btn-warning" attrs="{'invisible': [('need_note', '=', False)]}"/>
+                </field>
+
+                <!--Add Pack qty-->
+                <field name="qty_done" position="before">
+                    <field name="vtt_pack_qty" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}" force_save="1"/>
+                    <field name="vtt_surplus_qty" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}" force_save="1"/>
+                </field>
+
+                <!--Add Target Product context-->
+                <field name="location_id" position="attributes">
+                    <attribute name="context">{'target_product': product_id}</attribute>
+                </field>
+
+                <!--Add Sequence handle-->
+                <field name="product_id" position="before">
+                    <field name="sequence" widget="handle"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Report List add vehicle-->
+        <record id="vtt_view_tree_stock_move_line_add_vehicle" model="ir.ui.view">
+            <field name="name">Move Line Report List add Vehicle</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="location_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="location_dest_id" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </field>
+
+                <!--Add Vehicle-->
+                <field name="location_dest_id" position="after">
+                    <field name="vtt_fleet_vehicle_id" optional="show"/>
+                    <field name="vtt_fleet_driver_id" optional="hide"/>
+                </field>
+
+                <!--Add Pack Qty-->
+                <field name="qty_done" position="before">
+                    <field name="vtt_pack_qty" optional="show"/>
+                    <field name="vtt_surplus_qty" optional="show"/>
+                </field>
+
+                <!--Show product name - default code-->
+                <field name="product_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="product_id" position="after">
+                    <field name="product_default_code" optional="show"/>
+                    <field name="product_name" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Move Filter add Vehicle-->
+        <record id="vtt_view_search_stock_move_line_add_vehicle" model="ir.ui.view">
+            <field name="name">Move Line Filter add Vehicle</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.stock_move_line_view_search"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="vtt_fleet_vehicle_id"/>
+                </field>
+
+                <filter name="by_date" position="after">
+                    <filter string="Vehicle" name="groupby_vehicle" domain="[]" context="{'group_by': 'vtt_fleet_vehicle_id'}"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+
+    <!--Stock Move views-->
+    <data>
+        <!--Form view add Update Expiration Percentage-->
+        <!--<record id="vtt_view_form_stock_move_operation_update_expire_percent" model="ir.ui.view">
+            <field name="name">Stock Move Operation Form add Update Expiration Percentage</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_stock_move_operations"/>
+            <field name="arch" type="xml">
+                <field name="move_line_ids" position="before">
+                    <button name="expiration_time_percentage_update" type="object" string="Update Expire." class="oe_highlight"/>
+                </field>
+            </field>
+        </record>-->
+
+        <!--Kanban view add color-->
+        <record id="vtt_view_kanban_stock_move_color" model="ir.ui.view">
+            <field name="name">Stock Move Kanban add Color</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_kandan"/>
+            <field name="arch" type="xml">
+                <!--Add Due Quantity-->
+                <field name="reserved_availability" position="after">
+                    <field name="vtt_qty_due"/>
+                    <field name="vtt_pack_qty_due_str"/>
+                </field>
+
+                <!--Done-->
+                <!--<xpath expr="//div[hasclass('o_kanban_record_top')]" position="attributes">
+                    <attribute name="t-if">(record.quantity_done.raw_value &gt;= record.product_uom_qty.raw_value and record.product_uom_qty.raw_value &gt; 0) or record.product_uom_qty.raw_value &lt;= 0</attribute>
+                </xpath>-->
+                <xpath expr="//div[hasclass('o_kanban_record_top')]" position="attributes">
+                    <attribute name="t-if">record.vtt_qty_due.raw_value &lt;= 0</attribute>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_record_top')]" position="after">
+                    <!--Partial-->
+                    <div class="o_kanban_record_top" t-if="record.vtt_qty_due.raw_value &lt; record.product_uom_qty.raw_value and record.vtt_qty_due.raw_value &gt; 0" style="background-color:rgb(255, 255, 0);">
+                    <!--<div class="o_kanban_record_top" t-if="record.quantity_done.raw_value &lt; record.product_uom_qty.raw_value and record.quantity_done.raw_value &gt; 0" style="background-color:rgb(255, 255, 0);">-->
+                        <div class="o_kanban_record_headings">
+                            <strong class="o_kanban_record_title"><span><field name="product_id"/></span></strong>
+                        </div>
+                        <button name="action_show_details" string="Register lots, packs, location" class="o_icon_button fa fa-list" type="object" attrs="{'invisible': [('show_details_visible', '=', False)]}" options="{&quot;warn&quot;: true}"/>
+                    </div>
+
+                    <!--None-->
+                    <div class="o_kanban_record_top" t-if="record.vtt_qty_due.raw_value &gt;= record.product_uom_qty.raw_value and record.vtt_qty_due.raw_value &gt; 0" style="background-color:rgb(255, 77, 77);">
+                    <!--<div class="o_kanban_record_top" t-if="record.quantity_done.raw_value &lt;= 0 and record.product_uom_qty.raw_value &gt; 0" style="background-color:rgb(255, 77, 77);">-->
+                        <div class="o_kanban_record_headings">
+                            <strong class="o_kanban_record_title"><span><field name="product_id"/></span></strong>
+                        </div>
+                        <button name="action_show_details" string="Register lots, packs, location" class="o_icon_button fa fa-list" type="object" attrs="{'invisible': [('show_details_visible', '=', False)]}" options="{&quot;warn&quot;: true}"/>
+                    </div>
+                </xpath>
+
+                <!--Quantity-->
+                <!--<xpath expr="//div[hasclass('o_kanban_record_body')]" position="before">
+                    <t t-set="qty_due" t-value="record.product_uom_qty.raw_value - record.quantity_done.raw_value"/>
+                    &lt;!&ndash;<t t-set="product_packing_spec" t-value="record.product_id.packing_specification.raw_value"/>
+                    <t t-set="due_pack" t-value="qty_due // product_packing_spec"/>
+                    <t t-set="due_odd" t-value="qty_due / product_packing_spec"/>&ndash;&gt;
+                    <span t-esc="qty_due"/>
+                </xpath>-->
+                <xpath expr="//div[hasclass('o_kanban_record_body')]/div[2]" position="inside">
+                    <!--<span t-if="qty_due > 0">Due <span t-esc="record.product_id.get_pack_quantity(qty_due)"/></span>-->
+                    <br/>
+                    <span t-if="record.vtt_qty_due.raw_value &gt; 0">Due <span t-esc="record.vtt_pack_qty_due_str.raw_value"/></span>
+                </xpath>
+                <xpath expr="//div[hasclass('o_kanban_record_body')]/div[2]/span[1]" position="before">
+                    <span>Initial Demand <field name="vtt_pack_qty"/> Pack <field name="vtt_surplus_qty"/> Odd</span><br/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--List view add Amount-->
+        <record id="vtt_view_tree_stock_move_amount" model="ir.ui.view">
+            <field name="name">Stock Move List add Amount</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_tree"/>
+            <field name="arch" type="xml">
+                <!--Add Amount-->
+                <field name="product_uom_qty" position="before">
+                    <field name="vtt_demand_qty"/>
+                    <field name="vtt_amount_demand" sum="Amount Demand"/>
+                </field>
+                <field name="product_uom_qty" position="after">
+                    <field name="vtt_amount_confirm" sum="Amount Confirm"/>
+                    <field name="quantity_done"/>
+                    <field name="vtt_amount_total" sum="Amount Total"/>
+                </field>
+
+                <!--Add Note-->
+                <field name="state" position="before">
+                    <field name="note"/>
+                </field>
+
+                <!--Default hide location-->
+                <field name="location_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="location_dest_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="state" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+
+                <!--Show date-->
+                <field name="date" position="attributes">
+                    <attribute name="groups"></attribute>
+                </field>
+
+                <!--Show product name - default code-->
+                <field name="product_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+                <field name="product_id" position="after">
+                    <field name="product_default_code" optional="show"/>
+                    <field name="product_name" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Filter view for report-->
+        <record id="vtt_view_search_stock_move_demand_report" model="ir.ui.view">
+            <field name="name">Stock Move Demand Report Filter</field>
+            <field name="model">stock.move</field>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Stock Moves">
+                    <field name="origin" filter_domain="['|', '|', ('origin', 'ilike', self), ('name', 'ilike', self), ('picking_id', 'ilike', self)]" string="Reference"/>
+                    <field name="product_id"/>
+                    <field name="name" string="Location" filter_domain="['|',('location_id', 'ilike', self),('location_dest_id', 'ilike', self)]"/>
+                    <field name="partner_id" string="Partner" filter_domain="[('picking_id.partner_id', 'child_of', self)]"/>
+                    <separator/>
+                    <filter string="Ready" name="ready" domain="[('picking_id.state','=','assigned')]"/>
+                    <filter string="To Do" name="future" domain="[('picking_id.state','in',('assigned','confirmed','waiting'))]"/>
+                    <filter string="Done" name="done" domain="[('picking_id.state','=','done')]"/>
+                    <separator/>
+                    <filter string="Incoming" name="incoming" domain="[('location_id.usage', 'not in', ('internal', 'transit')), ('location_dest_id.usage', 'in', ('internal', 'transit'))]"/>
+                    <filter string="Outgoing" name="outgoing" domain="[('location_id.usage', 'in', ('internal', 'transit')), ('location_dest_id.usage', 'not in', ('internal', 'transit'))]"/>
+                    <filter string="Inventory" name="inventory" domain="[('is_inventory', '=', True)]"/>
+                    <separator/>
+                    <filter string="Date" name="today" date="date"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Creation Date" name="groupby_create_date" domain="[]" context="{'group_by': 'create_date:month'}" groups="base.group_no_one"/>
+                        <filter string="Scheduled Date" name="groupby_date" domain="[]" context="{'group_by': 'date:month'}"/>
+                        <filter string="Product" name="by_product" domain="[]" context="{'group_by': 'product_id'}"/>
+                        <filter string="Picking" name="groupby_picking_id" domain="[]" context="{'group_by': 'picking_id'}"/>
+                        <filter string="Source Location" name="groupby_location_id" domain="[]" context="{'group_by': 'location_id'}" groups="stock.group_stock_multi_locations"/>
+                        <filter string="Destination Location" name="groupby_dest_location_id" domain="[]" context="{'group_by': 'location_dest_id'}" groups="stock.group_stock_multi_locations"/>
+                        <filter string="Status" name="status" domain="[]" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--Batch Move add Pack-->
+        <record id="vtt_view_tree_stock_move_batch_qty" model="ir.ui.view">
+            <field name="name">Picking Batch Move add Pack</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock_picking_batch.view_picking_move_tree_inherited"/>
+            <field name="arch" type="xml">
+                <field name="product_uom_qty" position="before">
+                    <field name="vtt_pack_qty" attrs="{'readonly': [('is_initial_demand_editable', '=', False)]}" sum="pack"/>
+                    <field name="vtt_surplus_qty" attrs="{'readonly': [('is_initial_demand_editable', '=', False)]}" sum="Surplus"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Action-->
+    <data>
+        <!--Demand Report-->
+        <record id="vtt_act_window_stock_move_demand_report" model="ir.actions.act_window">
+            <field name="name">Product Demand Report</field>
+            <field name="res_model">stock.move</field>
+            <field name="view_id" ref="stock.view_move_tree"/>
+            <field name="search_view_id" ref="vtt_view_search_stock_move_demand_report"/>
+            <field name="domain">[('picking_id.state', '!=', 'cancel')]</field>
+            <field name="context">{
+                'search_default_done': 1,
+                'search_default_future': 1,
+                'search_default_groupby_date': 1,
+                'search_default_groupby_picking_id': 1,
+                'search_default_incoming': 1}</field>
+            <!--<field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No stock move found
+              </p><p>
+                This menu gives you the full traceability of inventory
+                operations on a specific product. You can filter on the product
+                to see all the past or future movements for the product.
+              </p>
+            </field>-->
+        </record>
+
+        <!--Picking Details Report-->
+        <record id="vtt_act_window_stock_move_line_picking_details_report" model="ir.actions.act_window">
+            <field name="name">Picking Details Report</field>
+            <field name="res_model">stock.move.line</field>
+            <field name="view_id" ref="stock.view_move_line_tree"/>
+            <field name="search_view_id" ref="stock.stock_move_line_view_search"/>
+            <field name="domain">[('state', '!=', 'cancel')]</field>
+            <field name="context">{
+                'search_default_filter_last_12_months': 1,
+                'search_default_done': 1,
+                'search_default_by_date': 1,
+                'search_default_groupby_vehicle': 1,
+                'search_default_by_picking': 1,
+                'search_default_groupby_product_id': 1,
+                'create': 0}</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Demand Report menu-->
+        <menuitem id="vtt_menu_stock_move_demand_report" name="Product Demand Report" parent="stock.menu_warehouse_report" action="vtt_act_window_stock_move_demand_report" sequence="100"/>
+
+        <!--Picking Details Report menu-->
+        <menuitem id="vtt_menu_stock_move_line_picking_details_report" name="Picking Details Report" parent="stock.menu_warehouse_report" action="vtt_act_window_stock_move_line_picking_details_report" sequence="110"/>
+    </data>
+</odoo>

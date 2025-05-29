@@ -1,0 +1,130 @@
+<odoo>
+    <record id="view_form_book" model="ir.ui.view">
+        <field name="name">Book Form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- Buttons will go here -->
+                    <button name="button_check_isbn" type="object" class="btn-primary" string="Check ISBN"/>
+                    <button name="make_available" string="Available" class="btn-primary" type="object"/>
+                    <button name="make_borrowed" string="Borrowed" class="btn-primary" type="object"/>
+                    <button name="make_lost" string="Lost" class="btn-primary" type="object"/>
+                    <button name="grouped_data" class="btn-primary" string="Grouped" type="object"/>
+                    <button name="book_rent" string="Rent" type="object" class="btn-primary" groups="library_app.group_self_borrow"/>
+                    <button name="return_all_books" string="Return All" type="object" class="btn-primary" groups="library_app.group_self_borrow"/>
+                    <button name="average_book_occupation" class="btn-primary" string="Log Avg Occ" type="object" />
+                    <button name="report_missing_book" string="Report" type="object"/>
+                    <field name="state" widget="statusbar" options="{'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(action_library_book_rent)d" type="action" icon="fa-book" context="{'search_default_book_id': active_id}">
+                            <field string="Rent Orders" name="rent_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <!-- Content goes here: -->
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name"/>
+                            <field name="author_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                            <field name="website_id"/>
+                            <field name="report_missing"/>
+                            <field name="publisher_id"/>
+                            <field name="publisher_country_id"/>
+                            <field name="publisher_city"/>
+                            <field name="ref_doc_id"/>
+                            <field name="state"/>
+                            <field name="pages"/>
+                            <field name="reader_rating"/>
+                            <field name="out_of_print"/>
+                            <field name="age_days"/>
+                            <field name="old_edition"/>
+                            <field name="notes"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="isbn"/>
+                            <field name="active" invisible="1"/>
+                            <field name="book_type"/>
+                            <field name="published_date"/>
+                            <!--<field name="color" widget="int_color"/>-->
+                            <field name="restrict_country_ids" widget="many2many_tags"/>
+                            <field name="updated_date"/>
+                            <field name="cost_price"/>
+                            <field name="retail_price"/>
+                            <field name="currency_id"/>
+                            <field name="category_ids" widget="many2many_tags"/>
+                            <field name="manager_remarks"/>
+                            <field name="is_public" />
+                            <field name="private_to_do" />
+                            <field name="image" widget="image"/>
+                        </group>
+                    </group>
+                    <group name="group_bottom">
+                        <field name="description"/>
+                    </group>
+                    <group string="Book Issues">
+                        <field name="book_issue_ids" nolabel="1">
+                            <tree name="Book isuues">
+                                <field name="create_date"/>
+                                <field name="submitted_by"/>
+                                <field name="issue_description"/>
+                                <field name="campaign_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <!-- Discuss widgets -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_book" model="ir.ui.view">
+        <field name="name">Book List</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="update_release_date" string="Update Published Date" type="object"/>
+                </header>
+                <field name="name"/>
+                <field name="author_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                <field name="publisher_id"/>
+                <field name="publisher_country_id"/>
+                <field name="published_date"/>
+                <field name="book_type"/>
+                <field name="category_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_search_book" model="ir.ui.view">
+        <field name="name">Book Filters</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="publisher_id"/>
+                <field name="publisher_country_id"/>
+                <field name="age_days"/>
+                <field name="author_ids"/>
+                <filter name="without_author" string="No Authors" domain="[('author_ids','=',False)]"/>
+                <filter name="filter_active" string="Active" domain="[('active','=',True)]"/>
+
+            </search>
+        </field>
+    </record>
+
+    <!--<record id="library_book_view_author" model="ir.ui.view">
+        <field name="name">Library Book Author</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <m2m_group m2m_field="author_ids" color_field="color"></m2m_group>
+        </field>
+    </record>-->
+</odoo>

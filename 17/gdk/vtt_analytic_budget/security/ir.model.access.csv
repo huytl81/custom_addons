@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_budget_template_user,budget.template.user,model_vtt_analytic_budget_template,account.group_account_invoice,1,1,1,1
+access_budget_template_line_user,budget.template.line.user,model_vtt_analytic_budget_template_line,account.group_account_invoice,1,1,1,1
+access_budget_line_user,budget.line.user,model_vtt_analytic_budget_line,account.group_account_invoice,1,1,1,1
+access_budget_add_item_wz_user,budget.add.item.wz.user,model_vtt_budget_add_item_wz,account.group_account_invoice,1,1,1,1
+access_budget_add_item_wz_line_user,budget.add.item.wz.line.user,model_vtt_budget_add_item_wz_line,account.group_account_invoice,1,1,1,1
+access_budget_register_wz_user,budget.register.wz.user,model_vtt_budget_register_wz,account.group_account_invoice,1,1,1,1
+access_budget_custom_import_wz_user,budget.custom.import.wz.user,model_vtt_budget_custom_import_wz,account.group_account_invoice,1,1,1,1

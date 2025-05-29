@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Project Task Report views-->
+    <data>
+        <!--Task report by project, time, status-->
+        <record id="vtt_view_graph_report_project_task_user_by_project" model="ir.ui.view">
+            <field name="name">Task Report Graph by Project Status</field>
+            <field name="model">report.project.task.user</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <graph string="Tasks Analysis" sample="1" disable_linking="1">
+                     <field name="project_id"/>
+                     <field name="date_end"/>
+                     <field name="nbr" invisible="1"/>
+                     <!--<field name="rating_avg" invisible="1"/>-->
+                 </graph>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Task report by project, time, status-->
+        <record id="vtt_act_window_report_project_task_user_by_project" model="ir.actions.act_window">
+            <field name="name">Task Report Graph by Project Status</field>
+            <field name="res_model">report.project.task.user</field>
+            <field name="view_mode">graph,pivot</field>
+            <!--<field name="search_view_id" ref="view_task_project_user_search"/>-->
+            <!--<field name="context">{'group_by_no_leaf':1, 'group_by':[], 'graph_measure': '__count__'}</field>-->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No data yet!
+                </p><p>
+                    Analyze the progress of your projects and the performance of your employees.
+                </p>
+            </field>
+        </record>
+
+        <record id="vtt_act_window_view_report_project_task_user_by_project_graph" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="vtt_act_window_report_project_task_user_by_project"/>
+            <field name="sequence">1</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="vtt_view_graph_report_project_task_user_by_project"/>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_report_project_task_user_by_project" name="Project Task Analysis" action="vtt_act_window_report_project_task_user_by_project" parent="project.menu_project_report" sequence="0"/>
+    </data>
+</odoo>

@@ -1,0 +1,49 @@
+odoo.define('vtt.CampaignListController', function (require) {
+"use strict";
+
+var core = require('web.core');
+var ListController = require('web.ListController');
+
+var _t = core._t
+
+var qweb = core.qweb;
+
+
+var CampaignListController = ListController.extend({
+
+    // -------------------------------------------------------------------------
+    // Public
+    // -------------------------------------------------------------------------
+
+    init: function (parent, model, renderer, params) {
+        this.context = renderer.state.getContext();
+        return this._super.apply(this, arguments);
+    },
+
+    /**
+     * @override
+     */
+    renderButtons: function ($node) {
+        this._super.apply(this, arguments);
+        if (this.context.no_at_date) {
+            return;
+        }
+        var $buttonToDate = $(qweb.render('VttCampaignImport.Buttons'));
+        $buttonToDate.on('click', this._onOpenWizard.bind(this));
+        this.$buttons.prepend($buttonToDate);
+    },
+    _onOpenWizard: function () {
+        var state = this.model.get(this.handle, {raw: true});
+        var stateContext = state.getContext();
+        this.do_action({
+            res_model: 'campaign.import.wizard',
+            views: [[false, 'form']],
+            target: 'new',
+            type: 'ir.actions.act_window'
+        });
+    },
+});
+
+return CampaignListController;
+
+});

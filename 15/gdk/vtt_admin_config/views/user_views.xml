@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--User views-->
+    <data>
+        <!--Filter view add phone-->
+        <record model="ir.ui.view" id="vtt_view_search_res_users">
+            <field name="name">vtt.view.search.res.users</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_search"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="phone"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Modify base user view-->
+        <record id="vtt_view_user_form" model="ir.ui.view">
+            <field name="name">VTT User Form modify username</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <!--Show ref partner-->
+                <xpath expr="/form/sheet/div[@class='oe_title']/group/field[@name='partner_id']" position="attributes">
+                    <attribute name="groups" eval="[(3, ref('base.group_no_one')), (4,ref('base.group_user'))]"/>
+                </xpath>
+
+                <!--Show email-->
+                <xpath expr="/form/sheet/div[@class='oe_title']/label[@for='login']" position="attributes">
+                    <attribute name="string">Username</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/div[@class='oe_title']/h2" position="after">
+                    <label for="email" class="oe_edit_only"/>
+                    <field name="email"/>
+                </xpath>
+
+                <!--Add user type to form-->
+                <field name="tz_offset" position="after">
+                    <field name="vtt_user_type" groups="base.group_system"/>
+                </field>
+
+                <!--Show duplicated username warning-->
+                <h2 position="after">
+                    <a attrs="{'invisible': [('vtt_exist_username', '=', False)]}"><i style="color: crimson;">Username already exist, please change to something else!</i></a>
+                </h2>
+                <field name="login" position="after">
+                    <field name="vtt_exist_username" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Add fields to base user tree-->
+        <record id="vtt_view_tree_res_user" model="ir.ui.view">
+            <field name="name">VTT User Tree adding fields</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <field name="login" position="after">
+                    <field name="phone"/>
+                    <field name="state_id" string="Address"/>
+                </field>
+                <field name="lang" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Adding mobile and phone to User preference view-->
+        <record model="ir.ui.view" id="vtt_view_form_users_simple_modif_extend_phone">
+            <field name="name">User Simple Modif Form add Phone and Mobile</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <field name="tz_offset" position="after">
+                    <field name="mobile"/>
+                    <field name="phone"/>
+                </field>
+            </field>
+        </record>
+    </data>
+    
+    <!--User actions-->
+    <data>
+        <act_window id="vtt_action_menu_users"
+                    name="Users"
+                    res_model="res.users"
+                    context="{'search_default_no_share': 1}"
+                    view_mode="tree,form,kanban"/>
+        
+        <record id="ev_action_view_tree_users" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="vtt_view_tree_res_user"/>
+            <field name="act_window_id" ref="vtt_action_menu_users"/>
+        </record>
+        <record id="ev_action_view_users" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="base.user_groups_view"/>
+            <field name="act_window_id" ref="vtt_action_menu_users"/>
+        </record>
+    </data>
+    
+    <!--User menus-->
+    <data>
+        <!--User Root menu-->
+        <menuitem id="vtt_menu_res_users"
+                name="Users"
+                  sequence="250"
+                  web_icon="vtt_admin_config,static/description/icon.png"
+                groups="vtt_group_admin"/>
+        
+        <!--User menu-->
+        <menuitem id="vtt_menu1_res_users"
+                name="Users"
+                  sequence="10"
+                parent="vtt_menu_res_users"/>
+        <menuitem id="vtt_menu2_res_users"
+                name="Users"
+                parent="vtt_menu1_res_users"
+                action="vtt_action_menu_users"/>
+
+        <!--Company menu-->
+        <menuitem id="vtt_menu2_res_company"
+                name="Companies"
+                parent="vtt_menu1_res_users"
+                action="base.action_res_company_form"/>
+        
+        <!--Groups menu-->
+        <!--<menuitem id="vtt_menu1_user_groups"
+                name="Groups"
+                  sequence="50"
+                parent="vtt_menu_res_users"
+                groups="base.group_system"/>
+        <menuitem id="vtt_menu2_user_groups"
+                name="Groups"
+                parent="vtt_menu1_user_groups"
+                action="vtt_action_menu_groups"/>-->
+        
+        <!--Mail server menu-->
+        <!--<menuitem id="vtt_menu1_outgoing_mail"
+                name="Mail Server"
+                  sequence="50"
+                parent="vtt_menu_res_users"/>
+        <menuitem id="vtt_menu2_outgoing_mail"
+                name="Outgoing Mail"
+                parent="vtt_menu1_outgoing_mail"
+                action="base.action_ir_mail_server_list"/>-->
+    </data>
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--paper format-->
+        <record id="vtt_paperformat_student_course" model="report.paperformat">
+            <field name="name">Student Course Report</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <!--<field name="page_height">0</field>
+            <field name="page_width">0</field>-->
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+    </data>
+
+    <data>
+        <record id="action_student_course_report" model="ir.actions.report">
+           <field name="name">Student Course Confirm</field>
+           <field name="model">op.student.course</field>
+           <field name="report_type">qweb-pdf</field>
+           <field name="report_name">vtt_edu_admission_form.report_student_course</field>
+           <field name="report_file">vtt_edu_admission_form.report_student_course</field>
+           <field name="print_report_name">'Student Course Admission - %s' % (object.roll_number)</field>
+           <field name="binding_model_id" ref="openeducat_core.model_op_student_course"/>
+            <field name="paperformat_id" ref="vtt_edu_admission_form.vtt_paperformat_student_course"/>
+        </record>
+    </data>
+
+    <!--Email-->
+    <data>
+        <record id="vtt_email_template_student_course_confirm" model="mail.template">
+            <field name="name">Student Course Confirm email</field>
+            <field name="model_id" ref="model_op_student_course"/>
+            <field name="email_from">${(user.company_id.email) |safe}</field>
+            <field name="partner_to">${object.student_id.partner_id.id}</field>
+            <field name="subject">Student Admission ${object.paper_code} to course ${object.course_id.name} Confirmed.</field>
+            <field name="body_html" type="html">
+<table border="0" cellpadding="0" cellspacing="0" style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"><tbody><tr><td align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="590" style="padding:16px;background-color: white; color: #454748; border-collapse:separate;">
+<tbody>
+    <!-- HEADER -->
+    <tr>
+        <td align="center" style="min-width:590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Thông báo nhập học</span><br/>
+                    <span style="font-size:20px;font-weight: bold;">
+                        ${object.student_id.name}
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/logo.png?company=${object.student_id.user_id.company_id.id}" style="padding:0px;margin: 0px; height: auto; width: 80px;" alt="${object.student_id.user_id.company_id.name}"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENT -->
+    <tr>
+        <td align="center" style="min-width:590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                <tbody><tr><td valign="top" style="font-size:13px;">
+                    <div>
+                        Thân gửi ${object.student_id.partner_id.name},<br/><br/>
+                        ${object.student_id.user_id.company_id.name} chúc mừng bạn đã trúng tuyển ngành ${object.course_id.name}.
+                        <br/><br/>
+                        Nhà trường gửi tới bạn giấy báo nhập học<br/>
+			            Vui lòng kiểm tra tệp thông báo đính kèm theo email.<br/>
+                        Mã Hồ sơ của bạn là: <strong>${object.paper_code}</strong>.
+                        <br/>
+Vui lòng kiểm tra tệp thông báo đính kèm theo email.
+                        <br/><br/>
+
+                        Trân trọng!<br/>
+                        --<br/>
+                        ${object.student_id.user_id.company_id.name}<br/>
+                        Hotline/Zalo: 0868841179<br/>
+                    </div>
+                </td></tr>
+                <tr><td style="text-align:center;">
+                  <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- FOOTER -->
+    <tr>
+        <td align="center" style="min-width:590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.student_id.user_id.company_id.name}
+                </td></tr>
+                <tr><td valign="middle" align="left" style="opacity:0.7;">
+                    ${object.student_id.user_id.company_id.phone}
+                    % if object.student_id.user_id.company_id.email
+                        | <a href="'mailto:%s' % ${object.student_id.user_id.company_id.email}" style="color:#454748;">${object.student_id.user_id.company_id.email}</a>
+                    % endif
+                    % if object.student_id.user_id.company_id.website
+                        | <a href="'%s' % ${object.student_id.user_id.company_id.website}" style="color:#454748;">
+                        ${object.student_id.user_id.company_id.website}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<!--<tr><td align="center" style="min-width:590px;">
+    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Phát hành bởi <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" style="color:#875A7B;">Odoo</a>
+      </td></tr>
+    </tbody></table>
+</td></tr>-->
+</tbody></table>
+
+            </field>
+            <field name="report_template" ref="action_student_course_report"/>
+            <field name="report_name">Student Course Admission - ${object.paper_code}</field>
+            <field name="lang">${object.student_id.partner_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

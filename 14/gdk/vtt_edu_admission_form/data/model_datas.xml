@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Model Datas-->
+    <data>
+        <record id="openeducat_admission.model_op_admission" model="ir.model">
+            <field name="website_form_key">create_admission</field>
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Create an Admission</field>
+        </record>
+
+        <!--Student-->
+        <record id="openeducat_core.model_op_student" model="ir.model">
+            <field name="website_form_key">create_student</field>
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Create a Student</field>
+        </record>
+    </data>
+
+    <!--Sequence Datas-->
+    <data>
+        <record id="vtt_seq_edu_op_student_course" model="ir.sequence">
+            <field name="name">Student Course</field>
+            <field name="code">vtt.student.course</field>
+            <field name="prefix">HS%(y)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

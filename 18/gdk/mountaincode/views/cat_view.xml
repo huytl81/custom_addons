@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- List Form -->
+    <record model="ir.ui.view" id="cat_view_list">
+        <field name="name">Cat View List</field>
+        <field name="model">cat</field>
+        <field name="arch" type="xml">
+            <list string="Cat List">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="color"/>
+                <field name="age"/>
+                <field name="player_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- View Form -->
+    <record id="cat_view_form" model="ir.ui.view">
+        <field name="name">Cat View Form</field>
+        <field name="model">cat</field>
+        <field name="arch" type="xml">
+            <form string="Cat">
+                <header>
+                    <button type="object" name="create_cat" string="Create Cat" id="create_cat_btn" class="highlightButton"/>
+                </header>
+                <sheet name="General">
+                    <group col="3">
+                        <field name="greeting"/>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="color"/>
+                        <field name="bod"/>
+                        <field name="jdate"/>
+                        <field name="player_ids" widget="many2many_tags"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="cat_action" model="ir.actions.act_window">
+        <field name="name">Cats</field>
+        <field name="res_model">cat</field>
+        <field name="view_mode">list,form</field>
+    <!-- <field name="context">{'search_default_filter_active': True}</field>-->
+    </record>
+
+
+    <!-- Menu -->
+    <menuitem id="cat_menu" name="Cat" parent="animal_menu" action="cat_action" sequence="2"/>
+
+</odoo>

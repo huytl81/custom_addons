@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Packaging Type-->
+    <data>
+        <record id="vtt_data_stock_package_type_box" model="stock.package.type">
+            <field name="name">Thùng</field>
+        </record>
+    </data>
+</odoo>

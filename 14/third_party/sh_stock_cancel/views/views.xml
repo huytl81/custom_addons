@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_stock_picking_inherit_form_view" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <button name="action_cancel" position="replace">
+                <button name="sh_cancel" string="Cancel" type="object" groups="sh_stock_cancel.group_sh_stock_cancel" attrs="{'invisible':[('state','=','cancel')]}"></button>
+            </button>
+        </field>
+    </record>
+
+    <record id="sh_stock_inv_adjust_inherit_form_view" model="ir.ui.view">
+        <field name="name">stock.inventory.inherit.form.view</field>
+        <field name="model">stock.inventory</field>
+        <field name="inherit_id" ref="stock.view_inventory_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="sh_cancel" string="Cancel" type="object" groups="sh_stock_cancel.group_sh_stock_adjustment_cancel" attrs="{'invisible':[('state','=','cancel')]}"></button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sh_stock_inv_scrap_inherit_form_view" model="ir.ui.view">
+        <field name="name">stock.scrap.inherit.form.view</field>
+        <field name="model">stock.scrap</field>
+        <field name="inherit_id" ref="stock.stock_scrap_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="sh_cancel" string="Cancel" type="object" groups="sh_stock_cancel.group_sh_stock_scrap_cancel" attrs="{'invisible':[('state','=','cancel')]}"></button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

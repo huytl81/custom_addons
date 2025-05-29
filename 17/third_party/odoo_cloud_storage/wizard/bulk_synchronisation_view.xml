@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+    <record id="id_cloud_bulk_synchronisation_form" model="ir.ui.view">
+            <field name="name">Cloud Bulk Synchronisation</field>
+            <field name="model">cloud.bulk.synchronisation</field>
+            <field name="arch" type="xml">
+                <form string="Sync">
+                    <group col='4'>
+                        <field name="instance_id" widget="selection" 
+						required='1' string="Cloud Connection"/>
+                        <field name='folder_id' widget="selection" 
+						domain="[('instance_id','=',instance_id)]"/>
+						<field name="action" readonly='1'/>
+                    </group>
+                    <footer>
+                        <button name="start_action_cloud_synchronization"
+                                string="Action Now"
+                                type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class='oe_link' special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+</odoo>

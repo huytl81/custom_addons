@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <!-- Menu gốc cho Zalo -->
+        <menuitem id="vtt_menu_zalo_root" name="Zalo" sequence="20" web_icon="vtt_zalo_mini_app,static/description/icon.png">            
+            <menuitem id="vtt_menu_zalo_news" name="Tin tức" sequence="10" action="vtt_zalo_news_action"/>
+        </menuitem>        
+
+        <!-- Menu con cho Zalo dưới menu Bán hàng -->
+        <!-- <menuitem id="vtt_menu_zalo_sale_root" name="Zalo" parent="sale.sale_menu_root" sequence="1">                        
+        </menuitem> -->
+
+        <menuitem id="vtt_menu_zalo_sale_order" name="Đơn hàng online" parent="sale.sale_menu_root" sequence="1" action="vtt_zalo_sale_order_tree_action"/>
+        
+        <menuitem id="vtt_menu_zalo_product_category" name="Danh mục sản phẩm Zalo" parent="sale.prod_config_main" sequence="30" action="zalo_product_category_action"/>
+
+        <!-- Di chuyển menu Khách hàng ra ngoài ngang hàng với menu Đơn hàng -->
+        <!-- <menuitem id="menu_sale_customer" name="Khách hàng" parent="sale.sale_menu_root" sequence="2" action="sale.action_res_partner_form"/> -->
+
+        <!-- Menu item for customers with orders -->
+        <menuitem id="menu_partner_with_orders" name="Khách hàng Zalo đã mua hàng" parent="contacts.menu_contacts" sequence="10" action="action_partner_with_online_orders"/>
+    </data>
+</odoo>

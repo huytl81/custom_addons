@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_dhag_threat_map
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-03 04:23+0000\n"
+"PO-Revision-Date: 2021-06-03 04:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_dhag_threat_map
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_map.vtt_view_map_investigate_location
+msgid "Campaigns"
+msgstr "# Đợt khảo sát"
+
+#. module: vtt_dhag_threat_map
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_map.vtt_view_map_investigate_location
+msgid "Email"
+msgstr ""
+
+#. module: vtt_dhag_threat_map
+#: model_terms:ir.ui.view,arch_db:vtt_dhag_threat_map.vtt_view_map_investigate_location
+msgid "Phone"
+msgstr "Điện thoại"

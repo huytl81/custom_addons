@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit views of Partner -->
+    <!-- Inherit form view -->
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="website" position="after">
+                <field name="write_date" />
+            </field>
+            <field name="email" position="attributes">
+                <attribute name="invisible">0</attribute>
+                <attribute name="class" add="oe_inline" separator=" "/>
+            </field>
+        </field>
+    </record>
+    <!-- Inherit search view -->
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="." position="inside">
+                <field name="mobile" />
+            </xpath>
+        </field>
+    </record>
+    <!-- Inherit tree view -->
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <field name="email" position="before">
+                <field name="phone" position="move"/>
+            </field>
+            <field name="email" position="attributes">
+                <attribute name="class" add="oe_inline" separator=" "/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Tree view -->
+    <record id="view_all_contacts_tree" model="ir.ui.view">
+        <field name="name">List All Contacts</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree default_order="state_id" decoration-bf="customer_rank &gt; 1" decoration-danger="supplier_rank &lt; 5" decoration-warning="customer_rank &gt; 0 and supplier_rank &gt; 0">
+                <field name="name"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="state_id" optional="hide"/>
+                <field name="country_id" optional="show"/>
+                <field name="customer_rank" invisible="0"/>
+                <field name="supplier_rank" invisible="False"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_all_contacts_form" model="ir.ui.view">
+        <field name="name">All Contacts Form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <widget name="web_ribbon" title="Archived" bg_color="bg-danger"/>
+                <header>
+                    <button type="object" name="open_commercial_entity" string="Open commercial partner" class="btn-primary"/>
+                    <button type="action" name="%(base.action_partner_category_form)d" string="Open partner categories"  class="btn-default"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="action_view_partner_invoices">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="total_invoiced"/>
+                                </span>
+                                <span class="o_stat_text">Invoiced</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_left oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <label for="parent_id" />
+                        <field name="parent_id" />
+                    </div>
+                    <group>
+                        <group string="INFORMATION" name="info">
+                            <field name="is_company"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="active"/>
+                            <field name="category_id" widget="many2many_tags"/>
+                        </group>
+                        <group string="LOCATION" name="place">
+                            <field name="street"/>
+                            <field name="city"/>
+                            <field name="state_id"/>
+                            <field name="country_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="child_ids">
+                            <tree>
+                                <field name="name" />
+                                <field name="email" />
+                                <field name="phone" />
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="name" />
+                                    <field name="function" />
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </sheet>
+                <div class="o_attachment_preview" options="{'types': ['image', 'pdf'], 'order': 'desc'}" />
+                <!-- Discuss widgets -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="search_all_contact" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="category_id" filter_domain="[('category_id', 'child_of', self)]" />
+                <field name="bank_ids" widget="many2one" />
+                <filter name="vendors" string="Vendors who greater than 1" domain="[('supplier_rank', '>', 1)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Country" name="country" context="{'group_by':'country_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="user_id" icon="fa fa-users"/>
+                    <field name="category_id" select="multi" icon="fa fa-list"/>
+                    <field name="type" icon="fa fa-list"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_all_contacts_kanban" model="ir.ui.view">
+        <field name="name">All Contacts</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="company_id" />
+                <field name="supplier_rank" />
+                <field name="customer_rank"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <a type="open">
+                                <strong>
+                                    <field name="name" />
+                                </strong>
+                            </a>
+                            <t t-if="record.supplier_rank.raw_value or record.customer_rank.raw_value">
+                                    is
+                                <t t-if="record.customer_rank.raw_value">
+                                        a customer
+                                </t>
+                                <t t-if="record.customer_rank.raw_value and record.supplier_rank.raw_value">
+                                        and
+                                </t>
+                                <t t-if="record.supplier_rank.raw_value">
+                                        a supplier
+                                </t>
+                            </t>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action for menus -->
+    <!-- Action for menu_all_customers_fr -->
+    <record id='action_all_customers_fr' model='ir.actions.act_window'>
+        <field name="name">Tous les clients</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('customer_rank', '>=', 1)]</field>
+        <field name="context">{'lang': 'fr_FR', 'default_lang': 'fr_FR', 'active_test': False, 'default_customer_rank':1}</field>
+        <field name="target">current</field>
+        <field name="limit">20</field>
+    </record>
+    <!-- Action for menu_all_customers -->
+     <record id='action_all_contacts' model='ir.actions.act_window'>
+        <field name="name">All contacts</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <!--<field name="domain">[('customer_rank', '>', 0)]</field>-->
+        <field name="context">{'search_default_vendors': 1}</field>
+        <field name="target">current</field>
+        <field name="limit">20</field>
+        <field name="search_view_id" ref="search_all_contact" />
+    </record>
+    <!-- Action for menu_non_customers_fr -->
+    <record id="action_non_fr_customers" model="ir.actions.act_window">
+        <field name="name">All my customers who don't speak French</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">[('type', '=', 'contact'), ('user_id', '=', uid), ('lang', '!=', 'fr_FR')]</field>
+    </record>
+    <!-- Action for menu_no_email_or_phone_customers -->
+    <record id="action_no_email_or_phone" model="ir.actions.act_window">
+        <field name="name">Customers with no email or phone</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">['|', ('phone', '=', False), ('email', '=', False)]</field>
+    </record>
+
+
+    <!-- Action for views -->
+    <!-- Action for tree view -->
+    <record id="action_all_contacts_tree" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_all_contacts"/>
+        <field name="view_id" ref="view_all_contacts_tree"/>
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="1"/>
+    </record>
+    <!-- Action for form view -->
+    <record id="action_all_contacts_form" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_all_contacts"/>
+        <field name="view_id" ref="view_all_contacts_form"/>
+        <field name="view_mode">form</field>
+        <field name="sequence" eval="2"/>
+    </record>
+    <!-- Action for kanban view -->
+    <record id="action_all_contacts_kanban" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_all_contacts"/>
+        <field name="view_id" ref="view_all_contacts_kanban"/>
+        <field name="view_mode">kanban</field>
+        <field name="sequence" eval="3"/>
+    </record>
+
+
+    <!-- Menu -->
+    <menuitem id="menu_custom_top_level" name="My New Module" web_icon="my_module,static/description/icon.png"/>
+    <menuitem id="menu_all_customers" parent="menu_custom_top_level" action="action_all_contacts" sequence="10"/>
+    <menuitem id="menu_all_customers_fr" parent="menu_custom_top_level" action="action_all_customers_fr" sequence="20"/>
+    <menuitem id="menu_non_customers_fr" parent="menu_custom_top_level" action="action_non_fr_customers" sequence="30"/>
+    <menuitem id="menu_no_email_or_phone_customers" parent="menu_custom_top_level" action="action_no_email_or_phone" sequence="40"/>
+</odoo>

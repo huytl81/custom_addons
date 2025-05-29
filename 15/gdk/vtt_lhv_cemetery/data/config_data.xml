@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sequence data-->
+    <data noupdate="0">
+        <!--Contract sequence-->
+        <record id="vtt_sequence_land_contract" model="ir.sequence">
+            <field name="name">Land Contract Code</field>
+            <field name="code">vtt.land.contract</field>
+            <field name="prefix">HD-%(y)s%(month)s</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False" />
+        </record>
+    </data>
+
+    <!--Config parameter data-->
+    <data noupdate="0">
+        <!--Next Anniversary notification month(s)-->
+        <record id="vtt_lhv_next_anniversary_month_notif" model="ir.config_parameter">
+            <field name="key">vtt_lhv_next_anniversary_month_notif</field>
+            <field name="value" type="int">1</field>
+            <field name="description">Automation notification next anniversary (months)</field>
+            <field name="show_manager">True</field>
+        </record>
+
+        <!--Land plot unreserved day(s)-->
+        <record id="vtt_lhv_land_plot_day_unreserved" model="ir.config_parameter">
+            <field name="key">vtt_lhv_land_plot_day_unreserved</field>
+            <field name="value" type="int">3</field>
+            <field name="description">Automation unreserved land plot (days)</field>
+            <field name="show_manager">True</field>
+        </record>
+    </data>
+</odoo>

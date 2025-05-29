@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="product_data_feed_feature_value_view_form" model="ir.ui.view">
+        <field name="name">product.data.feed.feature.value.view.form</field>
+        <field name="model">product.data.feed.feature.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="alert alert-warning oe_edit_only" role="alert" style="margin-bottom: 0px;" attrs="{'invisible': [('name', '=', False)]}">
+                    If you change this feature value, it will be changed for all products which are linked to this feature.
+                </div>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="feature_id"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_data_feed_feature_value_view_tree" model="ir.ui.view">
+        <field name="name">product.data.feed.feature.value.view.tree</field>
+        <field name="model">product.data.feed.feature.value</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="feature_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_data_feed_feature_value_view_search" model="ir.ui.view">
+        <field name="name">product.data.feed.feature.value.view.search</field>
+        <field name="model">product.data.feed.feature.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>
+                <group expand="0">
+                    <filter name="group_feature" string="Feature" domain="[]" context="{'group_by': 'feature_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+<!--    <record id="action_product_data_feed_feature_value_list" model="ir.actions.act_window">-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="name">False</field>-->
+<!--        <field name="res_model">product.data.feed.feature.value</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="target">current</field>-->
+<!--        <field name="context">{-->
+<!--            'default_partner_id': active_id,-->
+<!--            'search_default_project_filter': 1,-->
+<!--            'searchpanel_default_partner_id': active_id,-->
+<!--        }</field>-->
+<!--        <field name="domain">[('partner_id', '=', active_id)]</field>-->
+<!--        <field name="view_ids" eval="[(5, 0, 0),-->
+<!--            (0, 0, {'view_mode': 'tree', 'view_id': ref('product_data_feed_feature.res_partner_view_tree')}),-->
+<!--            (0, 0, {'view_mode': 'form', 'view_id': ref('product_data_feed_feature.res_partner_view_form')})]"-->
+<!--        />-->
+<!--        <field name="search_view_id" ref="base.res_partner_view_search"/>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                No records found. Let's create one!-->
+<!--            </p><p>-->
+<!--                Records allow you to move products from one location to another.-->
+<!--            </p>-->
+<!--         </field>-->
+<!--    </record>-->
+
+<!--    <record id="menu_product_data_feed_feature_value" model="ir.ui.menu">-->
+<!--        <field name="name">False</field>-->
+<!--        <field name="parent_id" ref="product_data_feed_feature.menu_config"/>-->
+<!--        <field name="action" ref="action_product_data_feed_feature_value_list"/>-->
+<!--        <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>-->
+<!--        <field name="sequence" eval="10"/>-->
+<!--        <field name="active" eval="True"/>-->
+<!--    </record>-->
+
+</odoo>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Kanban view -->
+    <record id="view_project_tasks_kanban" model="ir.ui.view">
+        <field name="name">My Tasks Kanban</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id">
+                <field name="project_id" />
+                <field name="name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <field name="name" />
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Calendar view -->
+    <record id="view_project_tasks_calendar" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <calendar date_start="date_assign" date_stop="date_end" color="project_id">
+                <field name="name" />
+                <field name="user_ids" widget="many2many_tags"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Graph view -->
+    <record id="view_project_tasks_graph" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <graph type="bar" stacked="1">
+                <field name="user_ids"/>
+                <field name="stage_id"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot view -->
+    <record id="view_project_tasks_pivot" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="user_ids" type="row"/>
+                <field name="project_id" type="col"/>
+                <field name="stage_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Cohort view -->
+    <record id="view_project_tasks_cohort" model="ir.ui.view">
+        <field name="name">project task cohort</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <cohort date_start="create_date" date_stop="date_deadline" interval="month" string="Task Cohort" />
+        </field>
+    </record>
+
+    <!-- Dashboard view -->
+    <!--<record id="view_project_tasks_dashboard" model="ir.ui.view">
+        <field name="name">project task dashboard</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <dashboard>
+                <view ref="my_module.view_project_tasks_graph" type="graph" />
+                <group>
+                    <aggregate name="all_task" string="Total Tasks" group_operator="count" field="id" measure="__count__"/>
+                    <aggregate name="progress_task" string="In Progress Tasks" domain="[('stage_id.name', 'ilike', 'In Progress')]" group_operator="count" field="id" measure="__count__"/>
+                    <aggregate name="done_task" string="Completed Tasks" domain="[('stage_id.name', 'ilike', 'Done')]" group_operator="count" field="id" measure="__count__"/>
+                    <formula name="price_average" string="Overall Progress" value="record.done_task / record.all_task" widget="percentage"/>
+                </group>
+                <view ref="my_module.view_project_tasks_pivot" type="pivot"/>
+            </dashboard>
+        </field>
+    </record>-->
+
+    <!-- Gantt view -->
+    <record id="view_project_tasks_gantt" model="ir.ui.view">
+        <field name="name">project task gantt</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <gantt date_start="date_assign" date_stop="date_end" string="Tasks" default_group_by="project_id" color="project_id">
+                <field name="name"/>
+                <field name="stage_id"/>
+                <templates>
+                    <div t-name="gantt-popover" >
+                        <ul class="pl-1 mb-0 list-unstyled">
+                            <li>
+                                <strong>Name: </strong>
+                                <t t-esc="name"/>
+                            </li>
+                            <li>
+                                <strong>Stage: </strong>
+                                <t t-esc="stage_id[1]"/>
+                            </li>
+                        </ul>
+                    </div>
+                </templates>
+            </gantt>
+        </field>
+    </record>
+
+    <!-- Activities view -->
+    <record id="view_project_tasks_activity" model="ir.ui.view">
+        <field name="name">project task activity</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <activity string="Tasks">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="name" display="full"/>
+                            <field name="project_id" muted="1" display="full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+     <!-- Map view -->
+     <record id="view_project_tasks_map" model="ir.ui.view">
+        <field name="name">project task map</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <map res_partner="partner_id">
+                    <field name="name" string="Title "/>
+                    <field name="partner_id" string="Customer "/>
+            </map>
+        </field>
+     </record>
+
+    <record id='action_my_tasks' model='ir.actions.act_window'>
+        <field name="name">All my tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">tree,form,kanban,calendar,graph,cohort,pivot,activity,gantt,map</field>
+        <field name="context">
+            {
+                'kanban_view_ref': 'my_module.view_project_tasks_kanban',
+                'calendar_view_ref': 'my_module.view_project_tasks_calendar',
+                'graph_view_ref': 'my_module.view_project_tasks_graph',
+                'cohort_view_ref': 'my_module.view_project_tasks_cohort',
+                'pivot_view_ref': 'my_module.view_project_tasks_pivot',
+                'activity_view_ref': 'my_module.view_project_tasks_activity',
+                'gantt_view_ref': 'my_module.view_project_tasks_gantt',
+                'map_view_ref': 'my_module.view_project_tasks_map'
+            }
+        </field>
+    </record>
+
+    <menuitem id="menu_my_tasks" parent="menu_custom_top_level" action="action_my_tasks" sequence="10" />
+</odoo>

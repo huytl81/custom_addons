@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="add_service_view_delivery_carrier_form">
+            <field name="name">add.service.view.delivery.carrier.form</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='delivery_details']" position="after">
+                    <group>
+                        <field name="service" invisible="delivery_type != 'ghn_shipping'"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+</odoo>

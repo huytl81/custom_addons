@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <function model="res.district" name="_load_district_data"/>
+
+        <function model="res.ward" name="_load_ward_data"/>
+    </data>
+</odoo>

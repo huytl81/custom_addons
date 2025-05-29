@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_product_data_feed_brand_form" model="ir.ui.view">
+        <field name="name">product.data.feed.brand.view.form</field>
+        <field name="model">product.data.feed.brand</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h3><field name="name" placeholder="Brand"/></h3>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+s</odoo>

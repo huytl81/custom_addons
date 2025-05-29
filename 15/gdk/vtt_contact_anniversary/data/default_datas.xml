@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Categories-->
+    <data noupdate="1">
+        <record id="vtt_anniversary_category_email_birthday" model="vtt.contact.anniversary.category">
+            <field name="name">Birthday</field>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="activity_summary">Happy Birthday Email</field>
+        </record>
+    </data>
+</odoo>

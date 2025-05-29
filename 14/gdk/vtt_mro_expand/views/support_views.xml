@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Support views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_car_repair_support_rating" model="ir.ui.view">
+            <field name="name">Repair Support Rating</field>
+            <field name="model">car.repair.support</field>
+            <field name="inherit_id" ref="car_repair_maintenance_service.car_repair_support_form_view"/>
+            <field name="arch" type="xml">
+                <field name="project_id" position="before">
+                    <field name="support_type_id" options="{'no_open': True, 'no_create': True}"/>
+                </field>
+
+                <xpath expr="//page[@name='rates']" position="after">
+                    <page name="customer_rate" string="Customer Rating">
+                        <group>
+                            <group>
+                                <field name="rate_communication_select" widget="priority"/>
+                                <field name="rate_standard_select" widget="priority"/>
+                                <field name="rate_time_select" widget="priority"/>
+                                <field name="rate_orderly_select" widget="priority"/>
+                                <field name="rate_price_select" widget="priority"/>
+                                <field name="rate_communication_value" invisible="1"/>
+                                <field name="rate_standard_value" invisible="1"/>
+                                <field name="rate_time_value" invisible="1"/>
+                                <field name="rate_orderly_value" invisible="1"/>
+                                <field name="rate_price_value" invisible="1"/>
+                                <field name="rating" widget="radio" invisible="1"/>
+                                <field name="comment" invisible="1"/>
+                            </group>
+                            <group>
+                              <!--<label for="rate_text_other" class="oe_edit_only"/>-->
+                              <field name="rate_text_other" nolabel="1" colspan="2" placeholder="Put other comment..."/>
+                              <field name="rate_total_select_auto" invisible="1"/>
+                              <field name="rate_total_value_auto" invisible="1"/>
+                            </group>
+                         </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='rates']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+    <!--Support Type views-->
+    <data>
+        <!--Form view support type-->
+        <record id="vtt_view_form_car_repair_support_type" model="ir.ui.view">
+            <field name="name">Support Type Form</field>
+            <field name="model">vtt.car.repair.support.type</field>
+            <field name="arch" type="xml">
+                <form string="Support Type">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                    <label for="description"/>
+                    <field name="description"/>
+                </form>
+            </field>
+        </record>
+
+        <!--Form view customer rating-->
+        <record id="vtt_view_form_car_repair_support_type" model="ir.ui.view">
+            <field name="name">Support Type Form</field>
+            <field name="model">vtt.car.repair.support.type</field>
+            <field name="arch" type="xml">
+                <form string="Support Type">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                    <label for="description"/>
+                    <field name="description"/>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_car_repair_support_type" model="ir.ui.view">
+            <field name="name">Support Type List</field>
+            <field name="model">vtt.car.repair.support.type</field>
+            <field name="arch" type="xml">
+                <tree string="Support Type List">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="sequence" invisible="1"/>
+                    <field name="code" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id='vtt_act_window_car_repair_support_type' model='ir.actions.act_window'>
+            <field name="name">Support Type</field>
+            <field name="res_model">vtt.car.repair.support.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_car_repair_support_type" name="Support Type" action="vtt_act_window_car_repair_support_type" parent="car_repair_maintenance_service.menu_car_repair_configuration" sequence="30"/>
+    </data>
+</odoo>

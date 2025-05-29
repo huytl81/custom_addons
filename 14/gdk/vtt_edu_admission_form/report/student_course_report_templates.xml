@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+        <template id="student_course_layout">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+
+            <t t-raw="0"/>
+        </template>
+
+        <template id="report_student_course">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="vtt_edu_admission_form.student_course_layout">
+                        <div class="page">
+                            <div style="font-family: Arial, Helvetica, sans-serif !important; outline: 3px double; padding: 10px;">
+                                <table style="width: 100%;">
+                                  <tr>
+                                    <td style="width: 50%; text-align: center;">
+                                        ỦY BAN NHÂN DÂN THÀNH PHỐ HÀ NỘI<br/>
+                                        <strong>TRƯỜNG CAO ĐẲNG</strong><br/>
+                                        <strong>THƯƠNG MẠI VÀ DU LỊCH HÀ NỘI</strong><br/>
+                                        <div style="width: 150px; height: 1px; background: black; margin: auto; margin-top: 5px;"/>
+                                    </td>
+                                    <td style="width: 50%; text-align: center;">
+                                        <strong>CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong><br/>
+                                        <strong>Độc lập - Tự do -  Hạnh phúc</strong><br/>
+                                         <i>Hà Nội, </i>
+                                         <!--<span t-if="context.get('confirm_date')" t-esc="context_timestamp(context.get('confirm_date')).strftime('ngày %d tháng %m năm %Y')"/>
+                                         <span t-if="not context.get('confirm_date')" t-esc="context_timestamp(datetime.datetime.now()).strftime('ngày %d tháng %m năm %Y')"/>-->
+                                         <i><span t-esc="context_timestamp(o.create_date).strftime('ngày %d tháng %m năm %Y')"/></i>
+                                         <div style="width: 150px; height: 1px; background: black; margin: auto; margin-top: 5px;"/>
+                                    </td>
+                                  </tr>
+                                    <tr>
+                                       <td colspan="2" style="text-align: center;">
+                                           <h3 style="padding: 10px 0px;">
+                                               <span t-if="o.student_id.institute_cert == 'has_cert'">GIẤY BÁO </span>
+                                               <span t-if="o.student_id.institute_cert == 'no_cert'">GIẤY MỜI </span>
+                                               NHẬP HỌC<br/>
+                                               TRƯỜNG CAO ĐẲNG THƯƠNG MẠI VÀ DU LỊCH HÀ NỘI THÔNG BÁO
+                                           </h3>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 50%;">
+                                            Thí sinh: <span t-esc="o.student_id.name"/>
+                                        </td>
+                                        <td style="width: 50%;">
+                                            Ngày sinh: <span t-esc="o.student_id.birth_date.strftime('%d/%m/%Y')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 50%;">
+                                            Mã HS: <span t-esc="o.paper_code"/>
+                                        </td>
+                                        <td style="width: 50%;">
+                                            <span style="margin-left: 20px;">Giới tính:
+                                            <font t-if="o.student_id.gender == 'm'">Nam</font>
+                                            <font t-if="o.student_id.gender == 'f'">Nữ</font>
+                                            <font t-if="o.student_id.gender == 'o'">Khác</font></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span t-if="o.student_id.institute_cert == 'has_cert'">Đã trúng tuyển vào ngành: </span>
+                                            <span t-if="o.student_id.institute_cert == 'no_cert'">Đăng ký ngành: </span>
+                                            <span t-esc="o.course_id.name"/><br/>
+                                       <span>
+                                         <font t-if="o.course_id.category_id.code == 'CD'">Hệ Cao đẳng</font>
+                                         <font t-if="o.course_id.category_id.code == 'TC'">Hệ Trung cấp</font>
+                                       </span> Trường Cao đẳng Thương mại và Du lịch Hà Nội năm 2021<br/>
+                                            <span t-if="o.student_id.institute_cert == 'has_cert'">Đề nghị </span>
+                                            <span t-if="o.student_id.institute_cert == 'no_cert'">Mời </span>
+                                            Anh (Chị) đến làm thủ tục nhập học tại:
+                                   </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" style="padding-top: 20px; text-align: center;">
+                                            <strong>Phòng 101 nhà A4, Trường Cao đẳng Thương mại và Du lịch Hà Nội</strong>
+                                   </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" style="padding-top: 20px;">
+                                        Địa chỉ: Đường Phạm Văn Đồng - Phường Mai Dịch - Quận Cầu Giấy - Hà Nội<br/>
+                                        ĐT: (024).37641121; Hotline/zalo:086.884.1179<br/>
+                                            Thời gian nhập học: Trong giờ hành chính <span t-if="o.date_to_enroll.raw_value" t-esc="o.date_to_enroll.strftime('ngày %d tháng %m năm %Y')"/> <span t-if="not o.date_to_enroll.raw_value">ngày ...... tháng ...... năm ......</span>.
+                                   </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width: 50%;"/>
+                                        <td style="width: 50%; text-align: center;">
+                                            <strong>
+                                            CHỦ TỊCH HỘI ĐỒNG TUYỂN SINH<br/>
+                                            HIỆU TRƯỞNG<br/><br/>
+                                            <!--<img alt="VietTotal" src="http://localhost:8069/vtt_edu_admission_form/static/description/ht_sign.png" style="max-height: 120px; max-width: 200px;"/><br/>-->
+                                            </strong>
+                                            <span><i>(Đã ký)</i></span><br/><br/>
+                                            <strong>TS. Trịnh Thị Thu Hà</strong>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="o.student_id.institute_cert == 'no_cert'">
+                                        <td colspan="2" style="padding-top: 20px;">
+                                            <strong>Lưu ý:</strong>
+                                            <i>Giấy mời này chỉ có giá trị nhập học khi thí sinh có đủ học bạ THPT và chứng nhận tốt nghiệp tạm thời hoặc bằng tốt nghiệp THPT.</i>
+                                   </td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+                            <!--<h3 t-if="o.course_id.fees_term_id.id == 4" style="text-align: center;">HỆ ĐÀO TẠO CAO ĐẲNG</h3>-->
+                            <h3 t-if="o.course_id.category_id.code == 'CD'" style="text-align: center;">HỆ ĐÀO TẠO CAO ĐẲNG</h3>
+                            <h3 t-if="o.course_id.category_id.code == 'TC'" style="text-align: center;">HỆ ĐÀO TẠO TRUNG CẤP</h3>
+                            <!--Order-->
+                            <t t-if="o.student_id.institute_cert == 'has_cert'">
+                                <h4 style="margin-bottom: 4px; margin-top: 0;"><span style="text-decoration: underline;">I. HỒ SƠ NHẬP HỌC GỒM CÓ:</span></h4>
+<p style="margin-bottom: 4px; margin-top: 0;">1- Giấy báo nhập học <strong><i>(Bản gốc)</i></strong>.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">2- 01 bản gốc và 01 bản chứng thực giấy chứng nhận tốt nghiệp THPT tạm thời (đối với thí sinh tốt nghiệp năm 2021) hoặc 02 bản chứng thực bằng tốt nghiệp THPT.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">3- 02 bản chứng thực học bạ THPT.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">4- 01 bản chứng thực hộ khẩu thường trú (chứng thực cả quyển).</p>
+<p style="margin-bottom: 4px; margin-top: 0;">5- 01 bản sao giấy khai sinh.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">6- 01 bản chứng thực giấy chứng minh nhân dân (căn cước công dân).</p>
+<p style="margin-bottom: 4px; margin-top: 0;">7- 04 ảnh 3x4 <strong><i>(Ghi rõ họ tên, ngày, tháng, năm sinh ở mặt sau ảnh).</i></strong></p>
+<p style="margin-bottom: 4px; margin-top: 0;">8- Giấy đăng ký nghĩa vụ quân sự và giấy xác nhận vắng mặt của Ban chỉ huy Quân sự xã (phường) hoặc quyết định xuất ngũ đối với học sinh đã hoàn thành nghĩa vụ quân sự <i>(Đối với nam giới)</i>.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">9- Giấy chứng nhận gia đình chính sách (nếu có).</p>
+<p style="margin-bottom: 4px; margin-top: 0;">10- Bản phô tô thẻ bảo hiểm y tế còn thời hạn sử dụng.</p>
+                            </t>
+
+                            <!--Invite-->
+                            <t t-if="o.student_id.institute_cert == 'no_cert'">
+                                <h4 style="margin-bottom: 4px; margin-top: 0;"><span style="text-decoration: underline;">I. HỒ SƠ NHẬP HỌC GỒM CÓ:</span></h4>
+<p style="margin-bottom: 4px; margin-top: 0;">1- 01 bản gốc và 01 bản chứng thực giấy chứng nhận tốt nghiệp THPT tạm thời (đối với thí sinh tốt nghiệp năm 2021) hoặc 02 bản chứng thực bằng tốt nghiệp THPT.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">2- 02 bản chứng thực học bạ THPT.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">3- 01 bản chứng thực hộ khẩu thường trú (chứng thực cả quyển).</p>
+<p style="margin-bottom: 4px; margin-top: 0;">4- 01 bản sao giấy khai sinh.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">5- 01 bản chứng thực giấy chứng minh nhân dân (căn cước công dân).</p>
+<p style="margin-bottom: 4px; margin-top: 0;">6- 04 ảnh 3x4 <strong><i>(Ghi rõ họ tên, ngày, tháng, năm sinh ở mặt sau ảnh).</i></strong></p>
+<p style="margin-bottom: 4px; margin-top: 0;">7- Giấy đăng ký nghĩa vụ quân sự và giấy xác nhận vắng mặt của Ban chỉ huy Quân sự xã (phường) hoặc quyết định xuất ngũ đối với học sinh đã hoàn thành nghĩa vụ quân sự <i>(Đối với nam giới)</i>.</p>
+<p style="margin-bottom: 4px; margin-top: 0;">8- Giấy chứng nhận gia đình chính sách (nếu có).</p>
+<p style="margin-bottom: 4px; margin-top: 0;">9- Bản phô tô thẻ bảo hiểm y tế còn thời hạn sử dụng.</p>
+                            </t>
+
+                            <!--CD 1-->
+                            <t t-if="o.course_id.fees_term_id.id == 4">
+<h4 style="text-decoration: underline; margin-bottom: 4px; margin-top: 0;">II. CÁC KHOẢN TIỀN NỘP:</h4>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">1 – Dự kiến học phí học kỳ I (ngành kinh tế): 780.000 đ/tháng x 5 tháng = <span style="text-align: right; position: absolute; right: 0;">3.900.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">2 - Bảo hiểm thân thể sinh viên khóa học 2021 – 2024 (BH tự nguyện): <span style="text-align: right; position: absolute; right: 0;">120.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">3 - Bảo hiểm Y tế năm học 2021 – 2022 (12 tháng) <span style="text-align: right; position: absolute; right: 0;">563.220 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">4 - Vệ sinh môi trường, nước uống: 45.000đ/tháng x 05 tháng = <span style="text-align: right; position: absolute; right: 0;">225.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">5 - Tài liệu chương trình đào tạo, tài liệu phục vụ tuần sinh hoạt đầu khóa HSSV: <span style="text-align: right; position: absolute; right: 0;">100.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">6 - Khám sức khỏe <span style="text-align: right; position: absolute; right: 0;">100.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">7 - Các khoản thu khác phục vụ nhu cầu sinh viên (tự nguyện)</p>
+
+                            </t>
+
+                            <!--CD 2-->
+                            <t t-if="o.course_id.fees_term_id.id == 6">
+                                <h4 style="text-decoration: underline; margin-bottom: 4px; margin-top: 0;">II. CÁC KHOẢN TIỀN NỘP:</h4>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">1 – Dự kiến học phí học kỳ I (ngành kỹ thuật): 940.000 đ/tháng x 5 tháng = <span style="text-align: right; position: absolute; right: 0;">4.700.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">2 - Bảo hiểm thân thể sinh viên khóa học 2021 – 2024 (BH tự nguyện): <span style="text-align: right; position: absolute; right: 0;">120.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">3 - Bảo hiểm Y tế năm học 2021 – 2022 (12 tháng) <span style="text-align: right; position: absolute; right: 0;">563.220 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">4 - Vệ sinh môi trường, nước uống: 45.000đ/tháng x 05 tháng = <span style="text-align: right; position: absolute; right: 0;">225.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">5 - Tài liệu chương trình đào tạo, tài liệu phục vụ tuần sinh hoạt đầu khóa HSSV: <span style="text-align: right; position: absolute; right: 0;">100.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">6 - Khám sức khỏe <span style="text-align: right; position: absolute; right: 0;">100.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">7 - Các khoản thu khác phục vụ nhu cầu sinh viên (tự nguyện)</p>
+                            </t>
+
+                            <!--TC-->
+                            <t t-if="o.course_id.fees_term_id.id == 7">
+                                <h4 style="text-decoration: underline; margin-bottom: 4px; margin-top: 0;">II. CÁC KHOẢN TIỀN NỘP:</h4>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">1 – Dự kiến học phí học kỳ I (ngành kỹ thuật): 820.000 đ/tháng x 5 tháng = <span style="text-align: right; position: absolute; right: 0;">4.100.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">2 - Bảo hiểm thân thể sinh viên khóa học 2021 – 2024 (BH tự nguyện): <span style="text-align: right; position: absolute; right: 0;">90.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">3 - Bảo hiểm Y tế năm học 2021 – 2022 (15 tháng) <span style="text-align: right; position: absolute; right: 0;">563.220 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">4 - Vệ sinh môi trường, nước uống: 45.000đ/tháng x 05 tháng = <span style="text-align: right; position: absolute; right: 0;">225.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">5 - Tài liệu chương trình đào tạo, tài liệu phục vụ tuần sinh hoạt đầu khóa HSSV: <span style="text-align: right; position: absolute; right: 0;">100.000 VNĐ</span></p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">6 - Khám sức khỏe (nộp sau khi phân lớp)</p>
+<p style="position: relative; margin-bottom: 4px; margin-top: 0;">7 - Các khoản thu khác phục vụ nhu cầu sinh viên (tự nguyện)</p>
+                            </t>
+
+                            <strong>
+                                <p style="text-decoration: underline; margin-bottom: 4px; margin-top: 0;"><i>Ghi chú:</i></p>
+                                <p style="margin-bottom: 4px; margin-top: 0;"><i>- Nhà trường có ký túc xá cho sinh viên.</i></p>
+                                <p style="margin-bottom: 4px; margin-top: 0;"><i>- Nhà trường không hoàn trả hồ sơ nhập học</i></p>
+                                <p style="margin-bottom: 4px; margin-top: 0;">- Sau khi làm thủ tục nhập học 03 ngày, nếu sinh viên không học sẽ không được hoàn trả lại kinh phí.</p>
+                            </strong>
+<!--<p style="text-align: right;"><strong><i>MHS:</i><span t-esc="o.paper_code"/></strong></p>-->
+
+                        </div>
+                    </t>
+
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

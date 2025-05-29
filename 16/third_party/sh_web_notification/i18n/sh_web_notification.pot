@@ -1,0 +1,231 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_web_notification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-28 14:17+0000\n"
+"PO-Revision-Date: 2021-04-28 14:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__active
+msgid "Active"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__notification_type__danger
+msgid "Alert"
+msgstr ""
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Animation"
+msgstr ""
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Archived"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__background_color
+msgid "Background Color"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__font_family
+msgid "Body Font Family"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__date
+msgid "Creation Date"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__description
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__description_text
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Description"
+msgstr ""
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Design"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__direction
+msgid "Direction"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__emoji
+msgid "Emoji"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__is_animation
+msgid "Enable Animation ?"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:res.groups,name:sh_web_notification.group_web_notification
+msgid "Enable Web Notification Configuration"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__fantasy
+msgid "Fantasy"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__font_color
+msgid "Font Color"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__font_size
+msgid "Font Size"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__google_font_family
+msgid "Google Font Family"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__id
+msgid "ID"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__notification_type__warning
+msgid "Info"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__direction__right
+msgid "Left to Right"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__math
+msgid "Math"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__monospace
+msgid "Monospace"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__name
+msgid "Name"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.actions.act_window,name:sh_web_notification.sh_web_notitification_settings_action
+#: model:ir.ui.menu,name:sh_web_notification.sh_web_notitification_settings_menuitem
+msgid "Notification"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__notification_type
+msgid "Notification Type"
+msgstr ""
+
+#. module: sh_web_notification
+#: model_terms:ir.ui.view,arch_db:sh_web_notification.sh_web_notitification_settings_form
+msgid "Notify User"
+msgstr ""
+
+#. module: sh_web_notification
+#: code:addons/sh_web_notification/models/models.py:0
+#: code:addons/sh_web_notification/models/models.py:0
+#, python-format
+msgid "Notitification"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__padding
+msgid "Padding"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__is_popup_notification
+msgid "Popup Notification ?"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__direction__left
+msgid "Right To Left"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__roboto
+msgid "Roboto"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__sans-serif
+msgid "Sans-serif"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields.selection,name:sh_web_notification.selection__sh_announcement__font_family__serif
+msgid "Serif"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model,name:sh_web_notification.model_sh_announcement
+msgid "Sh Announcement"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__user_ids
+msgid "Users"
+msgstr ""
+
+#. module: sh_web_notification
+#: model:ir.model.fields,field_description:sh_web_notification.field_sh_announcement__simple_text
+msgid "Want Simple Text ?"
+msgstr ""

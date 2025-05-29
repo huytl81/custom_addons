@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Template views-->
+    <data>
+        <!--Form view add land property-->
+        <record id="vtt_view_form_product_template_land" model="ir.ui.view">
+            <field name="name">Product Template add Land Property</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="inside">
+                    <span class="d-inline-block">
+                        <field name="is_land"/>
+                        <label for="is_land"/>
+                    </span>
+                    <span class="d-inline-block">
+                        <field name="is_care_service"/>
+                        <label for="is_care_service"/>
+                    </span>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
