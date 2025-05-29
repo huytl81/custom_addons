@@ -1,8 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_zalo_message_template,zalo.message.template,model_zalo_message_template,,1,1,1,1
-access_zalo_message_parameter,zalo.message.parameter,model_zalo_message_parameter,,1,1,1,1
-access_zalo_message_button,zalo.message.button,model_zalo_message_button,,1,1,1,1
-access_zalo_message_table_vals,zalo.message.table.vals,model_zalo_message_table_vals,,1,1,1,1
-access_zalo_message_campaign,zalo.message.campaign,model_zalo_message_campaign,,1,1,1,1
-access_zalo_message_log,zalo.message.log,model_zalo_message_log,,1,1,1,1
-access_zalo_message_template,zalo.message.template,model_zalo_message_template,,1,1,1,1

@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_stock_custom_import_wz_manager,stock.custom.import.wz.manager,model_vtt_stock_custom_import_wz,stock.group_stock_manager,1,1,1,1
-access_stock_picking_move_import_wz_manager,stock.picking.move.import.wz.manager,model_vtt_stock_picking_move_import_wz,stock.group_stock_manager,1,1,1,1
