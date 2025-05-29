@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="hostel_category_form" model="ir.ui.view">
+            <field name="name">Hostel Category Form</field>
+            <field name="model">hostel.category</field>
+            <field name="arch" type="xml">
+                <form string="Hostel Category">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="hostel_ids" widget="many2many_tags"/>
+                            <field name="hostel_count"/>
+                            <field name="parent_id"/>
+                            <field name="child_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                    <!-- Discuss widgets -->
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="hostel_category_list" model="ir.ui.view">
+            <field name="name">Hostel Category List</field>
+            <field name="model">hostel.category</field>
+            <field name="arch" type="xml">
+                <list string="Hostel Category">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="active"/>
+                    <field name="hostel_ids" widget="many2many_tags"/>
+                    <field name="hostel_count"/>
+                    <field name="parent_id"/>
+                    <field name="child_ids" widget="many2many_tags"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hostel_category">
+            <field name="name">Hostel Category</field>
+            <field name="res_model">hostel.category</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_hostel_main" name="Hostel" sequence="1"/>
+        <menuitem id="menu_hostel_category" parent="menu_hostel_main" action="action_hostel_category" name="Hostel Category" sequence="1"/>
+    </data>
+</odoo>

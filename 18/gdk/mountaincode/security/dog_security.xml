@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- group permission -->
+    <data noupdate="0">
+        <record id="module_category_dog" model="ir.module.category">
+            <field name="name">Dog category</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="group_dog_user" model="res.groups">
+            <field name="name">Dog User Group</field>
+            <field name="category_id" ref="module_category_dog" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+
+        <record id="group_dog_manager" model="res.groups">
+            <field name="name">Dog Manager Group</field>
+            <field name="category_id" ref="module_category_dog" />
+            <field name="implied_ids" eval="[(4, ref('group_dog_user'))]" />
+        </record>
+    </data>
+
+    <data noupdate="0">
+        <record id="dog_rule" model="ir.rule">
+            <field name="name">Dog Rules</field>
+            <field name="model_id" ref="model_dog" />
+            <field name="domain_force">[('age','>=',6 )]</field>
+            <field name="perm_read">False</field>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">True</field>
+        </record>
+    </data>
+
+</odoo>

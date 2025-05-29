@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- List Form -->
+    <record model="ir.ui.view" id="dog_view_list">
+        <field name="name">Dog View List</field>
+        <field name="model">dog</field>
+        <field name="arch" type="xml">
+            <list string="Dog List">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="color"/>
+                <field name="age"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- View Form -->
+    <record id="dog_view_form" model="ir.ui.view">
+        <field name="name">Dog View Form</field>
+        <field name="model">dog</field>
+        <field name="arch" type="xml">
+            <form string="Dog">
+                <header>
+                    <button type="object" name="create_dog" string="Create Dog Wizard" id="create_dog_btn" class="highlightButton"/>
+                </header>
+                <sheet name="General">
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+                <sheet name="Information">
+                    <group>
+                        <field name="image" widget="image"/>
+                        <field name="father_cv"/>
+                        <field name="mother_cv"/>
+                    </group>
+                </sheet>
+                <sheet name="Others">
+                    <group>
+                        <field name="others"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="dog_action" model="ir.actions.act_window">
+        <field name="name">Dogs</field>
+        <field name="res_model">dog</field>
+        <field name="view_mode">list,form</field>
+    <!-- <field name="context">{'search_default_filter_active': True}</field>-->
+    </record>
+
+
+    <!-- Menu -->
+    <menuitem id="animal_menu" name="Animal" sequence="2"/>
+    <menuitem id="dog_menu" name="Dog" parent="animal_menu" action="dog_action" sequence="1"/>
+
+</odoo>
