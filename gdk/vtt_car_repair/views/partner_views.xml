@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Partner views change-->
+    <data>
+        <!--Partner form smart buttons-->
+        <record id="vtt_view_form_res_partner_repair_buttons" model="ir.ui.view">
+            <field name="name">Partner Repair Smart Buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="groups_id" eval="[(4, ref('vtt_car_repair.vtt_group_car_repair_user'))]"/>
+            <field name="arch" type="xml">
+                <div class="oe_button_box" position="inside">
+                    <button name="action_view_repair" type="object" class="oe_stat_button" icon="fa-wrench" help="show history services of this customer">
+                        <field name="repair_order_count" widget="statinfo" string="Repairs"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+        <!--Partner form vehicles-->
+        <record id="vtt_view_form_res_partner_vehicles" model="ir.ui.view">
+            <field name="name">Partner Repair Vehicles</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="groups_id" eval="[(4, ref('vtt_car_repair.vtt_group_car_repair_user'))]"/>
+            <field name="arch" type="xml">
+                <page name="internal_notes" position="before">
+                    <page name="car_repair_vehicles" string="Vehicles">
+                        <field name="vtt_vehicle_ids">
+                            <tree>
+                                <field name="license_plate"/>
+                                <field name="model_id"/>
+                                <field name="repair_order_count"/>
+                                <field name="vtt_dt_recent_car_repair" widget="date"/>
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--Partner list car repair-->
+        <record id="vtt_view_tree_res_partner_car_repair" model="ir.ui.view">
+            <field name="name">Partner List for Car Repair</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="groups_id" eval="[(4, ref('vtt_car_repair.vtt_group_car_repair_user'))]"/>
+            <field name="arch" type="xml">
+                <field name="country_id" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </field>
+
+                <field name="country_id" position="after">
+                    <field name="vtt_vehicle_ids" widget="many2many_tags"/>
+                    <field name="vtt_dt_recent_car_repair" widget="date"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

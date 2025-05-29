@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Investigate views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_investigate_investigate" model="ir.ui.view">
+            <field name="name">Campaign Form</field>
+            <field name="model">investigate.investigate</field>
+            <field name="arch" type="xml">
+                <form string="Investigate">
+                    <header>
+                        <button name="import_lastline_report_wz" type="object" string="Lastline Report" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="view_comparison"
+                                    class="oe_stat_button" icon="fa-book">
+                                <field name="compare_count" string="Comparisons" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" invisible="1"/>
+                                <field name="location_id"/>
+                            </group>
+                            <group>
+                                <field name="campaign_id" domain="[('location_id', '=', location_id)]"/>
+                            </group>
+                        </group>
+                        <label for="device_name"/>
+                        <div class="oe_title">
+                            <h2><field name="device_name"/></h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="department_suggest_id" class="oe_edit_only"/>
+                                <field name="department" class="oe_read_only"/>
+                                <field name="use_person"/>
+                            </group>
+                            <group>
+                                <field name="user_id"/>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Device Summary">
+                                <field name="device_information"/>
+                            </page>
+                            <page string="Details">
+                                <group>
+                                    <group>
+                                        <field name="operation_system"/>
+                                    </group>
+                                    <group>
+                                        <field name="connect_type"/>
+                                        <field name="device_type"/>
+                                    </group>
+                                </group>
+                                <label for="softwares"/>
+                                <field name="softwares"/>
+                            </page>
+                        </notebook>
+                        <separator string="Preliminary Summary"/>
+                        <field name="preliminary_summary" nolabel="1"/>
+                        <notebook>
+                            <page string="Threats" name="threats">
+                                <group>
+                                    <group></group>
+                                    <group>
+                                        <field name="confirm_count" invisible="1"/>
+                                        <field name="doubt_count" invisible="1"/>
+                                        <field name="state_count_overview" string="Confirmed"/>
+                                    </group>
+                                </group>
+                                <field name="investigate_malware_ids">
+                                    <tree editable="top" decoration-info="state=='confirm'" decoration-bf="state=='confirm'" decoration-warning="state=='doubt'">
+                                        <field name="investigate_id" invisible="1"/>
+                                        <field name="malware_id"/>
+                                        <field name="md5" optional="show" readonly="1"/>
+                                        <field name="sha1" optional="hide" readonly="1"/>
+                                        <field name="sha256" optional="hide" readonly="1"/>
+                                        <field name="dt_infection"/>
+                                        <field name="investigate_activity_ids" widget="many2many_tags"/>
+                                        <field name="state" readonly="1"/>
+                                        <button name="to_confirm" type="object" string="Confirm" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'doubt')]}"/>
+                                        <button name="to_doubt" type="object" string="To Doubt" attrs="{'invisible': [('state', '!=', 'confirm')]}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page name="activities" string="Activities">
+                                <separator string="Malicious Activity"/>
+                                <field name="threat_activity_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <!--<field name="investigate_id" invisible="1"/>-->
+                                        <field name="malware_id" invisible="1"/>
+                                        <field name="activity_type_id"/>
+                                        <field name="activity_id" domain="[('activity_type', 'in', activity_type_id)]"/>
+                                        <field name="name"/>
+                                        <field name="description" optional="hide" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Comparisons" name="comparisons">
+                                <field name="compare_ids">
+                                    <tree>
+                                        <field name="investigate_id" invisible="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <field name="investigate_correct_id"/>
+                                        <field name="user_id"/>
+                                        <field name="dt"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <label for="sample_dir"/>
+                        <field name="sample_dir"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_investigate_investigate" model="ir.ui.view">
+            <field name="name">Investigate List</field>
+            <field name="model">investigate.investigate</field>
+            <field name="arch" type="xml">
+                <tree string="Campaigns">
+                    <field name="name"/>
+                    <field name="campaign_id" optional="hide"/>
+                    <field name="location_id" optional="hide"/>
+                    <field name="department"/>
+                    <field name="device_name"/>
+                    <field name="use_person" optional="hide"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="sample_dir"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_investigate_investigate" model="ir.ui.view">
+            <field name="name">Investigate Filter</field>
+            <field name="model">investigate.investigate</field>
+            <field name="arch" type="xml">
+                <search string="Investigate Filter">
+                    <field name="name"/>
+                    <field name="location_id"/>
+                    <field name="campaign_id"/>
+                    <separator/>
+                    <filter name="filter_date" string="Date" date="date"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_location" string="Location" domain="[]" context="{'group_by':'location_id'}"/>
+                        <filter name="group_campaign" string="Campaign" domain="[]" context="{'group_by':'campaign_id'}"/>
+                        <filter name="group_date" string="Date" domain="[]" context="{'group_by':'date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Campaign list-->
+        <record id="vtt_act_window_investigate_investigate" model="ir.actions.act_window">
+            <field name="name">Investigates</field>
+            <field name="res_model">investigate.investigate</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Investigate menu-->
+        <menuitem id="vtt_menu_threat_analysis_investigate" name="Investigates" sequence="20" parent="vtt_menu_threat_analysis_root" action="vtt_act_window_investigate_investigate"/>
+    </data>
+</odoo>

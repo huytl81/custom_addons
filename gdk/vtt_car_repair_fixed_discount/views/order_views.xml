@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Repair Order views-->
+    <data>
+        <!--Form view add Fixed discount-->
+        <record id="vtt_view_form_car_repair_fixed_discount" model="ir.ui.view">
+            <field name="name">Car Repair Order - Fixed discount</field>
+            <field name="model">vtt.car.repair.order</field>
+            <field name="inherit_id" ref="vtt_car_repair.vtt_view_form_car_repair_order"/>
+            <field name="arch" type="xml">
+                <field name="discount" position="before">
+                    <field name="discount_fixed" optional="show"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

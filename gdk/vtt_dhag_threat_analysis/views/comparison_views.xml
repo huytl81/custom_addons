@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Comparison views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_threat_comparison" model="ir.ui.view">
+            <field name="name">Comparison Form</field>
+            <field name="model">threat.comparison</field>
+            <field name="arch" type="xml">
+                <form string="Comparison Form">
+                    <header>
+                        <button name="get_similar" type="object" string="Similar" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="malware_id" attrs="{'invisible': [('type', 'not in', ['threat.malware'])]}"/>
+                                <field name="investigate_id" attrs="{'invisible': [('type', 'not in', ['investigate.investigate'])]}"/>
+                                <!--For prevent accident change type of comparison-->
+                                <field name="type" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="compare_template_id" domain="[('type', '=', type)]"/>
+                            </group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                            <group>
+                                <field name="dt"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reports">
+                                <group>
+                                    <group>
+                                        <field name="correct_id" string="Most Similar" attrs="{'invisible': [('type', 'not in', ['threat.malware'])]}" readonly="1"/>
+                                        <field name="investigate_correct_id" string="Most Similar" attrs="{'invisible': [('type', 'not in', ['investigate.investigate'])]}" readonly="1"/>
+                                    </group>
+                                </group>
+                                <field name="compare_report_ids" readonly="1">
+                                    <tree>
+                                        <field name="compare_id" invisible="1"/>
+                                        <field name="malware_id" attrs="{'invisible': [('type', 'not in', ['threat.malware'])]}"/>
+                                        <field name="investigate_id" attrs="{'invisible': [('type', 'not in', ['investigate.investigate'])]}"/>
+                                        <field name="score"/>
+                                        <field name="state" widget="badge" decoration-info="state == 'consider'" decoration-success="state == 'correct'"/>
+                                        <field name="compare_correct_id" invisible="1"/>
+                                        <field name="compare_investigate_correct_id" invisible="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <!--<button name="do_correct" type="object" string="Correct" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'in', ['correct']), ('compare_correct_id', '!=', False)]}"/>
+                                        <button name="do_consider" type="object" string="Consider" states="correct"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Fields">
+                                <field name="compare_field_ids">
+                                    <tree editable="top">
+                                        <field name="compare_id" invisible="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <field name="field_id" domain="[('model_id.model', '=', type), '|', ('ttype', 'in', ['char', 'text', 'selection', 'integer', 'float']), ('name', 'in', ['malware_activity_detail', 'threat_activity_ids', 'malware_type_id'])]"/>
+                                        <field name="description"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--List view-->
+        <record id="vtt_view_tree_threat_comparison" model="ir.ui.view">
+            <field name="name">Comparison List</field>
+            <field name="model">threat.comparison</field>
+            <field name="arch" type="xml">
+                <tree string="Comparison List">
+                    <field name="malware_id" optional="hide" invisible="context.get('list_type', '') != 'malware'"/>
+                    <field name="investigate_id" optional="hide" invisible="context.get('list_type', '') != 'investigate'"/>
+                    <field name="type"/>
+                    <field name="correct_id" invisible="context.get('list_type', '') != 'malware'"/>
+                    <field name="investigate_correct_id" invisible="context.get('list_type', '') != 'investigate'"/>
+                    <field name="user_id"/>
+                    <field name="dt"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <!--Comparison Report views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_threat_comparison_report" model="ir.ui.view">
+            <field name="name">Comparison Report Form</field>
+            <field name="model">threat.comparison.report</field>
+            <field name="arch" type="xml">
+                <form string="Comparison Report">
+                    <header>
+                        <button name="do_correct" type="object" string="Correct" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'in', ['correct']), '|', '&amp;', ('type', '=', 'threat.malware'), ('compare_correct_id', '!=', False), '&amp;', ('type', '=', 'investigate.investigate'), ('compare_investigate_correct_id', '!=', False)]}"/>
+                        <button name="do_consider" type="object" string="Consider" states="correct"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="malware_id" attrs="{'invisible': [('type', 'not in', ['threat.malware'])]}"/>
+                                <field name="investigate_id" attrs="{'invisible': [('type', 'not in', ['investigate.investigate'])]}"/>
+                            </group>
+                            <group>
+                                <field name="compare_id"/>
+                                <field name="user_id"/>
+                                <field name="type" invisible="1"/>
+                                <field name="compare_correct_id" invisible="1"/>
+                                <field name="compare_investigate_correct_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <field name="compare_detail" widget="ace" invisible="1"/>
+                        <widget name="json_table_dynamic_columns" options="{'field_name': 'compare_detail', 'fields': ['field', 'score'], 'headers': ['Field', 'Similar Percentage']}"/>
+                        <group col="6" class="mt-2 mt-md-0">
+                            <group colspan="4"></group>
+                            <group colspan="2">
+                                <field name="score" string="Avg. Similar Percent"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Comparison list action-->
+        <record id="vtt_act_window_threat_comparison_list" model="ir.actions.act_window">
+            <field name="name">Comparisons</field>
+            <field name="res_model">threat.comparison</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Comparison Menu-->
+        <!--<menuitem id="vtt_menu_threat_comparison" name="Comparison" sequence="10" parent="vtt_menu_threat_analysis_campaign" action="vtt_act_window_threat_comparison_list"/>-->
+    </data>
+</odoo>

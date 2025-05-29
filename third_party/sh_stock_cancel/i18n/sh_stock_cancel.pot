@@ -1,0 +1,139 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_stock_cancel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-20 04:41+0000\n"
+"PO-Revision-Date: 2021-01-20 04:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_stock_cancel
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_move_cancel_multi_action
+#: model_terms:ir.ui.view,arch_db:sh_stock_cancel.sh_stock_inv_adjust_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_stock_cancel.sh_stock_picking_inherit_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_inventory_delete_multi_action
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_move_delete_multi_action
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_picking_delete_multi_action
+msgid "Cancel & Delete"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_inventory_draft_multi_action
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_move_draft_multi_action
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_picking_draft_multi_action
+msgid "Cancel & Reset Draft"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model_terms:ir.ui.view,arch_db:sh_stock_cancel.sh_cancel_stock_config_settings
+msgid "Cancel Configuration"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_inventory_multi_action
+msgid "Cancel Inventory"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields.selection,name:sh_stock_cancel.selection__res_company__adj_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_stock_cancel.selection__res_company__picking_operation_type__cancel
+msgid "Cancel Only"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.actions.server,name:sh_stock_cancel.sh_cancel_stock_picking_multi_action
+msgid "Cancel Picking"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields.selection,name:sh_stock_cancel.selection__res_company__adj_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_stock_cancel.selection__res_company__picking_operation_type__cancel_delete
+msgid "Cancel and Delete"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields.selection,name:sh_stock_cancel.selection__res_company__adj_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_stock_cancel.selection__res_company__picking_operation_type__cancel_draft
+msgid "Cancel and Reset to Draft"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model,name:sh_stock_cancel.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model,name:sh_stock_cancel.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_company__display_name
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_inventory__display_name
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_move__display_name
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_picking__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_company__id
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_inventory__id
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_move__id
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_picking__id
+msgid "ID"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model,name:sh_stock_cancel.model_stock_inventory
+msgid "Inventory"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_company____last_update
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_inventory____last_update
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_move____last_update
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_stock_picking____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_company__adj_operation_type
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_config_settings__adj_operation_type
+msgid "Stock Adjustement Opration Type"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:res.groups,name:sh_stock_cancel.group_sh_stock_cancel
+msgid "Stock Cancel Feature"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model,name:sh_stock_cancel.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_company__picking_operation_type
+#: model:ir.model.fields,field_description:sh_stock_cancel.field_res_config_settings__picking_operation_type
+msgid "Stock Picking Opration Type"
+msgstr ""
+
+#. module: sh_stock_cancel
+#: model:ir.model,name:sh_stock_cancel.model_stock_picking
+msgid "Transfer"
+msgstr ""

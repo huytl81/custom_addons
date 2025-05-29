@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Default page branding datas-->
+        <record model="ir.config_parameter" id="vtt_anniversary_activity_interval">
+            <field name="key">vtt_contact_anniversary.anniversary_activity_interval</field>
+            <field name="value">7</field>
+        </record>
+    </data>
+</odoo>

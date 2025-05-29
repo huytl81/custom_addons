@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="vtt_tmp_admission_profile_apply" name="Admission Profile Apply">
+      <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty">
+          <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+            <div class="container">
+              <form action="/edu/admission/form" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*">
+                <div class="s_website_form_rows row s_col_no_bgcolor">
+                    <a href="https://nhaphoctructuyen.hcct.edu.vn">
+                        <img src="/vtt_edu_admission_form/static/description/banner.png"
+                             style="object-fit: contain; padding-top: 10px; padding-bottom: 10px; margin-left: auto; margin-right: auto; display: block;"/>
+                    </a>
+                    <!--Category Select-->
+                    <div class="form-group s_website_form_field col-12 s_website_form_custom s_website_form_required ">
+                        <label class="s_website_form_label " style="width: 150px" for="category_id">
+                            <span class="s_website_form_label_content">Category</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <select name="category_id" class="form-control link-style">
+                            <t t-foreach="category_rec" t-as="category">
+                                <option t-esc="category.name" t-att-value="category.id"/>
+                            </t>
+                        </select>
+                    </div>
+
+                  <!--Course Select-->
+                    <div class="form-group s_website_form_field col-12 s_website_form_custom s_website_form_required ">
+                        <label class="s_website_form_label " style="width: 150px" for="course_id">
+                            <span class="s_website_form_label_content">Type</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <select name="type_rec" class="form-control link-style">
+                            <option value="1">Đã có bằng tốt nghiệp</option>
+                            <option value="2">Chưa có bằng tốt nghiệp</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-lg" params="{'category_id': category_id, 'type_rec': type_rec}">Submit</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </t>
+
+    </template>
+
+    <template id="vtt_tmp_admission_form" name="Admission Form">
+      <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty">
+          <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+            <div class="container">
+                <a href="https://nhaphoctructuyen.hcct.edu.vn">
+                    <img src="/vtt_edu_admission_form/static/description/banner.png"
+                         style="object-fit: contain; padding-top: 10px; padding-bottom: 10px; margin-left: auto; margin-right: auto; display: block;"/>
+                </a>
+
+              <form action="/edu/admission/form/submit/op.student" method="post" enctype="multipart/form-data" class="o_mark_required vtt_admission_form" data-mark="*">
+                <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                    <div class="col-12 col-lg-8">
+                        <label class="caption"><span class="s_website_form_label_content">STUDENT INFORMATION</span></label>
+
+                    <div class="row">
+                        <!--3 Factor Name Input-->
+                        <!--<div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+                            <label class="s_website_form_label" style="width: 150px" for="last_name">
+                                <span class="s_website_form_label_content">Last Name</span>
+                                <span class="s_website_form_mark"> *</span>
+                            </label>
+                            <input type="text" class="form-control s_website_form_input" name="last_name" required="1" placeholder="" id="last_name"/>
+                        </div>
+                        <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom" data-type="char" data-name="Field">
+                            <label class="s_website_form_label " style="width: 150px" for="middle_name">
+                                <span class="s_website_form_label_content">Middle Name</span>
+                            </label>
+                            <input type="text" class="form-control s_website_form_input" name="middle_name" placeholder="" id="middle_name"/>
+                        </div>
+                        <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+                            <label class="s_website_form_label " style="width: 150px" for="first_name">
+                                <span class="s_website_form_label_content">First Name</span>
+                                <span class="s_website_form_mark"> *</span>
+                            </label>
+                            <input type="text" class="form-control s_website_form_input" name="first_name" placeholder="" id="first_name" required=""/>
+                        </div>-->
+
+                        <!--1 Factor Name Input-->
+                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_required" data-type="char" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="name">
+                                    <span class="s_website_form_label_content">Full Name</span>
+                                    <span class="s_website_form_mark">       *</span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" name="name" t-att-value="name" placeholder="" id="name" required="1"/>
+                            </div>
+
+                            <!--Gender Select-->
+                            <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-6" data-type="many2one" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="gender">
+                                    <span class="s_website_form_label_content">Gender</span>
+                                </label>
+                                <select class="form-control s_website_form_input" name="gender" id="gender" style="">
+                                    <option value="m">Male</option>
+                                    <option value="f">Female</option>
+                                    <option value="o">Other</option>
+                                </select>
+                            </div>
+
+                            <!--Birth Date Input-->
+                            <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-6 s_website_form_required" data-type="date" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="datepicker_birth_date">
+                                  <span class="s_website_form_label_content">Birth Date</span>
+                                  <span class="s_website_form_mark">           *</span>
+                                </label>
+                                <div class="s_website_form_date input-group date" id="datepicker_birth_date" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input s_website_form_input" data-target="#datepicker_birth_date" name="birth_date" placeholder="" id="birth_date" required="1"/>
+                                  <div class="input-group-append" data-target="#datepicker_birth_date" data-toggle="datetimepicker" data-date-format="YYYY-MM-DD" >
+                                    <div class="input-group-text">
+                                      <i class="fa fa-calendar"/>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            <!--Identify ID Input-->
+                            <!--<div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom " data-type="text" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="identify_id">
+                                    <span class="s_website_form_label_content">Identify ID</span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" name="identify_id" placeholder="" id="identify_id"/>
+                            </div>-->
+
+                          <!--Course Select-->
+                            <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom s_website_form_required ">
+                                <label class="s_website_form_label " style="width: 150px" for="course_id">
+                                    <span class="s_website_form_label_content">Course</span>
+                                    <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <select name="course_id" class="form-control link-style">
+                                    <t t-foreach="course_rec" t-as="course">
+                                        <option t-esc="course.name" t-att-value="course.id"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!--Category Select-->
+                            <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom s_website_form_required ">
+                                <label class="s_website_form_label " style="width: 150px" for="category_id">
+                                    <span class="s_website_form_label_content">Category</span>
+                                    <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <select name="category_id" class="form-control link-style">
+                                    <t t-foreach="category_rec" t-as="category">
+                                        <option t-esc="category.name" t-att-value="category.id"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!--Institute Cert Hide-->
+                            <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom " data-type="tel" data-name="Field" style="display:none">
+                                <label class="s_website_form_label " style="width: 150px" for="institute_cert">
+                                    <span class="s_website_form_label_content">Institute Cert</span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" t-att-value="institute_cert" name="institute_cert" placeholder="" id="institute_cert"/>
+                            </div>
+
+                            <!--Email Input-->
+                            <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_required" data-type="char" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="email">
+                                    <span class="s_website_form_label_content">Your Email</span>
+                                    <span class="s_website_form_mark">       *</span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" name="email" t-att-value="email" placeholder="" id="email" required="1"/>
+                            </div>
+
+                            <!--Mobile Input-->
+                            <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom " data-type="tel" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="mobile">
+                                    <span class="s_website_form_label_content">Phone Number</span>
+                                    <span class="s_website_form_mark">       *</span>
+                                </label>
+                                <input type="tel" class="form-control s_website_form_input" name="mobile" placeholder="" id="mobile" required="1"/>
+                            </div>
+
+                            <!--Address Input-->
+                            <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="text" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="street">
+                                    <span class="s_website_form_label_content">Address</span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" name="street" placeholder="" id="street"/>
+                            </div>
+
+                            <!--Prev School Input-->
+                            <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_required" data-type="char" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="prev_institute_id">
+                                    <span class="s_website_form_label_content">Previous Institute</span>
+                                    <span class="s_website_form_mark">*</span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" name="prev_institute_id" placeholder="" id="prev_institute_id" required="1"/>
+                            </div>
+
+                            <!--School Avg. Input-->
+                            <!--<div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-6" data-type="decimal" data-name="Field">
+                                <label class="s_website_form_label " style="width: 150px" for="school_avg_score">
+                                    <span class="s_website_form_label_content">School Avg. Score</span>
+                                </label>
+                                <input type="number" class="form-control s_website_form_input" name="school_avg_score" step="1" placeholder="" id="school_avg_score"/>
+                            </div>-->
+                            <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-6" data-type="char" data-name="Field">
+                                <label class="s_website_form_label " style="width: 220px" for="prev_result">
+                                    <span t-if="category_rec.code == 'CD'" class="s_website_form_label_content">
+                                        <font t-if="institute_cert == '1'">Previous Result</font>
+                                        <font t-if="institute_cert == '2'">Previous Term 1 Result</font>
+                                    </span>
+                                    <span t-if="category_rec.code == 'TC'" class="s_website_form_label_content">
+                                        <font t-if="institute_cert == '1'">Previous Result 9</font>
+                                        <font t-if="institute_cert == '2'">Previous Term 1 Result 9</font>
+                                    </span>
+                                </label>
+                                <input type="text" class="form-control s_website_form_input" name="prev_result" placeholder="" id="prev_result" required="1"/>
+                            </div>
+
+                            <!--City Select-->
+                            <div class="form-group s_website_form_field col-12 col-lg-6 s_website_form_custom  s_website_form_required ">
+                                <label class="s_website_form_label " style="width: 150px" for="state_id">
+                                    <span class="s_website_form_label_content">State/ City</span>
+                                    <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <select name="state_id" class="form-control link-style">
+                                    <t t-foreach="state_rec" t-as="st">
+                                        <option t-esc="st.name" t-att-value="st.id"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                    </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <label><span class="s_website_form_label_content">ATTACHMENTS UPLOAD</span></label>
+
+                        <!-- ***** Upload ***** -->
+                        <div class="right-box">
+                            <!--School Profile Upload-->
+                            <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-12" data-type="binary" data-name="Field">
+                                <label class="s_website_form_label " for="school_profile_fileattach">
+                                    <span t-if="category_rec.code == 'CD'" class="s_website_form_label_content">
+                                        <font t-if="institute_cert == '1'">School Profile</font>
+                                        <font t-if="institute_cert == '2'">School Profile Term 1</font>
+                                    </span>
+                                    <span t-if="category_rec.code == 'TC'" class="s_website_form_label_content">
+                                        <font t-if="institute_cert == '1'">School Profile 9</font>
+                                        <font t-if="institute_cert == '2'">School Profile 9 Term 1</font>
+                                    </span>
+                                    <!--<span t-if="institute_cert == '1'" class="s_website_form_mark"> *</span>-->
+                                </label>
+                                <!--<input t-if="institute_cert == '1'" type="file" accept="image/*,application/pdf" name="school_profile_fileattach" id="school_profile_fileattach" required="1"/>-->
+                                <input type="file" accept="image/*,application/pdf" name="school_profile_fileattach" id="school_profile_fileattach"/>
+                            </div>
+
+                            <!--Profile Image Upload-->
+                            <!--<div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom s_website_form_required" data-type="binary" data-name="Field">
+                                <label class="s_website_form_label " for="profile_image_file">
+                                    <span class="s_website_form_label_content">Profile Image</span>
+                                    <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <input type="file" accept="image/*" name="profile_image_file" id="profile_image_file" data-show-upload="true" data-show-caption="true" data-show-preview="true"/>
+                            </div>-->
+
+                            <!--Birth Certificate Upload-->
+                            <!--<div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="binary" data-name="Field">
+                                <label class="s_website_form_label " for="birth_certificate_fileattach">
+                                    <span class="s_website_form_label_content">Birth Certificate</span>
+                                    <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <input type="file" accept="image/*,application/pdf" name="birth_certificate_fileattach" id="birth_certificate_fileattach" data-show-upload="true" data-show-caption="true" data-show-preview="true"/>
+                            </div>-->
+
+                            <!--Fore Identify ID Upload-->
+                            <!--<div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="binary" data-name="Field">
+                                <label class="s_website_form_label " for="fore_identify_id_fileattach">
+                                    <span class="s_website_form_label_content">Fore Identify ID</span>
+                                </label>
+                                <input type="file" accept="image/*,application/pdf" name="fore_identify_id_fileattach" id="fore_identify_id_fileattach" data-show-upload="true" data-show-caption="true" data-show-preview="true"/>
+                            </div>-->
+
+                            <!--Back Identify ID Upload-->
+                            <!--<div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="binary" data-name="Field">
+                                <label class="s_website_form_label " for="back_identify_id_fileattach">
+                                    <span class="s_website_form_label_content">Back Identify ID</span>
+                                </label>
+                                <input type="file" accept="image/*,application/pdf" name="back_identify_id_fileattach" id="back_identify_id_fileattach" data-show-upload="true" data-show-caption="true" data-show-preview="true"/>
+                            </div>-->
+
+                            <!--Certificate of Graduation Upload-->
+                            <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom" data-type="binary" data-name="Field">
+                                <label class="s_website_form_label " for="institute_cert_img_file">
+                                    <span class="s_website_form_label_content">Certificate of Graduation</span>
+                                    <!--<span t-if="institute_cert == '1'" class="s_website_form_mark"> *</span>-->
+                                </label>
+                                <!--<input t-if="institute_cert == '1'" type="file" accept="image/*,application/pdf" name="institute_cert_img_file" id="institute_cert_img_file" data-show-upload="true" data-show-caption="true" data-show-preview="true" required="1"/>-->
+                                <input type="file" accept="image/*,application/pdf" name="institute_cert_img_file" id="institute_cert_img_file" data-show-upload="true" data-show-caption="true" data-show-preview="true"/>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-12">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                    <!--<div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                    &lt;!&ndash;<div style="width: 200px;" class="s_website_form_label"/>
+                    <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send o_default_snippet_text">Submit</a>
+                    <span id="s_website_form_result"/>&ndash;&gt;
+                    <button type="submit" class="btn btn-primary btn-lg s_website_form_send o_default_snippet_text">Submit</button>
+                  </div>-->
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </t>
+
+    </template>
+
+    <template id="vtt_tmp_admission_form_success" name="Admission Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empt vtt_admission_form_success">
+                <a href="https://nhaphoctructuyen.hcct.edu.vn">
+                    <img src="/vtt_edu_admission_form/static/description/banner.png"
+                             style="object-fit: contain; padding-top: 10px; padding-bottom: 10px; margin-left: auto; margin-right: auto; display: block;"/>
+                </a>
+              <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+                <div class="container">
+                    <div class="col-md-12">
+                        <t t-set="student" t-value="student_id"/>
+                        <div t-if="student != 0" class="alert alert-success">
+                            <i class="fa fa-check-circle icon"></i>
+                            <p>Chúc mừng bạn đã đăng ký nhập học thành công!<br/>
+                            Thông tin tài khoản và mật khẩu sẽ được nhà trường gửi về địa chỉ email!</p>
+                            <p>Tham gia ngay <a href="https://zalo.me/0868841179" style="color: #875A7B;">GROUP ZALO</a> nhận hỗ trợ chi tiết</p>
+                        </div>
+                        <div t-if="student == 0" class="alert alert-danger">
+                            <i class="fa fa-exclamation-triangle icon"></i>
+                            <p>Số điện thoại của bạn đã được đăng ký trên hệ thống.<br/>
+                            Vui lòng kiểm tra lại các thông tin đã nhập.</p>
+                        </div>
+                    </div>
+                </div>
+              </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="vtt_web_login" inherit_id="web.login" name="Login Inherit">
+<!--        <xpath expr="//form" position="before">-->
+<!--            <img src="/vtt_edu_admission_form/static/description/banner_logo.jpg"-->
+<!--                         style="width: 500px; object-fit: contain; padding-top: 10px; padding-bottom: 10px; margin-left: auto; margin-right: auto; display: block;"/>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//form" position="after">-->
+<!--            <div class="abc">-->
+<!--                lalala-->
+<!--                <div>spa</div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//div[@class='form-group field-login']" position="before">-->
+<!--            <label class="box_caption" style="color: #0a2491; font-size: 26px;">ĐĂNG NHẬP</label>-->
+<!--        </xpath>-->
+
+        <xpath expr="//form" position="replace">
+            <div class="form_wrapper">
+                <a href="https://nhaphoctructuyen.hcct.edu.vn">
+                    <img src="/vtt_edu_admission_form/static/description/banner_logo.jpg"
+                         style="width: 500px; object-fit: contain; padding-top: 10px; padding-bottom: 10px; margin-left: auto; margin-right: auto; display: block;"/>
+                </a>
+                <div class="form_box">
+                    <form class="oe_login_form" role="form" t-attf-action="/web/login" method="post" onsubmit="this.action = '/web/login' + location.hash">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                        <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                            <label for="db" class="col-form-label">Database</label>
+                            <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                                <input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly"/>
+                                <span class="input-group-append">
+                                    <a role="button" href="/web/database/selector" class="btn btn-secondary">Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i></a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <label class="box_caption" style="color: #0a2491; font-size: 22px;">ĐĂNG NHẬP</label>
+                        <div class="form-group field-login">
+                            <label for="login">Username</label>
+                            <input type="text" placeholder="Username" name="login" t-att-value="login" id="login" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off"/>
+                        </div>
+
+                        <div class="form-group field-password">
+                            <label for="password">Password</label>
+                            <input type="password" placeholder="Password" name="password" id="password" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                        </div>
+
+                        <p class="alert alert-danger" t-if="error" role="alert">
+                            <t t-esc="error"/>
+                        </p>
+                        <p class="alert alert-success" t-if="message" role="status">
+                            <t t-esc="message"/>
+                        </p>
+
+                        <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
+                            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+<!--                            <div class="justify-content-between mt-2 d-flex small">-->
+<!--                                <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>-->
+<!--                                <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}">Reset Password</a>-->
+<!--                            </div>-->
+<!--                            <t t-if="debug">-->
+<!--                                <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>-->
+<!--                            </t>-->
+                            <div class="o_login_auth"/>
+                        </div>
+
+                        <input type="hidden" name="redirect" t-att-value="redirect"/>
+                    </form>
+
+                    <div class="admission_box">
+                        <label class="box_caption" style="color: #0a2491; font-size: 22px; font-weight: 700;">BẠN CHƯA CÓ TÀI KHOẢN?</label>
+                        <label style="color: #0a2491; font-size: 16px; font-weight: 600;">Đăng ký nhập học ngay!</label>
+                        <div class="form-group">
+                            <a class="form_button" href="/edu/admission/profile_apply">ĐĂNG KÝ NHẬP HỌC</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </xpath>
+
+<!--   		<xpath expr="//label[@for='db']" position="replace" />-->
+<!--		<xpath expr="//label[@for='login']" position="replace" />-->
+<!--		<xpath expr="//label[@for='password']" position="replace" />-->
+
+<!--		<xpath expr="//input[@name='login']" position="attributes">-->
+<!--			<attribute name="placeholder">Email ...</attribute>-->
+<!--			<attribute name="autocomplete">off</attribute>-->
+<!--			<attribute name="autocorrect">off</attribute>-->
+<!--		</xpath>-->
+
+<!--		<xpath expr="//input[@name='password']" position="attributes">-->
+<!--			<attribute name="placeholder">Password ...</attribute>-->
+<!--		</xpath>-->
+
+<!--		<xpath expr="//a[@href='/web/database/selector']" position="replace">-->
+<!--			<a role="button" href="/web/database/selector" class="btn btn-secondary">-->
+<!--				<i class="fa fa-database" role="img" aria-label="Database" title="Database"></i>-->
+<!--			</a>-->
+<!--		</xpath>-->
+	</template>
+
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="vtt_email_template_student_payment_confirm" model="mail.template">
+            <field name="name">Student Invoice Payment email</field>
+            <field name="model_id" ref="model_op_student"/>
+            <field name="email_from">${(user.company_id.email) |safe}</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="subject">Fees of Course ${object.course_id.name} batch ${object.batch_id.name} Payment Confirmed.</field>
+            <field name="body_html" type="html">
+<table border="0" cellpadding="0" cellspacing="0" style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"><tbody><tr><td align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="590" style="padding:16px;background-color: white; color: #454748; border-collapse:separate;">
+<tbody>
+    <!-- HEADER -->
+    <tr>
+        <td align="center" style="min-width:590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Xác nhận thanh toán học phí</span><br/>
+                    <span style="font-size:20px;font-weight: bold;">
+                        ${object.name}
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/logo.png?company=${object.user_id.company_id.id}" style="padding:0px;margin: 0px; height: auto; width: 80px;" alt="${object.user_id.company_id.name}"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENT -->
+    <tr>
+        <td align="center" style="min-width:590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                <tbody><tr><td valign="top" style="font-size:13px;">
+                    <div>
+                        Thân gửi ${object.partner_id.name},<br/><br/>
+                        Bạn đã thanh toán thành công kinh phí nhập học ngành ${object.course_id.name} với số tiền <strong>${format_amount(ctx.get('fees_payment_value', '0.0'), ctx.get('currency'))}</strong> .
+                        <br/><br/>
+                        Mã Sinh viên của bạn là: <strong>${object.roll_number}</strong>.
+                        <br/><br/>
+                        Bạn hoàn tất hồ sơ nhập học về trường trong vòng 10 ngày kể từ khi nhận được thông báo này.<br/>
+                        Sau 1 ngày nhập học, xem thời khóa biểu truy cập vào trang: <a target="_blank" href="http://daotao.hcct.edu.vn/SubPage.aspx">daotao.hcct.edu.vn</a><br/>
+                        Hồ sơ gửi về địa chỉ: Phòng Đào tạo- Trường Cao đẳng Thương mại và Du Lịch Hà Nội- Đường Phạm Văn Đồng - Phường Mai Dịch - Quận Cầu Giấy - Hà Nội<br/>
+                        Điện thoại: (024).37641121- (024).37921179- Hotline (Zalo): 086.884.1179<br/>
+                        <strong>Kết bạn ngay Zalo 0868841179 để nhận lớp học</strong>.
+                        <br/><br/>
+
+                        Trân trọng!<br/>
+                        --<br/>
+                        ${object.user_id.company_id.name}<br/>
+                        Hotline/Zalo: 0868841179<br/>
+                    </div>
+                </td></tr>
+                <tr><td style="text-align:center;">
+                  <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- FOOTER -->
+    <tr>
+        <td align="center" style="min-width:590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.user_id.company_id.name}
+                </td></tr>
+                <tr><td valign="middle" align="left" style="opacity:0.7;">
+                    ${object.user_id.company_id.phone}
+                    % if object.user_id.company_id.email
+                        | <a href="'mailto:%s' % ${object.user_id.company_id.email}" style="color:#454748;">${object.user_id.company_id.email}</a>
+                    % endif
+                    % if object.user_id.company_id.website
+                        | <a href="'%s' % ${object.user_id.company_id.website}" style="color:#454748;">
+                        ${object.user_id.company_id.website}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<!--<tr><td align="center" style="min-width:590px;">
+    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Phát hành bởi <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" style="color:#875A7B;">Odoo</a>
+      </td></tr>
+    </tbody></table>
+</td></tr>-->
+</tbody></table>
+
+            </field>
+            <!--<field name="report_template" ref="account_invoices"/>-->
+            <!--<field name="report_name">Payment_${(object.course_id.code or '')}_${(object.batch_id.code or '')}</field>-->
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

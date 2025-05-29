@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Groups-->
+    <data>
+        <!--Student Admission group-->
+        <record id="vtt_group_op_student_view" model="res.groups">
+            <field name="name">Student View Specific</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+        <record id="vtt_group_op_student_show_admission_step" model="res.groups">
+            <field name="name">Student Admission Step</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="vtt_group_op_student" model="res.groups">
+            <field name="name">Student</field>
+            <field name="category_id" ref="openeducat_core.module_category_openeducat"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!--Faculty inherit Student-->
+        <record id="openeducat_core.group_op_faculty" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('vtt_edu_admission_form.vtt_group_op_student'))]"/>
+        </record>
+    </data>
+
+    <!--Rules-->
+    <data>
+        <record id="vtt_rule_student_own_profile" model="ir.rule">
+            <field name="name">Student See Own Profile Only</field>
+            <field name="model_id" ref="model_op_student"/>
+            <field name="groups" eval="[(4, ref('vtt_edu_admission_form.vtt_group_op_student'))]"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+        </record>
+    </data>
+</odoo>

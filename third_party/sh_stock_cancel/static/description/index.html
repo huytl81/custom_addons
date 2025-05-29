@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<section id="sh_module_heading">
+<div class="container">
+<div class="sh_center text-center" style='margin: 2rem 0;'>
+<div class="row" style='align-items: center;'>
+<div class="col-lg-4 col-md-4 col-sm-12" style='text-align: left;'>
+<img src='softhealer.png' alt='logo' style="width: 80%;">
+</div>
+<div class="col-lg-8 col-md-8 col-sm-12" style='text-align: right;'>
+<span class='btn btn-primary' style="position: relative; overflow: hidden; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; background-color: #007bff;border-color: #007bff;"><i class='fa fa-check' style="margin-right: 9px;"></i>Enterprise</span>
+<span class='btn btn-primary' style="position: relative; overflow: hidden; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; background-color: #007bff;border-color: #007bff;"><i class='fa fa-check' style="margin-right: 9px;"></i>Community</span>
+<span class='btn btn-primary' style="position: relative; overflow: hidden; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; background-color: #007bff;border-color: #007bff;"><i class='fa fa-check' style="margin-right: 9px;"></i>Odoo.sh</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- heading  -->
+<section id="sh_module_heading" style="padding-top: 50px;">
+	<div class="container">
+		<div class="sh_center text-center">
+			<h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;"> Cancel Inventory
+
+
+</h4>
+			<img src="shape.png" style="width: 100px;display: block;text-align: center;margin: auto;margin-bottom: 20px;" />
+			<p style="color: #777;font-size: 18px;margin: 0;letter-spacing: 1px; text-align: left;"> This module helps to cancel stock-picking, stock adjustment, scrap orders & stock moves. You can also cancel multiple stock-picking, stock adjustment, scrap orders & stock moves from the tree view. You can cancel the stock-picking, stock adjustment & scrap orders in 3 ways,<br/><br/>
+
+1) <b>Cancel Only:</b> When you cancel the stock-picking, stock adjustment & scrap orders then the stock-picking, stock adjustment & scrap orders are cancelled and the state is changed to "cancelled".<br/>
+
+2) <b>Cancel and Reset to Draft:</b> When you cancel the stock-picking, stock adjustment & scrap orders, first stock-picking, stock adjustment & scrap orders are cancelled and then reset to the draft state.
+<br/>
+3) <b>Cancel and Delete:</b> When you cancel the stock-picking, stock adjustment & scrap orders then first the stock-picking, stock adjustment & scrap orders are cancelled and then the stock-picking, stock adjustment & scrap orders will be deleted.
+
+
+</p>
+
+		</div>
+	</div>
+</section>  
+
+
+<section id="sh_module_heading" style="padding-top: 50px;">
+	<div class="container">
+		<div class="sh_center text-center">
+			
+			
+			 <h2 align="center">
+            <a style="background-color: #1976d2; color: white; border-color: #1976d2; position: relative; overflow: hidden;padding: 1%;text-decoration: none;border-radius: 0px;display: inline-block;" class="btn btn-success btn-lg" href="https://youtu.be/PLAVR8Ay13s?list=PL-zDV7_rrd2oRN61tWKLtuGyUXm6sJJZJ" target="_blank"><span class="o_ripple d-block position-absolute rounded-circle" style="height: 398px; width: 398px; top: -164px; left: -147.891px;"></span>Cancel Inventory video</a>
+        </h2>
+        
+        <h2 align="center">
+	            <a style="background-color: #1976d2; color: white; border-color: #1976d2; position: relative; overflow: hidden;padding: 1%;text-decoration: none;border-radius: 0px;display: inline-block;" class="btn btn-success btn-lg" href="https://youtu.be/Yb182cW68xw" target="_blank">
+	            	<span class="o_ripple d-block position-absolute rounded-circle" style="height: 398px; width: 398px; top: -164px; left: -147.891px;"></span>
+	            	Cancel Stock Moves video
+	            </a>           
+         	</h2>  
+         	<h2 align="center">
+            <a style="background-color: #1976d2; color: white; border-color: #1976d2; position: relative; overflow: hidden;padding: 1%;text-decoration: none;border-radius: 0px;display: inline-block;" class="btn btn-success btn-lg" href="https://youtu.be/Kz6gvXNaG0c?list=PL-zDV7_rrd2oRN61tWKLtuGyUXm6sJJZJ" target="_blank"><span class="o_ripple d-block position-absolute rounded-circle" style="height: 398px; width: 398px; top: -164px; left: -147.891px;"></span>Cancel Scrap Orders video</a>
+        </h2>  
+
+
+        
+		</div>
+	</div>
+</section> 
+
+
+<section class="sh_bg_cover" style="padding:1px 0em;margin-bottom: 2em;margin-top: 2em;padding: 40px;">
+<div class="container">
+<div class="sh_spaced">
+<h2 class="sh_display" style="color:#1578b9;text-align: center;font-size: 2em;margin-top: 0px;"><b style="font-weight: bold;font-family: " open="" sans="" sans-serif="">Advance Module</b>
+</h2>
+<hr style="border: 1px solid #96969a;position:relative;width:40px;top:0px;padding:0px;margin-bottom: 2em;">
+
+
+<p class="sh_mb32" align="center" style="color: green; font-family: sans-serif!important;padding-top: 10px;margin-bottom:0px !important;text-align: justify;padding: 7px 0px;border-bottom: 1px solid #bbbbbb;">
+<i class="fa fa-hand-o-right" style="margin-right: 1em;color: #1678b9;font-size: 1.4em;"></i>
+<a href="https://apps.odoo.com/apps/modules/14.0/sh_all_one_cancel/"><b>All in one cancel</b></a>
+</p>
+</div>
+</div>
+</section>
+
+<!-- feature -->
+<section id="sh_feature" style="padding-top: 50px;">
+	<div class="container">
+	    <div class="sh_center text-center">
+	   		<h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">Hot Features</h4>
+	    	<hr style="width: 100px;border-width: 2px;border-color: #1976d2;" />
+	    </div>
+
+	    <div class="row">
+		   
+		   
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel stock-picking 
+						</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel stock adjustment
+		             </span>
+
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel stock moves
+		             </span>
+
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel scrap orders
+		             </span>
+
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel mass stock-picking 
+					</span>
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel mass stock adjustment
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel mass scrap orders
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel mass stock moves
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel & delete stock-picking
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel & delete stock adjustment
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel & delete scrap orders
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		    <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel & delete stock moves
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);display: flex;">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 39px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel stock-picking and reset to draft
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);display: flex;">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 43px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel stock adjustment and reset to draft
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);display: flex;">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 38px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel stock moves and reset to draft
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		     <div class="col-md-4">		       
+		          <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);display: flex;">
+		             <span class="fa fa-circle" style="background-color: #1976d2;width: 39px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+		             <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Cancel scrap orders and reset to draft
+
+
+
+</span>
+		          </div> 		       
+		    </div>
+		
+
+		   
+		   
+		
+		
+		       
+		    
+		    
+		   
+		     
+		    	
+	    </div>
+
+
+
+	</div>
+</section>
+<!-- feature -->
+
+
+<section id="sh_tab" style="padding-top: 50px;">
+	<div class="container">
+		<ul class="nav nav-tabs justify-content-center" role="tablist" style="justify-content: center;padding-bottom: 10px;border-bottom: 2px solid #aaa;">
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link active" data-toggle="tab" href="#Feature" style="color: #333;border: 2px solid #1c76d2;">Setup</a>
+		    </li>
+		    
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Release" style="color: #333;border: 2px solid #1c76d2;">Releases</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#FAQ" style="color: #333;border: 2px solid #1c76d2;">FAQs</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Support" style="color: #333;border: 2px solid #1c76d2;">Support</a>
+		    </li>
+		</ul>
+
+		<div class="tab-content" style="margin-top: 30px;">
+
+		    <!-- tab 1 -->
+		    <div id="Feature" class="tab-pane active">	
+		     <section id="sh_tab" style="padding-top: 50px;">
+               <div class="container">
+                  <ul class="nav nav-tabs justify-content-center" role="tablist" style="justify-content: center;padding-bottom: 10px;border-bottom: 2px solid #aaa;">
+                     <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+                        <a class="nav-link active" data-toggle="tab" href="#AA" style="color: #333;border: 2px solid #1c76d2;">Cancel Stock Pickings</a>
+                     </li>
+                     <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+                        <a class="nav-link" data-toggle="tab" href="#BB" style="color: #333;border: 2px solid #1c76d2;">Cancel Stock Adjustments</a>
+                     </li>
+                     <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+                        <a class="nav-link" data-toggle="tab" href="#CC" style="color: #333;border: 2px solid #1c76d2;">Cancel Scrap Orders</a>
+                     </li>
+                     <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+                        <a class="nav-link" data-toggle="tab" href="#DD" style="color: #333;border: 2px solid #1c76d2;">Cancel Stock Moves</a>
+                     </li>
+                    
+                    
+                  </ul>
+                  <div class="tab-content" style="margin-top: 30px;">
+                     <!-- tab 1 -->
+                     <div id="AA" class="tab-pane active">
+                     		<section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+                 	    	 <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Tick the "Stock Transfer Cancel Feature" to cancel stock-picking.
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="transfer.png" style="width: 100%;" />
+						   </div> <br/>
+
+                 	    		<div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-1</h4>
+		</div>
+
+                 	        <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel the stock-picking only then choose the "Cancel Only" option.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="1.png" style="width: 100%;" />
+						   </div> <br/>
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel picking.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="2.png" style="width: 100%;" />
+						   </div> <br/>
+						     
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 10.00 units.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="3.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you cancel the picking then the picking is cancelled and the state is changed to "cancelled".
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="4.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancelled picking our onhand qty is updated.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="5.png" style="width: 100%;" />
+						   </div> <br/>
+						  
+						   <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-2</h4>
+		</div>
+
+
+		<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel the stock-picking and reset to the draft state tick "Cancel and Reset to Draft".
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="6.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our stock-picking in the done state.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="7.png" style="width: 100%;" />
+						   </div> <br/>
+
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 16.00 units.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="8.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you cancel the picking then the picking is cancelled and reset to the draft.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="9.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> So our state is changed to the draft state.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="10.png" style="width: 100%;" />
+						   </div> <br/>
+						      <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancelled picking our onhand qty is updated.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="11.png" style="width: 100%;" />
+						   </div> <br/>
+						   
+						  
+
+
+						    
+						    <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-3</h4>
+		</div>
+
+
+
+		 <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel & delete the stock-picking then choose the "Cancel and Delete" option. 
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="12.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> We cancel stock-picking.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="13.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After the "Cancel" the stock-picking will be deleted.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="14.png" style="width: 100%;" />
+						   </div> <br/>
+						
+						   <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-4</h4>
+		</div>
+
+						   
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel multiple pickings from the tree view.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="30.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected pickings are cancelled.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="31.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & reset draft" multiple pickings from the tree view.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="32.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected pickings are cancelled and reset to the draft.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="33.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & delete" multiple pickings from the tree view.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="34.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All pickings will be deleted after cancelled.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="35.png" style="width: 100%;" />
+						   </div> 
+						<br/>
+
+
+
+
+
+
+                 	    </div>
+                 	</div>
+                 </section>
+                        
+                     </div>
+                     
+                     <!-- tab 2 -->
+                     <div id="BB" class="tab-pane fade">
+                     		<section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+                 	    	<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Tick the "Stock Adjustment Cancel Feature" to cancel stock-adjustment.
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="adj.png" style="width: 100%;" />
+						   </div> <br/>
+
+                 	    		<div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-1</h4>
+		</div>
+
+                 	       
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel the stock-adjustment only then choose the "Cancel Only" option.
+
+
+						  
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="15.png" style="width: 100%;" />
+						   </div> <br/>
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our stock-adjustment is in the "validate" state.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="16.png" style="width: 100%;" />
+						   </div> <br/>
+						     
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 40.00 units.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="17.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel the stock-adjustment.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="18.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> So stock-adjustment is cancelled and the state is changed to "cancelled".
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="19.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancelled stock-adjustment our onhand qty is updated.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="20.png" style="width: 100%;" />
+						   </div> <br/>
+						   <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-2</h4>
+		</div>
+
+
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel the stock-adjustment and reset to the draft state tick "Cancel and Reset to Draft".
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="21.png" style="width: 100%;" />
+						   </div> <br/>
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our stock-adjustment is in the "validate" state.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="22.png" style="width: 100%;" />
+						   </div> <br/>
+						     
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 100.000 units.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="23.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel the stock-adjustment.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="24.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> So stock-adjustment is cancelled and reset to the draft.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="25.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancel adjustment our onhand qty is updated. 
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="26.png" style="width: 100%;" />
+						   </div> <br/>
+						  
+
+
+						    
+						    <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-3</h4>
+		</div>
+
+
+
+		
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel & delete the stock adjustment then choose the "Cancel and Delete" option.
+
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="27.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> We cancel inventory adjustment.
+
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="28.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After the "Cancel" the stock-adjustment will be deleted.
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="29.png" style="width: 100%;" />
+						   </div> <br/>
+						   <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-4</h4>
+		</div>
+		<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel multiple stock adjustments from the tree view.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="a1.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected stock adjustments are cancelled.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="a2.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & reset draft" multiple stock adjustments from the tree view.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="a3.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected stock adjustments are cancelled and reset to the draft.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="a4.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & delete" multiple stock adjustments from the tree view.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="a5.png" style="width: 100%;" />
+						   </div> <br/>
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All stock adjustments will be deleted after cancelled.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="a6.png" style="width: 100%;" />
+						   </div> 
+						<br/>
+
+
+						   
+
+						    
+
+
+
+
+                 	    </div>
+                 	</div>
+                 </section>
+                      
+                     </div>
+                   
+                     <!-- tab 3 -->
+                     <div id="CC" class="tab-pane fade">
+                     		<section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+
+   
+						
+
+						<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Tick the "Stock Scrap Cancel Feature" to cancel scrap orders.
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="36.png" style="width: 100%;" />
+						   </div> <br/>
+
+                 	    		<div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-1</h4>
+		</div>
+
+                 	        <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel the scrap ordrs only then choose the "Cancel Only" option.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="46.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our scrap order is in the "Done" state.
+ 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="47.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our scrap order product move status is "Done".
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="48.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 40.00 units.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="49.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel the scrap order.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="50.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> So scrap order is canceled and the state is changed to "cancel".
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="51.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now our scrap order product move status is "Cancelled".
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="52.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancelled scrap order our onhand qty is updated.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="53.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						    
+						   <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-2</h4>
+		</div>
+
+
+		<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel the scrap ordrs and reset to the draft state tick "Cancel and Reset to Draft".
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="37.png" style="width: 100%;" />
+						   </div> <br/>
+						  
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our scrap order is in the "Done" state.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="39.png" style="width: 100%;" />
+						   </div> <br/>
+						      <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 95.00 units.
+
+ 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="41.png" style="width: 100%;" />
+						   </div> <br/>
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our scrap order product move status is "Done".
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="40.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						    
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel the scrap order.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="42.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> So scrap order is cancelled and reset to the draft.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="43.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now our scrap order product move status is "New". 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="44.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancelled scrap order our onhand qty is updated.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="45.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						    <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-3</h4>
+		</div>
+
+
+
+		 <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> When you want to cancel & delete the scrap ordrs then choose the "Cancel and Delete" option. 
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="54.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our scrap order is in the "Done" state.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="55.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our scrap order product move status is "Done".
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="56.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Our onhand qty is now 95.00 units. 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="57.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel the scrap order. 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="58.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After the "Cancel" the scrap order will be deleted.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="59.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> After cancelled scrap order our onhand qty is updated.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="60.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+
+
+
+
+						    <div class="sh_center text-center">
+			<h4 style="font-size: 20px;font-weight: bold;color: #1578b9;margin-bottom: 10px;text-align: left;border-left: 5px solid #1578b9;padding-left: 10px;">Flow-4</h4>
+		</div>
+
+						   
+
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel multiple scrap orders from the tree view.
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="61.png" style="width: 100%;" />
+						   </div> <br/>
+						    <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected scrap orders are cancelled.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="62.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & reset draft" multiple scrap orders from the tree view.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="63.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected scrap orders are cancelled and reset to the draft.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="64.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & delete" multiple scrap orders from the tree view.
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="65.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All scrap orders will be deleted after cancelled. 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="66.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+                 	    </div>
+                 	</div>
+                 </section>
+                        
+                     </div>
+                     <!-- tab 3 -->
+                     <!-- tab 4 -->
+                     <div id="DD" class="tab-pane fade">
+                     	<section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+                 	    	<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Tick the "Stock Move Cancel Feature" to cancel stock moves.
+
+
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="move.png" style="width: 100%;" />
+						   </div> <br/>
+
+ <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we cancel multiple stock moves from the tree view.
+
+
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="67.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected stock moves are cancelled. 
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="68.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & reset draft" multiple stock moves from the tree view.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="69.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All selected stock moves are cancelled and reset to the draft.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="70.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> Now we "cancel & delete" multiple stock moves from the tree view.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="71.png" style="width: 100%;" />
+						   </div> <br/>
+						    
+						     <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;"> All stock moves will be deleted after cancelled.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="72.png" style="width: 100%;" />
+						   </div> <br/>
+
+
+                 	    </div>
+                 	</div>
+                 </section>
+                        
+                     </div>
+                     <!-- tab 4-->
+                  
+                     <!-- tab 5 -->
+                     
+                  </div>
+               </div>
+            </section>	        
+				
+                 	 
+                     
+		    </div>
+		    <!-- tab 1 -->
+
+
+
+
+
+		    <!-- tab 3 -->
+		    <div id="Release" class="tab-pane fade">
+		    	<div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+
+		        	
+
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.2</span> | <span style="color: #1976d2;">Released on : 10 February 2021</span></h4>
+			        <ul class="list-unstyled" style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li style="list-style:none;font-weight: normal;"><span class="badge badge-success" style="background-color: #43A047 !important;
+padding: 5px 17px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Added Scrap Order Cancel.</li>			         
+			        </ul>	
+		        </div>	   
+		        
+		        <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+
+		        	
+
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.1</span> | <span style="color: #1976d2;">Released on : 22 January 2021</span></h4>
+			        <ul class="list-unstyled" style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li style="list-style:none;font-weight: normal;">Initial Release.</li>			         
+			        </ul>	
+		        </div>	        
+		    </div>
+		    <!-- tab 3 -->
+
+		    <!-- tab 4 -->
+		    <div id="FAQ" class="tab-pane fade">
+		       <div class="demo">
+				    <div class="panel-group" id="accordion" role="tablist">
+				       
+				        
+
+				        <div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingThree" style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        I want some customization in this app. How can I request it?
+				                       
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseThree3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingThree">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Please Contact Us at <a href='mailto:sales@softhealer.com' style="color: #007bff;font-weight: 600;text-decoration: none;">sales@softhealer.com</a>to request customization.</li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+
+				        <div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingTwo"  style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        Is this app compatible with Odoo's Multi-Company Feature?
+				                     <!--   <span class="fa fa-plus" style="float: right;background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;color: #fff;border-radius: 50%;margin-top: -8px;"></span> -->
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseTwo2" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingTwo">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Yes, This app is compatible with Odoo's Multi-Company Feature.</li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+						
+						<div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingThree" style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        Do i get free support and updates?
+				                       
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseThree3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingThree">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Yes, we provide free upgrades as well as free support for 90 days.</li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+
+				        
+				    </div>
+				</div>
+		    </div>
+		    <!-- tab 4 -->
+
+		    <!-- tab 5 -->
+		    <div id="Support" class="tab-pane fade">
+		        <div class="row">
+		           <div class="col-md">
+		              <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+		                  <h4><a href="mailto:support@softhealer.com" style="text-decoration: none;color: #212121;font-size: 18px;font-weight: 600;letter-spacing: 1px;"><span class="fa fa-envelope" style="color: #1976d2;padding-right: 10px;font-size: 20px;"></span> Please mail us for support on <b style="color: #1976D2">support@softhealer.com</b></a></h4>
+						
+		              </div>
+		           </div>
+
+		         
+		        </div>	        
+		    </div>
+		    <!-- tab 5 -->
+
+		</div>
+	</div>
+</section>
+<section id="sh_like_module" style="margin: 50px 0;">
+        <div class="container">
+            <div class="sh_center text-center">
+                <h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">You May Also Like</h4>
+                <hr style="width: 100px;border-width: 2px;border-color: #1976d2;" />
+            </div>
+
+            <div class="row" style="margin-top: 1rem;">
+              
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_account_cancel/">
+                                <img src="image.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_purchase_cancel/">
+                                <img src="image2.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_sale_cancel/">
+                                <img src="image3.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                 <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_hr_expense_cancel/">
+                                <img src="image5.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_pos_cancel/">
+                                <img src="image6.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_landed_cost_cancel/">
+                                <img src="image7.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_mrp_cancel/">
+                                <img src="image8.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                  <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_inventory_transfer_cancel/">
+                                <img src="image9.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                  <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_inventory_adjustment_cancel/">
+                                <img src="image10.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_stock_move_cancel/">
+                                <img src="image11.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="margin-top: 1rem;">
+                    <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                        <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                            <a href="https://apps.odoo.com/apps/modules/14.0/sh_stock_scrap_cancel/">
+                                <img src="image12.png" style="width: 100%;object-fit: contain;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>

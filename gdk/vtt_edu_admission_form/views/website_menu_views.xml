@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Website menus-->
+    <data>
+        <!--Admission menu-->
+        <record id="vtt_website_menu_edu_admission_form" model="website.menu">
+            <field name="name">Admission</field>
+            <field name="url">/edu/admission/profile_apply</field>
+            <field name="sequence" type="int">20</field>
+        </record>
+    </data>
+</odoo>

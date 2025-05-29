@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+vtt_access_xlsx_report_code_user,xlsx.report.code.user,model_vtt_xlsx_report_code,base.group_user,1,0,0,0
+vtt_access_xlsx_report_code_manager,xlsx.report.code.manager,model_vtt_xlsx_report_code,base.group_system,1,1,1,1

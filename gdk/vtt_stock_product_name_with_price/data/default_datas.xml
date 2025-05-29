@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Product name with Price Setting-->
+        <!--<record model="ir.config_parameter" id="vtt_product_name_with_price">
+            <field name="key">vtt_stock_product_name_with_price.vtt_product_name_with_price</field>
+            <field name="value">False</field>
+        </record>-->
+
+        <!--Product name Price Type Setting-->
+        <record model="ir.config_parameter" id="vtt_product_name_price_type">
+            <field name="key">vtt_stock_product_name_with_price.vtt_product_name_price_type</field>
+            <field name="value">list_price</field>
+        </record>
+    </data>
+</odoo>

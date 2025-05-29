@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_material_template_user,material.template.user,model_vtt_product_material_template,base.group_user,1,0,0,0
+access_material_line_user,material.line.user,model_vtt_product_material_line,base.group_user,1,0,0,0
+access_material_template_admin,material.template.admin,model_vtt_product_material_template,base.group_system,1,1,1,1
+access_material_line_admin,material.line.admin,model_vtt_product_material_line,base.group_system,1,1,1,1

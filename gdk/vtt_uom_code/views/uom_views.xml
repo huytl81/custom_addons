@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--UoM views-->
+    <data>
+        <!--Form view add new fields-->
+        <record id="vtt_view_form_uom_uom_code" model="ir.ui.view">
+            <field name="name">UoM Form add Code</field>
+            <field name="model">uom.uom</field>
+            <field name="inherit_id" ref="uom.product_uom_form_view"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view add new fields-->
+        <record id="vtt_view_tree_uom_uom_code" model="ir.ui.view">
+            <field name="name">UoM List add Code</field>
+            <field name="model">uom.uom</field>
+            <field name="inherit_id" ref="uom.product_uom_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

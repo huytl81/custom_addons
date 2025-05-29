@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="vtt_view_form_res_config_settings_product_name_price" model="ir.ui.view">
+    	<field name="name">Product Name with Price Config</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="100"/>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+	    <field name="arch" type="xml">
+	        <xpath expr="//div[@id='manage_product_packaging']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="vtt_product_name_price">
+                    <div class="o_setting_left_pane">
+                        <field name="vtt_product_name_with_price"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="vtt_product_name_with_price"/>
+                        <div class="text-muted">
+                            Display Product name with Price.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 o_setting_box" id="vtt_product_name_price_type" attrs="{'invisible': [('vtt_product_name_with_price', '=', False)]}">
+                    <div class="o_setting_left_pane">
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <!--<label for="vtt_product_name_price_type"/>-->
+                        <field name="vtt_product_name_price_type" widget="radio"/>
+                        <div class="text-muted">
+                            Type of Price.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+	    </field>
+	</record>
+	
+</odoo>

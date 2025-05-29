@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Service Type views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_fleet_service_type" model="ir.ui.view">
+            <field name="name">Fleet Service Type Form</field>
+            <field name="model">fleet.service.type</field>
+            <field name="arch" type="xml">
+                <form string="Service Type">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="product_id" required="1"/>
+                            </group>
+                            <group>
+                                <field name="category"/>
+                                <field name="is_show"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_fleet_service_type_show" model="ir.ui.view">
+            <field name="name">Fleet Service Type attribute Show</field>
+            <field name="model">fleet.service.type</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_service_types_view_tree"/>
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="multi_edit">1</attribute>
+                </tree>
+
+                <field name="category" position="after">
+                    <field name="is_show" optional="hide"/>
+                    <field name="product_id" readonly="1" optional="hide"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Service menus-->
+    <data>
+        <menuitem id="vtt_menu_car_repair_config_service"
+              name="Repair Services"
+              parent="vtt_menu_car_repair_config"
+              sequence="30"
+              action="fleet.fleet_vehicle_service_types_action"/>
+    </data>
+</odoo>

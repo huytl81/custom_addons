@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Views-->
+    <data>
+        <!--Dashboard view-->
+        <record id="vtt_view_dashboard_sale_report" model="ir.ui.view">
+             <field name="name">Sale Order Report Dashboard</field>
+             <field name="model">sale.report</field>
+             <field name="arch" type="xml">
+                 <dashboard>
+                    <group>
+                        <group>
+                            <aggregate name="sum_price_total" string="Total" group_operator="sum" field="price_total" clickable="False" col="4"/>
+                            <aggregate name="orders" string="# Orders" group_operator="count" field="order_id" measure="__count__"/>
+                        </group>
+                    </group>
+                 </dashboard>
+             </field>
+        </record>
+
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="sale.action_order_report_all" model="ir.actions.act_window">
+            <field name="view_mode">graph,pivot,dashboard</field>
+        </record>
+    </data>
+
+</odoo>

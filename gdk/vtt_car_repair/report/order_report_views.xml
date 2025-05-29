@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Views-->
+    <data>
+        <record id="vtt_view_pivot_car_repair_order_report" model="ir.ui.view">
+             <field name="name">Repair Order Report Pivot</field>
+             <field name="model">vtt.car.repair.order.report</field>
+             <field name="arch" type="xml">
+                 <pivot string="Repair Order Analysis" disable_linking="False">
+                     <field name="dt_receive" interval="month" type="col"/>
+                     <field name="vehicle_id" type="row"/>
+                     <field name="price_subtotal" type="measure"/>
+                 </pivot>
+             </field>
+        </record>
+
+        <record id="vtt_view_graph_car_repair_order_report" model="ir.ui.view">
+             <field name="name">Repair Order Report Graph</field>
+             <field name="model">vtt.car.repair.order.report</field>
+             <field name="arch" type="xml">
+                 <graph string="Repairs Analysis" type="line">
+                    <field name="dt_receive" interval="month" type="col"/>
+                    <field name="price_subtotal" type="measure"/>
+                </graph>
+             </field>
+        </record>
+
+        <record id="vtt_view_search_car_repair_order_report" model="ir.ui.view">
+            <field name="name">Repair Order Report Filter</field>
+            <field name="model">vtt.car.repair.order.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Order Analysis">
+                    <field name="name" string="Order"/>
+                    <field name="vehicle_id"/>
+                    <field name="partner_id"/>
+                    <field name="technical_user_id"/>
+                    <field name="product_id"/>
+                    <filter string="My Orders" name="my_repair_orders_filter" help="My Repair Orders" domain="['|', ('receive_user_id', '=', uid), ('technical_user_id', '=', uid)]"/>
+                    <separator/>
+                        <filter string="Quotations" name="draft" domain="[('state','in',['draft'])]"/>
+                        <filter string="Confirmed" name="confirmed" domain="[('state','not in',['draft','cancel'])]"/>
+                        <filter string="Done" name="done" domain="[('state','in',['done'])]"/>
+                    <separator/>
+                    <separator/>
+                        <filter name="current_month" string="Current Month" domain="[
+                        ('dt_receive', '&gt;=', (context_today()).strftime('%Y-%m-01 00:00:00')),
+                        ('dt_receive', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01 00:00:00'))]"/>
+                        <filter name="current_year" string="Current Year" domain="[
+                            ('dt_receive', '&gt;=', (context_today()).strftime('%Y-01-01 00:00:00')),
+                            ('dt_receive', '&lt;', (context_today() + relativedelta(years=1)).strftime('%Y-01-01 00:00:00'))]"/>
+                    <separator/>
+                    <filter string="Receive Date" name="filter_receive_date" date="dt_receive"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Vehicle" name="vehicle" context="{'group_by': 'vehicle_id'}"/>
+                        <filter string="Partner" name="customer" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Technical" name="technical" context="{'group_by': 'technical_user_id'}"/>
+                        <filter string="State" name="stategroup" context="{'group_by': 'state'}"/>
+                        <separator/>
+                        <filter string="Receive Date" name="group_receive" domain="[]" context="{'group_by': 'dt_receive'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_car_repair_order_report" model="ir.actions.act_window">
+            <field name="name">Repair Order Analysis</field>
+            <field name="res_model">vtt.car.repair.order.report</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="view_id"></field>  <!-- force empty -->
+            <field name="search_view_id" ref="vtt_view_search_car_repair_order_report"/>
+            <field name="context">{'search_default_confirmed':1, 'group_by_no_leaf':1,'group_by':[]}</field>
+        </record>
+    </data>
+
+    <!--Menu-->
+    <data>
+        <menuitem id="vtt_menu_car_repair_order_report"
+              name="Repair Order Analysis"
+              parent="vtt_menu_car_repair_report_root"
+              groups="vtt_car_repair.vtt_group_car_repair_manager"
+              sequence="100"
+              action="vtt_act_window_car_repair_order_report"/>
+    </data>
+
+</odoo>

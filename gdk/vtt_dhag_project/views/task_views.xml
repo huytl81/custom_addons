@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Task views-->
+    <data>
+        <!--Form view adding checklist-->
+        <record id="vtt_view_form_project_task_checklist" model="ir.ui.view">
+            <field name="name">Project Task Form Adding Checklist</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Checklist">
+                        <group>
+                            <group></group>
+                            <group>
+                                <button name="save_checklist" type="object" string="Save" class="btn-link"/>
+                            </group>
+                        </group>
+                        <field name="checklist_line_ids">
+                            <tree editable="top">
+                                <field name="sequence" widget="handle"/>
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="is_done" invisible="1"/>
+                                <button name="set_done" type="object" icon="fa-asterisk" attrs="{'invisible': [('is_done', '!=', False)]}" help="Done"/>
+                                <button name="set_open" type="object" icon="fa-check text-success" attrs="{'invisible': [('is_done', '=', False)]}" help="Open"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
+                <notebook position="before">
+                    <group>
+                        <group>
+                            <field name="checklist_id"/>
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

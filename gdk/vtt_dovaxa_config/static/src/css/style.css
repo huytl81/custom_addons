@@ -1,0 +1,5 @@
+/* css file */
+
+.vtt-orderline-width [data-name="vtt_product_origin_id"] {width: 50px !important;}
+.vtt-orderline-width [data-name="vtt_product_actual"] {width: 75px !important;}
+.vtt-orderline-width [data-name="vtt_line_note"] {width: 50px !important;}

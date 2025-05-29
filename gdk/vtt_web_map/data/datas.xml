@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default config data-->
+    <data>
+        <record id="vtt_config_parameter_web_map_api" model="ir.config_parameter">
+            <field name="key">vtt_web_map.token_map_box</field>
+            <field name="value">pk.eyJ1IjoiZXZpbHMxOTkwIiwiYSI6ImNrcGRpcndiYzAybHgydXBmNXpmMW40djUifQ.05sHtZ13DMwccR7K7_76GQ</field>
+        </record>
+    </data>
+</odoo>

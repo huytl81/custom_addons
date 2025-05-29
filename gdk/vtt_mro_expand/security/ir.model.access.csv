@@ -1,0 +1,6 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+vtt_access_car_repair_type_sale,car.repair.type.sale,car_repair_maintenance_service.model_car_repair_type,sales_team.group_sale_salesman,1,0,0,0
+vtt_access_car_service_nature_sale,car.service.nature.sale,car_repair_maintenance_service.model_car_service_nature,sales_team.group_sale_salesman,1,0,0,0
+vtt_access_car_repair_estimation_lines_sale,car.repair.estimation.lines.sale,car_repair_maintenance_service.model_car_repair_estimation_lines,sales_team.group_sale_salesman,1,0,0,0
+vtt_access_car_repair_support_type_sale,car.repair.support.type.sale,model_vtt_car_repair_support_type,sales_team.group_sale_salesman,1,1,1,1
+vtt_access_car_repair_support_type_technical,car.repair.support.type.technical,model_vtt_car_repair_support_type,car_repair_maintenance_service.group_car_repair_user,1,1,1,1

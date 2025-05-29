@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Lastline Report Import Wizard views-->
+    <data>
+        <record id="vtt_view_form_lastline_report_import_wz" model="ir.ui.view">
+            <field name="name">Lastline Report Import Wz Form</field>
+            <field name="model">lastline.report.import.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Lastline Report Import">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="investigate_id" attrs="{'invisible': [('investigate_id', '=', False)]}" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="file_datas"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="import_from_xml_report" type="object" string="Import" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

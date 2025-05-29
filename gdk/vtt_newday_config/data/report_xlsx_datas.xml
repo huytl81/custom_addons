@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Report XLSX-->
+    <data noupdate="1">
+        <record id="vtt_xlsx_report_code_sale_order_newday" model="vtt.xlsx.report.code">
+            <field name="name">Sale Order XLSX Code for Newday</field>
+            <field name="code">VTT_SALE_ORDER</field>
+            <field name="priority">2</field>
+            <field name="generate_code">def intToRoman(num):
+  m = ["", "M", "MM", "MMM"]
+  c = ["", "C", "CC", "CCC", "CD", "D",
+       "DC", "DCC", "DCCC", "CM "]
+  x = ["", "X", "XX", "XXX", "XL", "L",
+       "LX", "LXX", "LXXX", "XC"]
+  i = ["", "I", "II", "III", "IV", "V",
+       "VI", "VII", "VIII", "IX"]
+
+  # Converting to roman
+  thousands = m[num // 1000]
+  hundereds = c[(num % 1000) // 100]
+  tens = x[(num % 100) // 10]
+  ones = i[num % 10]
+
+  ans = (thousands + hundereds +
+         tens + ones)
+
+  return ans
+
+###########################################
+
+# Detail sheet
+report_name = obj.name
+detail_sheet = workbook.add_worksheet(report_name[:31])
+
+detail_default_column = {
+  'align': 'center',
+  'valign': 'vcenter',
+  'text_wrap': True,
+  'font_name': 'Times New Roman',
+  'num_format': '#,###',
+  'font_size': 11,
+}
+
+# Columns define
+detail_sheet.set_column('A:A', 6, workbook.add_format(detail_default_column))
+detail_sheet.set_column('B:B', 12, workbook.add_format(detail_default_column))
+detail_sheet.set_column('C:C', 28, workbook.add_format(detail_default_column))
+detail_sheet.set_column('D:D', 13, workbook.add_format(detail_default_column))
+detail_sheet.set_column('E:E', 10, workbook.add_format(detail_default_column))
+detail_sheet.set_column('F:F', 10, workbook.add_format(detail_default_column))
+detail_sheet.set_column('G:G', 13, workbook.add_format(detail_default_column))
+detail_sheet.set_column('H:H', 14, workbook.add_format(detail_default_column))
+detail_sheet.set_column('I:I', 14, workbook.add_format(detail_default_column))
+detail_sheet.set_column('J:J', 17, workbook.add_format(detail_default_column))
+
+###########################################
+
+# Company Information
+detail_sheet.set_row(0, 30)
+detail_sheet.set_row(1, 75)
+detail_sheet.set_row(2, 30)
+
+bold_title = detail_default_column.copy()
+bold_title.update({'bold': True, 'font_size': 13})
+bold_border_title = detail_default_column.copy()
+bold_border_title.update({'bold': True, 'border': 1, 'font_size': 13})
+border_title = detail_default_column.copy()
+border_title.update({'border': 1})
+left_border_title = detail_default_column.copy()
+left_border_title.update({'border': 1, 'align': 'left'})
+
+detail_sheet.merge_range('C1:H1', 'CÔNG TY CỔ PHẦN NGÀY MỚI VIỆT NAM', workbook.add_format(bold_title))
+detail_sheet.merge_range('C2:H2', 'VPGD: P610 Tòa nhà CT5 ĐN 1 Mỹ Đình, Đường Trần Hữu Dực,\nQuận Nam Từ Liêm, TP Hà Nội\nWebsite: newdayvietnam.com\nHotline: 0968 998 428\n******', workbook.add_format(detail_default_column))
+detail_sheet.merge_range('C3:H3', 'BẢNG BÁO GIÁ', workbook.add_format(bold_border_title))
+
+detail_sheet.merge_range('I1:J1', f'Mã số: {obj.name}', workbook.add_format(left_border_title))
+detail_sheet.merge_range('I2:J2', f'Ngày ban hành: {obj.date_order.strftime("%d/%m/%Y")}', workbook.add_format(left_border_title))
+detail_sheet.merge_range('I3:J3', '', workbook.add_format(left_border_title))
+
+detail_sheet.merge_range('A1:B3', '', workbook.add_format(left_border_title))
+# logo_url = 'http://localhost:8069/vtt_edu_admission_form/static/description/ht_sign.png'
+logo_url = 'http://newday.victo.vn/logo'
+image_data = BytesIO(urlopen(logo_url).read())
+detail_sheet.insert_image('A2', logo_url, {'image_data': image_data, 'x_scale': 1, 'y_scale': 1, 'x_offset': 10, 'y_offset': 10})
+
+# Quotation Information
+left_format = detail_default_column.copy()
+left_format.update({'align': 'left'})
+
+# Customer
+detail_sheet.write('B5', 'Kính gửi', workbook.add_format(left_format))
+detail_sheet.write('B6', 'Địa chỉ', workbook.add_format(left_format))
+detail_sheet.write('B7', 'Người nhận', workbook.add_format(left_format))
+detail_sheet.write('B8', 'Chức vụ', workbook.add_format(left_format))
+detail_sheet.write('B9', 'Điện thoại', workbook.add_format(left_format))
+detail_sheet.write('B10', 'Email', workbook.add_format(left_format))
+
+detail_sheet.merge_range('C5:E5', 'Quý Khách hàng', workbook.add_format(left_format))
+detail_sheet.merge_range('C6:E6', obj.partner_id.street or '', workbook.add_format(left_format))
+detail_sheet.merge_range('C7:E7', obj.partner_id.name or '', workbook.add_format(left_format))
+detail_sheet.merge_range('C8:E8', obj.partner_id.function or '', workbook.add_format(left_format))
+detail_sheet.merge_range('C9:E9', obj.partner_id.phone or '', workbook.add_format(left_format))
+detail_sheet.merge_range('C10:E10', obj.partner_id.email or '', workbook.add_format(left_format))
+
+# User
+detail_sheet.write('G5', 'Người gửi', workbook.add_format(left_format))
+# detail_sheet.write('G6', 'Phòng', workbook.add_format(left_format))
+detail_sheet.write('G7', 'Chức vụ', workbook.add_format(left_format))
+detail_sheet.write('G8', 'Điện thoại', workbook.add_format(left_format))
+detail_sheet.write('G9', 'Di động', workbook.add_format(left_format))
+detail_sheet.write('G10', 'Email', workbook.add_format(left_format))
+
+detail_sheet.merge_range('H5:J5', obj.user_id.name or '', workbook.add_format(left_format))
+detail_sheet.merge_range('H7:J7', '', workbook.add_format(left_format))
+detail_sheet.merge_range('H8:J8', obj.user_id.phone or '', workbook.add_format(left_format))
+detail_sheet.merge_range('H9:J9', obj.user_id.mobile or '', workbook.add_format(left_format))
+detail_sheet.merge_range('H10:J10', obj.user_id.email or '', workbook.add_format(left_format))
+
+# Caption
+detail_sheet.set_row(11, 35)
+detail_sheet.merge_range('A12:J12', 'Công Ty Cổ Phần Ngày Mới Việt Nam là đại diện ủy quyền chính thức phân phối sản phẩm cửa Galaxydoor chân thành cảm ơn quý Công ty đã quan tâm đến sản phẩm của chúng tôi. Sau đây chúng tôi xin gửi tới Quý Công ty bảng báo giá cửa thép chống cháy cho công trình như sau:', workbook.add_format(left_format))
+
+###########################################
+
+# Order Lines
+
+detail_title = {
+  'align': 'center',
+  'valign': 'vcenter',
+  'bold': True,
+  'font_size': 25,
+  'font_name': 'Times New Roman',
+  'border': 1,
+}
+
+detail_table_format = {
+  'align': 'center',
+  'valign': 'vcenter',
+  'font_size': 11,
+  'font_name': 'Times New Roman',
+  'border': 1,
+  'num_format': '#,###',
+  'text_wrap': True,
+}
+
+detail_total = {
+  'align': 'center',
+  'valign': 'vcenter',
+  'font_size': 11,
+  'font_name': 'Times New Roman',
+  'border': 1,
+  'num_format': '#,###',
+  # 'text_wrap': True,
+  'bold': True,
+  # 'bg_color': '#D9E1F2',
+}
+
+# Table Header
+detail_sheet.set_row(12, 20)
+detail_sheet.set_row(13, 20)
+table_format_header = detail_table_format.copy()
+table_format_header.update({'bold': True})
+detail_sheet.merge_range('A13:A14', 'TT', workbook.add_format(table_format_header))
+# detail_sheet.write('B4', 'Tên và quy cách sản phẩm yêu cầu', workbook.add_format(table_format_header))
+# detail_sheet.write('C4', 'Tên và quy cách sản phẩm thực tế', workbook.add_format(table_format_header))
+detail_sheet.merge_range('B13:C14', 'Nội dung', workbook.add_format(table_format_header))
+detail_sheet.merge_range('D13:D14', 'Ký hiệu', workbook.add_format(table_format_header))
+detail_sheet.merge_range('E13:F13', 'Kích thước', workbook.add_format(table_format_header))
+detail_sheet.write('E14', 'W', workbook.add_format(table_format_header))
+detail_sheet.write('F14', 'H', workbook.add_format(table_format_header))
+detail_sheet.merge_range('G13:G14', 'Slg (bộ)', workbook.add_format(table_format_header))
+detail_sheet.merge_range('H13:H14', 'Diện tích (m2/bộ)', workbook.add_format(table_format_header))
+detail_sheet.merge_range('I13:I14', 'Đơn giá (VND)', workbook.add_format(table_format_header))
+detail_sheet.merge_range('J13:J14', 'Thành tiền (VND)', workbook.add_format(table_format_header))
+
+# detail_sheet.freeze_panes(4, 0)
+
+# Table Body
+line_start = 14
+line_offset = 0
+order_lines = obj.order_line.filtered(lambda l: not l.vtt_other_service)
+stt = 1
+section_letter_index = 1
+
+section_qty = 1
+section_price_unit = 0
+section_subtotal = 0
+section_area = 0
+current_sum = 0
+line_sum = False
+for i in range(len(order_lines)):
+
+  table_format_align_left = detail_table_format.copy()
+  table_format_align_left.update({'align': 'left'})
+  table_format_align_right = detail_table_format.copy()
+  table_format_align_right.update({'align': 'right'})
+  table_format_aligh_center = detail_table_format.copy()
+  table_number_format_aligh_center = detail_table_format.copy()
+  table_number_format_aligh_center.update({'num_format': '#,###0.00'})
+
+  start_row = line_start + line_offset
+
+  if order_lines[i].display_type != 'line_note':
+
+    line_name = order_lines[i].name or ''
+
+    if not order_lines[i].display_type:
+      l_0 = ''
+      l_1 = ''
+      l_3 = ''
+      l_4 = ''
+      l_5 = ''
+      l_6 = ''
+      l_7 = ''
+      l_8 = ''
+      l_9 = ''
+      if order_lines[i].section_id:
+        l_3 = order_lines[i].vtt_sub_uom.with_context(lang=self.env.user.lang).name or ''
+        l_4 = order_lines[i].vtt_product_width or 0
+        l_5 = order_lines[i].vtt_product_height or 0
+        l_6 = order_lines[i].display_qty or 0
+        l_7 = order_lines[i].vtt_product_area or 0
+        if order_lines[i].product_id.vtt_product_door_type == 'door':
+          line_offset += 1
+          pk_format = table_format_aligh_center.copy()
+          pk_format.update({'bold': True})
+          pk_range = f'B{start_row + i + 2}:C{start_row + i + 2}'
+          detail_sheet.write(start_row + i + 1, 0, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.merge_range(pk_range, 'Phụ kiện', workbook.add_format(pk_format))
+          detail_sheet.write(start_row + i + 1, 3, '', workbook.add_format(table_format_align_left))
+          detail_sheet.write(start_row + i + 1, 4, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + 1, 5, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + 1, 6, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + 1, 7, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + 1, 8, '', workbook.add_format(table_format_align_right))
+          detail_sheet.write(start_row + i + 1, 9, '', workbook.add_format(table_format_align_right))
+        else:
+          l_0 = stt
+          stt += 1
+
+      else:
+        table_format_aligh_center.update({'bold': True, 'bg_color': '#FFFF00'})
+        table_number_format_aligh_center.update({'bold': True, 'bg_color': '#FFFF00'})
+        table_format_align_right.update({'bold': True, 'bg_color': '#FFFF00'})
+        table_format_align_left.update({'bold': True, 'bg_color': '#FFFF00'})
+
+        section_sum_offset = 0
+        if section_qty > 1:
+          sum_range = f'B{start_row + i + section_sum_offset + 1}:C{start_row + i + section_sum_offset + 1}'
+          detail_sheet.write(start_row + i + section_sum_offset, 0, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.merge_range(sum_range, f'Tính cho 01 bộ', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset, 3, '', workbook.add_format(table_format_align_left))
+          detail_sheet.write(start_row + i + section_sum_offset, 4, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset, 5, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset, 6, 1, workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset, 7, section_area / section_qty, workbook.add_format(table_number_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset, 8, '', workbook.add_format(table_format_align_right))
+          detail_sheet.write(start_row + i + section_sum_offset, 9, section_price_unit, workbook.add_format(table_format_align_right))
+          section_sum_offset += 1
+
+        sum_range = f'B{start_row + i + section_sum_offset + 1}:C{start_row + i + section_sum_offset + 1}'
+        detail_sheet.write(start_row + i + section_sum_offset, 0, '', workbook.add_format(table_format_aligh_center))
+        detail_sheet.merge_range(sum_range, f'Tính cho {str(int(section_qty)).zfill(2)} bộ', workbook.add_format(table_format_aligh_center))
+        # detail_sheet.merge_range(sum_range, f'Tính cho {section_qty:02d} bộ', workbook.add_format(table_format_aligh_center))
+        detail_sheet.write(start_row + i + section_sum_offset, 3, '', workbook.add_format(table_format_align_left))
+        detail_sheet.write(start_row + i + section_sum_offset, 4, '', workbook.add_format(table_format_aligh_center))
+        detail_sheet.write(start_row + i + section_sum_offset, 5, '', workbook.add_format(table_format_aligh_center))
+        detail_sheet.write(start_row + i + section_sum_offset, 6, section_qty, workbook.add_format(table_format_aligh_center))
+        detail_sheet.write(start_row + i + section_sum_offset, 7, section_area, workbook.add_format(table_number_format_aligh_center))
+        detail_sheet.write(start_row + i + section_sum_offset, 8, '', workbook.add_format(table_format_align_right))
+        detail_sheet.write(start_row + i + section_sum_offset, 9, section_subtotal, workbook.add_format(table_format_align_right))
+
+        current_sum += order_lines[i].display_price_subtotal
+        if i &lt; len(order_lines) - 1:
+          if order_lines[i + 1].display_type == 'line_section':
+            line_sum = True
+        if i == len(order_lines) - 1:
+          line_sum = True
+        if line_sum:
+          sum_range = f'B{start_row + i + section_sum_offset + 3}:C{start_row + i + section_sum_offset + 3}'
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 0, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.merge_range(sum_range, 'TỔNG CỘNG', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 3, '', workbook.add_format(table_format_align_left))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 4, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 5, '', workbook.add_format(table_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 6, '', workbook.add_format(table_number_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 7, '', workbook.add_format(table_number_format_aligh_center))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 8, '', workbook.add_format(table_format_align_right))
+          detail_sheet.write(start_row + i + section_sum_offset + 2, 9, current_sum, workbook.add_format(table_format_align_right))
+          line_sum = False
+
+        line_offset += section_sum_offset + 1
+        start_row = line_start + line_offset
+
+      l_1 = line_name
+      l_8 = order_lines[i].display_price_unit or 0
+      l_9 = order_lines[i].display_price_subtotal or 0
+
+      detail_sheet.write(start_row + i, 0, l_0, workbook.add_format(table_format_aligh_center))
+
+      name_c_range = f'B{start_row + i + 1}:C{start_row + i + 1}'
+      if order_lines[i].section_id:
+        detail_sheet.merge_range(name_c_range, l_1, workbook.add_format(table_format_align_left))
+      else:
+        detail_sheet.merge_range(name_c_range, l_1, workbook.add_format(table_format_aligh_center))
+      # detail_sheet.write(start_row + i, 1, line_name, workbook.add_format(table_format_align_left))
+
+      detail_sheet.write(start_row + i, 3, l_3, workbook.add_format(table_format_align_left))
+      detail_sheet.write(start_row + i, 4, l_4, workbook.add_format(table_number_format_aligh_center))
+      detail_sheet.write(start_row + i, 5, l_5, workbook.add_format(table_number_format_aligh_center))
+      # detail_sheet.write(start_row + i, 5, order_lines[i].product_uom.with_context(lang=self.env.user.lang).name or '', workbook.add_format(table_format_aligh_center))
+      detail_sheet.write(start_row + i, 6, l_6, workbook.add_format(table_format_aligh_center))
+      detail_sheet.write(start_row + i, 7, l_7, workbook.add_format(table_number_format_aligh_center))
+      detail_sheet.write(start_row + i, 8, l_8, workbook.add_format(table_format_align_right))
+      detail_sheet.write(start_row + i, 9, l_9, workbook.add_format(table_format_align_right))
+
+    elif order_lines[i].display_type == 'line_section':
+      # line_name += f' x {order_lines[i].display_qty}'
+
+      table_format_align_left.update({'bold': True, 'bg_color': '#FCD5B4', 'font_color': '#800080'})
+      table_format_align_right.update({'bold': True, 'bg_color': '#FCD5B4', 'font_color': '#800080'})
+      table_format_aligh_center.update({'bold': True, 'bg_color': '#FCD5B4', 'font_color': '#800080'})
+
+      detail_sheet.write(start_row + i, 0, str(intToRoman(section_letter_index)), workbook.add_format(table_format_aligh_center))
+      section_letter_index += 1
+      stt = 1
+
+      name_c_range = f'B{start_row + i + 1}:C{start_row + i + 1}'
+      detail_sheet.merge_range(name_c_range, line_name, workbook.add_format(table_format_align_left))
+      # detail_sheet.write(start_row + i, 1, line_name, workbook.add_format(table_format_align_left))
+      detail_sheet.write(start_row + i, 3, '', workbook.add_format(table_format_align_left))
+      detail_sheet.write(start_row + i, 4, 'm', workbook.add_format(table_format_aligh_center))
+      detail_sheet.write(start_row + i, 5, 'm', workbook.add_format(table_format_aligh_center))
+      # detail_sheet.write(start_row + i, 5, order_lines[i].product_uom.with_context(lang=self.env.user.lang).name or '', workbook.add_format(table_format_aligh_center))
+      detail_sheet.write(start_row + i, 6, '', workbook.add_format(table_format_aligh_center))
+      detail_sheet.write(start_row + i, 7, '', workbook.add_format(table_format_aligh_center))
+      detail_sheet.write(start_row + i, 8, '', workbook.add_format(table_format_align_right))
+      detail_sheet.write(start_row + i, 9, '', workbook.add_format(table_format_align_right))
+
+      section_qty = order_lines[i].display_qty
+      section_price_unit = order_lines[i].display_price_unit
+      section_subtotal = order_lines[i].display_price_subtotal
+      section_area = order_lines[i].vtt_product_area
+      current_sum = order_lines[i].display_price_subtotal
+
+  else:
+    table_format_align_left.update({'italic': True})
+    # string_left_fmt.set_italic()
+    note_range = f'A{start_row + i + 1}:J{start_row + i + 1}'
+    detail_sheet.merge_range(note_range, order_lines[i].name or '', workbook.add_format(table_format_align_left))
+
+# Total
+subtotal_row = line_start + len(order_lines) + line_offset + 1
+detail_subtotal_format = detail_total.copy()
+detail_subtotal_format.update({'bg_color': '#FCD5B4', 'font_color': '#FF0000'})
+detail_sheet.set_row(subtotal_row, 25)
+detail_sheet.set_row(subtotal_row + 1, 25)
+detail_sheet.set_row(subtotal_row + 2, 25)
+
+amount_untaxed = sum([l.price_subtotal for l in order_lines])
+amount_tax = sum([l.price_tax for l in order_lines])
+amount_total = sum([l.price_total for l in order_lines])
+
+subtotal_range = f'B{subtotal_row + 1}:I{subtotal_row + 1}'
+detail_sheet.merge_range(subtotal_range, 'Tổng cộng giá trước thuế', workbook.add_format(detail_subtotal_format))
+tax_range = f'B{subtotal_row + 2}:I{subtotal_row + 2}'
+detail_sheet.merge_range(tax_range, 'Thuế VAT 10%', workbook.add_format(detail_subtotal_format))
+total_range = f'B{subtotal_row + 3}:I{subtotal_row + 3}'
+detail_sheet.merge_range(total_range, 'Tổng giá có thuế', workbook.add_format(detail_subtotal_format))
+
+detail_sheet.write(f'A{subtotal_row + 1}', '', workbook.add_format(detail_subtotal_format))
+detail_sheet.write(f'A{subtotal_row + 2}', '', workbook.add_format(detail_subtotal_format))
+detail_sheet.write(f'A{subtotal_row + 3}', '', workbook.add_format(detail_subtotal_format))
+
+detail_subtotal_amount = detail_total.copy()
+detail_subtotal_amount.update({'align': 'right', 'bg_color': '#FCD5B4', 'font_color': '#FF0000'})
+detail_sheet.write(f'J{subtotal_row + 1}', amount_untaxed, workbook.add_format(detail_subtotal_amount))
+detail_sheet.write(f'J{subtotal_row + 2}', amount_tax, workbook.add_format(detail_subtotal_amount))
+detail_sheet.write(f'J{subtotal_row + 3}', amount_total, workbook.add_format(detail_subtotal_amount))
+
+# Other Services
+service_row = subtotal_row + 3
+service_offset = 0
+service_lines = obj.order_line.filtered(lambda l: l.vtt_other_service)
+total_row = service_row
+if service_lines:
+  detail_total_amount = detail_total.copy()
+  detail_total_amount.update({'align': 'right'})
+  for i in range(len(service_lines)):
+    detail_sheet.write(f'A{service_row + i + 1}', '', workbook.add_format(detail_total))
+    name_s_range = f'B{service_row + i + 1}:I{service_row + i + 1}'
+    detail_sheet.merge_range(name_s_range, service_lines[i].name or '', workbook.add_format(detail_total))
+    detail_sheet.write(f'J{service_row + i + 1}', service_lines[i].price_total, workbook.add_format(detail_total_amount))
+  total_row += len(service_lines)
+  detail_sheet.set_row(total_row, 30)
+  detail_sheet.write(f'A{total_row + 1}', '', workbook.add_format(detail_total))
+  name_t_range = f'B{total_row + 1}:I{total_row + 1}'
+  detail_sheet.merge_range(name_t_range, 'TỔNG CỘNG', workbook.add_format(detail_total))
+  detail_sheet.write(f'J{total_row + 1}', obj.amount_total, workbook.add_format(detail_total_amount))
+
+###########################################
+
+# Notes
+note_left_format = detail_default_column.copy()
+note_left_format.update({'align': 'left', 'text_wrap': False})
+note_italic_underline_format = note_left_format.copy()
+note_italic_underline_format.update({'italic': True, 'underline': True})
+note_bold_underline_format = note_left_format.copy()
+note_bold_underline_format.update({'bold': True, 'underline': True})
+note_bold_format = detail_default_column.copy()
+note_bold_format.update({'bold': True})
+
+detail_sheet.write(total_row + 1, 1, 'Ghi chú:', workbook.add_format(note_italic_underline_format))
+detail_sheet.write(total_row + 1, 2, 'Thời gian giao hàng từ 25-30 ngày kể từ ngày xác nhận đơn hàng, bản vẽ và mầu sơn', workbook.add_format(note_left_format))
+
+detail_sheet.write(total_row + 3, 1, '1. Các đơn giá trên chưa bao gồm:', workbook.add_format(note_bold_underline_format))
+detail_sheet.write(total_row + 4, 2, '- Chi phí thay tường gạch lỗ bằng gạch đặc hoặc bằng bê tông tại các vị trí neo vít nở (Nếu có)', workbook.add_format(note_left_format))
+detail_sheet.write(total_row + 5, 2, '- Chi phí vận thăng, điện nước thi công (Nếu có)', workbook.add_format(note_left_format))
+detail_sheet.write(total_row + 6, 2, '- Chi phí bảo quản cửa sau khi lắp đặt xong (Nếu có)', workbook.add_format(note_left_format))
+detail_sheet.write(total_row + 7, 2, '- Chi phí trên chưa bao gồm nhét vữa vào khung theo QC06 2020. Công việc đó khách hàng thực hiện tại công trình. ', workbook.add_format(note_left_format))
+
+detail_sheet.write(total_row + 8, 1, '2. Các đơn giá trên đã bao gồm:', workbook.add_format(note_bold_underline_format))
+detail_sheet.write(total_row + 9, 2, '- Thuế VAT 10%', workbook.add_format(note_left_format))
+detail_sheet.write(total_row + 10, 2, '- Chi phí bảo hành 12 tháng theo tiêu chuẩn nhà sản xuất.', workbook.add_format(note_left_format))
+detail_sheet.write(total_row + 11, 2, '- Chi phí vận chuyển lắp đăt hoàn thiện', workbook.add_format(note_left_format))
+detail_sheet.write(total_row + 12, 2, f'- Báo giá này có giá trị 15 ngày kể từ ngày {obj.date_order.strftime("%d/%m/%Y")}', workbook.add_format(note_left_format))
+
+sign_a_range = f'B{total_row + 15}:C{total_row + 15}'
+sign_b_range = f'G{total_row + 15}:I{total_row + 15}'
+detail_sheet.merge_range(sign_a_range, 'ĐẠI DIỆN BÊN A', workbook.add_format(note_bold_format))
+detail_sheet.merge_range(sign_b_range, 'ĐẠI DIỆN BÊN B', workbook.add_format(note_bold_format))</field>
+        </record>
+    </data>
+</odoo>

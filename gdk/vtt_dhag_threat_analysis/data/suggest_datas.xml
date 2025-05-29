@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Default Suggest Department data-->
+    <data noupdate="1">
+        <record id="vtt_investigate_department_suggest_qt" model="investigate.department.suggest">
+            <field name="name">Quản trị</field>
+        </record>
+    </data>
+
+    <!--Default Res data-->
+    <data>
+        <!--Compare Score Digits Precision-->
+        <record forcecreate="True" id="vtt_decimal_precision_compare_score" model="decimal.precision">
+            <field name="name">Compare Score</field>
+            <field name="digits">1</field>
+        </record>
+    </data>
+</odoo>

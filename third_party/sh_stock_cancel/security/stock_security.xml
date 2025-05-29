@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_sh_stock_cancel" model="res.groups">
+        <field name="name">Stock Transfer Cancel Feature</field>
+    </record>
+
+    <record id="group_sh_stock_adjustment_cancel" model="res.groups">
+        <field name="name">Stock Adjustment Cancel Feature</field>
+    </record>
+
+    <record id="group_sh_stock_scrap_cancel" model="res.groups">
+        <field name="name">Stock Scrap Cancel Feature</field>
+    </record>
+
+    <record id="group_sh_stock_move_cancel" model="res.groups">
+        <field name="name">Stock Move Cancel Feature</field>
+    </record>
+</odoo>

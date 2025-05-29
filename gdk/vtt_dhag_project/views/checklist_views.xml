@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Checklist views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_task_checklist" model="ir.ui.view">
+            <field name="name">Task Checklist Form</field>
+            <field name="model">vtt.task.checklist</field>
+            <field name="arch" type="xml">
+                <form string="Checklist">
+                    <header></header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <notebook>
+                            <page string="Lines">
+                                <field name="line_ids">
+                                    <tree editable="top">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_task_checklist" model="ir.actions.act_window">
+            <field name="name">Task Checklist</field>
+            <field name="res_model">vtt.task.checklist</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <menuitem id="vtt_menu_task_checklist" name="Checklist" action="vtt_act_window_task_checklist" parent="project.menu_main_pm"/>
+    </data>
+</odoo>

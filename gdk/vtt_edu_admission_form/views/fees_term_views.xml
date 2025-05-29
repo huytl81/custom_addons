@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Fees Term views-->
+    <data>
+        <record id="vtt_view_form_op_fees_terms_product" model="ir.ui.view">
+            <field name="name">Fees Terms Form Product</field>
+            <field name="model">op.fees.terms</field>
+            <field name="inherit_id" ref="openeducat_fees.view_fees_terms_form"/>
+            <field name="arch" type="xml">
+                <field name="fees_terms" position="after">
+                    <field name="product_id" required="1"/>
+                    <field name="value_type" required="1"/>
+                </field>
+
+                <!--Lines replace-->
+                <field name="line_ids" position="replace">
+                    <field name="line_ids">
+                        <tree>
+                            <field name="fees_id" invisible="1"/>
+                            <field name="fees_terms" invisible="1"/>
+                            <field name="due_days"
+                                   attrs="{'column_invisible':[('parent.fees_terms','!=','fixed_days')],'required':[('parent.fees_terms','=','fixed_days')]}"/>
+                            <field name="due_date"
+                                   attrs="{'column_invisible':[('parent.fees_terms','!=','fixed_date')],'required':[('parent.fees_terms','=','fixed_date')]}"/>
+                            <field name="value_type"/>
+                            <field name="value"
+                                   attrs="{'column_invisible':[('parent.value_type','!=','percent')]}"/>
+                            <field name="exact_value"
+                                   attrs="{'column_invisible':[('parent.value_type','!=','exact')]}"/>
+                            <field name="fees_element_line"/>
+                        </tree>
+                    </field>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <!--Fees Term Line views-->
+    <data>
+        <!--Fees Term Line Form-->
+        <record id="vtt_view_form_op_fees_term_line" model="ir.ui.view">
+            <field name="name">Fees Term Line Form</field>
+            <field name="model">op.fees.terms.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group colspan="4">
+                            <field name="fees_id" invisible="1"/>
+                            <field name="fees_terms" invisible="1"/>
+                            <field name="due_days"
+                                   attrs="{'invisible':[('fees_terms','!=','fixed_days')],'required':[('fees_terms','=','fixed_days')]}"/>
+                            <field name="due_date"
+                                   attrs="{'invisible':[('fees_terms','!=','fixed_date')],'required':[('fees_terms','=','fixed_date')]}"/>
+                            <field name="value_type"/>
+                            <field name="value"
+                                   attrs="{'invisible':[('value_type','!=','percent')]}"/>
+                            <field name="exact_value"
+                                   attrs="{'invisible':[('value_type','!=','exact')]}"/>
+                            <field name="fees_element_line">
+                                <tree string="Information" editable="top">
+                                    <field name="product_id"/>
+                                    <field name="value_type"/>
+                                    <field name="value"
+                                           attrs="{'column_invisible':[('parent.value_type','!=','percent')]}"/>
+                                    <field name="exact_value"
+                                           attrs="{'column_invisible':[('parent.value_type','!=','exact')]}"/>
+                                    <field name="type" required="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--<record id="openeducat_core.menu_op_student_root" model="ir.ui.menu">
+            <field name="groups_id" eval="False"/>
+        </record>
+        <record id="openeducat_core.menu_op_student_main_student" model="ir.ui.menu">
+            <field name="groups_id" eval="False"/>
+        </record>-->
+    </data>
+</odoo>

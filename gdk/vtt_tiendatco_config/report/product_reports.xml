@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Material Reports-->
+    <data>
+        <!--Xlsx Report-->
+        <report id="vtt_report_product_material_template_xlsx" model="vtt.product.material.template"
+                string="Print to XLSX"
+                report_type="xlsx"
+                name="vtt_tiendat_config.product_material_xlsx"
+                file="product_material"
+                attachment_use="False"/>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Sale Order Report-->
+    <data>
+        <!--XLSX report-->
+        <report id="vtt_sale_order_xlsx" model="sale.order"
+                string="Print to XLSX"
+                report_type="xlsx"
+                name="vtt_sale_report_xlsx.sale_order_xlsx"
+                file="sale_order"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

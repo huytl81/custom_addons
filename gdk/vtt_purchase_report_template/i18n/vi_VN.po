@@ -1,0 +1,134 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vtt_purchase_report_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-17 05:08+0000\n"
+"PO-Revision-Date: 2021-02-17 05:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Tổng cộng tiền hàng</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid ""
+"<strong style=\"font-family: Arial, Helvetica, sans-serif "
+"!important;\">Shipping address:</strong>"
+msgstr ""
+"<strong style=\"font-family: Arial, Helvetica, sans-serif "
+"!important;\">Địa chỉ giao hàng:</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid ""
+"<strong style=\"font-family: Arial, Helvetica, sans-serif "
+"!important;\">Vendor:</strong>"
+msgstr ""
+"<strong style=\"font-family: Arial, Helvetica, sans-serif "
+"!important;\">Nhà cung cấp:</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Amount</strong>"
+msgstr "<strong>Thành tiền</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Mô tả</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid "<strong>Expected Date</strong>"
+msgstr "<strong>Ngày dự kiến</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Ngày đặt hàng:</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Planned Date:</strong>"
+msgstr "<strong>Ngày giao hàng:</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Purchase Representative:</strong>"
+msgstr "<strong>Đại diện mua hàng:</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid "<strong>Qty</strong>"
+msgstr "<strong>SL</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid "<strong>STT</strong>"
+msgstr ""
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Tổng cộng tiền hàng</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Taxes</strong>"
+msgstr "<strong>Thuế</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Tổng tiền</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Unit Price</strong>"
+msgstr "<strong>Đơn giá</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "<strong>Your Order Reference:</strong>"
+msgstr "<strong>Đơn hàng của bạn:</strong>"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "Cancelled Purchase Order #"
+msgstr "Đơn Hàng Hủy #"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "Purchase Order #"
+msgstr "Đơn mua hàng # "
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchasequotation_document
+msgid "Request for Quotation"
+msgstr "Đề xuất mua hàng"
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "Request for Quotation #"
+msgstr "Đề xuất mua hàng # "
+
+#. module: vtt_purchase_report_template
+#: model_terms:ir.ui.view,arch_db:vtt_purchase_report_template.vtt_report_purchaseorder_document
+msgid "Taxes"
+msgstr "Tiền thuế"

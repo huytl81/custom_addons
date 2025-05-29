@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_model_custom_import" model="ir.ui.view">
+            <field name="name">Custom Import Form</field>
+            <field name="model">vtt.model.custom.import</field>
+            <field name="arch" type="xml">
+                <form string="Custom Import">
+                    <header>
+                        <button name="do_import_custom_field" type="object" string="Import" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="res_model"/>
+                                <field name="res_field_name"/>
+                                <field name="null_overwrite"/>
+                            </group>
+                            <group>
+                                <field name="datas"/>
+                                <field name="ids_column"/>
+                                <field name="data_column"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <!--<record model="ir.ui.view" id="vtt_view_tree_model_custom_import">
+            <field name="name">Custom Import List</field>
+            <field name="model">vtt.model.custom.import</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="res_model"/>
+                    <field name="res_field_name"/>
+                    <field name="null_overwrite"/>
+                </tree>
+            </field>
+        </record>-->
+    </data>
+
+    <!--Actions-->
+    <data>
+        <record id="vtt_act_window_model_custom_import" model="ir.actions.act_window">
+            <field name="name">Custom Import</field>
+            <field name="res_model">vtt.model.custom.import</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+    <!--Menu-->
+    <data>
+        <menuitem id="vtt_menu_model_custom_import" name="VTT Custom Import" sequence="150" parent="base.menu_automation" action="vtt_act_window_model_custom_import"/>
+    </data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Change default sale report template to new (TienDatCo) template-->
+    <data>
+        <!--Call new template in Report document-->
+        <!--<template id="vtt_report_saleorder_inherit" inherit_id="sale.report_saleorder">
+            <xpath expr="//t[@t-call='sale.report_saleorder_document']" position="attributes">
+                <attribute name="t-call">vtt_sale_report_template.vtt_report_sale_doc</attribute>
+            </xpath>
+        </template>-->
+
+        <!--Change Sale report to new paper format-->
+        <record id="sale.action_report_saleorder" model="ir.actions.report">
+            <field name="paperformat_id" ref="vtt_sale_report_template.vtt_paperformat_sale_report"/>
+            <!--Modify report name-->
+            <field name="print_report_name">(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name + ' - ' + object.partner_id.display_name)) or 'Order - %s' % (object.name + ' - ' + object.partner_id.display_name)</field>
+            <!--Change report document-->
+            <field name="report_name">vtt_sale_report_template.vtt_report_saleorder</field>
+            <field name="report_file">vtt_sale_report_template.vtt_report_saleorder</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Student views-->
+    <data>
+        <record id="vtt_view_form_op_student_name_placement" model="ir.ui.view">
+            <field name="name">Student Form Name Replacement</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_title')]" position="after">
+                    <div class="oe_title w-auto">
+                        <!--<h3>
+                            <field name="title" placeholder="Title"/>
+                        </h3>-->
+                        <h1>
+                            <field name="name" placeholder="Name" required="1" invisible="0"/>
+                            <!--<table>
+                                <tr>
+                                    <td style="padding-right:10px;">
+                                        <field name="last_name" placeholder="Last Name" required="1"/>
+                                    </td>
+                                    <td style="padding-right:10px;">
+                                        <field name="middle_name" placeholder="Middle Name"/>
+                                    </td>
+                                    <td style="padding-right:10px;">
+                                        <field name="first_name" required="1" placeholder="First Name"/>
+                                    </td>
+                                </tr>
+                            </table>-->
+                        </h1>
+                    </div>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <!--New Fields-->
+                <field name="lang" position="after">
+                    <field name="identify_id"/>
+                </field>
+
+                <xpath expr="//page[@name='educational']/group[1]" position="replace">
+                    <group>
+                        <group>
+                            <field name="course_id" invisible="1"/>
+                            <field name="batch_id" invisible="1"/>
+                            <field name="roll_number" invisible="1"/>
+                            <field name="prev_institute_id"/>
+                            <field name="prev_result" string="Prev" attrs="{'invisible': [('institute_cert', '=', 'no_cert')]}"/>
+                            <field name="prev_result" string="Prev 01" attrs="{'invisible': [('institute_cert', '=', 'has_cert')]}"/>
+                        </group>
+                        <group>
+                            <field name="institute_cert" required="1"/>
+                            <field name="institute_cert_img" widget="image" class="oe_left oe_avatar"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <!--<field name="gr_no" position="before">
+                    <group>
+                        <group>
+                            <field name="course_id" invisible="1"/>
+                            <field name="batch_id" invisible="1"/>
+                            <field name="roll_number" invisible="1"/>
+                            <field name="prev_institute_id"/>
+                            <field name="prev_result" string="Prev" attrs="{'invisible': [('institute_cert', '=', 'has_cert')]}"/>
+                            <field name="prev_result" string="Prev 01" attrs="{'invisible': [('institute_cert', '=', 'no_cert')]}"/>
+                        </group>
+                        <group>
+                            <field name="institute_cert"/>
+                            <field name="institute_cert_img" widget="image" class="oe_left oe_avatar"/>
+                        </group>
+                    </group>
+                </field>
+
+                <field name="gr_no" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>-->
+
+                <field name="subject_ids" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <field name="subject_ids" position="after">
+                    <button name="get_fees" type="object" string="Get Fees"/>
+                </field>
+
+                <!--Addition invisible-->
+                <field name="blood_group" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="emergency_contact" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="user_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="partner_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <!--Auto expand attachment-->
+                <form position="inside">
+                <script>
+                    $( document).ready(function() {
+                      $("button.o_ChatterTopbar_buttonAttachments").click();
+                    });
+
+                </script>
+              </form>
+            </field>
+        </record>
+
+        <!--Student Education add Get Fees button-->
+        <record id="vtt_view_form_op_student_education_invoice_smart_button" model="ir.ui.view">
+            <field name="name">Student Form Education Invoice Button visible</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_fees.view_op_student_form_fees_inherit"/>
+            <field name="arch" type="xml">
+                <button name="action_view_invoice" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+            </field>
+        </record>
+
+        <!--Student dis-allow create course-->
+        <record id="vtt_view_form_op_student_education_get_fees" model="ir.ui.view">
+            <field name="name">Student Form Education Get Fees</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="vtt_edu_admission_form.vtt_view_form_op_student_name_placement"/>
+            <field name="groups_id" eval="[(4, ref('vtt_edu_admission_form.vtt_group_op_student_view'))]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='course_detail_ids']/tree" position="attributes">
+                    <attribute name="create">0</attribute>
+                </xpath>
+                <!--<field name="course_detail_ids" position="attributes">
+                    <attribute name="options">{'no_create': True}</attribute>
+                </field>-->
+            </field>
+        </record>
+
+        <!--Student Step view-->
+        <record id="vtt_view_form_op_student_multistep" model="ir.ui.view">
+          <field name="name">Student Information Multistep</field>
+          <field name="model">op.student</field>
+          <field name="mode">primary</field>
+          <field name="inherit_id" ref="vtt_multi_step_wizard.vtt_multi_step_wizard_form"/>
+            <field name="priority" eval="100"/>
+          <field name="arch" type="xml">
+            <xpath expr="//footer" position="before">
+                
+                <sheet>
+                    <!--Name-->
+                    <field name="image_1920" widget="image" class="oe_left oe_avatar"/>
+                  <div class="oe_title w-auto">
+                    <!--<h3>
+                        <field name="title" placeholder="Title"/>
+                    </h3>-->
+                    <h1>
+                        <field name="name" placeholder="Name" required="1" invisible="0"/>
+                        <!--<table>
+                            <tr>
+                                <td style="padding-right:10px;">
+                                    <field name="last_name" placeholder="Last Name" required="1"/>
+                                </td>
+                                <td style="padding-right:10px;">
+                                    <field name="middle_name" placeholder="Middle Name"/>
+                                </td>
+                                <td style="padding-right:10px;">
+                                    <field name="first_name" required="1" placeholder="First Name"/>
+                                </td>
+                            </tr>
+                        </table>-->
+                    </h1>
+                </div>
+
+                    <notebook>
+                        <!--Student Info-->
+                        <page name="admission_info" string="Admission Information" attrs="{'invisible': [('multistep_state', '!=', 'start')]}">
+                            <group>
+                                <group>
+                                    <field name="gender"/>
+                                    <field name="birth_date"/>
+                                </group>
+                                <group>
+                                    <field name="identify_id"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="prev_institute_id"/>
+                                    <field name="prev_result" string="Prev" attrs="{'invisible': [('institute_cert', '=', 'no_cert')]}"/>
+                                    <field name="prev_result" string="Prev 01" attrs="{'invisible': [('institute_cert', '=', 'has_cert')]}"/>
+
+                                </group>
+                                <group>
+                                    <field name="institute_cert" required="1"/>
+                                    <field name="institute_cert_img" widget="image" class="oe_left oe_avatar" attrs="{'required': [('institute_cert', '=', 'has_cert')]}"/>
+                                </group>
+                            </group>
+                            <separator string="Admission Detail"/>
+                            <field name="category_id" readonly="1" invisible="1"/>
+                            <field name="course_detail_ids" readonly="0">
+                                <tree>
+                                    <field name="student_id" invisible="1"/>
+                                    <field name="course_id"/>
+                                    <field name="batch_id"/>
+                                    <field name="roll_number" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <!--Contact Info-->
+                          <page name="contact_info" string="Contact Information" attrs="{'invisible': [('multistep_state', '!=', 'contact_info')]}">
+                            <group>
+                                <group>
+                                    <field name="mobile"/>
+                                    <field name="email"/>
+                                </group>
+                                <group>
+                                    <field name="blood_group" invisible="1"/>
+                                </group>
+                            </group>
+
+                              <separator string="Address"/>
+                              <div name="div_address">
+                                <field name="street" placeholder="Street..."/>
+                                <field name="street2" placeholder="Street2"/>
+                                <div class="address_format">
+                                    <field name="city" placeholder="City" style="width: 40%"/>
+                                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%" options="{'no_open': True, 'no_create_edit': True}"/>
+                                    <field name="zip" placeholder="ZIP" style="width: 20%" invisible="1"/>
+                                </div>
+                                <field name="country_id" placeholder="Country" class="oe_no_button" options="{'no_open': True, 'no_create_edit': True}"/>
+                            </div>
+
+                              <!--<group string="Address Detail" name="address">
+                                <label for="type"/>
+                                <div name="div_type">
+                                    <field class="oe_inline" name="type" invisible="1"/>
+                                </div>
+                                <label for="street" string="Address"/>
+                                <div name="div_address">
+                                    <field name="street" placeholder="Street..."/>
+                                    <field name="street2" placeholder="Street2"/>
+                                    <div class="address_format">
+                                        <field name="city" placeholder="City" style="width: 40%"/>
+                                        <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%" options="{'no_open': True, 'no_create_edit': True}"/>
+                                        <field name="zip" placeholder="ZIP" style="width: 20%" invisible="1"/>
+                                    </div>
+                                    <field name="country_id" placeholder="Country" class="oe_no_button" options="{'no_open': True, 'no_create_edit': True}"/>
+                                </div>
+                                </group>-->
+                          </page>
+
+                        <!--Fees Info-->
+                          <page name="fees_info" string="Fees Configure" attrs="{'invisible': [('multistep_state', '!=', 'fees_info')]}">
+                            <field name="fees_detail_ids" readonly="1">
+                                <tree string="Fees Collection Details" editable="top">
+                                    <field name="fees_line_id" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="amount" widget="monetary"/>
+                                    <field name="discount"/>
+                                    <field name="after_discount_amount"/>
+                                    <field name="fees_factor" invisible="1"/>
+                                    <field name="product_id" invisible="1"/>
+                                    <field name="invoice_id" invisible="1"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="invoice_state"/>
+                                    <button string="Create Invoice" type="object" name="get_invoice" groups="openeducat_core.group_op_back_office" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                                    <button string="View Invoice" groups="openeducat_core.group_op_back_office" type="object" name="action_get_invoice" attrs="{'invisible': [('state', '!=', 'invoice')]}"/>
+                                </tree>
+                            </field>
+                          </page>
+
+                        <page name="payment" string="Payment" attrs="{'invisible': [('multistep_state', '!=', 'payment')]}">
+                            <div attrs="{'invisible': [('transfer_img', '!=', False)]}">
+                                <p>
+                                    Thí sinh chuyển khoản vào 1 trong 2 tài khoản sau:
+                                </p>
+                                <p>
+                                    STK1:Số tài khoản: <b>1305201020659</b><br/>
+                                    Tên tài khoản: <b>Trường Cao đẳng Thương mại và Du lịch Hà Nội</b><br/>
+                                    Ngân hàng: Nông nghiệp và phát triển Nông thôn chi nhánh Tràng An
+                                </p>
+                                <p>
+                                    STK2:Số tài khoản: <b>117000147402</b><br/>
+                                    Tên tài khoản: <b>Truong CD TM&amp;DL HN</b><br/>
+                                    Ngân hàng: Vietinbank CN Nam Thăng Long
+                                </p>
+                                <p>
+                                    Nội dung chuyển khoản: Họ và tên, ngày tháng năm sinh, ngành học (Viết tắt)<br/>
+                                    Ví dụ: NGUYEN VAN AN 21062003 QTKD <br/>
+                                    <strong>Chụp ảnh biên lai chuyển tiền để up vào file đính kèm</strong><br/>
+                                    <i>Ghi chú: Thí sinh chọn chuyển khoản nhanh 24/7</i>
+                                </p>
+                            </div>
+                            <group>
+                              <group>
+                                  <field name="transfer_img" widget="image" class="oe_avatar"/>
+                              </group>
+                            </group>
+                            <div attrs="{'invisible': [('transfer_img', '=', False)]}">
+                                <p>
+                                    Bạn đã hoàn tất thủ tục nhập học trực tuyến.<br/>
+                                    Vui lòng kiểm tra thông tin xác nhận tại mail trong vòng 24h.
+                                </p>
+                            </div>
+                          </page>
+
+                        <page name="final" string="Final" attrs="{'invisible': [('multistep_state', '!=', 'final')]}">
+                            <div>
+                                <p>All Information is now Configured.</p>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </xpath>
+
+              <button name="open_next" position="attributes">
+                  <attribute name="attrs">{'invisible': [('multistep_state', 'in', ['fees_info', 'payment', 'final'])]}</attribute>
+              </button>
+              <button name="open_next" position="after">
+                  <button name="open_next" string="Next" type="object" class="btn-primary" attrs="{'invisible': ['|', ('transfer_img', '=', False), ('multistep_state', '!=', 'payment')]}" confirm="Are you Sure?"/>
+                  <button name="open_next" string="Next" type="object" class="btn-primary" attrs="{'invisible': ['|', '|', ('institute_cert', '=', 'no_cert'), ('prev_result', '&lt;=', '5'), ('multistep_state', '!=', 'fees_info')]}"/>
+                  <button name="multistep_final_done" string="Done" type="object" class="btn-primary" attrs="{'invisible': [('multistep_state', '!=', 'final')]}"/>
+              </button>
+
+              <form position="inside">
+                  <script>
+                        $( document).ready(function() {
+                          $("button.o_ChatterTopbar_buttonAttachments").click();
+                        });
+
+                    </script>
+              </form>
+          </field>
+        </record>
+
+        <!--Fix Fees Invoice button visible-->
+        <record id="vtt_view_form_op_student_fees_button_visible" model="ir.ui.view">
+            <field name="name">Student Fees button Visible</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_fees.view_op_student_form_fees_inherit"/>
+            <field name="arch" type="xml">
+                <button name="get_invoice" position="attributes">
+                    <attribute name="states"></attribute>
+                    <attribute name="attrs">{'invisible': [('state', '!=', 'draft')]}</attribute>
+                </button>
+
+                <button name="action_get_invoice" position="attributes">
+                    <attribute name="states"></attribute>
+                    <attribute name="attrs">{'invisible': [('state', '!=', 'invoice')]}</attribute>
+                </button>
+
+                <field name="state" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <field name="fees_detail_ids" position="before">
+                    <group>
+                      <group>
+                          <field name="transfer_img" widget="image" class="oe_avatar"/>
+                      </group>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <!--Search view-->
+        <record id="vtt_view_search_op_student_inherited" model="ir.ui.view">
+            <field name="name">Student Filter Inherited</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_search"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="course_id"/>
+                    <field name="email"/>
+                    <field name="mobile"/>
+                    <field name="batch_id"/>
+                    <field name="roll_number"/>
+                </field>
+
+                <field name="blood_group" position="after">
+                    <separator/>
+                    <filter name="has_roll_number" string="Has Roll Number" domain="[('roll_number', '!=', False)]"/>
+                    <filter name="no_roll_number" string="No Roll Number" domain="[('roll_number', '=', False)]"/>
+                    <separator/>
+                    <filter name="has_cert" string="Has Institute Certificate" domain="[('institute_cert', '=', 'has_cert')]"/>
+                    <filter name="no_cert" string="No Institute Certificate" domain="[('institute_cert', '=', 'no_cert')]"/>
+                    <separator/>
+                    <filter name="has_transfer_img" string="Has Transfer Image" domain="[('transfer_img', '!=', False)]"/>
+                    <separator/>
+                </field>
+
+                <filter name="nationality" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </filter>
+                <filter name="language" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </filter>
+                <filter name="inactive" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </filter>
+
+                <filter name="blood_group" position="before">
+                    <filter name="group_course" string="Course" domain="[]" context="{'group_by':'course_id'}"/>
+                    <filter name="group_batch" string="Batch" domain="[]" context="{'group_by':'batch_id'}"/>
+                    <filter name="group_institute_cert" string="Institute Certificate" domain="[]" context="{'group_by':'institute_cert'}"/>
+                    <filter name="group_state_id" string="City/ State" domain="[]" context="{'group_by':'state_id'}"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+
+    <!--Student Course views-->
+    <data>
+        <!--Base modify-->
+        <record id="vtt_view_form_op_student_course_academic" model="ir.ui.view">
+            <field name="name">Student Course Academic modify</field>
+            <field name="model">op.student.course</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_course_form"/>
+            <!--<field name="groups_id" eval="[(4, ref('openeducat_core.group_op_back_office'))]"/>-->
+            <field name="arch" type="xml">
+                <field name="course_id" position="before">
+                    <field name="category_id"/>
+                </field>
+
+                <field name="course_id" position="attributes">
+                    <attribute name="domain">[('category_id', '=', category_id)]</attribute>
+                </field>
+
+                <field name="academic_term_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <!--Paper-->
+                <field name="academic_term_id" position="after">
+                    <field name="paper_code" invisible="1"/>
+                    <field name="paper_url" invisible="1" widget="url"/>
+                    <field name="date_to_enroll" invisible="0"/>
+                </field>
+
+                <xpath expr="//sheet/group[2]" position="before">
+                  <label for="paper_url"/>
+                  <field name="paper_url" invisible="0" widget="url" readonly="1"/>
+                </xpath>
+
+                <!--Remind button-->
+                <sheet position="before">
+                    <header>
+                        <button name="total_reminder_admission_paper" type="object" string="Remind Admission Paper" class="oe_highlight" groups="openeducat_core.group_op_back_office"/>
+                    </header>
+                </sheet>
+            </field>
+        </record>
+
+        <!--Fees modify-->
+        <record id="vtt_view_form_op_student_course_fees" model="ir.ui.view">
+            <field name="name">Student Course add Fees</field>
+            <field name="model">op.student.course</field>
+            <field name="inherit_id" ref="openeducat_fees.view_op_student_course_form_inherit"/>
+            <!--<field name="groups_id" eval="[(4, ref('openeducat_core.group_op_back_office'))]"/>-->
+            <field name="arch" type="xml">
+                <field name="fees_term_id" position="after">
+                    <field name="fees"/>
+                </field>
+                <field name="fees_start_date" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Fees modify for student-->
+        <record id="vtt_view_form_op_student_course_fees_student" model="ir.ui.view">
+            <field name="name">Student Course fees display</field>
+            <field name="model">op.student.course</field>
+            <field name="inherit_id" ref="vtt_edu_admission_form.vtt_view_form_op_student_course_fees"/>
+            <field name="groups_id" eval="[(4, ref('vtt_edu_admission_form.vtt_group_op_student_view'))]"/>
+            <field name="arch" type="xml">
+                <field name="fees_term_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="fees" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Modify course view for Student-->
+        <record id="vtt_view_form_op_student_course_student_groups" model="ir.ui.view">
+            <field name="name">Student Course Student Form</field>
+            <field name="model">op.student.course</field>
+            <field name="inherit_id" ref="vtt_edu_admission_form.vtt_view_form_op_student_course_academic"/>
+            <field name="groups_id" eval="[(4, ref('vtt_edu_admission_form.vtt_group_op_student_view'))]"/>
+            <field name="arch" type="xml">
+                <field name="student_id" position="after">
+                    <field name="can_edit_course" invisible="1"/>
+                </field>
+
+                <field name="student_id" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+
+                <field name="course_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('can_edit_course', '=', False)]}</attribute>
+                </field>
+
+                <field name="batch_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('can_edit_course', '=', False)]}</attribute>
+                </field>
+
+                <field name="category_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('can_edit_course', '=', False)]}</attribute>
+                </field>
+
+                <field name="roll_number" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+
+                <field name="academic_years_id" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+
+                <field name="subject_ids" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+            </field>
+        </record>
+    </data>
+
+    <!--Actions-->
+    <data>
+        <!--Student Multistep actions-->
+        <!--<record id="vtt_act_window_op_student_multistep" model="ir.actions.act_window">
+            <field name="context">{'form_view_initial_mode': 'edit'}</field>
+            <field name="name">Student Admission</field>
+            <field name="res_model">op.student</field>
+            &lt;!&ndash;<field name="domain">[('user_id', '=', uid)]</field>&ndash;&gt;
+            <field name="res_id" eval="27"/>
+            <field name="view_id" ref="vtt_view_form_op_student_multistep"/>
+            <field name="view_mode">form</field>
+        </record>-->
+
+        <record id="vtt_act_server_op_student_multistep" model="ir.actions.server">
+            <field name="name">Open Student Admission Multistep</field>
+            <field name="model_id" ref="model_op_student"/>
+            <!--<field name="binding_model_id" ref="account.model_account_move"/>-->
+            <field name="state">code</field>
+            <field name="code">action =  env.get('op.student').action_student_multistep()</field>
+        </record>
+    </data>
+
+    <!--Menus-->
+    <data>
+        <!--Student multistep menu-->
+        <menuitem name="Student Admission"
+                  id="vtt_menu_s_student_multistep"
+                  action="vtt_act_server_op_student_multistep"
+                  groups="vtt_edu_admission_form.vtt_group_op_student_show_admission_step"
+                  sequence="0"/>
+
+        <record id="openeducat_core.menu_op_student_root" model="ir.ui.menu">
+            <field name="groups_id" eval="False"/>
+        </record>
+        <record id="openeducat_core.menu_op_student_main_student" model="ir.ui.menu">
+            <field name="groups_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vtt_view_form_res_config_settings_purchase_confirmation" model="ir.ui.view">
+        <field name="name">vtt.res.config.settings.view.form.purchase.confirmation</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='auto_receipt_reminder']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="po_responsible_method">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <label for="vtt_po_responsible_method"/>
+                        <div class="text-muted">
+                            Order Responsible fill-up method
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="vtt_po_responsible_method" class="o_light_label" widget="radio"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

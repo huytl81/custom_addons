@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Campaign Import Wizard views-->
+    <data>
+        <record id="vtt_view_form_campaign_import_wz" model="ir.ui.view">
+            <field name="name">Campaign Import Wz Form</field>
+            <field name="model">campaign.import.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Campaign Import">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                            <group>
+                                <field name="file_datas"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="import_campaign_from_json" type="object" string="Import" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

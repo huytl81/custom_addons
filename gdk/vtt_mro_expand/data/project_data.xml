@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Project-->
+    <data noupdate="1">
+        <record id="vtt_mro_repair_project" model="project.project">
+            <field name="name">Repair Project</field>
+            <field name="allow_timesheets" eval="1"/>
+            <field name="allow_subtasks" eval="1"/>
+            <field name="user_id" eval="False"/>
+        </record>
+    </data>
+
+    <!--Stages-->
+    <data>
+        <record model="project.task.type" id="vtt_mro_repair_project_task_type_new">
+            <field name="name">New</field>
+            <field name="sequence" eval="0"/>
+            <field name="is_closed" eval="0"/>
+            <field name="fold" eval="0"/>
+            <field name="project_ids" eval="[(4, ref('vtt_mro_expand.vtt_mro_repair_project'))]"/>
+        </record>
+
+        <record model="project.task.type" id="vtt_mro_repair_project_task_type_progress">
+            <field name="name">Progress</field>
+            <field name="sequence" eval="1"/>
+            <field name="is_closed" eval="0"/>
+            <field name="fold" eval="0"/>
+            <field name="project_ids" eval="[(4, ref('vtt_mro_expand.vtt_mro_repair_project'))]"/>
+        </record>
+
+        <record model="project.task.type" id="vtt_mro_repair_project_task_type_done">
+            <field name="name">Done</field>
+            <field name="sequence" eval="2"/>
+            <field name="is_closed" eval="1"/>
+            <field name="fold" eval="0"/>
+            <field name="project_ids" eval="[(4, ref('vtt_mro_expand.vtt_mro_repair_project'))]"/>
+        </record>
+
+        <record model="project.task.type" id="vtt_mro_repair_project_task_type_cancel">
+            <field name="name">Cancel</field>
+            <field name="sequence" eval="3"/>
+            <field name="is_closed" eval="1"/>
+            <field name="fold" eval="1"/>
+            <field name="project_ids" eval="[(4, ref('vtt_mro_expand.vtt_mro_repair_project'))]"/>
+        </record>
+    </data>
+</odoo>

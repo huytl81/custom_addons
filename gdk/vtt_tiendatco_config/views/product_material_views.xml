@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Product Material Template views-->
+    <data>
+        <!--Form view-->
+        <record id="vtt_view_form_product_material_template_hide_duplicate" model="ir.ui.view">
+            <field name="name">Product Material Template Form hide Duplicate option</field>
+            <field name="model">vtt.product.material.template</field>
+            <field name="inherit_id" ref="vtt_product_material.vtt_view_form_product_material_template"/>
+            <field name="arch" type="xml">
+                <field name="duplicate_product" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Tree view-->
+        <record id="vtt_view_tree_product_material_template" model="ir.ui.view">
+            <field name="name">Product Material Template List</field>
+            <field name="model">vtt.product.material.template</field>
+            <field name="arch" type="xml">
+                <tree string="Material Templates">
+                    <field name="product_template_id"/>
+                    <field name="name"/>
+                    <field name="material_count"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

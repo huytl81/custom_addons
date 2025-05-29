@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--Change XLSX report to binding Form view only-->
+        <record id="vtt_sale_report_xlsx.vtt_sale_order_xlsx" model="ir.actions.report">
+            <field name="binding_view_types">form</field>
+        </record>
+    </data>
+
+</odoo>
