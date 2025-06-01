@@ -16,9 +16,9 @@ label.o_form_label.form-check-label {
     max-width: 100% !important;
 }
 
-#chatter-toggle, #toggleChatButton {
-    display: none ;
-}
+/*#chatter-toggle, #toggleChatButton {*/
+/*    display: none ;*/
+/*}*/
 
 .chatter-visible {
     display: inline-block !important; /* Show when JS adds this class */
