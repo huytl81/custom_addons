@@ -51,6 +51,8 @@
                         <page string="Other Info"></page>
                     </notebook>
                 </sheet>
+                <!-- Discuss widgets -->
+                <chatter/>
             </form>
         </field>
     </record>
