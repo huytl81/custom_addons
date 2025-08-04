@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <list string="Estate Property List">
                 <field name="name" string="Property Name"/>
-                <field name="property_type" string="Property Type"/>
+                <field name="property_type_id" string="Property Type"/>
                 <field name="postcode" string="Postcode"/>
                 <field name="date_availability" string="Available From"/>
                 <field name="expected_price" string="Expected Price"/>
@@ -24,8 +24,9 @@
                 <sheet>
                     <group>
                         <field name="name" string="Property Name"/>
+                        <field name="property_tag_ids" string="Property Tag" widget="many2many_tags" help="Select one or more tags to categorize this property."/>
                         <group>
-                            <field name="property_type" string="Property Type"/>
+                            <field name="property_type_id" string="Property Type"/>
                             <field name="postcode" string="Postcode"/>
                             <field name="date_availability" string="Available From"/>
                         </group>
@@ -44,10 +45,22 @@
                                 <field name="facades" string="Facades"/>
                                 <field name="garage" string="Garage"/>
                                 <field name="garden" string="Garden"/>
-                                <field name="garden_area" string="Total Area (sqm)"/>
+                                <field name="garden_area" string="Garden Area (sqm)"/>
+                                <field name="total_area" string="Total Area (sqm)"/>
                             </group>
                         </page>
-                        <page string="Offers"></page>
+                        <page string="Offers">
+                            <field name="property_offer_ids">
+                                <list string="Property Offers" editable="bottom">
+                                    <field name="price" string="Offer Price"/>
+                                    <field name="partner_id" string="Partner"/>
+                                    <field name="status" string="Status"/>
+                                    <field name="validity" string="Validity"/>
+                                    <field name="created_date" string="Created Date"/>
+                                    <field name="deadline" string="Deadline"/>
+                                </list>
+                            </field>
+                        </page>
                         <page string="Other Info"></page>
                     </notebook>
                 </sheet>
@@ -61,7 +74,7 @@
         <field name="name">Property</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">form,list</field>
-        <field name="view_id" ref="estate_property_form_view"></field>
+        <field name="view_id" ref="estate_property_list_view"></field>
         <field name="help" type="html">
             <p class="o_help">Manage your estate properties</p>
         </field>
