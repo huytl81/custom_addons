@@ -50,18 +50,26 @@
                             </group>
                         </page>
                         <page string="Offers">
-                            <field name="property_offer_ids">
-                                <list string="Property Offers" editable="bottom">
-                                    <field name="price" string="Offer Price"/>
-                                    <field name="partner_id" string="Partner"/>
-                                    <field name="status" string="Status"/>
-                                    <field name="validity" string="Validity"/>
-                                    <field name="created_date" string="Created Date"/>
-                                    <field name="deadline" string="Deadline"/>
-                                </list>
-                            </field>
+                        	<group>
+                        		<field name="property_offer_ids">
+		                            <list string="Property Offers" editable="bottom">
+		                                <field name="price" string="Offer Price"/>
+		                                <field name="partner_id" string="Partner"/>
+		                                <field name="status" string="Status"/>
+		                                <field name="validity" string="Validity"/>
+		                                <field name="created_date" string="Created Date"/>
+		                                <field name="deadline" string="Deadline"/>
+		                            </list>
+                            	</field>
+                        	</group>
                         </page>
-                        <page string="Other Info"></page>
+                        <page string="Other Info">
+                        	<group>
+                        		<field name="buyer_id"/>
+                        		<field name="buyer_phone"/>
+                        		<field name="seller_id"/>
+                        	</group>
+                        </page>
                     </notebook>
                 </sheet>
                 <!-- Discuss widgets -->
