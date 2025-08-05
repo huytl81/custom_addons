@@ -2,6 +2,7 @@ from odoo import models, fields, api
 from datetime import timedelta
 from odoo.exceptions import ValidationError, UserError
 
+
 class PropertyOffer(models.Model):
     _name = 'estate.property.offer'
     _description = 'Estate Property Offer'
@@ -11,15 +12,7 @@ class PropertyOffer(models.Model):
 #	created_date = fields.Date(string='Created Date', default='_set_created_date')
     created_date = fields.Date(string='Created Date')
     deadline = fields.Date(string='Deadline',compute="_compute_deadline", inverse="_inverse_deadline")
-    status = fields.Selection(
-        [
-            ('accepted', 'Accepted'),
-            ('refused', 'Refused'),
-            ('pending', 'Pending'),
-        ],
-        string='Status',
-        default='pending'
-    )
+    status = fields.Selection([('accepted', 'Accepted'),('refused', 'Refused'),('pending', 'Pending'),], string='Status', default='pending')
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
     property_id = fields.Many2one("estate.property", string="Property", required=True)
     
