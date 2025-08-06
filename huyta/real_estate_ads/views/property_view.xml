@@ -31,6 +31,7 @@
                 <field name="expected_price" string="Expected Price"/>
                 <field name="best_offer" string="Best Offer"/>
                 <field name="selling_price" string="Selling Price"/>
+                <field name="state" widget="badge"/>
             </list>
         </field>
     </record>
@@ -56,7 +57,7 @@
                         </button>
                     </div>
                     <group>
-                        <field name="name" string="Property Name"/>
+                        <field name="name" string="Property Name" widget="char_emojis" placeholder="Enter the property name"/>
                         <field name="property_tag_ids" string="Property Tag" widget="many2many_tags" options="{'color_field': 'color'}" help="Select one or more tags to categorize this property."/>
                         <!-- <field name="property_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/> -->
                         <group>
@@ -77,9 +78,10 @@
                                 <field name="bedrooms" string="Bedrooms"/>
                                 <field name="living_area" string="Living Area"/>
                                 <field name="facades" string="Facades"/>
-                                <field name="garage" string="Garage"/>
+                                <field name="garage" string="Garage" widget="boolean_toggle"/>
                                 <field name="garden" string="Garden"/>
-                                <field name="garden_area" string="Garden Area (sqm)"/>
+                                <field name="garden_orientation" string="Garden Orientation" widget="radio"/>
+                                <field name="garden_area" string="Garden Area (sqm)" invisible="garden==False" readonly="garden==True"/>
                                 <field name="total_area" string="Total Area (sqm)"/>
                             </group>
                         </page>
@@ -89,10 +91,10 @@
 		                            <list string="Property Offers" editable="bottom">
 		                                <field name="price" string="Offer Price"/>
 		                                <field name="partner_id" string="Partner"/>
-		                                <field name="status" string="Status"/>
+		                                <field name="state" string="Status" widget="badge"/>
 		                                <field name="validity" string="Validity"/>
 		                                <field name="created_date" string="Created Date"/>
-		                                <field name="deadline" string="Deadline"/>
+		                                <field name="deadline" string="Deadline" widget="remaining_days"/>
 		                            </list>
                             	</field>
                         	</group>
@@ -100,8 +102,8 @@
                         <page string="Other Info">
                         	<group>
                         		<field name="buyer_id"/>
-                        		<field name="buyer_phone" widget="phone"/>
-                        		<field name="seller_id"/>
+                        		<field name="buyer_phone" widget="email"/>
+                        		<field name="seller_id" widget="many2one_avatar_employee"/>
                         	</group>
                         </page>
                     </notebook>

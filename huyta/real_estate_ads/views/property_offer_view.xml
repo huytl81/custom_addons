@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <list string="Estate Property Offer List">
                 <field name="price" string="Price"/>
-                <field name="status" string="Status"/>
+                <field name="state" string="Status" widget="badge"/>
                 <field name="partner_id" string="Customer"/>
                 <field name="property_id" string="Property"/>
                 <field name="validity" string="Validity (days)"/>
@@ -24,7 +24,7 @@
                     <group>
                         <group>
                         <field name="price" string="Price"/>
-                        <field name="status" string="Status"/>
+                        <field name="state" string="Status" widget="selection_badge"/>
                         <field name="partner_id" string="Customer"/>
                         <field name="property_id" string="Property"/>
                         </group>
