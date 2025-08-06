@@ -21,6 +21,8 @@
                         <field name="name" string="Property Type"/>
                     </group>
                 </sheet>
+                <!-- Discuss widgets -->
+                <chatter/>
             </form>
         </field>
     </record>

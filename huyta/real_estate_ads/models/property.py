@@ -24,11 +24,11 @@ class Property(models.Model):
     garden_area = fields.Integer(string="Garden Area")
     garden_orientation = fields.Selection([('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')], string="Garden Orientation")
     total_area = fields.Integer(string="Total Area")
-    # state = fields.Selection([('new', 'New'), ('offer_received', 'Offer Received'), ('sold', 'Sold'), ('canceled', 'Canceled')], string="State")
+    state = fields.Selection([('new', 'New'), ('offer_received', 'Offer Received'), ('offer_accepted', 'Offer Accepted'), ('sold', 'Sold'), ('canceled', 'Canceled')], string="State")
     buyer_id = fields.Many2one('res.partner', string="Buyer", domain=[('is_company','=',True)])
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
-    
+    offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
     # Su dung compute field  
     # total_area = fields.Integer(string="Total Area", compute="_compute_total_area")
     # Su dung onchang field
@@ -38,6 +38,37 @@ class Property(models.Model):
     #def _compute_total_area(self):
     #   for rec in self:
     #       rec.total_area = rec.living_area + rec.garden_area
+    
+    @api.depends('property_offer_ids')
+    def _compute_offer_count(self):
+        for rec in self:
+            rec.offer_count = len(rec.property_offer_ids)
+    
     @api.onchange('living_area','garden_area')
     def _onchange_total_area(self):
         self.total_area = self.living_area + self.garden_area
+
+    def action_receive(self):
+        for rec in self:
+            rec.state ='offer_received'
+            
+    def action_accept(self):
+        for rec in self:
+            rec.state = 'offer_accepted'
+    
+    def action_sold(self):
+        for rec in self:
+            rec.state = 'sold'
+    
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'canceled'
+            
+    def action_property_view_offers(self):
+        return{
+            'type': 'ir.actions.act_window',
+            'name': f"{self.name} - Offers",
+            'res_model': 'estate.property.offer',
+            'view_mode': 'list,form',
+            'domain': [('property_id','=', self.id)]
+        }

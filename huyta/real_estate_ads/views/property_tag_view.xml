@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="color" widget="color"/>
             </list>
         </field>
     </record>
@@ -19,8 +20,11 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="color" widget="color"/>
                     </group>
                 </sheet>
+                <!-- Discuss widgets -->
+                <chatter/>
             </form>
         </field>
     </record>
