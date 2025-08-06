@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
-                <field name="color" widget="color"/>
+                <field name="color" widget="color_picker"/>
             </list>
         </field>
     </record>
@@ -20,7 +20,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="color" widget="color"/>
+                        <field name="color" widget="color_picker"/>
                     </group>
                 </sheet>
                 <!-- Discuss widgets -->

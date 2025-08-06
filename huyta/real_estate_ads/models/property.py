@@ -24,11 +24,18 @@ class Property(models.Model):
     garden_area = fields.Integer(string="Garden Area")
     garden_orientation = fields.Selection([('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')], string="Garden Orientation")
     total_area = fields.Integer(string="Total Area")
-    state = fields.Selection([('new', 'New'), ('offer_received', 'Offer Received'), ('offer_accepted', 'Offer Accepted'), ('sold', 'Sold'), ('canceled', 'Canceled')], string="State")
+    state = fields.Selection([
+        ('new', "New"),
+        ('offer_received', "Offer Received"),
+        ('offer_accepted', "Offer Accepted"),
+        ('sold', "Sold"),
+        ('canceled', "Canceled")
+    ], default='new')
     buyer_id = fields.Many2one('res.partner', string="Buyer", domain=[('is_company','=',True)])
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
+    
     # Su dung compute field  
     # total_area = fields.Integer(string="Total Area", compute="_compute_total_area")
     # Su dung onchang field
