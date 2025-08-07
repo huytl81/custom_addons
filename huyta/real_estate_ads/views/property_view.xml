@@ -19,6 +19,38 @@
         <field name="domain">[('property_id', '=', active_id)]</field>
     </record>
 
+    <record id="estate_property_search_view" model="ir.ui.view">
+        <field name="name">Estate Property Search View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- Searchable Fields -->
+                <field name="name" string="Property Name"/>
+                <field name="state" widget="badge"/>
+                <field name="postcode" string="Postcode"/>
+                <field name="buyer_id" string="Available From"/>
+
+                <!-- State Filters -->
+                <filter name="filter_state_new" string="New" domain="[('state','=','new')]"/>
+                <filter name="filter_state_sold" string="Sold" domain="[('state','=','sold')]"/>
+                <filter name="filter_state_received" string="Received" domain="[('state','=','received')]"/>
+                <filter name="filter_state_accepted" string="Accepted" domain="[('state','=','accepted')]"/>
+
+                <separator/>
+
+                <!-- Group By Options -->
+                <group expand="0" string="Group By">
+                    <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
+                </group>
+                <searchpanel>
+                    <!-- Filter to allow users to filter records by their state -->
+                    <!-- <filter name="state" string="State" icon="fa fa-filter" groupby="group_by_state" limit="0"/> -->
+                    <field name="state" icon="fa-filter" string="State" select="multi"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
     <record id="estate_property_list_view" model="ir.ui.view">
         <field name="name">Estate Property List View</field>
         <field name="model">estate.property</field>
@@ -31,17 +63,39 @@
                 <field name="expected_price" string="Expected Price"/>
                 <field name="best_offer" string="Best Offer"/>
                 <field name="selling_price" string="Selling Price"/>
-                <field name="state" widget="badge"/>
+                <field name="state" widget="badge" 
+                    decoration-danger="state == 'new'" 
+                    decoration-warning="state == 'received'" 
+                    decoration-info="state == 'accepted'" 
+                    decoration-success="state == 'sold'" 
+                    decoration-primary="state == 'canceled'">
+                </field>
             </list>
         </field>
     </record>
+
+    <record id="estate_property_quick_create_form_view" model="ir.ui.view">
+        <field name="name">Estate Property Quick Create Form View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate Property Quick Create Form">
+                <sheet>
+                    <group>
+                        <field name="name" string="Property Name" required="1"/>
+                        <field name="selling_price" string="Selling Price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="estate_property_form_view" model="ir.ui.view">
         <field name="name">Estate Property Form View</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <form string="Estate Property Form">
                 <header>
-                    <field name="state" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold,canceled"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,received,accepted,sold,canceled"/>
                     <button name="action_receive" type="object" string="Receive" class="btn-info"/>
                     <button name="action_accept" type="object" string="Accept" class="btn-warning"/>
                     <button name="action_sold" type="object" string="Sold" class="btn-success"/>
@@ -86,25 +140,25 @@
                             </group>
                         </page>
                         <page string="Offers">
-                        	<group>
-                        		<field name="property_offer_ids">
-		                            <list string="Property Offers" editable="bottom">
-		                                <field name="price" string="Offer Price"/>
-		                                <field name="partner_id" string="Partner"/>
-		                                <field name="state" string="Status" widget="badge"/>
-		                                <field name="validity" string="Validity"/>
-		                                <field name="created_date" string="Created Date"/>
-		                                <field name="deadline" string="Deadline" widget="remaining_days"/>
-		                            </list>
-                            	</field>
-                        	</group>
+                            <group>
+                                <field name="property_offer_ids">
+                                    <list string="Property Offers" editable="bottom">
+                                        <field name="price" string="Offer Price"/>
+                                        <field name="partner_id" string="Partner"/>
+                                        <field name="state" string="Status" widget="badge"/>
+                                        <field name="validity" string="Validity"/>
+                                        <field name="created_date" string="Created Date"/>
+                                        <field name="deadline" string="Deadline" widget="remaining_days"/>
+                                    </list>
+                                </field>
+                            </group>
                         </page>
                         <page string="Other Info">
-                        	<group>
-                        		<field name="buyer_id"/>
-                        		<field name="buyer_phone" widget="phone"/>
-                        		<field name="seller_id" widget="many2one_avatar_employee"/>
-                        	</group>
+                            <group>
+                                <field name="buyer_id"/>
+                                <field name="buyer_phone" widget="phone"/>
+                                <field name="seller_id" widget="many2one_avatar_employee"/>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
@@ -114,16 +168,45 @@
         </field>
     </record>
 
+     <record id="estate_property_kanan_view" model="ir.ui.view">
+        <field name="name">Property Kanban View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban" default_group_by="state" quick_create="1" on_create="quick_create" quick_create_view="real_estate_ads.estate_property_quick_create_form_view">
+                <progressbar field="state" colors='{"sold": "success", "received": "warning", "accepted": "danger"}'/>
+                <templates>
+                    <t t-name="card">
+                        <header class="o_kanban_header">
+                             
+                        </header>
+                        <content class="o_kanban_content">
+                            <div class="d-flex align-items-baseline mb-2">
+                                <field name="name" class="fw-bolder fs-5 me-2"/>
+                            </div>
+                        </content>
+                        <footer class="align-items-end">
+                            <div class="d-flex flex-wrap gap-1 text-muted text-nowrap">
+                                <field name="selling_price" class="fw-bolder fs-5 me-2"/><br/>
+                                <field name="offer_count"/> Offer(s) <br/>
+                                <field name="property_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            </div>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="action_property" model="ir.actions.act_window">
         <field name="name">Property</field>
         <field name="res_model">estate.property</field>
-        <field name="view_mode">form,list</field>
+        <field name="view_mode">form,list,kanban</field>
         <field name="view_id" ref="estate_property_list_view"></field>
         <field name="help" type="html">
             <p class="o_help">Manage your estate properties</p>
         </field>
     </record>
-    
+
     <menuitem id="estate_menu_root" name="Estate" web_icon="real_estate_ads,static/description/icon.png" sequence="10"/>
     <menuitem id="estate_menu_ads" name="Advertising" parent="estate_menu_root"/>
     <menuitem id="estate_menu_property" name="Property" parent="estate_menu_ads" action="action_property"/>

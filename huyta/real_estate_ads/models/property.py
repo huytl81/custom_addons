@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-
+from random import randint
 
 class Property(models.Model):
     _name = 'estate.property'
@@ -26,8 +26,8 @@ class Property(models.Model):
     total_area = fields.Integer(string="Total Area")
     state = fields.Selection([
         ('new', "New"),
-        ('offer_received', "Offer Received"),
-        ('offer_accepted', "Offer Accepted"),
+        ('received', "Received"),
+        ('accepted', "Accepted"),
         ('sold', "Sold"),
         ('canceled', "Canceled")
     ], default='new')
@@ -35,33 +35,33 @@ class Property(models.Model):
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
-    
+        
+    # Su dung compute field  
     # total_area = fields.Integer(string="Total Area", compute="_compute_total_area")
+    # Su dung onchang field
     total_area = fields.Integer(string="Total Area")
     
-    # Su dung compute field 
-    # @api.depends('living_area','garden_area')
-    # def _compute_total_area(self):
+    #@api.depends('living_area','garden_area')
+    #def _compute_total_area(self):
     #   for rec in self:
     #       rec.total_area = rec.living_area + rec.garden_area
     
-    # Su dung onchang field
-    @api.onchange('living_area','garden_area')
-    def _onchange_total_area(self):
-        self.total_area = self.living_area + self.garden_area
-
     @api.depends('property_offer_ids')
     def _compute_offer_count(self):
         for rec in self:
             rec.offer_count = len(rec.property_offer_ids)
+    
+    @api.onchange('living_area','garden_area')
+    def _onchange_total_area(self):
+        self.total_area = self.living_area + self.garden_area
 
     def action_receive(self):
         for rec in self:
-            rec.state ='offer_received'
+            rec.state ='received'
             
     def action_accept(self):
         for rec in self:
-            rec.state = 'offer_accepted'
+            rec.state = 'accepted'
     
     def action_sold(self):
         for rec in self:
