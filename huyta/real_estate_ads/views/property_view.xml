@@ -52,7 +52,7 @@
                         <!-- <button class="oe_stat_button" name="%(real_estate_ads.action_property_view_offers)d" type="action">
                             <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>
                         </button> -->
-                        <button class="oe_stat_button" name="action_property_view_offers" type="object">
+                        <button class="btn-secondary" name="action_property_view_offers" type="object">
                             <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>
                         </button>
                     </div>
@@ -102,7 +102,7 @@
                         <page string="Other Info">
                         	<group>
                         		<field name="buyer_id"/>
-                        		<field name="buyer_phone" widget="email"/>
+                        		<field name="buyer_phone" widget="phone"/>
                         		<field name="seller_id" widget="many2one_avatar_employee"/>
                         	</group>
                         </page>

@@ -19,7 +19,6 @@ class PropertyOffer(models.Model):
     
     # _sql_constraints = [('check_validity', 'check(validity > 0)', 'Validity cannot be negative')]
     
-    
     @api.depends('property_id', 'partner_id')
     def _compute_display_name(self) -> None:
         """
