@@ -30,8 +30,8 @@ class PropertyOffer(models.Model):
     # name = fields.Char(string="Property Offer", required=True, compute="_compute_display_name")
     price = fields.Float(string='Price')
     validity = fields.Integer(string='Validity (days)')
-    # created_date = fields.Date(string='Created Date', default='_set_created_date')
-    created_date = fields.Date(string='Created Date')
+    created_date = fields.Date(string='Created Date', default='_set_created_date')
+    # created_date = fields.Date(string='Created Date')
     deadline = fields.Date(string='Deadline', compute="_compute_deadline", inverse="_inverse_deadline")
     state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('pending', 'Pending'),], string='Status', default='pending')
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
@@ -66,13 +66,18 @@ class PropertyOffer(models.Model):
             else:
                 record.validity = False
 
+    def action_accept(self):
+        self.state = 'accepted'
+        
+    def action_refuse(self):
+        self.state = 'refused'
     # @api.autovacuum
     # def _clean_offers(self):
     #     self.search([('status', '=', 'refused')]).unlink()
 
-    # @api.model
-    # def _set_created_date(self):
-    #     return fields.Date.today()
+    @api.model
+    def _set_created_date(self):
+        return fields.Date.today()
 
     # @api.model_create_multi
     # def create(self,vals_list):
