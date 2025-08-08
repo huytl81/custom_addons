@@ -43,10 +43,22 @@
         </field>
     </record>
 
+    <record id="estate_property_offer_gantt_view" model="ir.ui.view">
+        <field name="name">Estate Property Offer Gantt View</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <gantt string="Estate Property Offer Gantt View"
+                   date_start="created_date"
+                   date_stop="deadline"
+                   default_group_by="partner_id">
+            </gantt>
+        </field>
+    </record>
+
     <record id="estate_property_offer_action" model="ir.actions.act_window">
         <field name="name">Property Offer</field>
         <field name="res_model">estate.property.offer</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,gantt</field>
         <field name="view_id" ref="estate_property_offer_list_view"/>
     </record>
 

@@ -72,7 +72,7 @@ class Property(models.Model):
             rec.state = 'canceled'
             
     def action_property_view_offers(self):
-        return{
+        return {
             'type': 'ir.actions.act_window',
             'name': f"{self.name} - Offers",
             'res_model': 'estate.property.offer',

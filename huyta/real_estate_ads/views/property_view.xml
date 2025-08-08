@@ -19,38 +19,6 @@
         <field name="domain">[('property_id', '=', active_id)]</field>
     </record>
 
-    <record id="estate_property_search_view" model="ir.ui.view">
-        <field name="name">Estate Property Search View</field>
-        <field name="model">estate.property</field>
-        <field name="arch" type="xml">
-            <search>
-                <!-- Searchable Fields -->
-                <field name="name" string="Property Name"/>
-                <field name="state" widget="badge"/>
-                <field name="postcode" string="Postcode"/>
-                <field name="buyer_id" string="Available From"/>
-
-                <!-- State Filters -->
-                <filter name="filter_state_new" string="New" domain="[('state','=','new')]"/>
-                <filter name="filter_state_sold" string="Sold" domain="[('state','=','sold')]"/>
-                <filter name="filter_state_received" string="Received" domain="[('state','=','received')]"/>
-                <filter name="filter_state_accepted" string="Accepted" domain="[('state','=','accepted')]"/>
-
-                <separator/>
-
-                <!-- Group By Options -->
-                <group expand="0" string="Group By">
-                    <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
-                </group>
-                <searchpanel>
-                    <!-- Filter to allow users to filter records by their state -->
-                    <!-- <filter name="state" string="State" icon="fa fa-filter" groupby="group_by_state" limit="0"/> -->
-                    <field name="state" icon="fa-filter" string="State" select="multi"/>
-                </searchpanel>
-            </search>
-        </field>
-    </record>
-
     <record id="estate_property_list_view" model="ir.ui.view">
         <field name="name">Estate Property List View</field>
         <field name="model">estate.property</field>
@@ -71,21 +39,6 @@
                     decoration-primary="state == 'canceled'">
                 </field>
             </list>
-        </field>
-    </record>
-
-    <record id="estate_property_quick_create_form_view" model="ir.ui.view">
-        <field name="name">Estate Property Quick Create Form View</field>
-        <field name="model">estate.property</field>
-        <field name="arch" type="xml">
-            <form string="Estate Property Quick Create Form">
-                <sheet>
-                    <group>
-                        <field name="name" string="Property Name" required="1"/>
-                        <field name="selling_price" string="Selling Price"/>
-                    </group>
-                </sheet>
-            </form>
         </field>
     </record>
 
@@ -168,7 +121,38 @@
         </field>
     </record>
 
-     <record id="estate_property_kanan_view" model="ir.ui.view">
+    <record id="estate_property_search_view" model="ir.ui.view">
+        <field name="name">Estate Property Search View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- Searchable Fields -->
+                <field name="name"/>
+                <field name="state"/>
+                <field name="postcode"/>
+                <field name="buyer_id"/>
+
+                <!-- State Filters -->
+                <filter name="filter_state_new" string="New" domain="[('state','=','new')]"/>
+                <filter name="filter_state_sold" string="Sold" domain="[('state','=','sold')]"/>
+                <filter name="filter_state_received" string="Received" domain="[('state','=','received')]"/>
+                <filter name="filter_state_accepted" string="Accepted" domain="[('state','=','accepted')]"/>
+
+                <separator/>
+
+                <!-- Group By Options -->
+                <group expand="0" string="Group By">
+                    <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
+                </group>
+                <searchpanel>
+                    <!-- Filter to allow users to filter records by their state -->
+                    <field name="state" icon="fa-filter" string="State" select="multi"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+    
+    <record id="estate_property_kanban_view" model="ir.ui.view">
         <field name="name">Property Kanban View</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
@@ -176,9 +160,7 @@
                 <progressbar field="state" colors='{"sold": "success", "received": "warning", "accepted": "danger"}'/>
                 <templates>
                     <t t-name="card">
-                        <header class="o_kanban_header">
-                             
-                        </header>
+                        <header class="o_kanban_header"/>
                         <content class="o_kanban_content">
                             <div class="d-flex align-items-baseline mb-2">
                                 <field name="name" class="fw-bolder fs-5 me-2"/>
@@ -197,10 +179,53 @@
         </field>
     </record>
 
+    <record id="estate_property_quick_create_form_view" model="ir.ui.view">
+        <field name="name">Estate Property Quick Create Form View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate Property Quick Create Form">
+                <sheet>
+                    <group>
+                        <field name="name" string="Property Name" required="1"/>
+                        <field name="selling_price" string="Selling Price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="estate_property_pivot_view" model="ir.ui.view">
+        <field name="name">Estate Property Pivot View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <pivot string="Estate Property Pivot">
+                <field name="name" type="col"/>
+                <field name="selling_price" type="measure"/>
+                <field name="expected_price" type="measure"/>
+                <field name="facades" type="measure"/>
+                <field name="bedrooms" type="measure"/>
+                <field name="state" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="estate_property_graph_view" model="ir.ui.view">
+        <field name="name">Estate Property Graph View</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <graph string="Estate Property Graph">
+                <field name="name" />
+                <field name="selling_price" type="measure"/>
+                <field name="expected_price" type="measure"/>
+                <field name="best_offer" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="action_property" model="ir.actions.act_window">
         <field name="name">Property</field>
         <field name="res_model">estate.property</field>
-        <field name="view_mode">form,list,kanban</field>
+        <field name="view_mode">form,list,kanban,pivot,graph</field>
         <field name="view_id" ref="estate_property_list_view"></field>
         <field name="help" type="html">
             <p class="o_help">Manage your estate properties</p>

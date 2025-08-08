@@ -32,17 +32,12 @@ class PropertyOffer(models.Model):
     validity = fields.Integer(string='Validity (days)')
     # created_date = fields.Date(string='Created Date', default='_set_created_date')
     created_date = fields.Date(string='Created Date')
-    deadline = fields.Date(
-        string='Deadline', compute="_compute_deadline", inverse="_inverse_deadline")
-    state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), (
-        'pending', 'Pending'),], string='Status', default='pending')
-    partner_id = fields.Many2one(
-        "res.partner", string="Partner", required=True)
-    property_id = fields.Many2one(
-        "estate.property", string="Property", required=True)
+    deadline = fields.Date(string='Deadline', compute="_compute_deadline", inverse="_inverse_deadline")
+    state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('pending', 'Pending'),], string='Status', default='pending')
+    partner_id = fields.Many2one("res.partner", string="Partner", required=True)
+    property_id = fields.Many2one("estate.property", string="Property", required=True)
 
     # _sql_constraints = [('check_validity', 'check(validity > 0)', 'Validity cannot be negative')]
-
     @api.depends('property_id', 'partner_id')
     def _compute_display_name(self) -> None:
         for rec in self:
@@ -60,8 +55,7 @@ class PropertyOffer(models.Model):
         # print(self._context)
         for record in self:
             if (record.validity and record.created_date):
-                record.deadline = record.created_date + \
-                    timedelta(days=record.validity)
+                record.deadline = record.created_date + timedelta(days=record.validity)
             else:
                 record.deadline = False
 
