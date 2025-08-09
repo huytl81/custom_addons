@@ -118,7 +118,7 @@
                             <group>
                                 <field name="buyer_id"/>
                                 <field name="buyer_phone" widget="phone"/>
-                                <field name="seller_id" widget="many2one_avatar_employee"/>
+                                <field name="seller_id" widget="many2one_avatar_user"/>
                             </group>
                         </page>
                     </notebook>
@@ -246,7 +246,7 @@
         <field name="name">Property</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">form,list,kanban,pivot,graph,calendar</field>
-        <field name="view_id" ref="estate_property_list_view"></field>
+        <field name="view_id" ref="estate_property_list_view"/>
         <field name="help" type="html">
             <p class="o_help">Manage your estate properties</p>
         </field>
@@ -254,5 +254,6 @@
 
     <menuitem id="estate_menu_root" name="Estate" web_icon="real_estate_ads,static/description/icon.png" sequence="10"/>
     <menuitem id="estate_menu_ads" name="Advertising" parent="estate_menu_root"/>
+    <menuitem id="estate_property_settings" name="Settings" parent="estate_menu_root" groups="group_estate_property_manager" sequence="10"/>
     <menuitem id="estate_menu_property" name="Property" parent="estate_menu_ads" action="action_property"/>
 </odoo>

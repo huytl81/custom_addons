@@ -14,8 +14,8 @@ class Property(models.Model):
     postcode = fields.Integer(string="Postcode")
     date_availability = fields.Date(string="Available From")
     expected_price = fields.Float(string="Expected Price")
-    best_offer = fields.Float(string="Best Offer")
-    selling_price = fields.Float(string="Selling Price")
+    best_offer = fields.Float(string="Best Offer", compute="_compute_best_offer")
+    selling_price = fields.Float(string="Selling Price", readonly=True)
     bedrooms = fields.Integer(string="Bedrooms")
     living_area = fields.Integer(string="Living Area")
     facades = fields.Integer(string="Facades")
@@ -79,3 +79,10 @@ class Property(models.Model):
             'view_mode': 'list,form',
             'domain': [('property_id','=', self.id)]
         }
+
+    def _compute_best_offer(self):
+        if self.property_offer_ids:
+            # self.best_offer = max(self.property_offer_ids, key=lambda x: x.price).price
+            # self.best_offer = max(self.property_offer_ids.mapped('price'))
+            max_offer = max(self.property_offer_ids, key=lambda x: x.price)
+            self.best_offer =  max_offer.price

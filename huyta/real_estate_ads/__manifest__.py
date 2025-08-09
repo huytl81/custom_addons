@@ -6,8 +6,15 @@
     'author': 'Huy Ta',
     'depends': ['base', 'mail'],
     'data': [
-        'security/estate_groups.xml',
+        # Security
+        # Access rules
+        'security/access_groups.xml',
         'security/ir.model.access.csv',
+        'security/property_type_access.xml',
+        'security/property_tag_access.xml',
+        # Record rules
+        'security/record_rules.xml',
+        # Views
         'views/property_view.xml',
         'views/property_offer_view.xml',
         'views/property_type_view.xml',

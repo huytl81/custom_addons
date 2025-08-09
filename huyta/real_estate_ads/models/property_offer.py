@@ -24,8 +24,7 @@ class TransientOffer(models.TransientModel):
 class PropertyOffer(models.Model):
     _name = 'estate.property.offer'
     _description = 'Estate Property Offer'
-    _inherit = ['mail.thread', 'mail.activity.mixin',
-                'estate.property.offer.abstract']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'estate.property.offer.abstract']
 
     # name = fields.Char(string="Property Offer", required=True, compute="_compute_display_name")
     price = fields.Float(string='Price')
@@ -54,23 +53,49 @@ class PropertyOffer(models.Model):
         # print(self.env.context)
         # print(self._context)
         for record in self:
-            if (record.validity and record.created_date):
+            if record.validity and record.created_date:
                 record.deadline = record.created_date + timedelta(days=record.validity)
             else:
                 record.deadline = False
 
     def _inverse_deadline(self):
         for record in self:
-            if (record.deadline and record.created_date):
+            if record.deadline and record.created_date:
                 record.validity = (record.deadline - record.created_date).days
             else:
                 record.validity = False
 
     def action_accept(self):
-        self.state = 'accepted'
-        
+        if self.state != 'accepted':
+            self._validate_offer_accepted()
+            self.state = 'accepted'
+            if self.property_id:
+                self.property_id.write(
+                    {
+                        'selling_price': self.price,
+                        'state': 'accepted'
+                    }
+                )
+            # self.property_id.selling_price = self.price
+
+    def _validate_offer_accepted(self):
+        offer_accepted_count = self.env['estate.property.offer'].search_count([('property_id', '=', self.property_id.id),('state', '=', 'accepted')],limit=1)
+        if offer_accepted_count:
+            raise ValidationError("Property already has an offer accepted")
+
     def action_refuse(self):
-        self.state = 'refused'
+        if self.state != 'refused':
+            self.state = 'refused'
+            if self.property_id:
+            # if all(self.property_id.property_offer_ids.mapped('state')):
+                self.property_id.update({
+                    'state': 'received',
+                    'selling_price': 0
+                })
+                # self.property_id.write({
+                #     'state': 'received'
+                # })
+
     # @api.autovacuum
     # def _clean_offers(self):
     #     self.search([('status', '=', 'refused')]).unlink()

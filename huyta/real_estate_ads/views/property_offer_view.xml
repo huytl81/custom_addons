@@ -68,6 +68,5 @@
         <field name="view_id" ref="estate_property_offer_list_view"/>
     </record>
 
-    <menuitem id="estate_property_settings" name="Settings" parent="estate_menu_root" sequence="10"/>
     <menuitem id="estate_property_offer_menu" name="Property Offers" parent="estate_property_settings" action="estate_property_offer_action" sequence="20"/>
 </odoo>

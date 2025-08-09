@@ -35,7 +35,5 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_property_tag" name="Property Tags"
-        parent="estate_property_settings"
-        action="action_property_tag" sequence="20"/>
+    <menuitem id="menu_property_tag" name="Property Tags" parent="estate_property_settings" action="action_property_tag" sequence="20"/>
 </odoo>
