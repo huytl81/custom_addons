@@ -62,6 +62,9 @@
                         <button class="btn-secondary" name="action_property_view_offers" type="object" icon="fa-handshake-o">
                             <field name="offer_count" string="" widget="statinfo" style="padding-left:5px;"/>Offer(s)
                         </button>
+                        <button class="btn-secondary" name="action_property_client_action" type="object">
+                            <field name="client_action" string="Client Action" widget="selection_badge"/>Client Action
+                        </button>
                     </div>
                     <group>
                         <field name="name" string="Property Name" widget="char_emojis" placeholder="Enter the property name"/>
@@ -252,8 +255,14 @@
         </field>
     </record>
 
+    <record id="action_property_client_action" model="ir.actions.client">
+        <field name="name">Property Client Action</field>
+        <field name="tag">client_custom_tag</field>
+    </record>
+
     <menuitem id="estate_menu_root" name="Estate" web_icon="real_estate_ads,static/description/icon.png" sequence="10"/>
     <menuitem id="estate_menu_ads" name="Advertising" parent="estate_menu_root"/>
     <menuitem id="estate_property_settings" name="Settings" parent="estate_menu_root" groups="group_estate_property_manager" sequence="10"/>
     <menuitem id="estate_menu_property" name="Property" parent="estate_menu_ads" action="action_property"/>
+    <menuitem id="estate_property_client_action" name="Client Action" parent="estate_property_settings" action="action_property_client_action"/>
 </odoo>

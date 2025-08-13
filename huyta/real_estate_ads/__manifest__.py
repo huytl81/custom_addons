@@ -21,10 +21,19 @@
         'views/property_tag_view.xml',
         # Data files
         'data/property_type.xml',
-        'data/estate.property.tag.csv'
+        'data/estate.property.tag.csv',
     ],
-    'demo':[
-    	'demo/property.xml',
+
+    # Assets
+    'assets': {
+        'web.assets_backend': [
+            'real_estate_ads/static/src/js/my_custom_tag.js',
+            'real_estate_ads/static/src/xml/my_custom_tag.xml',
+        ],
+    },
+
+    'demo': [
+        'demo/property.xml',
     ],
     'installable': True,
     'application': True,

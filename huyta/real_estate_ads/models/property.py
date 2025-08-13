@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from random import randint
 
+
 class Property(models.Model):
     _name = 'estate.property'
     _description = 'Estate Property'
@@ -35,7 +36,8 @@ class Property(models.Model):
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
-        
+    client_action = fields.Char(string='Client Action')
+
     # Su dung compute field  
     # total_area = fields.Integer(string="Total Area", compute="_compute_total_area")
     # Su dung onchang field
@@ -78,6 +80,19 @@ class Property(models.Model):
             'res_model': 'estate.property.offer',
             'view_mode': 'list,form',
             'domain': [('property_id','=', self.id)]
+        }
+
+    def action_property_client_action(self):
+        return {
+            'type': 'ir.actions.client',
+            'name': f"Client Action",
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Client Action',
+                'message': f"Client Action for {self.name}",
+                'sticky': False,
+                'type': 'success'
+            }
         }
 
     def _compute_best_offer(self):
