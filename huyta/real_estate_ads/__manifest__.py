@@ -40,6 +40,7 @@
     'demo': [
         'demo/property.xml',
     ],
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
 }

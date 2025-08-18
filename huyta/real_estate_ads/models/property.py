@@ -18,7 +18,7 @@ class Property(models.Model):
     postcode = fields.Integer(string="Postcode")
     date_availability = fields.Date(string="Available From")
     expected_price = fields.Float(string="Expected Price", tracking=True)
-    best_offer = fields.Float(string="Best Offer", compute="_compute_best_offer")
+    best_offer = fields.Float(string="Best Offer", compute="_compute_best_offer", default=0.0, store=True)
     selling_price = fields.Float(string="Selling Price", readonly=True)
     bedrooms = fields.Integer(string="Bedrooms")
     living_area = fields.Integer(string="Living Area")
@@ -34,7 +34,7 @@ class Property(models.Model):
         ('accepted', "Accepted"),
         ('sold', "Sold"),
         ('canceled', "Canceled")
-    ], default='new')
+    ], default='new', group_expand='_group_expand_states', string="Status", tracking=True)
     buyer_id = fields.Many2one('res.partner', string="Buyer", domain=[('is_company','=',True)])
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
@@ -105,11 +105,14 @@ class Property(models.Model):
         }
 
     def _compute_best_offer(self):
-        if self.offer_ids:
-            # self.best_offer = max(self.offer_ids, key=lambda x: x.price).price
-            # self.best_offer = max(self.offer_ids.mapped('price'))
-            max_offer = max(self.offer_ids, key=lambda x: x.price)
-            self.best_offer =  max_offer.price
+        for record in self:
+            if self.offer_ids:
+                # self.best_offer = max(self.offer_ids, key=lambda x: x.price).price
+                # self.best_offer = max(self.offer_ids.mapped('price'))
+                max_offer = max(self.offer_ids, key=lambda x: x.price)
+                self.best_offer = max_offer.price
+            else:
+                self.best_offer = 0.0
 
     def _get_report_base_filename(self):
         self.ensure_one()
@@ -127,7 +130,8 @@ class Property(models.Model):
 
     # Collect all partner emails from offer_ids and return as CSV string
     def _get_emails(self):
-        
+        emails_test = self.mapped('offer_ids').mapped('partner_email')
+        _logger.info(f"Emails Test: {emails_test}")
         # Lấy email từ offer_ids
         emails = self.offer_ids.mapped('partner_email')
         # Duyệt toàn bộ emails.
@@ -141,3 +145,8 @@ class Property(models.Model):
         email_str = ','.join(clean_emails)
         _logger.info("Emails for template: %s", email_str)
         return email_str
+
+    def _group_expand_states(self, states, domain, order=None):
+        return [
+            key for key, dummy in type(self).state.selection
+        ]
