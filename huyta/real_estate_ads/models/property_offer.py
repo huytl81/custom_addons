@@ -34,6 +34,7 @@ class PropertyOffer(models.Model):
     deadline = fields.Date(string='Deadline', compute="_compute_deadline", inverse="_inverse_deadline")
     state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('pending', 'Pending'),], string='Status', default='pending')
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
+    partner_email = fields.Char(string="Email", related="partner_id.email")
     property_id = fields.Many2one("estate.property", string="Property", required=True)
 
     # _sql_constraints = [('check_validity', 'check(validity > 0)', 'Validity cannot be negative')]
@@ -87,7 +88,7 @@ class PropertyOffer(models.Model):
         if self.state != 'refused':
             self.state = 'refused'
             if self.property_id:
-            # if all(self.property_id.property_offer_ids.mapped('state')):
+            # if all(self.property_id.offer_ids.mapped('state')):
                 self.property_id.update({
                     'state': 'received',
                     'selling_price': 0
@@ -153,3 +154,19 @@ class PropertyOffer(models.Model):
     #     print(res_partner_ids_filtered.mapped('name'))
 
     #     return super(PropertyOffer, self).write(vals)
+
+    def extend_offer_deadline(self):
+        active_ids = self.env.context.get('active_ids', [])
+        print("active_ids: ", active_ids)
+        if active_ids:
+            offers = self.env['estate.property.offer'].browse(active_ids)
+            if offers:
+                for offer in offers:
+                    offer.validity = 10
+
+    def _extend_offer_deadline(self):
+        """Extend the offer deadline by 1 day for all active offers."""
+        offers = self.search([])
+        for offer in offers:
+            if offer.validity:
+                offer.validity += 1

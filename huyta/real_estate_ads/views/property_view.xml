@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- Action Server for Cancel Button -->
     <record id="action_cancel" model="ir.actions.server">
         <field name="name">Cancel</field>
         <field name="model_id" ref="model_estate_property"/>
         <field name="binding_model_id" ref="model_estate_property"/>
         <field name="state">code</field>
         <field name="code">
-            action = records.action_cancel()
+            records.action_cancel()
         </field>
     </record>
 
-    <record id="action_property_view_offers" model="ir.actions.act_window">
+    <record id="action_view_offers" model="ir.actions.act_window">
         <field name="name">Property Offers</field>
         <field name="res_model">estate.property.offer</field>
         <field name="view_mode">list,form</field>
@@ -25,7 +24,7 @@
         <field name="arch" type="xml">
             <list string="Estate Property List">
                 <field name="name" string="Property Name"/>
-                <field name="property_type_id" string="Property Type"/>
+                <field name="type_id" string="Property Type"/>
                 <field name="postcode" string="Postcode"/>
                 <field name="date_availability" string="Available From"/>
                 <field name="expected_price" string="Expected Price"/>
@@ -53,25 +52,28 @@
                     <button name="action_accept" type="object" string="Accept" class="btn-warning"/>
                     <button name="action_sold" type="object" string="Sold" class="btn-success"/>
                     <button name="%(real_estate_ads.action_cancel)d" type="action" string="Cancel" class="btn-danger"/>
+                    <button name="action_send_email" type="object" string="Send Email" class="btn-cancel"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <!-- <button class="oe_stat_button" name="%(real_estate_ads.action_property_view_offers)d" type="action">
+                        <!-- <button class="oe_stat_button" name="%(real_estate_ads.action_view_offers)d" type="action">
                             <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>
                         </button> -->
-                        <button class="btn-secondary" name="action_property_view_offers" type="object" icon="fa-handshake-o">
+                        <button class="btn-secondary" name="action_view_offers" type="object" icon="fa-handshake-o">
                             <field name="offer_count" string="" widget="statinfo" style="padding-left:5px;"/>Offer(s)
                         </button>
-                        <button class="btn-secondary" name="action_property_client_action" type="object">
-                            <field name="client_action" string="Client Action" widget="selection_badge"/>Client Action
+                        <button class="btn-secondary" name="website_publish_button" type="object" icon="fa-globe">
+                            <field name="is_published" string="" widget="website_publish_button"/>
                         </button>
+                        <button name="action_client_action" string="Client Action" type="object" class="btn-secondary" />
+                        <button name="action_url_action" string="URL Action" type="object" class="btn-secondary"/>
                     </div>
                     <group>
                         <field name="name" string="Property Name" widget="char_emojis" placeholder="Enter the property name"/>
-                        <field name="property_tag_ids" string="Property Tag" widget="many2many_tags" options="{'color_field': 'color'}" help="Select one or more tags to categorize this property."/>
-                        <!-- <field name="property_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/> -->
+                        <field name="tag_ids" string="Property Tag" widget="many2many_tags" options="{'color_field': 'color'}" help="Select one or more tags to categorize this property."/>
+                        <!-- <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/> -->
                         <group>
-                            <field name="property_type_id" string="Property Type"/>
+                            <field name="type_id" string="Property Type"/>
                             <field name="postcode" string="Postcode"/>
                             <field name="date_availability" string="Available From"/>
                         </group>
@@ -97,7 +99,7 @@
                         </page>
                         <page string="Offers">
                             <group>
-                                <field name="property_offer_ids">
+                                <field name="offer_ids">
                                     <list string="Property Offers" editable="bottom"
                                             decoration-danger="state == 'refused'" 
                                             decoration-warning="state == 'pending'" 
@@ -120,8 +122,12 @@
                         <page string="Other Info">
                             <group>
                                 <field name="buyer_id"/>
+                                <field name="campaign_id"/>
+                                <field name="source_id"/>
+                                <field name="medium_id"/>
                                 <field name="buyer_phone" widget="phone"/>
                                 <field name="seller_id" widget="many2one_avatar_user"/>
+                                <field name="website_url"/>
                             </group>
                         </page>
                     </notebook>
@@ -181,7 +187,7 @@
                             <div class="d-flex flex-wrap gap-1 text-muted text-nowrap">
                                 <field name="selling_price" class="fw-bolder fs-5 me-2"/><br/>
                                 <field name="offer_count"/> Offer(s) <br/>
-                                <field name="property_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             </div>
                         </footer>
                     </t>
@@ -255,14 +261,14 @@
         </field>
     </record>
 
-    <record id="action_property_client_action" model="ir.actions.client">
+    <record id="action_custom_tag_client_action" model="ir.actions.client">
         <field name="name">Property Client Action</field>
-        <field name="tag">client_custom_tag</field>
+        <field name="tag">my_custom_tag</field>
     </record>
 
     <menuitem id="estate_menu_root" name="Estate" web_icon="real_estate_ads,static/description/icon.png" sequence="10"/>
     <menuitem id="estate_menu_ads" name="Advertising" parent="estate_menu_root"/>
     <menuitem id="estate_property_settings" name="Settings" parent="estate_menu_root" groups="group_estate_property_manager" sequence="10"/>
     <menuitem id="estate_menu_property" name="Property" parent="estate_menu_ads" action="action_property"/>
-    <menuitem id="estate_property_client_action" name="Client Action" parent="estate_property_settings" action="action_property_client_action"/>
+    <menuitem id="estate_property_custom_tag_client_action" name="Custom TagClient Action" parent="estate_property_settings" action="action_custom_tag_client_action"/>
 </odoo>

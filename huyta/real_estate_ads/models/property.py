@@ -1,20 +1,23 @@
+import logging
 from odoo import models, fields, api
 from random import randint
+
+_logger = logging.getLogger(__name__)
 
 
 class Property(models.Model):
     _name = 'estate.property'
     _description = 'Estate Property'
-    _inherit = ['mail.thread', 'mail.activity.mixin'] 
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'utm.mixin', 'website.published.mixin','website.seo.metadata']
 
     name = fields.Char(string="Property Name", required=True)
     description = fields.Text(string="Description")
-    property_type_id = fields.Many2one('estate.property.type', string="Property Type", required=True)
-    property_tag_ids = fields.Many2many('estate.property.tag', string="Property Tags")
-    property_offer_ids = fields.One2many('estate.property.offer','property_id', string="Property Offers")
+    type_id = fields.Many2one('estate.property.type', string="Property Type", required=True)
+    tag_ids = fields.Many2many('estate.property.tag', string="Property Tags")
+    offer_ids = fields.One2many('estate.property.offer','property_id', string="Property Offers")
     postcode = fields.Integer(string="Postcode")
     date_availability = fields.Date(string="Available From")
-    expected_price = fields.Float(string="Expected Price")
+    expected_price = fields.Float(string="Expected Price", tracking=True)
     best_offer = fields.Float(string="Best Offer", compute="_compute_best_offer")
     selling_price = fields.Float(string="Selling Price", readonly=True)
     bedrooms = fields.Integer(string="Bedrooms")
@@ -36,7 +39,6 @@ class Property(models.Model):
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
-    client_action = fields.Char(string='Client Action')
 
     # Su dung compute field  
     # total_area = fields.Integer(string="Total Area", compute="_compute_total_area")
@@ -48,10 +50,10 @@ class Property(models.Model):
     #   for rec in self:
     #       rec.total_area = rec.living_area + rec.garden_area
     
-    @api.depends('property_offer_ids')
+    @api.depends('offer_ids')
     def _compute_offer_count(self):
         for rec in self:
-            rec.offer_count = len(rec.property_offer_ids)
+            rec.offer_count = len(rec.offer_ids)
     
     @api.onchange('living_area','garden_area')
     def _onchange_total_area(self):
@@ -73,7 +75,7 @@ class Property(models.Model):
         for rec in self:
             rec.state = 'canceled'
             
-    def action_property_view_offers(self):
+    def action_view_offers(self):
         return {
             'type': 'ir.actions.act_window',
             'name': f"{self.name} - Offers",
@@ -82,7 +84,7 @@ class Property(models.Model):
             'domain': [('property_id','=', self.id)]
         }
 
-    def action_property_client_action(self):
+    def action_client_action(self):
         return {
             'type': 'ir.actions.client',
             'name': f"Client Action",
@@ -95,9 +97,47 @@ class Property(models.Model):
             }
         }
 
+    def action_url_action(self):
+        return{
+            'type': 'ir.actions.act_url',
+            'url': 'https://www.odoo.com',
+            'target': 'new'
+        }
+
     def _compute_best_offer(self):
-        if self.property_offer_ids:
-            # self.best_offer = max(self.property_offer_ids, key=lambda x: x.price).price
-            # self.best_offer = max(self.property_offer_ids.mapped('price'))
-            max_offer = max(self.property_offer_ids, key=lambda x: x.price)
+        if self.offer_ids:
+            # self.best_offer = max(self.offer_ids, key=lambda x: x.price).price
+            # self.best_offer = max(self.offer_ids.mapped('price'))
+            max_offer = max(self.offer_ids, key=lambda x: x.price)
             self.best_offer =  max_offer.price
+
+    def _get_report_base_filename(self):
+        self.ensure_one()
+        return "Estate Property - %s" % self.name
+
+    def _compute_website_url(self):
+        for rec in self:
+            # rec.website_url = f"/property/%s" % rec.id
+            rec.website_url = f"/property/{rec.id}"
+
+    def action_send_email(self):
+        mail_template = self.env.ref('real_estate_ads.offer_mail_template')
+        if mail_template:
+            mail_template.send_mail(self.id, force_send=True)
+
+    # Collect all partner emails from offer_ids and return as CSV string
+    def _get_emails(self):
+        
+        # Lấy email từ offer_ids
+        emails = self.offer_ids.mapped('partner_email')
+        # Duyệt toàn bộ emails.
+        # Bỏ qua email rỗng hoặc None.
+        # Cắt khoảng trắng thừa.
+        # Cho vào set để loại bỏ trùng lặp.
+        # Ép về list để join thành chuỗi sau này.
+        clean_emails = list({e.strip() for e in emails if e and e.strip()})
+
+        # Ghép thành string
+        email_str = ','.join(clean_emails)
+        _logger.info("Emails for template: %s", email_str)
+        return email_str

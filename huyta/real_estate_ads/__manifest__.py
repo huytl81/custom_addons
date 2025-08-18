@@ -4,7 +4,7 @@
     'category': 'Real Estate',
     'summary': 'Manage real estate properties and ads',
     'author': 'Huy Ta',
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'mail','website'],
     'data': [
         # Security
         # Access rules
@@ -19,11 +19,16 @@
         'views/property_offer_view.xml',
         'views/property_type_view.xml',
         'views/property_tag_view.xml',
+        # Action
+        'views/property_actions.xml',
         # Data files
         'data/property_type.xml',
         'data/estate.property.tag.csv',
+        'data/mail_template.xml',
+        # Report
+        'report/report_template.xml',
+        'report/property_report.xml',
     ],
-
     # Assets
     'assets': {
         'web.assets_backend': [
@@ -31,7 +36,7 @@
             'real_estate_ads/static/src/xml/my_custom_tag.xml',
         ],
     },
-
+    # Demo
     'demo': [
         'demo/property.xml',
     ],
