@@ -4,7 +4,7 @@
     'category': 'Real Estate',
     'summary': 'Manage real estate properties and ads',
     'author': 'Huy Ta',
-    'depends': ['base', 'mail','website'],
+    'depends': ['base', 'mail','website', 'web'],
     'data': [
         # Security
         # Access rules

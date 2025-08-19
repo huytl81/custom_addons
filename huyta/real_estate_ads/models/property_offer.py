@@ -27,7 +27,7 @@ class PropertyOffer(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin', 'estate.property.offer.abstract']
 
     # name = fields.Char(string="Property Offer", required=True, compute="_compute_display_name")
-    price = fields.Float(string='Price')
+    price = fields.Monetary(string='Price')
     validity = fields.Integer(string='Validity (days)')
     created_date = fields.Date(string='Created Date', default='_set_created_date')
     # created_date = fields.Date(string='Created Date')
@@ -36,6 +36,7 @@ class PropertyOffer(models.Model):
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
     partner_email = fields.Char(string="Email", related="partner_id.email")
     property_id = fields.Many2one("estate.property", string="Property", required=True)
+    currency_id = fields.Many2one('res.currency', string="Currency", default=lambda self: self.env.user.company_id.currency_id)
 
     # _sql_constraints = [('check_validity', 'check(validity > 0)', 'Validity cannot be negative')]
     @api.depends('property_id', 'partner_id')

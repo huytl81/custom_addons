@@ -9,6 +9,7 @@
     """,
     'depends': ['real_estate_ads','base', 'mail'],
     'data': [
+        'views/res_users.xml',
     ],
     'demo': [
     ],

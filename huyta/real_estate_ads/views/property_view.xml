@@ -30,7 +30,8 @@
                 <field name="expected_price" string="Expected Price"/>
                 <field name="best_offer" string="Best Offer"/>
                 <field name="selling_price" string="Selling Price"/>
-                <field name="state" widget="badge" 
+                <field name="currency_id"/>
+                <field name="state" widget="badge"
                     decoration-danger="state == 'new'" 
                     decoration-warning="state == 'received'" 
                     decoration-info="state == 'accepted'" 
@@ -81,6 +82,7 @@
                             <field name="expected_price" string="Expected Price"/>
                             <field name="best_offer" string="Best Offer"/>
                             <field name="selling_price" string="Selling Price"/>
+                            <field name="currency_id" invisible="0"/>
                         </group>
                     </group>
                     <notebook>
@@ -105,6 +107,7 @@
                                             decoration-warning="state == 'pending'" 
                                             decoration-info="state == 'accepted'">
                                         <field name="price" string="Offer Price"/>
+                                        <field name="currency_id"/>
                                         <field name="partner_id" string="Partner"/>
                                         <field name="state" string="Status" widget="badge"
                                                 decoration-danger="state == 'refused'" 
@@ -117,6 +120,14 @@
                                         <button name="action_refuse" string="Refuse" type="object" icon="fa-times"/>
                                     </list>
                                 </field>
+                            </group>
+                        </page>
+                        <page string="Website SEO">
+                            <group>
+                                <field name="website_meta_title"/>
+                                <field name="website_meta_description"/>
+                                <field name="website_meta_keywords"/>
+                                <field name="website_meta_og_img" widget="image"/>
                             </group>
                         </page>
                         <page string="Other Info">

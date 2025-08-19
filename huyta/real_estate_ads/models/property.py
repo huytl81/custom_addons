@@ -17,9 +17,10 @@ class Property(models.Model):
     offer_ids = fields.One2many('estate.property.offer','property_id', string="Property Offers")
     postcode = fields.Integer(string="Postcode")
     date_availability = fields.Date(string="Available From")
-    expected_price = fields.Float(string="Expected Price", tracking=True)
-    best_offer = fields.Float(string="Best Offer", compute="_compute_best_offer", default=0.0, store=True)
-    selling_price = fields.Float(string="Selling Price", readonly=True)
+    expected_price = fields.Monetary(string="Expected Price", tracking=True)
+    best_offer = fields.Monetary(string="Best Offer", compute="_compute_best_offer", default=0.0, store=True)
+    selling_price = fields.Monetary(string="Selling Price", readonly=True)
+    currency_id = fields.Many2one('res.currency', string="Currency", default=lambda self: self.env.user.company_id.currency_id)
     bedrooms = fields.Integer(string="Bedrooms")
     living_area = fields.Integer(string="Living Area")
     facades = fields.Integer(string="Facades")
@@ -119,9 +120,9 @@ class Property(models.Model):
         return "Estate Property - %s" % self.name
 
     def _compute_website_url(self):
-        for rec in self:
+        for record in self:
             # rec.website_url = f"/property/%s" % rec.id
-            rec.website_url = f"/property/{rec.id}"
+            record.website_url = f"/property/{record.id}"
 
     def action_send_email(self):
         mail_template = self.env.ref('real_estate_ads.offer_mail_template')
