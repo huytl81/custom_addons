@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <template id="book_list_extended" name="Book List Extended" inherit_id="library_app.book_list_template">
+            <xpath expr="//span[@t-field='book.state']" position="replace">
+                <t t-if="not book.is_available">
+                    <b>Not Available</b>
+                </t>
+                <t t-elif="book.is_available">
+                    <b>Available</b>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">Configuration: add Library options</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="5"/>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[hasclass('oe_form_configuration')]" position="inside">
+                <div class="app_settings_block" data-string="Library" string="Library" data-key="library_app">
+                    <h2>Library</h2>
+                    <div class="row mt16 o_settings_container">
+                        <!-- Release Dates option -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_release_dates" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_release_dates"/>
+                                <div class="text-muted">
+                                    Enable release date feature on books
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Release Dates option -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_project_todo" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_project_todo"/>
+                                <div class="text-muted">
+                                    Install note module
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Self borrow option -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_self_borrow"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_self_borrow"/>
+                                <div class="text-muted">
+                                    Allow users to borrow and return books by them self.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+            <!--<xpath expr="//form[hasclass('oe_form_configuration')]" position="inside">
+                <div class="app_settings_block" data-string="Library" string="Library" data-key="library_app">
+                    <h2>Library</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="library">
+                            <div class="o_setting_left_pane">
+                                <field name="group_self_borrow"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_self_borrow"/>
+                                <div class="text-muted">
+                                    Allow users to borrow and return books by them self.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>-->
+        </field>
+    </record>
+
+    <!--<record id="library_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'library_app'}</field>
+    </record>
+
+    <menuitem name="Settings" id="library_book_setting_menu" parent="library_base_menu" action="library_config_settings_action" sequence="50"/>-->
+
+</odoo>

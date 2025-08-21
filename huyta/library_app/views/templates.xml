@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_end" inherit_id="web.layout">
+        <xpath expr="." position="inside">
+            <script src="/library_app/static/src/js/component.js" type="text/javascript" />
+            <!--<script type="text/javascript" src="/library_app/static/src/js/m2m_group_view.js" />
+            <script type="text/javascript" src="/library_app/static/src/js/m2m_group_model.js" />
+            <script type="text/javascript" src="/library_app/static/src/js/m2m_group_controller.js" />
+            <script type="text/javascript" src="/library_app/static/src/js/m2m_group_renderer.js" />
+            <script src="/library_app/static/src/js/field_widget.js" type="text/javascript" />
+            <link href="/library_app/static/src/scss/field_widget.scss" rel="stylesheet" type="text/scss" />-->
+        </xpath>
+    </template>
+
+</odoo>
