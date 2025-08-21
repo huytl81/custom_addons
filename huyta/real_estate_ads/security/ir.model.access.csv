@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_property_user,Estate Property User,model_estate_property,group_estate_property_user,1,0,0,0
+access_property_manager,Estate Property Manager,model_estate_property,group_estate_property_manager,1,1,1,1
+access_property_offer_user,Estate Property Offer User,model_estate_property_offer,group_estate_property_user,1,0,0,0
+access_property_offer_manager,Estate Property Offer Manager,model_estate_property_offer,group_estate_property_manager,1,1,1,1

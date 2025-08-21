@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<odoo>
+	<data noupdate="0">
+		<record id="property_type_house" model="estate.property.type">
+			<field name="name">House</field>
+		</record>
+		<record id="property_type_apartment" model="estate.property.type">
+			<field name="name">Apartment</field>
+		</record>
+		<record id="property_type_office" model="estate.property.type">
+			<field name="name">Office</field>
+		</record>
+		<record id="property_type_castle" model="estate.property.type">
+			<field name="name">Castle</field>
+		</record>
+		<record id="property_type_flat" model="estate.property.type">
+			<field name="name">Flat</field>
+		</record>
+		<record id="property_type_villa" model="estate.property.type">
+			<field name="name">Villas</field>
+		</record>
+		<record id="property_type_homestay" model="estate.property.type">
+			<field name="name">Homestay</field>
+		</record>
+		<record id="property_type_bungalow" model="estate.property.type">
+			<field name="name">Bungalow</field>
+		</record>
+	</data>
+</odoo>

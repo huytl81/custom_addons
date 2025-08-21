@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<odoo>
+    <record id="view_property_tag_list" model="ir.ui.view">
+        <field name="name">estate.property.tag.list</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_property_tag_form" model="ir.ui.view">
+        <field name="name">estate.property.tag.form</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </sheet>
+                <!-- Discuss widgets -->
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_property_tag" model="ir.actions.act_window">
+        <field name="name">Property Tags</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_property_tag" name="Property Tags" parent="estate_property_settings" action="action_property_tag" sequence="20"/>
+</odoo>

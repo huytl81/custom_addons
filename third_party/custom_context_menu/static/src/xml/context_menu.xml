@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ContextMenu" owl="1">
+      <div id="context_menu">
+          <a t-on-mouseenter="(ev) => this.openSubmenu(ev, true)" t-foreach="props.items" t-as="item" t-key="item.id"
+             role="menuitem" t-attf-href="{{item.actionID ? this.prepareUrl(item) : false}}">
+            <span t-esc="item.name"/>
+            <i class="fa fa-angle-right menu_arrow" t-if="item.childrenTree and item.childrenTree.length"/>
+            <ContextMenu items="item.childrenTree" t-if="item.childrenTree and item.childrenTree.length"/>
+          </a>
+      </div>
+    </t>
+</templates>

@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_res_users_user,Access Res Users for Access User,base.model_res_users,hide_show_chatter.group_access_user,1,0,0,0
-access_res_users_manager,Access Res Users for Access Manager,base.model_res_users,hide_show_chatter.group_access_manager,1,1,1,0
-access_res_users_admin,Access Res Users for System Admin,base.model_res_users,base.group_system,1,1,1,1

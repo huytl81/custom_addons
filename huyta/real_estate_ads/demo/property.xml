@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record id="property_house" model="estate.property">
+			<field name="name">My House</field>
+			<field name="type_id" ref="property_type_house"></field>
+		</record>
+		<record id="property_villa" model="estate.property">
+			<field name="name">My Villa</field>
+			<field name="type_id" ref="property_type_villa"></field>
+		</record>
+		<record id="property_office" model="estate.property">
+			<field name="name">My Office</field>
+			<field name="type_id" ref="property_type_office"></field>
+		</record>
+	</data>
+</odoo>

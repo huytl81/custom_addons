@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <!-- Club List View-->
+    <record id='club_list_view' model='ir.ui.view'>
+        <field name='name'>Club list view</field>
+        <field name='model'>club</field>
+        <field name='arch' type='xml'>
+            <list string='Club List'>
+                <field name='name'/>
+                <field name='clubInfo'/>
+                <field name='player_ids' widget='many2many_tags' />   
+            </list>
+        </field>
+    </record>
+
+    <!-- Club Form View-->
+    <record id='club_form_view' model='ir.ui.view'>
+        <field name='name'>Club Form View</field>
+        <field name='model'>club</field>
+        <field name='arch' type='xml'>
+            <form string='Club Form'>
+                <field name="name"/>
+                <field name="clubInfo"/>
+                <field name="player_ids" widget="many2many_tags" />
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="club_action" model="ir.actions.act_window">
+        <field name="name">Clubs</field>
+        <field name="res_model">club</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="manager_menu" name="Football Manager" sequence="1" web_icon="mountaincode,static/description/icon.png"/>
+    <menuitem id="club_menu" name="Clubs" parent="manager_menu" action="club_action" sequence="1"/>
+</odoo>

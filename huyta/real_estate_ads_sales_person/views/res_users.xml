@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="res_users_extended_form_view" model="ir.ui.view">
+            <field name="name">Res Users Extended Form View</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='preferences']" position="after">
+            <!--<xpath expr="//notebook/page[last()]" position="after">-->
+            <!--<xpath expr="//notebook/page[hasclass('btn btn-primary')]" position="after">-->
+                    <page string="Properties">
+                        <field name="property_ids">
+                            <list create="0" edit="0" delete="0">
+                                <field name="name"/>
+                                <field name="type_id"/>
+                                <field name="postcode"/>
+                                <field name="date_availability"/>
+                                <field name="expected_price"/>
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+                <field name="name" position="after">
+                    <field name="offer_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
