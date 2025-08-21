@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_supply_req_user,supply.req.user,model_vtt_supply_request,stock.group_stock_user,1,1,1,1
-access_supply_req_line_user,supply.req.line.user,model_vtt_supply_request_line,stock.group_stock_user,1,1,1,1
