@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<templates xml:space="preserve">
+<templates>
     <t t-name="my_custom_tag_template">
         <div class="o_my_custom_action">
             <h1>Hello from My Custom Action (Odoo 18 OWL)</h1>

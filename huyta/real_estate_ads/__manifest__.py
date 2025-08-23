@@ -19,6 +19,7 @@
         'views/property_offer_view.xml',
         'views/property_type_view.xml',
         'views/property_tag_view.xml',
+        'views/property_web_template.xml',
         # Action
         'views/property_actions.xml',
         # Data files

@@ -1,6 +1,6 @@
 import logging
+
 from odoo import models, fields, api
-from random import randint
 
 _logger = logging.getLogger(__name__)
 
@@ -28,37 +28,34 @@ class Property(models.Model):
     garden = fields.Boolean(string="Garden")
     garden_area = fields.Integer(string="Garden Area")
     garden_orientation = fields.Selection([('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')], string="Garden Orientation")
-    total_area = fields.Integer(string="Total Area")
-    state = fields.Selection([
-        ('new', "New"),
-        ('received', "Received"),
-        ('accepted', "Accepted"),
-        ('sold', "Sold"),
-        ('canceled', "Canceled")
-    ], default='new', group_expand='_group_expand_states', string="Status", tracking=True)
+    state = fields.Selection([('new', "New"),('received', "Received"),('accepted', "Accepted"),('sold', "Sold"),('canceled', "Canceled")], default='new', group_expand='_group_expand_states', string="Status", tracking=True)
     buyer_id = fields.Many2one('res.partner', string="Buyer", domain=[('is_company','=',True)])
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
-
+    # Su dung onchange field
+    total_area = fields.Integer(string="Total Area")
     # Su dung compute field  
     # total_area = fields.Integer(string="Total Area", compute="_compute_total_area")
-    # Su dung onchang field
-    total_area = fields.Integer(string="Total Area")
-    
+
     #@api.depends('living_area','garden_area')
     #def _compute_total_area(self):
-    #   for rec in self:
-    #       rec.total_area = rec.living_area + rec.garden_area
-    
-    @api.depends('offer_ids')
-    def _compute_offer_count(self):
-        for rec in self:
-            rec.offer_count = len(rec.offer_ids)
-    
-    @api.onchange('living_area','garden_area')
+    #   for record in self:
+    #       record.total_area = record.living_area + record.garden_area
+
+    @api.onchange('living_area', 'garden_area')
     def _onchange_total_area(self):
         self.total_area = self.living_area + self.garden_area
+
+    @api.depends('offer_ids')
+    def _compute_offer_count(self):
+        for record in self:
+            record.offer_count = len(record.offer_ids)
+
+    def _group_expand_states(self, states, domain, order=None):
+        return [
+            key for key, dummy in type(self).state.selection
+        ]
 
     def action_receive(self):
         for rec in self:
@@ -75,7 +72,27 @@ class Property(models.Model):
     def action_cancel(self):
         for rec in self:
             rec.state = 'canceled'
-            
+
+    def action_send_email(self):
+        mail_template = self.env.ref('real_estate_ads.offer_mail_template')
+        if mail_template:
+            mail_template.send_mail(self.id, force_send=True)
+
+    # Collect all partner emails from offer_ids and return as CSV string
+    def _get_emails(self):
+        emails_test = self.mapped('offer_ids').mapped('partner_email')
+        _logger.info(f"Emails Test: {emails_test}")
+        # Lấy email từ offer_ids
+        emails = self.offer_ids.mapped('partner_email')
+        _logger.info(f"Emails: {emails}")
+        # Duyệt toàn bộ emails, Bỏ qua email rỗng hoặc None, Cắt khoảng trắng thừa, Cho vào set để loại bỏ trùng lặp.
+        # Ép về list để join thành chuỗi sau này.
+        clean_emails = list({e.strip() for e in emails if e and e.strip()})
+        # Ghép thành string
+        email_str = ','.join(clean_emails)
+        _logger.info("Emails for template: %s", email_str)
+        return email_str
+
     def action_view_offers(self):
         return {
             'type': 'ir.actions.act_window',
@@ -84,6 +101,16 @@ class Property(models.Model):
             'view_mode': 'list,form',
             'domain': [('property_id','=', self.id)]
         }
+
+    # def name_get(self):
+    #     """
+    #     Override to display name in format: [ID] - Name
+    #     """
+    #     result = []
+    #     for record in self:
+    #         name = f'[{record.id}] - {record.name}'
+    #         result.append((record.id, name))
+    #     return result
 
     def action_client_action(self):
         return {
@@ -99,7 +126,7 @@ class Property(models.Model):
         }
 
     def action_url_action(self):
-        return{
+        return {
             'type': 'ir.actions.act_url',
             'url': 'https://www.odoo.com',
             'target': 'new'
@@ -123,31 +150,3 @@ class Property(models.Model):
         for record in self:
             # rec.website_url = f"/property/%s" % rec.id
             record.website_url = f"/property/{record.id}"
-
-    def action_send_email(self):
-        mail_template = self.env.ref('real_estate_ads.offer_mail_template')
-        if mail_template:
-            mail_template.send_mail(self.id, force_send=True)
-
-    # Collect all partner emails from offer_ids and return as CSV string
-    def _get_emails(self):
-        emails_test = self.mapped('offer_ids').mapped('partner_email')
-        _logger.info(f"Emails Test: {emails_test}")
-        # Lấy email từ offer_ids
-        emails = self.offer_ids.mapped('partner_email')
-        # Duyệt toàn bộ emails.
-        # Bỏ qua email rỗng hoặc None.
-        # Cắt khoảng trắng thừa.
-        # Cho vào set để loại bỏ trùng lặp.
-        # Ép về list để join thành chuỗi sau này.
-        clean_emails = list({e.strip() for e in emails if e and e.strip()})
-
-        # Ghép thành string
-        email_str = ','.join(clean_emails)
-        _logger.info("Emails for template: %s", email_str)
-        return email_str
-
-    def _group_expand_states(self, states, domain, order=None):
-        return [
-            key for key, dummy in type(self).state.selection
-        ]
