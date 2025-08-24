@@ -52,14 +52,14 @@
                     <button name="action_receive" type="object" string="Receive" class="btn-info"/>
                     <button name="action_accept" type="object" string="Accept" class="btn-warning"/>
                     <button name="action_sold" type="object" string="Sold" class="btn-success"/>
-                    <button name="%(real_estate_ads.action_cancel)d" type="action" string="Cancel" class="btn-danger"/>
-                    <button name="action_send_email" type="object" string="Send Email" class="btn-cancel"/>
+                    <button name="%(real_estate_ads.action_cancel)d" type="action" string="Cancel" class="btn-primary"/>
+                    <button name="action_send_email" type="object" string="Send Email" class="btn-danger"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <!-- <button class="oe_stat_button" name="%(real_estate_ads.action_view_offers)d" type="action">
-                            <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>
-                        </button> -->
+<!--                        <button class="oe_stat_button" name="%(real_estate_ads.action_view_offers)d" type="action">-->
+<!--                            <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>-->
+<!--                        </button>-->
                         <button class="btn-secondary" name="action_view_offers" type="object" icon="fa-handshake-o">
                             <field name="offer_count" string="" widget="statinfo" style="padding-left:5px;"/>Offer(s)
                         </button>
@@ -67,10 +67,11 @@
                             <field name="is_published" string="" widget="website_publish_button"/>
                         </button>
                         <button name="action_client_action" string="Client Action" type="object" class="btn-secondary" />
-                        <button name="action_url_action" string="URL Action" type="object" class="btn-secondary"/>
+                        <button name="action_url_action" string="Url Action" type="object" class="btn-secondary"/>
                     </div>
                     <group>
                         <field name="name" string="Property Name" widget="char_emojis" placeholder="Enter the property name"/>
+                        <label for="tag_ids"/>
                         <field name="tag_ids" string="Property Tag" widget="many2many_tags" options="{'color_field': 'color'}" help="Select one or more tags to categorize this property."/>
                         <!-- <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/> -->
                         <group>

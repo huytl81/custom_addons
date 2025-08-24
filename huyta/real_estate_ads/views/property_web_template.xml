@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="properties_list" name="Properties">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <h3>Available Properties</h3>
+                </div>
+                <table class="table-striped table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Seller</th>
+                            <th>Property Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="properties" t-as="property">
+                            <tr>
+                                <td><t t-esc="property.name" /></td>
+                                <td><t t-esc="property.seller_id.name" /></td>
+                                <td><t t-esc="property.type_id.name" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -10,4 +10,4 @@ class PropertyTag(models.Model):
         return randint(1, 11)
 
     name = fields.Char(string="Tag Name", required=True)
-    color = fields.Integer(string='Color', default=_get_default_color, aggregator=False)
+    color = fields.Integer(string='Color', default='_get_default_color', aggregator=False)
