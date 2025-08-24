@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 class Property(models.Model):
     _name = 'estate.property'
     _description = 'Estate Property'
-    _inherit = ['mail.thread', 'mail.activity.mixin', 'utm.mixin', 'website.published.mixin','website.seo.metadata']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'utm.mixin', 'website.published.mixin', 'website.seo.metadata']
 
     name = fields.Char(string="Property Name", required=True)
     description = fields.Text(string="Description")
