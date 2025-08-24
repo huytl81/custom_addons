@@ -34,7 +34,7 @@
     'assets': {
         'web.assets_backend': [
             'real_estate_ads/static/src/js/my_custom_tag.js',
-            'real_estate_ads/static/src/xml/my_custom_tag.xml',
+            'real_estate_ads/static/src/xml/my_custom_tag_template.xml',
         ],
     },
     # Demo

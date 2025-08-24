@@ -31,6 +31,7 @@ class Property(models.Model):
     state = fields.Selection([('new', "New"),('received', "Received"),('accepted', "Accepted"),('sold', "Sold"),('canceled', "Canceled")], default='new', group_expand='_group_expand_states', string="Status", tracking=True)
     buyer_id = fields.Many2one('res.partner', string="Buyer", domain=[('is_company','=',True)])
     buyer_phone = fields.Char(string="Phone", related="buyer_id.phone")
+    buyer_email = fields.Char(string="Email", related="buyer_id.email")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
     # Su dung onchange field
@@ -58,20 +59,20 @@ class Property(models.Model):
         ]
 
     def action_receive(self):
-        for rec in self:
-            rec.state ='received'
+        for record in self:
+            record.state ='received'
             
     def action_accept(self):
-        for rec in self:
-            rec.state = 'accepted'
+        for record in self:
+            record.state = 'accepted'
     
     def action_sold(self):
-        for rec in self:
-            rec.state = 'sold'
+        for record in self:
+            record.state = 'sold'
     
     def action_cancel(self):
-        for rec in self:
-            rec.state = 'canceled'
+        for record in self:
+            record.state = 'canceled'
 
     def action_send_email(self):
         mail_template = self.env.ref('real_estate_ads.offer_mail_template')
@@ -132,15 +133,15 @@ class Property(models.Model):
             'target': 'new'
         }
 
+    @api.depends('offer_ids.price')
     def _compute_best_offer(self):
-        for record in self:
-            if self.offer_ids:
-                # self.best_offer = max(self.offer_ids, key=lambda x: x.price).price
-                # self.best_offer = max(self.offer_ids.mapped('price'))
-                max_offer = max(self.offer_ids, key=lambda x: x.price)
-                self.best_offer = max_offer.price
-            else:
-                self.best_offer = 0.0
+        if self.offer_ids:
+            # self.best_offer = max(self.offer_ids, key=lambda x: x.price).price
+            # self.best_offer = max(self.offer_ids.mapped('price'))
+            max_offer = max(self.offer_ids, key=lambda x: x.price)
+            self.best_offer = max_offer.price
+        else:
+            self.best_offer = 0.0
 
     def _get_report_base_filename(self):
         self.ensure_one()

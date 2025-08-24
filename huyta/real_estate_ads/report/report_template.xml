@@ -27,15 +27,15 @@
                         <div id="price_information" class="row mt-4 mb-4">
                             <div class="col-auto col-3">
                                 <strong>Expected Price</strong>
-                                <p class="m-0" t-field="doc.type_id"/>
+                                <p class="m-0" t-field="doc.expected_price"/>
                             </div>
                             <div class="col-auto col-3">
                                 <strong>Best Offer</strong>
-                                <p class="m-0" t-field="doc.postcode"/>
+                                <p class="m-0" t-field="doc.best_offer"/>
                             </div>
                             <div class="col-auto col-3">
                                 <strong>Selling Price:</strong>
-                                <p class="m-0" t-field="doc.date_availability"/>
+                                <p class="m-0" t-field="doc.selling_price"/>
                             </div>
                         </div>
 

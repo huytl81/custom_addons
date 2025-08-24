@@ -57,9 +57,9 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-<!--                        <button class="oe_stat_button" name="%(real_estate_ads.action_view_offers)d" type="action">-->
-<!--                            <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>-->
-<!--                        </button>-->
+                        <!--<button class="oe_stat_button" name="%(real_estate_ads.action_view_offers)d" type="action">
+                            <field name="offer_count" string="Offers" widget="statinfo" icon="fa-gavel"/>
+                        </button>-->
                         <button class="btn-secondary" name="action_view_offers" type="object" icon="fa-handshake-o">
                             <field name="offer_count" string="" widget="statinfo" style="padding-left:5px;"/>Offer(s)
                         </button>
@@ -97,22 +97,22 @@
                                 <field name="garden" string="Garden"/>
                                 <field name="garden_orientation" string="Garden Orientation" widget="radio" orientation="vertical" invisible="garden==False"/>
                                 <field name="garden_area" string="Garden Area (sqm)" invisible="garden==False"/>
-                                <field name="total_area" string="Total Area (sqm)" readonly="false"/>
+                                <field name="total_area" string="Total Area (sqm)" readonly="True"/>
                             </group>
                         </page>
                         <page string="Offers">
                             <group>
                                 <field name="offer_ids">
                                     <list string="Property Offers" editable="bottom"
-                                            decoration-danger="state == 'refused'" 
-                                            decoration-warning="state == 'pending'" 
+                                            decoration-danger="state == 'refused'"
+                                            decoration-warning="state == 'pending'"
                                             decoration-info="state == 'accepted'">
                                         <field name="price" string="Offer Price"/>
                                         <field name="currency_id"/>
                                         <field name="partner_id" string="Partner"/>
                                         <field name="state" string="Status" widget="badge"
-                                                decoration-danger="state == 'refused'" 
-                                                decoration-warning="state == 'pending'" 
+                                                decoration-danger="state == 'refused'"
+                                                decoration-warning="state == 'pending'"
                                                 decoration-info="state == 'accepted'"/>
                                         <field name="validity" string="Validity"/>
                                         <field name="created_date" string="Created Date"/>
@@ -129,17 +129,18 @@
                                 <field name="website_meta_description"/>
                                 <field name="website_meta_keywords"/>
                                 <field name="website_meta_og_img" widget="image"/>
+                                <field name="website_url"/>
                             </group>
                         </page>
                         <page string="Other Info">
                             <group>
                                 <field name="buyer_id"/>
+                                <field name="buyer_phone" widget="phone"/>
+                                <field name="buyer_email" widget="email"/>
+                                <field name="seller_id" widget="many2one_avatar_user"/>
                                 <field name="campaign_id"/>
                                 <field name="source_id"/>
                                 <field name="medium_id"/>
-                                <field name="buyer_phone" widget="phone"/>
-                                <field name="seller_id" widget="many2one_avatar_user"/>
-                                <field name="website_url"/>
                             </group>
                         </page>
                     </notebook>
@@ -176,6 +177,7 @@
                 <searchpanel>
                     <!-- Filter to allow users to filter records by their state -->
                     <field name="state" icon="fa-filter" string="State" select="multi"/>
+                    <field name="buyer_id"/>
                 </searchpanel>
             </search>
         </field>
@@ -192,7 +194,7 @@
                         <header class="o_kanban_header"/>
                         <content class="o_kanban_content">
                             <div class="d-flex align-items-baseline mb-2">
-                                <field name="name" class="fw-bolder fs-5 me-2"/>
+                                 <field name="name" class="fw-bolder fs-5 me-2"/>
                             </div>
                         </content>
                         <footer class="align-items-end">
@@ -282,5 +284,5 @@
     <menuitem id="estate_menu_ads" name="Advertising" parent="estate_menu_root"/>
     <menuitem id="estate_property_settings" name="Settings" parent="estate_menu_root" groups="group_estate_property_manager" sequence="10"/>
     <menuitem id="estate_menu_property" name="Property" parent="estate_menu_ads" action="action_property"/>
-    <menuitem id="estate_property_custom_tag_client_action" name="Custom TagClient Action" parent="estate_property_settings" action="action_custom_tag_client_action"/>
+    <menuitem id="estate_property_custom_tag_client_action" name="Custom Tag Client Action" parent="estate_property_settings" action="action_custom_tag_client_action"/>
 </odoo>
