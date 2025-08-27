@@ -125,11 +125,13 @@ class Property(models.Model):
                 'type': 'success'
             }
         }
-
+    #@staticmethod
     def action_url_action(self):
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        _logger.info(f"base url: {base_url}")
         return {
             'type': 'ir.actions.act_url',
-            'url': 'https://www.odoo.com',
+            'url': base_url,
             'target': 'new'
         }
 
@@ -149,5 +151,5 @@ class Property(models.Model):
 
     def _compute_website_url(self):
         for record in self:
-            # rec.website_url = f"/property/%s" % rec.id
+            # rec.website_url = f"/property/%s" % record.id
             record.website_url = f"/property/{record.id}"

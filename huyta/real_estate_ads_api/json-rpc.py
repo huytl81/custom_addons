@@ -2,6 +2,7 @@ import urllib.request
 import random
 import json
 
+
 url= 'http://localhost:8069'
 username='admin'
 password='admin'
@@ -43,3 +44,6 @@ vals = {
 
 property_read_id = call(url, "object", "execute", db, authenticated_id, password, "estate.property", "read", [14])
 print("read function:", property_read_id)
+
+property_read_group_ids = call(url, "object", "execute", db, authenticated_id, password, "estate.property", "read_group", [['selling_price', '>' , 0]],  ['type_id', 'selling_price:sum'], ['type_id'])
+print("read group function:", property_read_group_ids)

@@ -17,7 +17,7 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button name="create_dog" type="object" string="Create" class="highlight"></button>
+                    <button name="create_dog" type="object" string="Create" class="highlight"/>
                 </footer>
             </form>
         </field>

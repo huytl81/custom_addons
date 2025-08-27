@@ -11,7 +11,7 @@ class Dog(models.Model):
     father_cv = fields.Binary(string='Father CV', attachment=True)
     mother_cv = fields.Binary(string='Father CV', attachment=False)
     others = fields.Text(string='Other info')
-    gender = fields.Selection(selection_add=[('undefined', 'Undefined'),('male',)], ondelete={'undefined': 'set null'})
+
 
     def _sound(self):
         super(Dog, self)._sound()

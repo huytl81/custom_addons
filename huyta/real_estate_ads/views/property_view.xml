@@ -188,7 +188,7 @@
         <field name="name">Property Kanban View</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban" default_group_by="state" quick_create="1" on_create="quick_create" quick_create_view="real_estate_ads.estate_property_quick_create_form_view">
+            <kanban class="o_kanban" default_group_by="state" quick_create="1" on_create="quick_create" quick_create_view="real_estate_ads.estate_property_quick_create_form_view" records_draggable="1">
                 <progressbar field="state" colors='{"sold": "success", "received": "warning", "accepted": "danger"}'/>
                 <templates>
                     <t t-name="card">

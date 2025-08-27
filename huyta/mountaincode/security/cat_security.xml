@@ -25,10 +25,10 @@
             <field name="name">Cat Rules</field>
             <field name="model_id" ref="model_cat" />
             <field name="domain_force">[('age','>=',0 )]</field>
-            <field name="perm_read">False</field>
-            <field name="perm_write">False</field>
-            <field name="perm_create">False</field>
-            <field name="perm_unlink">True</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
         </record>
     </data>
 

@@ -6,12 +6,12 @@ class Cat(models.Model):
     _description = 'Cat Model'
     _inherit = 'animal'
 
-    description = fields.Html(string='Description', required=False)
-    #gender = fields.Selection(selection_add=[('undefined', 'Undefined'),('male',)], ondelete={'undefined': 'set null'})
+    description = fields.Html(string='Description', required=False, sanitize_tags=False)
+    gender = fields.Selection(selection_add=[('undefined', 'Undefined'), ('unknown', 'UnKnown')], default='male', ondelete={'undefined': 'cascade'})
     player_ids = fields.Many2many(string='Owner', comodel_name='player')
 
-    def _sound(self):
-        super(Cat, self)._sound()
+    def sound(self):
+        super(Cat, self).sound()
         return "Meow meow..."
 
 

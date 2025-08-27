@@ -31,7 +31,7 @@ class Hostel(models.Model):
     other_info = fields.Text("Other Information", translate=True, help="Enter more information")
     description = fields.Html('Description', translate=True)
     #hostel_rating = fields.Float('Hostel Average Rating',digits=(14, 4)) # Method 1: Optional precision (total,decimals)
-    hostel_rating = fields.Float('Hostel Average Rating', digits = 'Rating Value')  # Method 2
+    hostel_rating = fields.Float('Hostel Average Rating', digits = 'Custom Rating Value')  # Method 2
     hostel_room_ids = fields.One2many('hostel.room', inverse_name='hostel_id', string="Rooms")
     ref_doc_id = fields.Reference(selection='_referencable_models', string='Reference Document')
 

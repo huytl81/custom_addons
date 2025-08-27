@@ -6,7 +6,7 @@
         <field name="binding_model_id" ref="model_estate_property_offer"/>
         <field name="state">code</field>
         <field name="code">
-            model.extend_offer_deadline()
+            records.extend_offer_deadline()
         </field>
     </record>
 
@@ -15,7 +15,7 @@
         <field name="model_id" ref="model_estate_property_offer"/>
         <field name="state">code</field>
         <field name="code">
-            model._extend_offer_deadline()
+            records._extend_offer_deadline()
         </field>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>

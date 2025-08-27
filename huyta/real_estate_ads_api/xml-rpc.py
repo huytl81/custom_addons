@@ -38,10 +38,11 @@ print("read function:", property_read_ids)
 property_is_written = objects.execute_kw(db, uid, password, 'estate.property', 'write', [[13],{'name': 'New Property from XMLRPC 2'}])
 print("write function:", property_is_written)
 
-records = objects.execute_kw(db, uid, password,'estate.property', 'read',[[1,2,3,5], ['display_name']])
+records = objects.execute_kw(db, uid, password,'estate.property', 'read',[[1,2,3,13], ['display_name','type_id']])
 for record in records:
     pairs = [(record['id'], record['display_name'])]
-    print(pairs)
+    # print(pairs)
+    print(record['id'], record['display_name'], record['type_id'])
 
 # unlink function
 property_is_unlink = objects.execute_kw(db, uid, password, 'estate.property', 'unlink', [[12]])

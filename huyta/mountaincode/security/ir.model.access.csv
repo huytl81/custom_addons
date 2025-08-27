@@ -5,5 +5,6 @@ access_club_user,club_user,model_club,group_club_user,1,0,0,0
 access_club_manager,club_manager,model_club,group_club_manager,1,1,1,1
 access_dog_user,dog_user,model_dog,group_dog_user,1,0,0,0
 access_dog_manager,dog_manager,model_dog,group_dog_manager,1,1,1,1
+access_dog_wizard_manager,dog_manager,model_dog_wizard,group_dog_manager,1,1,1,1
 access_cat_user,cat_user,model_cat,group_cat_user,1,0,0,0
 access_cat_manager,cat_manager,model_cat,group_cat_manager,1,1,1,1
