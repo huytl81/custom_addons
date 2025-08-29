@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="todo_task_action" owl="1">
+         <div class="row mx-2 mt-3">
+            <div class="col-lg-6">
+                <button class="btn btn-primary" t-on-click="addTask">New Task</button>
+                <!--<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal" t-on-click="addTask">New</button>-->
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search here..." t-ref="search_input" t-on-keyup="searchTasks"/>
+                    <button class="btn btn-outline-primary" t-on-click="searchTasks">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- List Todo Task -->
+        <div class="todo-task-container">
+            <div class="row m-2">
+                <div class="col">
+                    <table class="table table-striped table-hover border">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Responsible</th>
+                                <th scope="col">Deadline</th>
+                                <th scope="col">Is Done</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Priority</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="state.taskList">
+                                <tr t-foreach="state.taskList || []" t-as="task" t-key="task.id">
+                                    <td>
+                                        <span t-esc="task?.name || ''"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="getUserName(task?.user_id)"/>
+                                        <!--<span t-esc="task?.user_id?.name || ''"/>-->
+                                    </td>
+                                    <td>
+                                        <span t-esc="task?.deadline || ''"/>
+                                    </td>
+                                    <td>
+                                        <input class="form-check-input" type="checkbox" t-att-id="task?.id" t-att-checked="task.is_done" t-on-change="(el) => this.updateComplete(el, task)"/>
+                                    </td>
+                                    <td>
+                                        <input type="color" class="form-control form-control-color"  t-att-value="task?.color || '#000000'" title="Choose your color" t-on-change="(el) => this.updateColor(el, task)"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="task?.priority || ''"/>
+                                    </td>
+                                    <td>
+                                        <!--<button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#taskModal" t-on-click="()=>this.editTask(task)">Edit</button>-->
+                                        <button class="btn btn-success me-2" t-on-click="()=>this.editTask(task)">Amend</button>
+                                        <button class="btn btn-danger" t-on-click="()=>this.deleteTask(task)">Delete</button>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal popup -->
+        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="taskModalLabel">Add New Task</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Task Name</label>
+                            <input type="text" id="name" class="form-control" t-model="state.task.name"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Responsible</label>
+                            <select class="form-select" t-model="state.task.user_id">
+                                <option value="">Select a user</option>
+                                <t t-foreach="state.users" t-as="user" t-key="user.id">
+                                    <option t-att-value="user.id" t-esc="user.name"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Priority</label>
+                            <select class="form-select" t-model="state.task.priority">
+                                <option value="">Select priority</option>
+                                <t t-foreach="state.priorityOptions" t-as="option" t-key="option.value">
+                                    <option t-att-value="option.value" t-esc="option.label"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deadline</label>
+                            <input type="date" class="form-control" t-model="state.task.deadline"/>
+                        </div>
+                         <div class="mb-3 row">
+                            <label for="color" class="col-sm-2 col-form-label">Color</label>
+                            <div class="col-sm-10">
+                                <input type="color" class="form-control form-control-color" id="color" t-model="state.task.color" t-att-value="state.task.color" title="Choose your color" />
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">Is Done</label>
+                            <input class="form-check-input" type="checkbox" t-model="state.task.is_done"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" t-on-click="saveTask">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,5 +1,5 @@
 from odoo import fields, models, api
-
+from datetime import timedelta
 
 class Animal(models.AbstractModel):
     _name = 'animal'
@@ -10,19 +10,21 @@ class Animal(models.AbstractModel):
     color = fields.Char('Color')
     greeting = fields.Char(string='Greeting')
     bod = fields.Integer(string='Birth of Date')
-    jdate = fields.Integer(string='Joined Date')
+    joined_date = fields.Date(string='Joined Date')
     age = fields.Integer(string='Age', compute='_compute_age', inverse='_inverse_age', store=True, default=0)
 
     def sound(self):
         return "Scream"
 
-    @api.depends('bod','jdate')
+    @api.depends('bod','joined_date')
     def _compute_age(self):
         for record in self:
-            record.age = record.jdate - record.bod
+            record.age = record.joined_date.year - record.bod
 
     def _inverse_age(self):
         for record in self:
-            record.jdate = (
-                record.bod + record.age if record.bod is not None and record.age is not None else 0
+            record.joined_date = (
+                fields.Date.to_date(f"{record.bod + record.age}-01-01")
+                if record.bod is not None and record.age is not None
+                else False
             )

@@ -9,7 +9,7 @@ class Dog(models.Model):
     description = fields.Html('Description', required=False)
     image = fields.Image('Image', max_width=512, max_height=512)
     father_cv = fields.Binary(string='Father CV', attachment=True)
-    mother_cv = fields.Binary(string='Father CV', attachment=False)
+    mother_cv = fields.Binary(string='Mother CV', attachment=False)
     others = fields.Text(string='Other info')
 
 

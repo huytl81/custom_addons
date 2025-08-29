@@ -8,3 +8,4 @@ access_dog_manager,dog_manager,model_dog,group_dog_manager,1,1,1,1
 access_dog_wizard_manager,dog_manager,model_dog_wizard,group_dog_manager,1,1,1,1
 access_cat_user,cat_user,model_cat,group_cat_user,1,0,0,0
 access_cat_manager,cat_manager,model_cat,group_cat_manager,1,1,1,1
+access_todo_user,todo_user,model_todo_task,group_todo_user,1,0,0,0

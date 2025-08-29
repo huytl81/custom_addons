@@ -10,6 +10,7 @@
                     <group>
                         <field name="name"/>
                         <field name="age"/>
+                        <field name="bod"/>
                     </group>
                     <group>
                         <field name="gender"/>
