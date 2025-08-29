@@ -31,9 +31,11 @@ class Hostel(models.Model):
     other_info = fields.Text("Other Information", translate=True, help="Enter more information")
     description = fields.Html('Description', translate=True)
     #hostel_rating = fields.Float('Hostel Average Rating',digits=(14, 4)) # Method 1: Optional precision (total,decimals)
-    hostel_rating = fields.Float('Hostel Average Rating', digits = 'Rating Value')  # Method 2
+    hostel_rating = fields.Float('Hostel Average Rating', digits = 'Custom Rating Value')  # Method 2
     hostel_room_ids = fields.One2many('hostel.room', inverse_name='hostel_id', string="Rooms")
-    ref_doc_id = fields.Reference(selection='_referencable_models', string='Reference Document')
+    reference = fields.Reference(selection='_list_models', string='Reference Models')
+    model_ref = fields.Selection(selection=[('res.partner', 'Partner'), ('res.users', 'User')], string="Related Model")
+    many2one_reference = fields.Many2oneReference(comodel_names=['res.partner', 'res.users'], model_field='model_ref', string='Related Record')
 
     @api.depends('hostel_code')
     def _compute_display_name(self):
@@ -45,6 +47,7 @@ class Hostel(models.Model):
                 record.display_name = f'{record.name}'
 
     @api.model
-    def _referencable_models(self):
-        models = self.env['ir.model'].search([('field_id.name', '=', 'message_ids')])
-        return [(x.model, x.name) for x in models]
+    def _list_models(self):
+        # models = self.env['ir.model'].search([('field_id.name', '=', 'message_ids')])
+        models = self.env['ir.model'].search([])
+        return [(m.model, m.name) for m in models]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="module_category_todo" model="ir.module.category">
+            <field name="name">Todo Task Category</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="group_todo_user" model="res.groups">
+            <field name="name">Todo Task User Group</field>
+            <field name="category_id" ref="module_category_todo" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+        <record id="group_todo_manager" model="res.groups">
+            <field name="name">Todo Task Manager Group</field>
+            <field name="category_id" ref="module_category_todo" />
+            <field name="implied_ids" eval="[(4, ref('group_todo_user'))]" />
+        </record>
+    </data>
+</odoo>

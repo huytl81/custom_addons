@@ -7,24 +7,27 @@
             <field name="arch" type="xml">
                 <form string="Hostel">
                     <sheet string="Information">
-                        <div class="oe_title">
-                            <h3>
-                                <table>
-                                    <tr>
-                                        <td style="padding-right:10px;">
-                                            <field name="name" required="1" placeholder="Hostel Name"/>
-                                        </td>
-                                        <td style="padding-right:10px;">
-                                            <field name="hostel_code" placeholder="Hostel Code"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </h3>
-                        </div>
-                        <field name="image" widget="image" class="oe_avatar"/>
-                        <field name="ref_doc_id" placeholder="Fields"/>
-                    </sheet>
-                    <sheet string="Detail...">
+                        <group>
+                            <div class="oe_title">
+                                <h3>
+                                    <table>
+                                        <tr>
+                                            <td style="padding-right:10px;">
+                                                <field name="name" required="1" placeholder="Hostel Name"/>
+                                            </td>
+                                            <td style="padding-right:10px;">
+                                                <field name="hostel_code" placeholder="Hostel Code"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </h3>
+                            </div>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="reference" placeholder="Reference Models"/>
+                            <field name="model_ref" placeholder="Choose Model"/>
+                            <field name="many2one_reference" placeholder="Many2one Reference Models"/>
+                        </group>
+
                         <group>
                             <label for="street" string="Address"/>
                             <div class="o_address_format">

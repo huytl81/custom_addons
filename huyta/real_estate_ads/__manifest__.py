@@ -19,6 +19,7 @@
         'views/property_offer_view.xml',
         'views/property_type_view.xml',
         'views/property_tag_view.xml',
+        'views/property_web_template.xml',
         # Action
         'views/property_actions.xml',
         # Data files
@@ -33,7 +34,7 @@
     'assets': {
         'web.assets_backend': [
             'real_estate_ads/static/src/js/my_custom_tag.js',
-            'real_estate_ads/static/src/xml/my_custom_tag.xml',
+            'real_estate_ads/static/src/xml/my_custom_tag_template.xml',
         ],
     },
     # Demo

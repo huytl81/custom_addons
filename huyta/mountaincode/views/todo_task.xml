@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View for todo.task -->
+    <record id="view_list_todo_task" model="ir.ui.view">
+        <field name="name">todo.task.list</field>
+        <field name="model">todo.task</field>
+        <field name="arch" type="xml">
+            <list string="Todo Tasks" decoration-muted="is_done==True">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="deadline" widget="remaining_days"/>
+                <field name="is_done" widget="boolean_toggle"/>
+                <field name="color" widget="color"/>
+                <field name="priority"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for todo.task -->
+    <record id="view_form_todo_task" model="ir.ui.view">
+        <field name="name">Todo Task Form View</field>
+        <field name="model">todo.task</field>
+        <field name="arch" type="xml">
+            <form string="Todo Task">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="user_id"/>
+                            <field name="priority"/>
+                        </group>
+                        <group>
+                            <field name="deadline"/>
+                            <field name="is_done" widget="boolean_toggle"/>
+                            <field name="color" widget="color"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="todo_task_action" model="ir.actions.act_window">
+        <field name="name">Todo Task</field>
+        <field name="res_model">todo.task</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_list_todo_task"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new todo task.
+            </p>
+        </field>
+    </record>
+
+    <record id="todo_task_action_client" model="ir.actions.client">
+        <field name="name">Todo Task Client</field>
+        <field name="tag">todo_task_action</field>
+    </record>
+
+    <menuitem id="settings" name="Settings" parent="manager_menu" sequence="1"/>
+    <menuitem id="menu_todo_task" name="Todo Task" parent="settings" sequence="10" action="todo_task_action"/>
+    <menuitem id="menu_todo_task_client" name="Todo Task OWL" parent="settings" sequence="10" action="todo_task_action_client"/>
+</odoo>

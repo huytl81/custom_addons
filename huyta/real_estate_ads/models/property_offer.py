@@ -30,7 +30,6 @@ class PropertyOffer(models.Model):
     price = fields.Monetary(string='Price')
     validity = fields.Integer(string='Validity (days)')
     created_date = fields.Date(string='Created Date', default='_set_created_date')
-    # created_date = fields.Date(string='Created Date')
     deadline = fields.Date(string='Deadline', compute="_compute_deadline", inverse="_inverse_deadline")
     state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('pending', 'Pending'),], string='Status', default='pending')
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
@@ -38,7 +37,7 @@ class PropertyOffer(models.Model):
     property_id = fields.Many2one("estate.property", string="Property", required=True)
     currency_id = fields.Many2one('res.currency', string="Currency", default=lambda self: self.env.user.company_id.currency_id)
 
-    # _sql_constraints = [('check_validity', 'check(validity > 0)', 'Validity cannot be negative')]
+    _sql_constraints = [('check_validity', 'check(validity > 0)', 'Validity cannot be negative')]
     @api.depends('property_id', 'partner_id')
     def _compute_display_name(self) -> None:
         for rec in self:
@@ -52,20 +51,22 @@ class PropertyOffer(models.Model):
     @api.depends('created_date', 'validity')
     @api.depends_context('uid')
     def _compute_deadline(self):
-        # print(self.env.context)
-        # print(self._context)
+        # print("context: ", self.env.context)
+        # print("_context: ",self._context)
         for record in self:
-            if record.validity and record.created_date:
-                record.deadline = record.created_date + timedelta(days=record.validity)
-            else:
-                record.deadline = False
-
+            user_tz = self.env.context.get('tz') or 'UTC'
+            record.deadline = (
+                record.created_date + timedelta(days=record.validity)
+                if record.validity and record.created_date
+                else False
+           )
     def _inverse_deadline(self):
         for record in self:
-            if record.deadline and record.created_date:
-                record.validity = (record.deadline - record.created_date).days
-            else:
-                record.validity = False
+            record.validity = (
+                (record.deadline - record.created_date).days
+                if record.deadline and record.created_date
+                else False
+            )
 
     def action_accept(self):
         if self.state != 'accepted':
@@ -79,6 +80,8 @@ class PropertyOffer(models.Model):
                     }
                 )
             # self.property_id.selling_price = self.price
+            # self.property_id.state = 'accepted'
+            # self.env.flush()
 
     def _validate_offer_accepted(self):
         offer_accepted_count = self.env['estate.property.offer'].search_count([('property_id', '=', self.property_id.id),('state', '=', 'accepted')],limit=1)
@@ -94,9 +97,7 @@ class PropertyOffer(models.Model):
                     'state': 'received',
                     'selling_price': 0
                 })
-                # self.property_id.write({
-                #     'state': 'received'
-                # })
+                self.env.flush()
 
     # @api.autovacuum
     # def _clean_offers(self):
@@ -106,21 +107,21 @@ class PropertyOffer(models.Model):
     def _set_created_date(self):
         return fields.Date.today()
 
-    # @api.model_create_multi
-    # def create(self,vals_list):
-    #     for vals in vals_list:
-    #         if not vals.get('created_date'):
-    #             vals['created_date'] = fields.Date.today()
-    #     return super(PropertyOffer, self).create(vals_list)
+    @api.model_create_multi
+    def create(self,vals_list):
+        for vals in vals_list:
+            if not vals.get('created_date'):
+                vals['created_date'] = fields.Date.today()
+        return super(PropertyOffer, self).create(vals_list)
 
-    # @api.constrains('validity')
-    # def _check_validity(self):
-    #     for record in self:
-    #         if (record.deadline and record.created_date):
-    #             if (record.deadline <= record.created_date):
-    #                 raise ValidationError("Created date cannot be greater than or equal Deadline")
-    #         else:
-    #             record.validity = False
+    @api.constrains('validity')
+    def _check_validity(self):
+        for record in self:
+            if record.deadline and record.created_date:
+                if record.deadline <= record.created_date:
+                    raise ValidationError("Created date cannot be greater than or equal Deadline")
+            else:
+                record.validity = False
 
     # def write(self,vals):
     #     print(vals)

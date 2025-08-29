@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="todo_task_form">
+        <div class="modal fade show d-block" tabindex="-1" style="z-index: 1060; background-color: rgba(0,0,0,0.5);">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" t-esc="props.title"/>
+                        <button type="button" class="btn-close" t-on-click="onCancel" aria-label="Close"/>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Task Name</label>
+                            <input type="text" class="form-control" t-model="state.task.name"/>
+                            <t t-if="state.errors.name">
+                                <div class="text-danger">
+                                    <t t-esc="state.errors.name"/>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Responsible</label>
+                            <select class="form-select" t-model="state.task.user_id">
+                                <option value="">Select a user</option>
+                                <t t-foreach="state.users" t-as="user" t-key="user.id">
+                                    <option t-att-value="user.id" t-att-selected="state.task.user_id === user.id" t-esc="user.name"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Priority</label>
+                            <select class="form-select" t-model="state.task.priority">
+                                <option value="">Select priority</option>
+                                <t t-foreach="state.priorityOptions" t-as="option" t-key="option.value">
+                                    <option t-att-value="option.value" t-esc="option.label"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deadline</label>
+                            <input type="date" class="form-control" t-model="state.task.deadline"/>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-check-input" type="checkbox" t-model="state.task.is_done"/>
+                            <label class="form-label">Is Done</label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Color</label>
+                            <input type="color" class="form-control form-control-color" id="color" t-model="state.task.color" t-att-value="state.task.color" title="Choose your color" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" t-on-click="onCancel">
+                            <span>Cancel</span>
+                        </button>
+                        <button type="button" class="btn btn-primary" t-on-click="onSave">
+                            <span t-esc="props.task &amp;&amp; props.task.id ? 'Update' : 'Create'"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
