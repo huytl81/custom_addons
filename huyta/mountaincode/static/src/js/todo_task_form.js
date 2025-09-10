@@ -36,7 +36,7 @@ export class TodoTaskForm extends Component {
                 id: String(user.id) // Chuyển đổi ID thành chuỗi ngay tại đây
             })),
             priorityOptions: this.props.priorityOptions || []
-        });
+        });                     
     }
 
     onSave(ev) {
