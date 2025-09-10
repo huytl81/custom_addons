@@ -34,6 +34,17 @@ class Property(models.Model):
     buyer_email = fields.Char(string="Email", related="buyer_id.email")
     seller_id = fields.Many2one('res.users', string="Seller")
     offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count', store=True)
+
+    def name_get(self):
+        """
+        Override to display name in format: [ID] - Name
+        """
+        result = []
+        for record in self:
+            name = f'[{record.id}] - {record.name}'
+            result.append((record.id, name))
+        return result
+
     # Su dung onchange field
     total_area = fields.Integer(string="Total Area")
     # Su dung compute field  
@@ -50,13 +61,11 @@ class Property(models.Model):
 
     @api.depends('offer_ids')
     def _compute_offer_count(self):
-        for record in self:
-            record.offer_count = len(record.offer_ids)
+        self.ensure_one()
+        self.offer_count = len(self.offer_ids)
 
     def _group_expand_states(self, states, domain, order=None):
-        return [
-            key for key, dummy in type(self).state.selection
-        ]
+        return [key for key, dummy in type(self).state.selection]
 
     def action_receive(self):
         for record in self:
@@ -81,8 +90,8 @@ class Property(models.Model):
 
     # Collect all partner emails from offer_ids and return as CSV string
     def _get_emails(self):
-        emails_test = self.mapped('offer_ids').mapped('partner_email')
-        _logger.info(f"Emails Test: {emails_test}")
+        # emails_test = self.mapped('offer_ids').mapped('partner_email')
+        # _logger.info(f"Emails Test: {emails_test}")
         # Lấy email từ offer_ids
         emails = self.offer_ids.mapped('partner_email')
         _logger.info(f"Emails: {emails}")
@@ -103,17 +112,7 @@ class Property(models.Model):
             'domain': [('property_id','=', self.id)]
         }
 
-    # def name_get(self):
-    #     """
-    #     Override to display name in format: [ID] - Name
-    #     """
-    #     result = []
-    #     for record in self:
-    #         name = f'[{record.id}] - {record.name}'
-    #         result.append((record.id, name))
-    #     return result
-
-    def action_client_action(self):
+    def action_display_notification(self):
         return {
             'type': 'ir.actions.client',
             'name': f"Client Action",
@@ -126,7 +125,7 @@ class Property(models.Model):
             }
         }
 
-    def action_url_action(self):
+    def action_url_redirect(self):
         return {
             'type': 'ir.actions.act_url',
             'url': 'https://www.odoo.com',

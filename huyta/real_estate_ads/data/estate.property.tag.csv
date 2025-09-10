@@ -1,5 +1,5 @@
-"id","name"
-property_tag_1, Anovated
-property_tag_2, Cozy
-property_tag_3, Abandoned
-property_tag_4, Spacious
+"id","name","color"
+property_tag_1,Anovated,2
+property_tag_2,Cozy,5
+property_tag_3,Abandoned,7
+property_tag_4,Spacious,9

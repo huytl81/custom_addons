@@ -14,7 +14,7 @@ print(uid)
 objects = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
 
 # search function
-property_searched_ids = objects.execute_kw(db, uid, password, 'estate.property', 'search',[[]],{'offset':2,'limit':3})
+property_searched_ids = objects.execute_kw(db, uid, password, 'estate.property', 'search', [[]], {'offset': 2, 'limit': 3})
 print("search function:", property_searched_ids)
 
 # count function
@@ -22,7 +22,7 @@ property_counted = objects.execute_kw(db, uid, password, 'estate.property', 'sea
 print("count function:", property_counted)
 
 # search and read function
-property_search_read_ids = objects.execute_kw(db, uid, password, 'estate.property', 'search_read', [[]], {'fields':['id', 'name']})
+property_search_read_ids = objects.execute_kw(db, uid, password, 'estate.property', 'search_read', [[]], {'fields': ['id', 'name']})
 print("search and read function:", property_search_read_ids)
 
 # read function
@@ -35,10 +35,10 @@ print("read function:", property_read_ids)
 
 # write function
 # property_write_id = objects.execute_kw(db, uid, password, 'estate.property', 'write', [[property_created_id], {'name': 'New Property from XMLRPC 2'}])
-property_is_written = objects.execute_kw(db, uid, password, 'estate.property', 'write', [[13],{'name': 'New Property from XMLRPC 2'}])
+property_is_written = objects.execute_kw(db, uid, password, 'estate.property', 'write', [[13], {'name': 'New Property from XMLRPC 2'}])
 print("write function:", property_is_written)
 
-records = objects.execute_kw(db, uid, password,'estate.property', 'read',[[1,2,3,5], ['display_name']])
+records = objects.execute_kw(db, uid, password, 'estate.property', 'read', [[1, 2, 3, 5], ['display_name']])
 for record in records:
     pairs = [(record['id'], record['display_name'])]
     print(pairs)
