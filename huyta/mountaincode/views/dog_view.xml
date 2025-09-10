@@ -31,6 +31,8 @@
                         <field name="age"/>
                         <field name="gender"/>
                         <field name="color"/>
+                        <field name="joined_date"/>
+                        <field name="bod"/>
                     </group>
                 </sheet>
                 <sheet name="Information">
@@ -60,7 +62,6 @@
 
 
     <!-- Menu -->
-    <menuitem id="animal_menu" name="Animal" sequence="2"/>
-    <menuitem id="dog_menu" name="Dog" parent="animal_menu" action="dog_action" sequence="1"/>
+    <menuitem id="dog_menu" name="Dog" parent="manager_menu" action="dog_action" sequence="1"/>
 
 </odoo>

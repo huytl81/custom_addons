@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from . import test_controller
-from . import test_controller_inherited
+from . import controller
+from . import controller_inherited

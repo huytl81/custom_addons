@@ -18,18 +18,36 @@
     'version': '6.9',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'web'],
     'data': [
         'security/player_security.xml',
         'security/club_security.xml',
         'security/dog_security.xml',
         'security/cat_security.xml',
+        'security/todo_task_security_groups.xml',
+        'security/todo_task_manager_access.xml',
         'security/ir.model.access.csv',
         'views/club_view.xml',
         'views/player_view.xml',
         'views/dog_view.xml',
         'views/cat_view.xml',
-        'wizards/dog_wizard_view.xml'
-    ]
-}
+        'wizards/dog_wizard_view.xml',
+        'views/todo_task.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            # Services
+            'mountaincode/static/src/services/todo_task_service.js',
+            'mountaincode/static/src/services/user_service.js',
 
+            # Form Component
+            'mountaincode/static/src/xml/todo_task_form.xml',
+            'mountaincode/static/src/js/todo_task_form.js',
+            
+            # Main Component - Must be last
+            'mountaincode/static/src/xml/todo_task_action.xml',
+            'mountaincode/static/src/js/todo_task_action.js',
+        ]
+    }
+
+}

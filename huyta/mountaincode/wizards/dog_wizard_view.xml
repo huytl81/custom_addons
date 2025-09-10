@@ -10,6 +10,7 @@
                     <group>
                         <field name="name"/>
                         <field name="age"/>
+                        <field name="bod"/>
                     </group>
                     <group>
                         <field name="gender"/>
@@ -17,7 +18,7 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button name="create_dog" type="object" string="Create" class="highlight"></button>
+                    <button name="create_dog" type="object" string="Create" class="highlight"/>
                 </footer>
             </form>
         </field>

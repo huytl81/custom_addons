@@ -3,15 +3,15 @@
 	<data>
 		<record id="property_house" model="estate.property">
 			<field name="name">My House</field>
-			<field name="type_id" ref="property_type_house"></field>
+			<field name="type_id" ref="property_type_house"/>
 		</record>
 		<record id="property_villa" model="estate.property">
 			<field name="name">My Villa</field>
-			<field name="type_id" ref="property_type_villa"></field>
+			<field name="type_id" ref="property_type_villa"/>
 		</record>
 		<record id="property_office" model="estate.property">
 			<field name="name">My Office</field>
-			<field name="type_id" ref="property_type_office"></field>
+			<field name="type_id" ref="property_type_office"/>
 		</record>
 	</data>
 </odoo>

@@ -19,3 +19,6 @@ class Player(models.Model):
     transfer = fields.Float(string="Transfer Market")
     club_id = fields.Many2one(comodel_name='club')
     dog_ids = fields.Many2many(comodel_name='dog')
+
+    def action_check(self):
+        pass

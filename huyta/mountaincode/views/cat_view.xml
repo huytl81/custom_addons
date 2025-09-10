@@ -34,7 +34,7 @@
                         <field name="gender"/>
                         <field name="color"/>
                         <field name="bod"/>
-                        <field name="jdate"/>
+                        <field name="joined_date"/>
                         <field name="player_ids" widget="many2many_tags"/>
                         <field name="description"/>
                     </group>
@@ -53,6 +53,6 @@
 
 
     <!-- Menu -->
-    <menuitem id="cat_menu" name="Cat" parent="animal_menu" action="cat_action" sequence="2"/>
+    <menuitem id="cat_menu" name="Cat" parent="manager_menu" action="cat_action" sequence="2"/>
 
 </odoo>
