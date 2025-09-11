@@ -30,7 +30,6 @@ class PropertyOffer(models.Model):
     price = fields.Monetary(string='Price')
     validity = fields.Integer(string='Validity (days)')
     created_date = fields.Date(string='Created Date', default=fields.Date.today())
-    # created_date = fields.Date(string='Created Date')
     deadline = fields.Date(string='Deadline', compute="_compute_deadline", inverse="_inverse_deadline")
     state = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused'), ('pending', 'Pending'),], string='Status', default='pending')
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
@@ -109,48 +108,54 @@ class PropertyOffer(models.Model):
     #             vals['created_date'] = fields.Date.today()
     #     return super(PropertyOffer, self).create(vals_list)
 
-    # @api.constrains('validity')
-    # def _check_validity(self):
-    #     for record in self:
-    #         if (record.deadline and record.created_date):
-    #             if (record.deadline <= record.created_date):
-    #                 raise ValidationError("Created date cannot be greater than or equal Deadline")
-    #         else:
-    #             record.validity = False
+    @api.constrains('validity')
+    def _check_validity(self):
+        for record in self:
+            if (record.deadline and record.created_date):
+                if (record.deadline <= record.created_date):
+                    raise ValidationError("Created date cannot be greater than or equal Deadline")
+            else:
+                record.validity = False
 
-    # def write(self,vals):
-    #     print(vals)
-    #     print(self)
-    #     print(self.env.cr)
-    #     print(self.env.uid)
-    #     print(self.env.context)
-    #     print(self.env.user)
-    #     print(self.env.company)
-    #     print(self.env.registry)
+    def write(self,vals):
+        print(vals)
+        print(self)
+        print(self.env.cr)
+        print(self.env.uid)
+        print(self.env.context)
+        print(self.env.user)
+        print(self.env.company)
+        print(self.env.registry)
 
-    #     res_partner = self.env['res.partner'].browse(1)
-    #     print(res_partner.name)
+        rpb = self.env['res.partner'].browse([1,2,3])
+        print(rpb.name)
 
-    #     res_partner_counted = self.env['res.partner'].search_count([
-    #         ('is_company', '=', True)
-    #     ])
-    #     print("Total Partners:", res_partner_counted)
+        rpr = self.env['res.partner'].read(['name', 'email'], domain=[('is_company', '=', True)])
+        print(rpr)
 
-    #     res_partner_ids = self.env['res.partner'].search(
-    #         [('is_company', '=', True)],
-    #         limit=3, order='name desc'
-    #     )
-    #     print(res_partner_ids.mapped('name'))
+        rprg = self.env['res.partner'].read_group([('is_company', '=', True)], ['name', 'email'], groupby='country_id')
+        print(rprg)
+        
+        res_partner_counted = self.env['res.partner'].search_count([
+            ('is_company', '=', True)
+        ])
+        print("Total Partners:", res_partner_counted)
 
-    #     print(res_partner_ids.mapped(lambda r: (r.name, r.phone)))
+        res_partner_ids = self.env['res.partner'].search(
+            [('is_company', '=', True)],
+            limit=3, order='name desc'
+        )
+        print(res_partner_ids.mapped('name'))
 
-    #     res_partner_ids_filtered = self.env['res.partner'].search(
-    #         [('is_company', '=', True)],
-    #         limit=3, order='name desc'
-    #     ).filtered(lambda r: len(r.name) > 50)
-    #     print(res_partner_ids_filtered.mapped('name'))
+        print(res_partner_ids.mapped(lambda r: (r.name, r.phone)))
 
-    #     return super(PropertyOffer, self).write(vals)
+        res_partner_ids_filtered = self.env['res.partner'].search(
+            [('is_company', '=', True)],
+            limit=3, order='name desc'
+        ).filtered(lambda r: len(r.name) > 50)
+        print(res_partner_ids_filtered.mapped('name'))
+
+        return super(PropertyOffer, self).write(vals)
 
     def extend_offer_deadline(self):
         active_ids = self.env.context.get('active_ids', [])

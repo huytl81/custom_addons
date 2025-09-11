@@ -11,12 +11,12 @@
         </field>
     </record>
 
-    <!-- <record id="action_view_offers" model="ir.actions.act_window">
+    <record id="action_view_offers" model="ir.actions.act_window">
         <field name="name">Property Offers</field>
         <field name="res_model">estate.property.offer</field>
         <field name="view_mode">list,form</field>
         <field name="domain">[('property_id', '=', active_id)]</field>
-    </record> -->
+    </record>
 
     <record id="estate_property_list_view" model="ir.ui.view">
         <field name="name">Estate Property List View</field>
@@ -174,6 +174,7 @@
                 <!-- Group By Options -->
                 <group expand="0" string="Group By">
                     <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
+                    <filter name="group_by_seller" string="Seller" context="{'group_by': 'seller_id'}"/>
                 </group>
 
                 <searchpanel>
@@ -190,7 +191,7 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban" default_group_by="state" quick_create="1" on_create="quick_create" quick_create_view="real_estate_ads.estate_property_quick_create_form_view" records_draggable="1">
-                <progressbar field="state" colors='{"sold": "success", "received": "warning", "accepted": "danger"}'/>
+                <progressbar field="state" colors='{"sold": "success", "received": "info", "accepted": "warning", "cancel": "danger"}'/>
                 <templates>
                     <t t-name="card">
                         <header class="o_kanban_header"/>
