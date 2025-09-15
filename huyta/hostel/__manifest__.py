@@ -10,7 +10,7 @@
            format (description is Deprecated)
     """,
 
-    'author': "My Company",
+    'author': "Huy Ta",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing

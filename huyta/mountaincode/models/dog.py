@@ -14,15 +14,14 @@ class Dog(models.Model):
 
 
     def _sound(self):
-        super(Dog, self)._sound()
+        super(Dog, self).sound()
         return "Gru gru..."
-
 
     def create_dog(self):
         return {
+            'type': 'ir.actions.act_window',
             'name': 'Create Dog',
             'res_model': 'dog.wizard',
             'view_mode': 'form',
-            'target': 'new',
-            'type': 'ir.actions.act_window'
+            'target': 'new'
         }

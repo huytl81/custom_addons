@@ -7,13 +7,13 @@
         <field name="sequence">50</field>
     </record>
 
-    <record model="res.groups" id="group_hostel_category_user">
+    <record id="group_hostel_category_user" model="res.groups">
         <field name="name">Hostel Category User Group</field>
         <field name="category_id" ref="module_category_hostel"/>
         <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
     </record>
 
-    <record model="res.groups" id="group_hostel_category_manager">
+    <record id="group_hostel_category_manager" model="res.groups">
         <field name="name">Hostel Category Manager Group</field>
         <field name="category_id" ref="module_category_hostel"/>
         <field name="implied_ids" eval="[(4,ref('group_hostel_category_user'))]"/>

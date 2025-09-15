@@ -51,6 +51,7 @@ class Controller(http.Controller):
             'name': 'Ms Zalo'
         }
         values = [telegram, zalo]
-        partner = request.env['res.partner'].sudo().create(values)
+
+        request.env['res.partner'].sudo().create(values)
 
         return "Some new partners has been created!"

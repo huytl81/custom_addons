@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates xml:space="preserve">
-    <t t-name="todo_task_action" owl="1">
+    <t t-name="todo_task_action">
          <div class="row mx-2 mt-3">
             <div class="col-lg-6">
                 <button class="btn btn-primary" t-on-click="addTask">New Task</button>
@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search here..." t-ref="search_input" t-on-keyup="searchTasks"/>
+                    <input type="text" class="form-control" placeholder="Search here..." t-ref="searchInput" t-on-keyup="searchTasks"/>
                     <button class="btn btn-outline-primary" t-on-click="searchTasks">Search</button>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                                         <span t-esc="task?.deadline || ''"/>
                                     </td>
                                     <td>
-                                        <input class="form-check-input" type="checkbox" t-att-id="task?.id" t-att-checked="task.is_done" t-on-change="(el) => this.updateComplete(el, task)"/>
+                                        <input type="checkbox" class="form-check-input" t-att-id="task?.id" t-att-checked="task.is_done" t-on-change="(el) => this.updateComplete(el, task)"/>
                                     </td>
                                     <td>
                                         <input type="color" class="form-control form-control-color"  t-att-value="task?.color || '#000000'" title="Choose your color" t-on-change="(el) => this.updateColor(el, task)"/>
@@ -54,8 +54,8 @@
                                     </td>
                                     <td>
                                         <!--<button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#taskModal" t-on-click="()=>this.editTask(task)">Edit</button>-->
-                                        <button class="btn btn-success me-2" t-on-click="()=>this.editTask(task)">Amend</button>
-                                        <button class="btn btn-danger" t-on-click="()=>this.deleteTask(task)">Delete</button>
+                                        <button class="btn btn-success me-2" t-on-click="() => this.editTask(task)">Edit</button>
+                                        <button class="btn btn-danger" t-on-click="() => this.deleteTask(task)">Delete</button>
                                     </td>
                                 </tr>
                             </t>
@@ -65,8 +65,9 @@
             </div>
         </div>
 
+        <!-- use for poup modal bootstrap -->
         <!-- Modal popup -->
-        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+        <!--<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -117,6 +118,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </t>
 </templates>

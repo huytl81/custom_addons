@@ -15,7 +15,6 @@
         </field>
     </record>
 
-
     <!-- View Form -->
     <record id="dog_view_form" model="ir.ui.view">
         <field name="name">Dog View Form</field>

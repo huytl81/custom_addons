@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="module_category_estate" model="ir.module.category">
-        <field name="name">Estate</field>
+        <field name="name">Estate Category</field>
         <field name="description">Estate related permissions</field>
         <field name="sequence">20</field>
     </record>

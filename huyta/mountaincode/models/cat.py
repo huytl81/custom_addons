@@ -14,7 +14,6 @@ class Cat(models.Model):
         super(Cat, self).sound()
         return "Meow meow..."
 
-
     def create_cat(self):
         new_cat = {
             'name': self.name,

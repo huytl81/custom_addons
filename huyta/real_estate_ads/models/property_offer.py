@@ -117,54 +117,59 @@ class PropertyOffer(models.Model):
             else:
                 record.validity = False
 
-    def write(self,vals):
-        print(vals)
-        print(self)
-        print(self.env.cr)
-        print(self.env.uid)
-        print(self.env.context)
-        print(self.env.user)
-        print(self.env.company)
-        print(self.env.registry)
-
-        rpb = self.env['res.partner'].browse([1,2,3])
-        print(rpb.name)
-
-        rpr = self.env['res.partner'].read(['name', 'email'], domain=[('is_company', '=', True)])
-        print(rpr)
-
-        rprg = self.env['res.partner'].read_group([('is_company', '=', True)], ['name', 'email'], groupby='country_id')
-        print(rprg)
-        
-        res_partner_counted = self.env['res.partner'].search_count([
-            ('is_company', '=', True)
-        ])
-        print("Total Partners:", res_partner_counted)
-
-        res_partner_ids = self.env['res.partner'].search(
-            [('is_company', '=', True)],
-            limit=3, order='name desc'
-        )
-        print(res_partner_ids.mapped('name'))
-
-        print(res_partner_ids.mapped(lambda r: (r.name, r.phone)))
-
-        res_partner_ids_filtered = self.env['res.partner'].search(
-            [('is_company', '=', True)],
-            limit=3, order='name desc'
-        ).filtered(lambda r: len(r.name) > 50)
-        print(res_partner_ids_filtered.mapped('name'))
-
-        return super(PropertyOffer, self).write(vals)
+    # def write(self,vals):
+    #     print(vals)
+    #     print(self)
+    #     print(self.env.cr)
+    #     print(self.env.uid)
+    #     print(self.env.context)
+    #     print(self.env.user)
+    #     print(self.env.company)
+    #     print(self.env.registry)
+    #
+    #     rpb = self.env['res.partner'].browse([1,2,3])
+    #     print(rpb.name)
+    #
+    #     rpr = self.env['res.partner'].read(['name', 'email'], domain=[('is_company', '=', True)])
+    #     print(rpr)
+    #
+    #     rprg = self.env['res.partner'].read_group([('is_company', '=', True)], ['name', 'email'], groupby='country_id')
+    #     print(rprg)
+    #
+    #     res_partner_counted = self.env['res.partner'].search_count([
+    #         ('is_company', '=', True)
+    #     ])
+    #     print("Total Partners:", res_partner_counted)
+    #
+    #     res_partner_ids = self.env['res.partner'].search(
+    #         [('is_company', '=', True)],
+    #         limit=3, order='name desc'
+    #     )
+    #     print(res_partner_ids.mapped('name'))
+    #
+    #     print(res_partner_ids.mapped(lambda r: (r.name, r.phone)))
+    #
+    #     res_partner_ids_filtered = self.env['res.partner'].search(
+    #         [('is_company', '=', True)],
+    #         limit=3, order='name desc'
+    #     ).filtered(lambda r: len(r.name) > 50)
+    #     print(res_partner_ids_filtered.mapped('name'))
+    #
+    #     return super(PropertyOffer, self).write(vals)
 
     def extend_offer_deadline(self):
+        # dung active_ids chi de tham khao, Odoo chuan dung self
+        # for record in self:
+        #     record.validity =10
         active_ids = self.env.context.get('active_ids', [])
         print("active_ids: ", active_ids)
+
         if active_ids:
             offers = self.env['estate.property.offer'].browse(active_ids)
             if offers:
                 for offer in offers:
                     offer.validity = 10
+
 
     def _extend_offer_deadline(self):
         """Extend the offer deadline by 1 day for all active offers."""

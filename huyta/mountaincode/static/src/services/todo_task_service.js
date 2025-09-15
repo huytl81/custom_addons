@@ -74,17 +74,6 @@ export const todoTaskService = {
             async searchTasksService(text) {
                 return await orm.searchRead(model, [['name','ilike',text]], ["name", "color", "is_done", "user_id", "deadline", "priority"])
             },
-
-
-            /**
-             * Toggle task done status
-             * @param {number} taskId - ID of the task
-             * @param {boolean} isDone - New done status
-             * @returns {Promise<boolean>} True if successful
-             */
-            async toggleTaskDone(taskId, isDone) {
-                return await this.updateTaskService(taskId, { is_done: isDone });
-            }
         };
     },
 };

@@ -28,7 +28,7 @@ def json_rpc(url, method, params):
     return response["result"]
 
 def call(url, service, method, *args):
-    return json_rpc(f"{url}/jsonrpc", "call", {"service": service, "method": method, "args": args})
+    return json_rpc(f"{url}/jsonrpc", "call", params={"service": service, "method": method, "args": args})
 
 authenticated_id = call(url, "common", "login", db, username, password)
 print(authenticated_id)

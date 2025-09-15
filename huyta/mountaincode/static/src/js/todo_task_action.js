@@ -3,7 +3,7 @@
 import { Component, useRef, useState, onWillStart } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
-import { TodoTaskForm } from "./todo_task_form";
+import { TodoTaskPopupModal } from "./todo_task_popup_modal";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
 const actionRegistry = registry.category("actions");
@@ -12,18 +12,22 @@ const actionRegistry = registry.category("actions");
 export class TodoTaskAction extends Component {
     setup() {
         super.setup();
+        // my custom services
         this.taskService = useService("todo.task.service");
         this.userService = useService("user.service");
+        // orm service
         this.orm = useService("orm");
+        // dialog service
+        this.dialog = useService("dialog");
+
         this.state = useState({
-            task: { name: "", color: "", user_id: "", is_done: false, priority: "", deadline: "" },
+            task: { name: "", priority: "", is_done: false, user_id: "", deadline: "" , color: ""},
             taskList: [],
             users: [],
             search: ''
         });
 
-        this.searchInput = useRef("search_input");
-        this.dialog = useService("dialog");
+        this.searchInput = useRef("searchInput");
 
         this.modal = null;
 
@@ -33,22 +37,9 @@ export class TodoTaskAction extends Component {
             // Sau đó mới lấy danh sách công việc
             await this.getAllTasks();
 
-            const fields = await this.env.services.orm.call(
-                "todo.task",
-                "fields_get",
-                [["priority"], ["selection"]]
-            );
-            this.state.priorityOptions = (fields.priority.selection || []).map(([value, label]) => ({value,label,}));
+            const fields = await this.env.services.orm.call("todo.task", "fields_get", [["priority"], ["selection"]]);
+            this.state.priorityOptions = (fields.priority.selection || []).map(([value, label]) => ({value,label}));
         })
-    }
-
-    async getAllTasks() {
-        try {
-            this.state.taskList = await this.taskService.getAllTasksService() || [];
-        } catch (error) {
-            console.error("Error fetching tasks:", error);
-            this.state.taskList = [];
-        }
     }
 
     async getAllUsers() {
@@ -57,6 +48,15 @@ export class TodoTaskAction extends Component {
         }catch (error){
             console.error("Error fetching users:", error);
             this.state.users = [];
+        }
+    }
+
+    async getAllTasks() {
+        try {
+            this.state.taskList = await this.taskService.getAllTasksService() || [];
+        } catch (error) {
+            console.error("Error fetching tasks:", error);
+            this.state.taskList = [];
         }
     }
 
@@ -75,7 +75,7 @@ export class TodoTaskAction extends Component {
         // Ensure user_id is properly handled when editing
         this.state.task = {
             ...task,
-            user_id: task.user_id || ""  // Convert to empty string if falsy
+            user_id: task.user_id || ""  // Convert to empty string if false
         };
         this.openTaskForm();
     }
@@ -88,7 +88,7 @@ export class TodoTaskAction extends Component {
             user_id: this.state.task.user_id ? String(this.state.task.user_id) : ""
         }));
         
-        this.dialog.add(TodoTaskForm, {
+        this.dialog.add(TodoTaskPopupModal, {
             title: this.state.task.id ? 'Edit Task' : 'New Task',
             task: taskData,
             users: this.state.users,
@@ -148,7 +148,7 @@ export class TodoTaskAction extends Component {
     }
 
     // Then use it like this:
-    async deleteTask(task) {
+    async   deleteTask(task) {
         try {
             const confirmed = await this.confirmDialog("Confirm Deletion",`Are you sure you want to delete task "${task.name}"?`);
             if (confirmed) {
@@ -171,8 +171,7 @@ export class TodoTaskAction extends Component {
 
     async updateComplete(el, task){
         try{
-            await this.taskService.toggleTaskDone(task.id, {is_done: el.target.checked});
-            debugger;
+            await this.taskService.updateTaskService(task.id, {is_done: el.target.checked});
             await this.getAllTasks();
         }catch(error){
             console.error("Error updating task complete:", error);
@@ -181,7 +180,6 @@ export class TodoTaskAction extends Component {
 
     async searchTasks(){
         try{
-
             const text = this.searchInput.el.value;
             this.state.taskList = await this.taskService.searchTasksService(text) || [];
         }catch(error){
@@ -197,12 +195,6 @@ export class TodoTaskAction extends Component {
 }
 
 TodoTaskAction.template = "todo_task_action";
-TodoTaskAction.props = {
-    action: { type: Object, optional: true },
-    actionId: { type: Number, optional: true },
-    updateActionState: { type: Function, optional: true },
-    className: { type: String, optional: true },
-};
 
 // Đăng ký action để gọi từ XML
 actionRegistry.add("todo_task_action", TodoTaskAction);

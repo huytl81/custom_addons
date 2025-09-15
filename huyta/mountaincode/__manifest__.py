@@ -41,8 +41,8 @@
             'mountaincode/static/src/services/user_service.js',
 
             # Form Component
-            'mountaincode/static/src/xml/todo_task_form.xml',
-            'mountaincode/static/src/js/todo_task_form.js',
+            'mountaincode/static/src/xml/todo_task_popup_modal.xml',
+            'mountaincode/static/src/js/todo_task_popup_modal.js',
             
             # Main Component - Must be last
             'mountaincode/static/src/xml/todo_task_action.xml',
