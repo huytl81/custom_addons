@@ -100,7 +100,7 @@
 
         <!-- server action to the one above -->
         <!--
-            <record model="ir.actions.server" id="hostel.action_server">
+            <record id="hostel.action_server" model="ir.actions.server">
               <field name="name">hostel server</field>
               <field name="model_id" ref="model_hostel_hostel"/>
               <field name="state">code</field>

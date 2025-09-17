@@ -17,6 +17,7 @@ class HostelStudent(models.Model):
     discharge_date = fields.Date('Discharge Date', help='Enter student discharge date')
     duration = fields.Integer('Duration', help='Enter student duration of living in hostel', compute='_compute_check_duration', inverse='_inverse_duration')
     partner_id = fields.Many2one('res.partner', required=True, ondelete='cascade')
+    # delegate inherit 
     #partner_id = fields.Many2one(comodel_name='res.partner', delegate=True, ondelete='cascade')
 
     @api.depends('admission_date', 'discharge_date')

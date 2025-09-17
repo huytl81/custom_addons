@@ -67,12 +67,12 @@ class HostelRoom(models.Model):
         if not self.env.user.has_groups('hostel.group_hostel_room_manager'):
             if values.get('remarks'):
                 raise UserError('You are not allowed to modify remarks')
-        sup = super(HostelRoom, self).write(values)
+
         if self.env.context.get('loop_breaker'):
             return
         self.with_context(loop_breaker=True)
         # self.compute_things()  # can cause calls to writes
-        return sup
+        return super(HostelRoom, self).write(values)
 
     @api.model
     def _update_room_rent_amount(self):
@@ -160,25 +160,26 @@ class HostelRoom(models.Model):
 
     def filter_rooms(self):
         rooms = self.search([])
-        filtered_rooms = self.room_with_multiple_members(rooms)
+        # filtered_rooms = self.room_with_multiple_members(rooms)
+        filtered_rooms = rooms.filtered(lambda r: len(r.member_ids) > 1)
         _logger.info('Filtered rooms %s', filtered_rooms)
         return True
 
     @api.model
     def room_with_multiple_members(self, rooms):
-        # def predicate(room):
-        #     if len(room.member_ids) > 1:
-        #         return True
-        #     else:
-        #         return False
-        #
-        # return rooms.filtered(predicate)
-        return rooms.filtered(lambda r: len(r.member_ids) > 1)
+        def predicate(room):
+            if len(room.member_ids) > 1:
+                return True
+            else:
+                return False
+
+        return rooms.filtered(predicate)
 
     # Traversing recordset
     def mapped_rooms(self):
         all_rooms = self.search([])
         room_members = self.get_member_names(all_rooms)
+
         _logger.info('Rooms Members: %s', room_members)
 
     @api.model
@@ -188,19 +189,21 @@ class HostelRoom(models.Model):
     # Sorting recordset
     def sort_room(self):
         all_rooms = self.search([])
-        rooms_sorted = self.sort_rooms_by_rating(all_rooms)
+        # rooms_sorted = self.sort_rooms_by_rating(all_rooms)
+        rooms_sorted = all_rooms.sorted(key='room_rating', reverse=True)
+
         _logger.info('Rooms before sorting: %s', all_rooms)
         _logger.info('Rooms after sorting: %s', rooms_sorted)
 
     @api.model
-    def sort_rooms_by_rating(self, rooms):
-        return rooms.sorted(key='room_rating', reverse=True)
+    # def sort_rooms_by_rating(self, rooms):
+    #     return rooms.sorted(key='room_rating', reverse=True)
 
     def name_get(self):
         result = []
         for room in self:
-            student = room.student_ids.mapped('name')
-            name = '%s (%s)' % (room.name, ','.join(student))
+            student_name = room.student_ids.mapped('name')
+            name = '%s (%s)' % (room.name, ','.join(student_name))
             result.append((room.id, name))
         return result
 

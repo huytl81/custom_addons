@@ -62,7 +62,7 @@
             <field name="name">Hostel Room 102</field>
             <field name="room_number">HR102</field>
             <field name="occupancy">102</field>
-            <field name="member_ids" eval="[(6, 0, [ref('member_hda'),ref('member_jvo'),ref('member_vb'),ref('member_jb')])]" />
+            <field name="member_ids" eval="[(6, 0, [ref('member_hda'),ref('member_jvo'),ref('member_vb'),ref('member_jb'), ref('base.user_root'), ref('base.user_admin')])]" />
         </record>
     </data>
 </odoo>

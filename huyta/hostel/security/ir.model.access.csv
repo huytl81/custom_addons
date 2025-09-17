@@ -9,3 +9,5 @@ access_hostel_student_user,Hostel Student User,model_hostel_student,group_hostel
 access_hostel_student_manager,Hostel Student Manager,model_hostel_student,group_hostel_student_manager,1,1,1,1
 access_hostel_room_category_user,Hostel Room Category User,model_hostel_room_category,group_hostel_room_category_user,1,0,0,0
 access_hostel_room_category_manager,Hostel Room Category Manager,model_hostel_room_category,group_hostel_room_category_manager,1,1,1,1
+access_hostel_room_member_user,Hostel Room Member User,model_hostel_room_member,group_hostel_room_user,1,0,0,0
+access_hostel_room_member_manager,Hostel Room Member Manager,model_hostel_room_member,group_hostel_room_manager,1,1,1,1

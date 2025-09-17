@@ -13,7 +13,7 @@
                     <button name="log_all_members" type="object" string="Log Members" class="btn-primary"/>
                     <button name="update_room_no" type="object" string="Update Room No" class="btn-primary"/>
                     <button name="find_room" type="object" string="Find Room" class="btn-primary"/>
-                    <button name="get_member_names" class="btn-primary" string="Get Student Names" type="object"/>
+                    <button name="mapped_rooms" class="btn-primary" string="Get Student Names" type="object"/>
                 </header>
                 <sheet>
                     <group>
