@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Form Full Screen | Form Full Width | Chatter Toggle Position | Hide Chatter',
-    'version': '18.0.0.0.0',
+    'version': '4.0.0',
     'summary': 'Enhance Odoo form view: Full Screen/Width, Chatter Toggle (Side/Bottom), Hide Chatter, Improved UX for Large Screens',
     'description': """
         The Form Full Screen/Width & Chatter Toggle module enhances the Odoo form view experience, especially on large screens. It provides the following features:

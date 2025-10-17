@@ -3,7 +3,7 @@
 # See LICENSE file for full copyright and licensing details.
 {
     'name': 'Web Chatter Position',
-    'version': '18.0.0.0',
+    'version': '4.0.0',
     'summary': 'Chatter Position Custom Configuration based on users specific',
     'author': 'Candidroot Solutions Pvt. Ltd.',
     'description': """

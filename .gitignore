@@ -1,0 +1,8 @@
+MongoDB_Data
+
+# Ignore all .pdb files
+*.pdb
+
+# Ignore all __pycache__ folders
+**/__pycache__/
+
