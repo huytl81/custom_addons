@@ -23,13 +23,13 @@
 ##############################################################################
 {
     'name': 'Odoo Web Login Screen',
-    'version': '18.0.1.0',
+    'version': '19.0.0.1',
     'category': 'Website',
     'summary': """
                     The new configurable Odoo Web Login Screen
     """,
     'author': "Huy Ta",
-    'website': "https://www.gdk.vn",
+    'website': "https://www.odoovn.info",
     'license': 'AGPL-3',
     'depends': [],
     'data': [
