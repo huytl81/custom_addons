@@ -1,17 +1,17 @@
 =========================
-Odoo Web Login Screen v18
+Odoo Web Login Screen v19 by Huy Ta
 =========================
 This project aims to give to you the new Odoo Web Login Screen
 
 Contact
 =======
 
-- Website: gdk.vn_
+- Website: huyta.info_
 - Linkedin: huyta_
-- Zalo: **+84982824818**
+- Telegram/WhatsApp/Viber/Zalo: **+84982824818**
 - Email: **talehuy81@gmail.com**
 
-.. _gdk.vn: https://gdk.vn
+.. _huyta.info: https://huyta.info
 .. _huyta: https://www.linkedin.com/in/huy-ta-0151381a
 
 Installation
@@ -30,7 +30,7 @@ In this case you have to install the modules into /opt/odoo/custom/addons. At th
 
 Usage
 =====
-Maybe images in github do not fit with the Odoo apps, so you can check: https://apps.odoo.com/apps/modules/18.0/odoo_web_login/ for more details.
+Maybe images in github do not fit with the Odoo apps, so you can check: https://apps.odoo.com/apps/modules/19.0/odoo_web_login/ for more details.
 Thank you.
 
 New Feature

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Samples module for Odoo Web Login Screen
-#    Copyright (C) 2025 - Huy ta (http://www.xubi.me)
+#    Copyright (C) 2025 - Huy ta (https://huyta.info)
 #    @author huyta (https://www.linkedin.com/in/huy-ta-0151381a/)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@
                     The new configurable Odoo Web Login Screen
     """,
     'author': "Huy Ta",
-    'website': "https://www.odoovn.info",
+    'website': "https://www.huyta.info",
     'license': 'AGPL-3',
     'depends': [],
     'data': [
