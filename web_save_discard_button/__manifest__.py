@@ -3,7 +3,7 @@
 
 {
     "name": "Save & Discard Buttons",
-    "version": "1.0.1",
+    "version": "20.0.1.0.0",
     "summary": "Save & Discard Buttons",
     "license": "AGPL-3",
     "category": "Tools",
@@ -17,4 +17,5 @@
             "web_save_discard_button/static/src/xml/template.xml",
         ],
     },
+    "installable": True,
 }

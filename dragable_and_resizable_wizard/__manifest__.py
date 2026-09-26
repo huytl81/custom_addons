@@ -21,18 +21,18 @@
 ################################################################################
 {
     'name': 'Draggable And Resizable Wizard',
-    'version': '18.0.1.0.0',
-    'summary': 'Draggable Wizard help to expand the wizard',
+    'version': '1.0.0',
+    'summary': 'Draggable and Resizable Wizard in Odoo Backend',
     'description': 'Make Every Backend Wizard In Odoo Resizable And Draggable.',
     'category': 'Extra Tools',
-    'author': 'Cybrosys Techno solutions',
-    'maintainer': 'Cybrosys Techno Solutions',
-    'company': 'Cybrosys Techno Solutions',
-    'website': 'https://www.cybrosys.com',
+    'author': 'Huy Ta',
+    'maintainer': 'Huy Ta',
+    'company': 'Huy Ta',
+    'website': 'https://www.odoovn.info',
     'depends': ['base', 'web'],
     'assets': {
         'web.assets_backend': [
-            'dragable_and_resizable_wizard/static/src/css/dragable.css',
+            'dragable_and_resizable_wizard/static/src/scss/dragable.scss',
         ]
     },
     'images': ['static/description/banner.png'],

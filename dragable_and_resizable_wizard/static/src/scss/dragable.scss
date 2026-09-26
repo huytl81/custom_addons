@@ -1,0 +1,22 @@
+// Odoo 20: Draggable and Resizable Wizard
+// Odoo 20 already provides native draggable modal dialogs via useDialogDraggable (@web/core/dialog/dialog).
+// This stylesheet optimizes the resizable behavior for backend modal wizards.
+
+@include media-breakpoint-up(sm) {
+    .o_dialog:not(.o_modal_full) {
+        .modal-dialog {
+            max-width: 95vw;
+            width: fit-content;
+
+            .modal-content {
+                width: var(--bs-modal-width, auto);
+                resize: both;
+                overflow: auto;
+                min-width: 320px;
+                min-height: 200px;
+                max-width: 95vw;
+                max-height: 90vh;
+            }
+        }
+    }
+}
