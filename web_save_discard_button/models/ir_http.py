@@ -9,5 +9,9 @@ class IrHttp(models.AbstractModel):
 
     @classmethod
     def _get_translation_frontend_modules_name(cls):
-        modules = super()._get_translation_frontend_modules_name()
+        modules = (
+            super()._get_translation_frontend_modules_name()
+            if hasattr(super(), "_get_translation_frontend_modules_name")
+            else []
+        )
         return modules + ["web_save_discard_button"]

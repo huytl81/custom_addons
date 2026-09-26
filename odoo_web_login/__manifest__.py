@@ -23,7 +23,7 @@
 ##############################################################################
 {
     'name': 'Odoo Web Login Screen',
-    'version': '19.0.0.1',
+    'version': '20.0.1.0.0',
     'category': 'Website',
     'summary': """
                     The new configurable Odoo Web Login Screen
@@ -31,19 +31,18 @@
     'author': "Huy Ta",
     'website': "https://www.huyta.info",
     'license': 'AGPL-3',
-    'depends': [],
+    'depends': ['web'],
     'data': [
         'data/ir_config_parameter.xml',
-        'templates/website_templates.xml',
         'templates/webclient_templates.xml',
     ],
-    'qweb': [],
     'installable': True,
-    'application': True,
+    'application': False,
     'images': ['static/description/banner.png'],
     'assets': {
         'web.assets_frontend': [
             'odoo_web_login/static/src/css/web_login_style.css',
         ],
-    }
+    },
+    'post_init_hook': 'post_init_hook',
 }

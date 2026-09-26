@@ -21,34 +21,42 @@
 #
 ##############################################################################
 
-import ast
-from odoo.addons.web.controllers.home import Home
-from odoo.addons.auth_signup.controllers.main import AuthSignupHome
-import pytz
-import datetime
 import logging
-
-import odoo
-import odoo.modules.registry
 from odoo import http
+from odoo.addons.web.controllers.home import Home
 from ..utilities import get_params
 
-
 _logger = logging.getLogger(__name__)
+
+try:
+    from odoo.addons.auth_signup.controllers.main import AuthSignupHome
+except ImportError:
+    AuthSignupHome = Home
 
 
 # ----------------------------------------------------------
 # Odoo Web web Controllers
 # ----------------------------------------------------------
 class LoginHome(Home):
-    @http.route('/web/login', type='http', auth="none")
-    def web_login(self, redirect=None, **kw):
-        get_params()
-        return super(LoginHome, self).web_login(redirect, **kw)
+    @http.route()
+    def web_login(self, *args, **kw):
+        if getattr(http.request, 'db', None):
+            try:
+                website_layout = http.request.env.ref('website.login_layout', raise_if_not_found=False)
+                if website_layout and website_layout.active:
+                    website_layout.sudo().write({'active': False})
+            except Exception:
+                pass
+        response = super().web_login(*args, **kw)
+        if hasattr(response, 'qcontext'):
+            response.qcontext.update(get_params())
+        return response
 
 
-class AuthSignupHome(Home):
-    @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
+class OdooWebLoginSignup(AuthSignupHome):
+    @http.route()
     def web_auth_signup(self, *args, **kw):
-        get_params()
-        return super(AuthSignupHome, self).web_auth_signup(*args, **kw)
+        response = super().web_auth_signup(*args, **kw)
+        if hasattr(response, 'qcontext'):
+            response.qcontext.update(get_params())
+        return response

@@ -23,3 +23,10 @@
 
 from . import controllers
 from . import utilities
+
+
+def post_init_hook(env):
+    """Deactivate website.login_layout if website module is installed."""
+    website_login = env.ref('website.login_layout', raise_if_not_found=False)
+    if website_login and website_login.active:
+        website_login.active = False
